@@ -3,7 +3,7 @@
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.96);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.88);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +54,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  background: #12121f;
+  background: #111111;
   border: 2px solid #444;
   border-radius: 12px;
   overflow: hidden;
@@ -69,7 +69,7 @@
   flex-shrink: 0;
   width: 200px;
   min-height: 280px;     /* enough for a portrait card at this width */
-  background: #0a0a14;
+  background: #080808;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,7 +168,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 8px;
-  border-bottom: 1px solid #2a2a40;
+  border-bottom: 1px solid #1e1e1e;
   gap: 6px;
 }
 
@@ -213,7 +213,7 @@
   font-size: 12px;
   font-style: italic;
   font-weight: bold;
-  color: #ffd700;
+  color: #c8b896;
   margin: 0;
 }
 
@@ -239,16 +239,16 @@
   color: #666;
   margin: 6px 0 0;
   padding-top: 8px;
-  border-top: 1px solid #1e1e30;
+  border-top: 1px solid #1e1e1e;
 }
 
 /* ── Element symbols ─────────────────────────────────────── */
 
 .element { font-size: 13px; font-weight: bold; }
-.air     { color: #9b59b6; }
-.earth   { color: #8e734a; }
-.fire    { color: #e74c3c; }
-.water   { color: #3498db; }
+.air     { color: #8877aa; }
+.earth   { color: #887766; }
+.fire    { color: #aa6655; }
+.water   { color: #557799; }
 
 /* ── Status tags ─────────────────────────────────────────── */
 

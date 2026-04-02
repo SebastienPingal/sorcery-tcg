@@ -1,10 +1,10 @@
 .playerInfo {
-  background: #0f0f1e;
-  border: 1px solid #333;
-  border-radius: 8px;
+  background: #0e0e0e;
+  border: 1px solid #222;
+  border-radius: 6px;
   padding: 8px 12px;
   min-width: 200px;
-  color: #ddd;
+  color: #aaa;
   font-size: 11px;
   display: flex;
   flex-direction: column;
@@ -13,41 +13,39 @@
 }
 
 .active {
-  border-color: #ffd700;
-  box-shadow: 0 0 8px rgba(255,215,0,0.2);
+  border-color: #c8b896;
+  box-shadow: 0 0 8px rgba(200, 184, 150, 0.12);
 }
 
 .deathsDoor {
-  border-color: #ff0000 !important;
-  box-shadow: 0 0 12px rgba(255,0,0,0.3) !important;
+  border-color: #883333 !important;
+  box-shadow: 0 0 12px rgba(180, 60, 60, 0.25) !important;
   animation: pulse 1s ease-in-out infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 12px rgba(255,0,0,0.3); }
-  50% { box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+  0%, 100% { box-shadow: 0 0 10px rgba(180, 60, 60, 0.2); }
+  50%       { box-shadow: 0 0 20px rgba(180, 60, 60, 0.4); }
 }
 
 .name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
-  color: #fff;
+  color: #ddd;
 }
 
 .activeBadge {
   font-size: 10px;
-  color: #ffd700;
+  color: #c8b896;
 }
 
 .deathBadge {
   font-size: 10px;
-  color: #ff4444;
+  color: #cc5555;
   animation: blink 0.5s step-end infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
 /* Life bar */
 .lifeSection {
@@ -57,30 +55,31 @@
 }
 
 .lifeLabel {
-  font-size: 14px;
-  color: #f44336;
+  font-size: 13px;
+  color: #884444;
 }
 
 .lifeBar {
   flex: 1;
-  height: 10px;
-  background: #1a1a2e;
-  border-radius: 5px;
+  height: 8px;
+  background: #141414;
+  border-radius: 4px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid #222;
 }
 
 .lifeBarFill {
   height: 100%;
   transition: width 0.3s ease, background-color 0.3s;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .lifeNum {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   min-width: 40px;
   text-align: right;
+  color: #ccc;
 }
 
 /* Mana */
@@ -91,38 +90,24 @@
   flex-wrap: wrap;
 }
 
-.manaLabel {
-  color: #7ec8e3;
-  font-weight: bold;
-}
+.manaLabel { color: #666; font-weight: bold; }
+.manaVal   { color: #aaa; font-weight: bold; min-width: 28px; }
 
-.manaVal {
-  color: #7ec8e3;
-  font-weight: bold;
-  min-width: 28px;
-}
-
-.manaDots {
-  display: flex;
-  gap: 3px;
-  flex-wrap: wrap;
-}
+.manaDots { display: flex; gap: 3px; flex-wrap: wrap; }
 
 .manaDot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  border: 1px solid #555;
+  border: 1px solid #333;
 }
 
 .manaFull {
-  background: #3498db;
-  box-shadow: 0 0 3px #3498dbaa;
+  background: #666;
+  box-shadow: 0 0 3px rgba(180, 180, 180, 0.2);
 }
 
-.manaUsed {
-  background: #1a1a2e;
-}
+.manaUsed { background: #1a1a1a; }
 
 /* Affinity */
 .affinitySection {
@@ -132,37 +117,22 @@
   flex-wrap: wrap;
 }
 
-.affinityLabel {
-  color: #aaa;
-}
+.affinityLabel { color: #555; }
 
-.affinityBadges {
-  display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
-}
+.affinityBadges { display: flex; gap: 4px; flex-wrap: wrap; }
 
 .affinityBadge {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   padding: 1px 4px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 3px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #888;
 }
 
-.noAffinity {
-  color: #555;
-}
+.noAffinity { color: #333; }
 
-/* Deck section */
-.deckSection {
-  color: #666;
-  font-size: 10px;
-}
+.deckSection { color: #444; font-size: 10px; }
 
-.avatarTapped {
-  color: #ff9800;
-  font-size: 10px;
-  font-style: italic;
-}
+.avatarTapped { color: #664422; font-size: 10px; font-style: italic; }
