@@ -134,7 +134,9 @@ const App: React.FC = () => {
 
         {/* Center: realm */}
         <div className={styles.realmPanel}>
-          <RealmGrid game={game} humanPlayerId={humanPlayerId} flipped={flipped} />
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
+            <RealmGrid game={game} humanPlayerId={humanPlayerId} flipped={flipped} />
+          </div>
         </div>
 
         {/* Right: card hover preview */}

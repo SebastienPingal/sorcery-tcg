@@ -1,23 +1,23 @@
 .realm {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 100%;
   gap: 4px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 120px);
-  grid-template-rows: repeat(4, 100px);
-  gap: 2px;
-  border: 1px solid #2a2a2a;
-  padding: 4px;
-  background: #080808;
-  border-radius: 6px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 3px;
+  flex: 1;
+  min-height: 0;
+  background: #0d0d0d;
 }
 
 .playerLabel {
-  color: #444;
+  color: #aaa;
   font-size: 11px;
   text-align: center;
   letter-spacing: 1px;
@@ -25,7 +25,7 @@
 
 /* Cell */
 .cell {
-  border: 1px solid #1e1e1e;
+  border: 1px solid #2e2e2e;
   border-radius: 4px;
   position: relative;
   cursor: pointer;
@@ -35,43 +35,43 @@
   transition: border-color 0.12s;
 }
 
-.cell:hover { border-color: #3a3a3a; }
+.cell:hover { border-color: #555; }
 
 .coord {
   position: absolute;
   top: 2px;
   left: 3px;
   font-size: 7px;
-  color: #282828;
+  color: #aaa;
   pointer-events: none;
   z-index: 9;
 }
 
 /* Cell types */
 .void {
-  background: #060606;
+  background: #0a0a0a;
   border-style: dashed;
-  border-color: #181818;
+  border-color: #252525;
 }
 
 .land_p1 {
-  background: #0e100e;
-  border-color: #232823;
+  background: #101410;
+  border-color: #2a3a2a;
 }
 
 .land_p2 {
-  background: #100e0e;
-  border-color: #282323;
+  background: #141010;
+  border-color: #3a2a2a;
 }
 
 .water {
-  background: #080c10;
-  border-color: #182030;
+  background: #0a0e14;
+  border-color: #1a2a3a;
 }
 
 .rubble {
-  background: #111008;
-  border-color: #302e20;
+  background: #141310;
+  border-color: #3a3828;
 }
 
 /* Highlighted squares — parchment gold glow */
@@ -138,7 +138,7 @@
 
 .rubble {
   font-size: 8px;
-  color: #555;
+  color: #aaa;
   background: rgba(40, 38, 28, 0.5);
   padding: 1px 4px;
   border-radius: 3px;

@@ -14,11 +14,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 8px;
+  padding: 4px 8px;
   background: #0e0e0e;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #2a2a2a;
   flex-shrink: 0;
-  max-height: 90px;
+  height: 88px;
   overflow: hidden;
 }
 
@@ -56,10 +56,7 @@
 .realmPanel {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  overflow: auto;
+  overflow: hidden;
   background: #080808;
 }
 
@@ -79,7 +76,7 @@
   background: #0e0e0e;
   border-top: 1px solid #222;
   flex-shrink: 0;
-  max-height: 220px;
+  max-height: 250px;
   overflow: hidden;
 }
 
@@ -119,7 +116,7 @@
 
 .handoffSub {
   font-size: 13px;
-  color: #555;
+  color: #aaa;
   margin: 0;
 }
 
@@ -176,7 +173,7 @@
 
 .subtitle {
   font-size: 16px;
-  color: #666;
+  color: #aaa;
   margin: 0;
   font-style: italic;
   letter-spacing: 2px;
@@ -184,7 +181,7 @@
 
 .tagline {
   font-size: 11px;
-  color: #444;
+  color: #aaa;
   margin: 0;
 }
 
@@ -210,7 +207,7 @@
 
 .deckInfo {
   font-size: 11px;
-  color: #444;
+  color: #aaa;
 }
 
 /* ─── End screen ─────────────────────────────────────────────────────────── */

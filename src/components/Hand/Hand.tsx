@@ -24,16 +24,17 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
   if (isHidden) {
     return (
-      <div className={styles.hand}>
-        <div className={styles.hiddenHand}>
+      <div className={styles.hiddenHand}>
+        <div className={styles.hiddenCards}>
           {player.hand.map((id, i) => (
-            <div key={id} className={styles.hiddenCard}
-              style={{ transform: `rotate(${(i - player.hand.length / 2) * 3}deg)` }}>
-              <div className={styles.cardBackMini} />
-            </div>
+            <div
+              key={id}
+              className={styles.hiddenCard}
+              style={{ zIndex: i, marginLeft: i === 0 ? 0 : -20 }}
+            />
           ))}
-          <span className={styles.handCount}>{player.hand.length} cards</span>
         </div>
+        <span className={styles.handCount}>{player.hand.length} cards</span>
       </div>
     );
   }

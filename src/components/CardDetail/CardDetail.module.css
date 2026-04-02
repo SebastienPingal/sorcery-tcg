@@ -30,7 +30,7 @@
 .lightboxHint {
   margin-top: 16px;
   font-size: 12px;
-  color: #555;
+  color: #aaa;
   font-style: italic;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .manaBubble {
-  background: #1a1a3e;
+  background: #1a1a1a;
   border: 2px solid #666;
   border-radius: 50%;
   width: 30px;
@@ -174,7 +174,7 @@
 
 .typeText {
   font-size: 11px;
-  color: #999;
+  color: #ccc;
   font-style: italic;
 }
 
@@ -236,7 +236,7 @@
 .flavorText {
   font-size: 11px;
   font-style: italic;
-  color: #666;
+  color: #aaa;
   margin: 6px 0 0;
   padding-top: 8px;
   border-top: 1px solid #1e1e1e;

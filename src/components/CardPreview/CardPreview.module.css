@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #0c0c1a;
+  background: #0c0c0c;
   border-left: 1px solid #222;
   overflow-y: auto;
   color: #eee;
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: #333;
+  color: #aaa;
   font-size: 12px;
   font-style: italic;
   text-align: center;
@@ -36,7 +36,7 @@
   width: 100%;
   aspect-ratio: 5 / 7;
   overflow: hidden;
-  background: #080812;
+  background: #080808;
   flex-shrink: 0;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .manaBubble {
-  background: #1a1a3e;
+  background: #1a1a1a;
   border: 1px solid #555;
   border-radius: 50%;
   width: 24px;
@@ -128,7 +128,7 @@
 
 .typeText {
   font-size: 10px;
-  color: #999;
+  color: #ccc;
   font-style: italic;
 }
 
@@ -185,7 +185,7 @@
 .flavorText {
   font-size: 10px;
   font-style: italic;
-  color: #555;
+  color: #aaa;
   margin: 4px 0 0;
   padding-top: 6px;
   border-top: 1px solid #181818;

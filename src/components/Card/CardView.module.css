@@ -1,6 +1,6 @@
 .card {
-  width: 120px;
-  min-height: 168px;
+  width: 140px;
+  min-height: 196px;
   border-radius: 6px;
   border: 1px solid #2a2a2a;
   background: #141414;
@@ -137,7 +137,7 @@
   background: #1a1a1a;
   padding: 2px 5px;
   font-size: 8px;
-  color: #555;
+  color: #aaa;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,7 +163,7 @@
 .flavorText {
   margin-top: 4px;
   font-style: italic;
-  color: #444;
+  color: #aaa;
   font-size: 7px;
   border-top: 1px solid #222;
   padding-top: 2px;

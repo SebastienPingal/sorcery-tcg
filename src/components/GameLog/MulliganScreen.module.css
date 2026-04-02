@@ -14,8 +14,8 @@
   border: 1px solid #2a2a2a;
   border-radius: 10px;
   padding: 24px;
-  max-width: 900px;
-  width: 90%;
+  max-width: 95vw;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -32,7 +32,7 @@
 }
 
 .subtitle {
-  color: #555;
+  color: #aaa;
   margin: 0;
   font-size: 12px;
   text-align: center;
@@ -42,7 +42,9 @@
   display: flex;
   gap: 8px;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .cardWrapper {

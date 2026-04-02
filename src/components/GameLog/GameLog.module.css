@@ -12,8 +12,8 @@
   padding: 5px 10px;
   font-size: 9px;
   font-weight: bold;
-  color: #444;
-  border-bottom: 1px solid #1e1e1e;
+  color: #bbb;
+  border-bottom: 1px solid #222;
   background: #0e0e0e;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -39,10 +39,10 @@
   border-bottom: 1px solid rgba(255,255,255,0.02);
 }
 
-.text { color: #555; }
+.text { color: #bbb; }
 
 .phase .text   { color: #c8b896; font-weight: bold; }
-.combat .text  { color: #886666; }
-.cast .text    { color: #778899; }
-.error .text   { color: #884444; }
-.info .text    { color: #555; }
+.combat .text  { color: #cc9999; }
+.cast .text    { color: #99bbcc; }
+.error .text   { color: #cc7777; }
+.info .text    { color: #aaa; }
