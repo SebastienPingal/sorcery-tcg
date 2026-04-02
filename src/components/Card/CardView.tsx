@@ -150,24 +150,38 @@ export const CardView: React.FC<CardViewProps> = ({
       </div>
 
       <div className={styles.art}>
-        <div className={styles.artPlaceholder} style={{ background: getTypeColor() }}>
-          <span className={styles.typeIcon}>{getTypeIcon(card.type)}</span>
-        </div>
+        {card.image ? (
+          <img
+            src={card.image}
+            alt={card.name}
+            className={styles.artImg}
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+        ) : (
+          <div className={styles.artPlaceholder} style={{ background: getTypeColor() }}>
+            <span className={styles.typeIcon}>{getTypeIcon(card.type)}</span>
+          </div>
+        )}
       </div>
 
       <div className={styles.typeLine}>
-        <span>{card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1)} {card.type}</span>
+        <span>{card.typeLine || `${card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1)} ${card.type}`}</span>
         {renderSiteThreshold()}
       </div>
 
       <div className={styles.textBox}>
         {renderKeywords()}
-        {'abilities' in card && card.type !== 'site' && (
-          <div className={styles.abilities}>
-            {(card as MagicCard).abilities.map((ab, i) => (
-              <div key={i} className={styles.abilityLine}>{ab.description}</div>
-            ))}
-          </div>
+        {/* Show rulesText if available, otherwise fall back to abilities */}
+        {card.rulesText ? (
+          <div className={styles.rulesText}>{card.rulesText}</div>
+        ) : (
+          'abilities' in card && card.type !== 'site' && (
+            <div className={styles.abilities}>
+              {(card as MagicCard).abilities.map((ab, i) => (
+                <div key={i} className={styles.abilityLine}>{ab.description}</div>
+              ))}
+            </div>
+          )
         )}
         {card.flavorText && (
           <div className={styles.flavorText}>"{card.flavorText}"</div>

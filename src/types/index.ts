@@ -90,6 +90,9 @@ export interface BaseCard {
   type: CardType;
   rarity: Rarity;
   flavorText?: string;
+  rulesText?: string;   // raw rules text from official data
+  typeLine?: string;    // e.g. "An Ordinary Mortal of magnificent stature"
+  image?: string;       // CDN URL
   artist?: string;
 }
 

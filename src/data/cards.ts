@@ -1,6 +1,7 @@
 import type {
   AvatarCard, SiteCard, MinionCard, ArtifactCard, MagicCard, Card
 } from '../types';
+import { REAL_CARDS } from './realCards';
 
 // ─── Avatars ──────────────────────────────────────────────────────────────────
 export const AVATARS: AvatarCard[] = [
@@ -497,75 +498,98 @@ const ALL_CARDS: Card[] = [
   ...MINIONS,
   ...ARTIFACTS,
   ...MAGICS,
+  ...REAL_CARDS,  // official cards from curiosa.io API
 ];
 
 export const CARD_REGISTRY: Record<string, Card> = Object.fromEntries(
   ALL_CARDS.map(c => [c.id, c])
 );
 
-// ─── Pre-built decks for quick-start ─────────────────────────────────────────
+// ─── Pre-built decks using real cards ─────────────────────────────────────────
+// Fire/Earth deck — uses Ancient Dragon, Accusation, Active Volcano
 export function buildFireAtlas(): string[] {
   return [
+    // Real cards
+    ...Array(4).fill('accursed_desert'),    // Fire×1
+    ...Array(2).fill('active_volcano'),     // Fire×2 (Elite: max 2)
+    ...Array(1).fill('altar_of_malachai'),  // Neutral (Unique: max 1)
+    // Fill to 30
     ...Array(4).fill('site_arid_desert'),
     ...Array(4).fill('site_red_desert'),
     ...Array(4).fill('site_volcanic_field'),
     ...Array(4).fill('site_humble_village'),
-    ...Array(4).fill('site_ancient_forest'),
     ...Array(4).fill('site_steppe'),
     ...Array(4).fill('site_mountain_pass'),
-    ...Array(2).fill('site_dark_tower'),
+    ...Array(3).fill('site_dark_tower'),
   ]; // 30 sites
 }
 
+// Water/Air deck — uses Aaj-kegon Ghost Crabs, Abaddon Succubus, Adept Illusionist, Aino, Abyssal Assault
 export function buildWaterAtlas(): string[] {
   return [
+    // Real cards
+    ...Array(4).fill('algae_bloom'),        // Water×1
+    ...Array(2).fill('accursed_tower'),     // Air×1
+    // Fill to 30
     ...Array(4).fill('site_spring_river'),
     ...Array(4).fill('site_autumn_river'),
     ...Array(4).fill('site_floodplain'),
     ...Array(4).fill('site_ocean_trench'),
     ...Array(4).fill('site_humble_village'),
     ...Array(4).fill('site_steppe'),
+    ...Array(4).fill('site_holy_ground'),
     ...Array(4).fill('site_mountain_pass'),
-    ...Array(2).fill('site_holy_ground'),
-  ];
+  ]; // 30 sites
 }
 
 export function buildFireSpellbook(): string[] {
   return [
+    // Real cards
+    ...Array(4).fill('amazon_warriors'),       // Ordinary Minion Earth×1
+    ...Array(4).fill('alvalinne_dryads'),       // Ordinary Minion Earth×1
+    ...Array(4).fill('albespine_pikemen'),      // Exceptional Minion Earth×2
+    ...Array(2).fill('ancient_dragon'),         // Elite Minion Fire×3 (max 2)
+    ...Array(2).fill('accusation'),             // Exceptional Magic Fire×2
+    ...Array(2).fill('all_mortals_gone'),       // Unique Magic Air×2 (max 1 but Unique)
+    // Fill to 60
     ...Array(4).fill('minion_rimland_nomads'),
     ...Array(4).fill('minion_foot_soldier'),
-    ...Array(4).fill('minion_amazon_warriors'),
     ...Array(4).fill('minion_lava_salamander'),
     ...Array(4).fill('minion_seasoned_sellsword'),
     ...Array(4).fill('minion_cave_trolls'),
     ...Array(4).fill('magic_heat_ray'),
     ...Array(4).fill('magic_firebolt'),
-    ...Array(4).fill('magic_lightning_bolt'),
-    ...Array(4).fill('minion_plumed_pegasus'),
     ...Array(4).fill('minion_sand_worm'),
-    ...Array(4).fill('minion_scourge_zombies'),
     ...Array(4).fill('minion_king_of_the_realm'),
     ...Array(4).fill('artifact_spear_of_destiny'),
-    ...Array(4).fill('minion_amazon_warriors'),
-  ]; // 60 spells
+    ...Array(4).fill('minion_plumed_pegasus'),
+    ...Array(4).fill('minion_scourge_zombies'),
+  ]; // 60
 }
 
 export function buildWaterSpellbook(): string[] {
   return [
+    // Real cards
+    ...Array(2).fill('aaj_kegon_ghost_crabs'),  // Elite Minion Water×2 (max 2)
+    ...Array(2).fill('abaddon_succubus'),         // Elite Minion Water×2
+    ...Array(4).fill('accursed_albatross'),       // Exceptional Minion Water×1
+    ...Array(2).fill('adept_illusionist'),        // Elite Minion Water×2
+    ...Array(1).fill('aino'),                     // Unique Minion Water×2
+    ...Array(2).fill('aethermoeba'),              // Elite Minion Air×2
+    ...Array(1).fill('adtonitum'),                // Unique Minion Air×3
+    ...Array(4).fill('abyssal_assault'),          // Exceptional Magic Water×2
+    // Fill to 60
     ...Array(4).fill('minion_foot_soldier'),
     ...Array(4).fill('minion_seasoned_sellsword'),
     ...Array(4).fill('minion_plumed_pegasus'),
-    ...Array(4).fill('minion_amazon_warriors'),
     ...Array(4).fill('minion_rimland_nomads'),
-    ...Array(4).fill('minion_cave_trolls'),
-    ...Array(4).fill('minion_lava_salamander'),
     ...Array(4).fill('magic_lightning_bolt'),
     ...Array(4).fill('magic_heat_ray'),
-    ...Array(4).fill('magic_firebolt'),
+    ...Array(4).fill('minion_amazon_warriors'),
+    ...Array(4).fill('minion_cave_trolls'),
     ...Array(4).fill('minion_sand_worm'),
     ...Array(4).fill('minion_scourge_zombies'),
-    ...Array(4).fill('minion_king_of_the_realm'),
     ...Array(4).fill('artifact_spear_of_destiny'),
-    ...Array(4).fill('minion_amazon_warriors'),
-  ];
+    ...Array(4).fill('minion_king_of_the_realm'),
+  ]; // 60
 }
