@@ -6,7 +6,6 @@ import {
   type GameSetupConfig,
 } from '../engine/gameEngine';
 import {
-  AVATARS,
   buildFireAtlas, buildFireSpellbook,
   buildWaterAtlas, buildWaterSpellbook,
 } from '../data/cards';
@@ -65,13 +64,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config: GameSetupConfig = {
       player1: {
         name: 'Player 1',
-        avatarId: AVATARS[2].id, // Sorcerer
+        avatarId: 'sorcerer',
         atlasIds: buildFireAtlas(),
         spellbookIds: buildFireSpellbook(),
       },
       player2: {
         name: 'Player 2',
-        avatarId: AVATARS[0].id, // Sparkmage
+        avatarId: 'sparkmage',
         atlasIds: buildWaterAtlas(),
         spellbookIds: buildWaterSpellbook(),
       },
