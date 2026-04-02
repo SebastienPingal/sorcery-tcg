@@ -1,0 +1,254 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* ── Panel ───────────────────────────────────────────────── */
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: #12121f;
+  border: 2px solid #444;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9);
+  color: #eee;
+  max-height: 90vh;
+}
+
+/* ── Left: image column ──────────────────────────────────── */
+
+.imageCol {
+  flex-shrink: 0;
+  width: 200px;          /* portrait width */
+  background: #0a0a14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Site: wider column to display the landscape image comfortably */
+.imageColSite {
+  width: 260px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Site image: rotate 90° so the portrait card image appears in landscape.
+   The column is 260px wide × however tall the panel is (~280px).
+   We want the image to fill 260px wide after rotation.
+   Portrait image natural ratio ≈ 5:7, so natural height ≈ 260 × 1.4 = 364px.
+   After rotating 90°: image appears 364px wide × 260px tall — we crop it to fit. */
+.cardImageSite {
+  width: auto;
+  height: 260px;         /* this becomes the width after rotation */
+  object-fit: cover;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
+.imageFallback {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallbackIcon {
+  font-size: 72px;
+  opacity: 0.4;
+}
+
+/* ── Right: info column ──────────────────────────────────── */
+
+.infoCol {
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.nameRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardName {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.manaBubble {
+  background: #1a1a3e;
+  border: 2px solid #666;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.typeLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a2a40;
+  gap: 6px;
+}
+
+.typeText {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+.thresholdRow {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.statLabel { color: #888; }
+
+.statValue {
+  font-weight: bold;
+  color: #fff;
+}
+
+.damaged { color: #ff4444; }
+
+/* ── Text box ────────────────────────────────────────────── */
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.keywords {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 0;
+}
+
+.rulesText {
+  font-size: 12px;
+  color: #ddd;
+  line-height: 1.55;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.abilityLine {
+  font-size: 11px;
+  color: #ccc;
+  padding-left: 8px;
+  border-left: 2px solid #444;
+  margin: 0;
+}
+
+.flavorText {
+  font-size: 11px;
+  font-style: italic;
+  color: #666;
+  margin: 6px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid #1e1e30;
+}
+
+/* ── Element symbols ─────────────────────────────────────── */
+
+.element { font-size: 13px; font-weight: bold; }
+.air     { color: #9b59b6; }
+.earth   { color: #8e734a; }
+.fire    { color: #e74c3c; }
+.water   { color: #3498db; }
+
+/* ── Status tags ─────────────────────────────────────────── */
+
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+
+.tagTapped, .tagSick {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+.tagTapped {
+  background: rgba(255, 150, 50, 0.15);
+  border: 1px solid #ff9632;
+  color: #ff9632;
+}
+
+.tagSick {
+  background: rgba(255, 100, 100, 0.15);
+  border: 1px solid #ff6464;
+  color: #ff6464;
+}
+
+/* ── Close button ────────────────────────────────────────── */
+
+.closeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid #555;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  z-index: 1;
+}
+
+.closeBtn:hover {
+  background: rgba(200, 50, 50, 0.35);
+  color: #fff;
+  border-color: #ff6b6b;
+}

@@ -28,6 +28,29 @@ export const CardView: React.FC<CardViewProps> = ({
     );
   }
 
+  // When the card has a full image, render it directly — it already contains all information.
+  if (card.image && !compact) {
+    return (
+      <div
+        className={`
+          ${styles.card} ${styles.imageOnly}
+          ${tapped ? styles.tapped : ''}
+          ${selected ? styles.selected : ''}
+          ${summoningSickness ? styles.sick : ''}
+        `}
+        onClick={onClick}
+        onContextMenu={onRightClick}
+        title={card.name}
+      >
+        <img src={card.image} alt={card.name} className={styles.fullImage}
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+        {summoningSickness && (
+          <div className={styles.sickOverlay} title="Summoning Sickness">⧖</div>
+        )}
+      </div>
+    );
+  }
+
   const getTypeColor = () => {
     switch (card.type) {
       case 'avatar': return '#4a90d9';

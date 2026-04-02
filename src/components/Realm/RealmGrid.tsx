@@ -15,7 +15,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     selectedInstanceId,
     selectInstance,
     castSpell,
-    playSite,
+    playSiteViaAbility,
+    pendingAvatarAbility,
     moveAndAttack,
   } = useGameStore();
 
@@ -26,7 +27,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     if (!selectedInst) return { squares: [], mode: '' };
     const card = selectedInst.card;
 
-    if (card.type === 'site' && !selectedInst.location) {
+    // Sites can only be placed when a pendingAvatarAbility is active
+    if (card.type === 'site' && !selectedInst.location && pendingAvatarAbility) {
       return { squares: validSitePlacements(game, humanPlayerId), mode: 'place_site' };
     }
 
@@ -70,9 +72,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     const player = game.players[humanPlayerId];
     const avatarInstId = player.avatarInstanceId;
 
-    if (card.type === 'site' && !selectedInst.location && isHighlighted(sq)) {
-      playSite(humanPlayerId, selectedInstanceId!, sq);
-      selectInstance(null);
+    if (card.type === 'site' && !selectedInst.location && isHighlighted(sq) && pendingAvatarAbility) {
+      playSiteViaAbility(humanPlayerId, pendingAvatarAbility, selectedInstanceId!, sq);
       return;
     }
 

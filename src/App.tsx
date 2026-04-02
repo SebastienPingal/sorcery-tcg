@@ -6,6 +6,7 @@ import { PlayerInfo } from './components/PlayerInfo/PlayerInfo';
 import { GameLog } from './components/GameLog/GameLog';
 import { Controls } from './components/Controls/Controls';
 import { MulliganScreen } from './components/GameLog/MulliganScreen';
+import { CardDetail } from './components/CardDetail/CardDetail';
 import styles from './App.module.css';
 
 const HUMAN_PLAYER = 'player1' as const;
@@ -60,6 +61,9 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.app}>
+      {/* Card detail overlay (right-click) */}
+      <CardDetail game={game} />
+
       {/* Mulligan overlay */}
       {game.status === 'mulligan' && (
         <MulliganScreen game={game} humanPlayerId={HUMAN_PLAYER} />

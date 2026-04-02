@@ -207,10 +207,9 @@ export function validSitePlacements(state: GameState, playerId: PlayerId): Squar
   };
 
   if (controlledSquares.length === 0) {
-    // Must place adjacent to avatar's square
+    // First site must be placed on the avatar's own square
     if (!avatarSquare) return [];
-    const candidates = [avatarSquare, ...adjacentSquares(avatarSquare)];
-    return candidates.filter(isVoidOrRubble);
+    return isVoidOrRubble(avatarSquare) ? [avatarSquare] : [];
   }
 
   // Must place adjacent to a controlled site

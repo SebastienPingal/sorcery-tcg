@@ -10,7 +10,7 @@ interface MulliganScreenProps {
 }
 
 export const MulliganScreen: React.FC<MulliganScreenProps> = ({ game, humanPlayerId }) => {
-  const { acceptHand, takeMulligan } = useGameStore();
+  const { acceptHand, takeMulligan, showCardDetail } = useGameStore();
   const [selectedForReturn, setSelectedForReturn] = useState<Set<string>>(new Set());
 
   const player = game.players[humanPlayerId];
@@ -44,6 +44,7 @@ export const MulliganScreen: React.FC<MulliganScreenProps> = ({ game, humanPlaye
               key={inst.instanceId}
               className={`${styles.cardWrapper} ${selectedForReturn.has(inst.instanceId) ? styles.returning : ''}`}
               onClick={() => toggleReturn(inst.instanceId)}
+              onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); showCardDetail(inst.instanceId); }}
             >
               <CardView instance={inst} selected={selectedForReturn.has(inst.instanceId)} />
               {selectedForReturn.has(inst.instanceId) && (

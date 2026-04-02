@@ -98,6 +98,72 @@
   cursor: not-allowed;
 }
 
+.tappedAbility {
+  opacity: 0.3;
+}
+
+.avatarTappedMsg {
+  font-size: 9px;
+  color: #ff9800;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Pending ability */
+.pendingAbility {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pendingTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.pendingHint {
+  font-size: 9px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.drawSiteBtn {
+  padding: 6px 8px;
+  background: #1a2a3a;
+  border: 1px solid #3a6a9a;
+  border-radius: 4px;
+  color: #7ec8e3;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.drawSiteBtn:hover {
+  background: #2a3a5a;
+}
+
+.cancelPendingBtn {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #888;
+  cursor: pointer;
+  font-size: 9px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.cancelPendingBtn:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
 .abilityIcon {
   font-size: 12px;
   flex-shrink: 0;

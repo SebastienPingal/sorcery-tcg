@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { GameState, PlayerId, Square } from '../types';
 import {
-  initGame, startGame, doMulligan, castSpell, playSite,
+  initGame, startGame, doMulligan, castSpell,
   activateAvatarAbility, moveAndAttack, advancePhase,
   type GameSetupConfig,
 } from '../engine/gameEngine';
@@ -17,6 +17,13 @@ interface GameStore {
   hoveredInstanceId: string | null;
   highlightedSquares: Square[];
   actionError: string | null;
+  // Avatar "Play or draw a site" is a two-step action:
+  // 1. Player clicks the ability button → pendingAvatarAbility is set
+  // 2. Player either picks a site from hand (then a square) OR clicks "Draw"
+  // The avatar only taps when the action resolves (step 2).
+  pendingAvatarAbility: string | null;
+  // Card detail overlay (right-click)
+  cardDetailId: string | null;
 
   // Setup
   initGame: (config: GameSetupConfig) => void;
@@ -29,12 +36,15 @@ interface GameStore {
   // Game actions
   selectInstance: (instanceId: string | null) => void;
   hoverInstance: (instanceId: string | null) => void;
+  setPendingAvatarAbility: (abilityId: string | null) => void;
   castSpell: (casterId: string, cardId: string, targetSquare?: Square, targetId?: string) => void;
-  playSite: (playerId: PlayerId, siteId: string, square: Square) => void;
+  playSiteViaAbility: (playerId: PlayerId, abilityId: string, siteId: string, square: Square) => void;
+  drawSiteViaAbility: (playerId: PlayerId, abilityId: string) => void;
   activateAbility: (playerId: PlayerId, abilityId: string, targetSquare?: Square, siteId?: string) => void;
   moveAndAttack: (unitId: string, path: Square[], attackTargetId?: string) => void;
   endTurn: () => void;
   clearError: () => void;
+  showCardDetail: (instanceId: string | null) => void;
 }
 
 export const useGameStore = create<GameStore>((set, get) => ({
@@ -43,6 +53,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
   hoveredInstanceId: null,
   highlightedSquares: [],
   actionError: null,
+  pendingAvatarAbility: null,
+  cardDetailId: null,
 
   initGame: (config) => {
     const game = initGame(config);
@@ -94,23 +106,47 @@ export const useGameStore = create<GameStore>((set, get) => ({
     set({ hoveredInstanceId: instanceId });
   },
 
+  setPendingAvatarAbility: (abilityId) => {
+    set({ pendingAvatarAbility: abilityId, selectedInstanceId: null });
+  },
+
+  showCardDetail: (instanceId) => {
+    set({ cardDetailId: instanceId });
+  },
+
+  // Play a site via the Avatar's "Tap → Play or draw a site" ability.
+  // The avatar taps as part of resolving this action.
+  playSiteViaAbility: (playerId, abilityId, siteId, square) => {
+    const { game } = get();
+    if (!game) return;
+    const newGame = structuredClone(game);
+    const err = activateAvatarAbility(newGame, playerId, abilityId, square, siteId);
+    if (err) {
+      set({ actionError: err });
+    } else {
+      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingAvatarAbility: null });
+    }
+  },
+
+  // Draw a site via the Avatar's "Tap → Play or draw a site" ability.
+  drawSiteViaAbility: (playerId, abilityId) => {
+    const { game } = get();
+    if (!game) return;
+    const newGame = structuredClone(game);
+    // Call with no targetSquare/siteId → engine draws a site
+    const err = activateAvatarAbility(newGame, playerId, abilityId);
+    if (err) {
+      set({ actionError: err });
+    } else {
+      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingAvatarAbility: null });
+    }
+  },
+
   castSpell: (casterId, cardId, targetSquare, targetId) => {
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
     const err = castSpell(newGame, casterId, cardId, targetSquare, targetId);
-    if (err) {
-      set({ actionError: err });
-    } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null });
-    }
-  },
-
-  playSite: (playerId, siteId, square) => {
-    const { game } = get();
-    if (!game) return;
-    const newGame = structuredClone(game);
-    const err = playSite(newGame, playerId, siteId, square);
     if (err) {
       set({ actionError: err });
     } else {
