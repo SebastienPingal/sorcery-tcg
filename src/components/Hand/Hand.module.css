@@ -1,0 +1,104 @@
+.hand {
+  width: 100%;
+  min-height: 180px;
+  background: #0d0d1a;
+  border-top: 2px solid #333;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.handLabel {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.cards {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  align-items: flex-end;
+  min-height: 160px;
+  padding: 4px;
+}
+
+.cardWrapper {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-8px);
+}
+
+.playable {
+  /* Normal */
+}
+
+.notPlayable {
+  filter: brightness(0.5) saturate(0.4);
+}
+
+.notPlayable:hover {
+  filter: brightness(0.7) saturate(0.6);
+}
+
+.selectedWrapper {
+  transform: translateY(-16px) !important;
+}
+
+.unplayableOverlay {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 7px;
+  color: #ff6b6b;
+  background: rgba(0,0,0,0.7);
+  padding: 1px;
+  pointer-events: none;
+}
+
+.emptyHand {
+  color: #555;
+  font-size: 12px;
+  font-style: italic;
+  margin: auto;
+}
+
+/* Hidden hand */
+.hiddenHand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: -10px;
+  min-height: 60px;
+  position: relative;
+  padding: 8px;
+}
+
+.hiddenCard {
+  position: relative;
+  display: inline-block;
+}
+
+.cardBackMini {
+  width: 40px;
+  height: 56px;
+  background: linear-gradient(135deg, #0d2b0d, #1a4a1a);
+  border: 1px solid #2d5a27;
+  border-radius: 4px;
+}
+
+.handCount {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  font-size: 10px;
+  color: #666;
+}

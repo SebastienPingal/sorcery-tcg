@@ -1,0 +1,240 @@
+.card {
+  width: 120px;
+  min-height: 168px;
+  border-radius: 8px;
+  border: 2px solid #555;
+  background: #1a1a2e;
+  color: #eee;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.selected {
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 12px #ffd700aa;
+}
+
+.tapped {
+  transform: rotate(90deg);
+  opacity: 0.85;
+}
+
+.tapped:hover {
+  transform: rotate(90deg) translateX(-4px) scale(1.02);
+}
+
+.sick {
+  opacity: 0.7;
+}
+
+.sickOverlay {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 14px;
+  color: #ff9900;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 5px;
+  border-radius: 6px 6px 0 0;
+  min-height: 22px;
+}
+
+.headerLeft, .headerRight {
+  width: 28px;
+  text-align: center;
+}
+
+.name {
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Mana cost */
+.manaCost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.manaNum {
+  background: #1a1a2e;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.threshold {
+  display: flex;
+  gap: 1px;
+}
+
+/* Power */
+.power {
+  background: #1a1a2e;
+  border-radius: 4px;
+  padding: 1px 3px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  border: 1px solid #666;
+  text-align: center;
+}
+
+.damage {
+  color: #ff4444;
+  font-size: 9px;
+  display: block;
+}
+
+/* Art */
+.art {
+  height: 60px;
+  overflow: hidden;
+}
+
+.artPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+
+.typeIcon {
+  font-size: 28px;
+}
+
+/* Type line */
+.typeLine {
+  background: #2a2a3e;
+  padding: 2px 5px;
+  font-size: 8px;
+  color: #aaa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Text box */
+.textBox {
+  flex: 1;
+  padding: 4px 5px;
+  font-size: 8px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.keywords {
+  font-style: italic;
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 2px;
+}
+
+.abilities {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.abilityLine {
+  color: #ddd;
+  border-left: 2px solid #444;
+  padding-left: 3px;
+}
+
+.flavorText {
+  margin-top: 4px;
+  font-style: italic;
+  color: #888;
+  font-size: 7px;
+  border-top: 1px solid #333;
+  padding-top: 2px;
+}
+
+/* Element symbols */
+.element {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.air { color: #9b59b6; }
+.earth { color: #8e734a; }
+.fire { color: #e74c3c; }
+.water { color: #3498db; }
+
+.siteThreshold {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+/* Compact variant */
+.compact {
+  width: 64px;
+  min-height: 80px;
+  font-size: 8px;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.compact .compactName {
+  font-size: 7px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--card-color, #fff);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 2px;
+}
+
+/* Card back */
+.cardBack {
+  background: #0d1b2a;
+  border-color: #4a6741;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backPattern {
+  font-size: 40px;
+  color: #2d5a27;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}

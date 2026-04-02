@@ -1,0 +1,221 @@
+.realm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 120px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 3px;
+  border: 2px solid #444;
+  padding: 4px;
+  background: #0a0a1a;
+  border-radius: 8px;
+}
+
+.playerLabel {
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Cell */
+.cell {
+  border: 1px solid #333;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  overflow: hidden;
+  transition: border-color 0.15s, background 0.15s;
+  gap: 2px;
+}
+
+.cell:hover {
+  border-color: #666;
+}
+
+.coord {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  font-size: 7px;
+  color: #444;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cell types */
+.void {
+  background: #050510;
+  border-style: dashed;
+  border-color: #1a1a2e;
+}
+
+.land_p1 {
+  background: #0d1a0d;
+  border-color: #2d5a27;
+}
+
+.land_p2 {
+  background: #1a0d0d;
+  border-color: #5a2727;
+}
+
+.water {
+  background: #0d1a2e;
+  border-color: #1a4a6e;
+}
+
+.rubble {
+  background: #1a1a14;
+  border-color: #4a4a3a;
+}
+
+/* Highlighted */
+.highlighted {
+  border-color: #ffd700 !important;
+  background: rgba(255, 215, 0, 0.12) !important;
+  box-shadow: inset 0 0 8px rgba(255,215,0,0.2);
+}
+
+/* Site */
+.site {
+  width: 100%;
+  border-radius: 3px;
+  padding: 2px 3px;
+  font-size: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.siteOwn {
+  background: rgba(45, 90, 39, 0.7);
+  border: 1px solid #2d5a27;
+}
+
+.siteEnemy {
+  background: rgba(90, 39, 39, 0.7);
+  border: 1px solid #5a2727;
+}
+
+.siteName {
+  font-weight: bold;
+  color: #ddd;
+  font-size: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.siteAffinity {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.rubble {
+  font-size: 8px;
+  color: #888;
+  background: rgba(74,74,58,0.5);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* Element colors */
+.el { font-size: 9px; font-weight: bold; }
+.air { color: #9b59b6; }
+.earth { color: #c09a5a; }
+.fire { color: #e74c3c; }
+.water { color: #3498db; }
+
+/* Units */
+.units {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.unitToken {
+  border-radius: 4px;
+  padding: 2px 3px;
+  font-size: 7px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 32px;
+  transition: transform 0.1s, box-shadow 0.1s;
+  border: 1px solid transparent;
+}
+
+.unitToken:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.ownUnit {
+  background: rgba(27, 94, 32, 0.85);
+  border-color: #4caf50;
+  color: #c8e6c9;
+}
+
+.enemyUnit {
+  background: rgba(183, 28, 28, 0.85);
+  border-color: #f44336;
+  color: #ffcdd2;
+}
+
+.selectedToken {
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 6px #ffd700;
+}
+
+.tappedToken {
+  opacity: 0.65;
+  transform: rotate(15deg);
+}
+
+.sickToken {
+  opacity: 0.7;
+}
+
+.tokenName {
+  font-weight: bold;
+  font-size: 7px;
+  white-space: nowrap;
+}
+
+.tokenPower {
+  font-size: 9px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tokenLife {
+  font-size: 8px;
+  color: #ff6b6b;
+}
+
+.dmg {
+  color: #ff4444;
+  font-size: 7px;
+}
+
+/* Aura indicator */
+.auraIndicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 10px;
+}

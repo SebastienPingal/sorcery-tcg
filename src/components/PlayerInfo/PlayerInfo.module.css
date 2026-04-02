@@ -1,0 +1,168 @@
+.playerInfo {
+  background: #0f0f1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 200px;
+  color: #ddd;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s;
+}
+
+.active {
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255,215,0,0.2);
+}
+
+.deathsDoor {
+  border-color: #ff0000 !important;
+  box-shadow: 0 0 12px rgba(255,0,0,0.3) !important;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(255,0,0,0.3); }
+  50% { box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+}
+
+.name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.activeBadge {
+  font-size: 10px;
+  color: #ffd700;
+}
+
+.deathBadge {
+  font-size: 10px;
+  color: #ff4444;
+  animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Life bar */
+.lifeSection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lifeLabel {
+  font-size: 14px;
+  color: #f44336;
+}
+
+.lifeBar {
+  flex: 1;
+  height: 10px;
+  background: #1a1a2e;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.lifeBarFill {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s;
+  border-radius: 5px;
+}
+
+.lifeNum {
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* Mana */
+.manaSection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.manaLabel {
+  color: #7ec8e3;
+  font-weight: bold;
+}
+
+.manaVal {
+  color: #7ec8e3;
+  font-weight: bold;
+  min-width: 28px;
+}
+
+.manaDots {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.manaDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #555;
+}
+
+.manaFull {
+  background: #3498db;
+  box-shadow: 0 0 3px #3498dbaa;
+}
+
+.manaUsed {
+  background: #1a1a2e;
+}
+
+/* Affinity */
+.affinitySection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.affinityLabel {
+  color: #aaa;
+}
+
+.affinityBadges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.affinityBadge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 1px 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.noAffinity {
+  color: #555;
+}
+
+/* Deck section */
+.deckSection {
+  color: #666;
+  font-size: 10px;
+}
+
+.avatarTapped {
+  color: #ff9800;
+  font-size: 10px;
+  font-style: italic;
+}
