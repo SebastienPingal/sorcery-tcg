@@ -7,9 +7,10 @@ import styles from './RealmGrid.module.css';
 interface RealmGridProps {
   game: GameState;
   humanPlayerId: PlayerId;
+  flipped?: boolean;
 }
 
-export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => {
+export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipped = false }) => {
   const {
     selectedInstanceId,
     selectInstance,
@@ -325,13 +326,16 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     );
   };
 
+  const opponentId = humanPlayerId === 'player1' ? 'player2' : 'player1';
+  const rows = flipped ? [...game.realm].reverse() : game.realm;
+
   return (
     <div className={styles.realm}>
-      <div className={styles.playerLabel}>↑ {game.players.player2.name} (Opponent)</div>
+      <div className={styles.playerLabel}>↑ {game.players[opponentId].name} (Opponent)</div>
       <div className={styles.grid}>
-        {game.realm.map((row, r) => row.map((_, c) => renderCell(r, c)))}
+        {rows.map((row, _) => row.map((_, c) => renderCell(row[c].row, c)))}
       </div>
-      <div className={styles.playerLabel}>↓ {game.players.player1.name} (You)</div>
+      <div className={styles.playerLabel}>↓ {game.players[humanPlayerId].name} (You)</div>
     </div>
   );
 };

@@ -137,6 +137,67 @@
   color: #555;
 }
 
+/* ─── Pass-the-device handoff ────────────────────────────────────────────── */
+.handoffOverlay {
+  position: fixed;
+  inset: 0;
+  background: #02020a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+}
+
+.handoffPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 48px 56px;
+  background: rgba(10, 10, 30, 0.95);
+  border: 2px solid #4a4a8a;
+  border-radius: 20px;
+  box-shadow: 0 0 80px rgba(80, 80, 200, 0.2);
+  text-align: center;
+  max-width: 440px;
+}
+
+.handoffIcon {
+  font-size: 56px;
+}
+
+.handoffTitle {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 0;
+}
+
+.handoffSub {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.handoffBtn {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #1a1a4a, #0d0d2a);
+  border: 2px solid #7a7aee;
+  border-radius: 10px;
+  color: #aaaaff;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.handoffBtn:hover {
+  background: linear-gradient(135deg, #2a2a6a, #1a1a4a);
+  box-shadow: 0 0 20px rgba(120, 120, 255, 0.4);
+  transform: translateY(-2px);
+}
+
 /* ─── End screen ─────────────────────────────────────────────────────────── */
 .endScreen {
   display: flex;
