@@ -1,6 +1,5 @@
 import React from 'react';
 import type { GameState, Square, PlayerId } from '../../types';
-import type { MinionCard } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { validSitePlacements, getMovementRange, reachableSquares } from '../../engine/utils';
 import styles from './RealmGrid.module.css';
@@ -18,6 +17,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     playSiteViaAbility,
     pendingAvatarAbility,
     moveAndAttack,
+    showCardDetail,
   } = useGameStore();
 
   const selectedInst = selectedInstanceId ? game.instances[selectedInstanceId] : null;
@@ -162,16 +162,42 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
     selectInstance(instanceId === selectedInstanceId ? null : instanceId);
   };
 
+  const handleCardRightClick = (e: React.MouseEvent, instanceId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showCardDetail(instanceId);
+  };
+
+  const handleCellRightClick = (e: React.MouseEvent, row: number, col: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const cell = game.realm[row][col];
+    const topSurface = cell.unitInstanceIds[cell.unitInstanceIds.length - 1];
+    if (topSurface) {
+      showCardDetail(topSurface);
+      return;
+    }
+    const topUnderground = cell.subsurfaceUnitIds[cell.subsurfaceUnitIds.length - 1];
+    if (topUnderground) {
+      showCardDetail(topUnderground);
+      return;
+    }
+    if (cell.siteInstanceId) {
+      showCardDetail(cell.siteInstanceId);
+    }
+  };
+
   const renderCell = (row: number, col: number) => {
     const cell = game.realm[row][col];
     const sq = { row, col };
     const highlighted = isHighlighted(sq);
     const siteInst = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+    const isWaterSite = siteInst?.card.type === 'site' && siteInst.card.isWaterSite;
 
     let cellType = 'void';
     if (siteInst) {
       if (siteInst.isRubble) cellType = 'rubble';
-      else if (siteInst.card.type === 'site' && (siteInst.card as any).isWaterSite) cellType = 'water';
+      else if (isWaterSite) cellType = 'water';
       else cellType = siteInst.controllerId === humanPlayerId ? 'land_p1' : 'land_p2';
     }
 
@@ -180,63 +206,112 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId }) => 
         key={`${row}-${col}`}
         className={`${styles.cell} ${styles[cellType]} ${highlighted ? styles.highlighted : ''}`}
         onClick={() => handleSquareClick(row, col)}
+        onContextMenu={(e) => handleCellRightClick(e, row, col)}
       >
         <span className={styles.coord}>{row},{col}</span>
 
+        {cell.subsurfaceUnitIds.length > 0 && (
+          <div className={`${styles.unitsLayer} ${styles.undergroundLayer}`}>
+            {cell.subsurfaceUnitIds.map((id, index) => {
+              const inst = game.instances[id];
+              if (!inst) return null;
+              const isSelected = id === selectedInstanceId;
+              const isOwn = inst.controllerId === humanPlayerId;
+              const offset = (index - (cell.subsurfaceUnitIds.length - 1) / 2) * 12;
+              const tokenOffsetStyle = { '--stack-offset-x': `${offset}px` } as React.CSSProperties;
+
+              return (
+                <div
+                  key={id}
+                  className={`
+                    ${styles.unitToken}
+                    ${styles.undergroundToken}
+                    ${isOwn ? styles.ownUnit : styles.enemyUnit}
+                    ${isSelected ? styles.selectedToken : ''}
+                    ${inst.tapped ? styles.tappedToken : ''}
+                    ${inst.summoningSickness ? styles.sickToken : ''}
+                  `}
+                  style={tokenOffsetStyle}
+                  onClick={(e) => handleUnitClick(e, id)}
+                  onContextMenu={(e) => handleCardRightClick(e, id)}
+                  title={`${inst.card.name} [Underground]${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
+                >
+                  {inst.card.image ? (
+                    <img
+                      src={inst.card.image}
+                      alt={inst.card.name}
+                      className={styles.unitImage}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  ) : (
+                    <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {siteInst && !siteInst.isRubble && (
           <div
-            className={`${styles.site} ${siteInst.controllerId === humanPlayerId ? styles.siteOwn : styles.siteEnemy}`}
+            className={`
+              ${styles.site}
+              ${siteInst.controllerId === humanPlayerId ? styles.siteOwn : styles.siteEnemy}
+              ${siteInst.card.image ? styles.siteLandscape : ''}
+            `}
             onClick={(e) => { e.stopPropagation(); handleUnitClick(e, siteInst.instanceId); }}
+            onContextMenu={(e) => handleCardRightClick(e, siteInst.instanceId)}
+            title={siteInst.card.name}
           >
-            <div className={styles.siteName}>{siteInst.card.name}</div>
-            <div className={styles.siteAffinity}>
-              {Object.entries((siteInst.card as any).threshold ?? {}).map(([el, v]) => (
-                <span key={el} className={`${styles.el} ${styles[el]}`}>
-                  {el === 'fire' ? '▲' : el === 'water' ? '▼' : el === 'air' ? '△' : '▽'}{String(v)}
-                </span>
-              ))}
-            </div>
+            {siteInst.card.image ? (
+              <img
+                src={siteInst.card.image}
+                alt={siteInst.card.name}
+                className={styles.siteImage}
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+            ) : (
+              <div className={styles.siteName}>{siteInst.card.name}</div>
+            )}
           </div>
         )}
 
         {siteInst?.isRubble && <div className={styles.rubble}>Rubble</div>}
 
-        <div className={styles.units}>
-          {cell.unitInstanceIds.map(id => {
+        <div className={`${styles.unitsLayer} ${styles.surfaceLayer}`}>
+          {cell.unitInstanceIds.map((id, index) => {
             const inst = game.instances[id];
             if (!inst) return null;
             const isSelected = id === selectedInstanceId;
             const isOwn = inst.controllerId === humanPlayerId;
-            const power = inst.card.type === 'minion'
-              ? (inst.card as MinionCard).power
-              : inst.card.type === 'avatar'
-                ? inst.card.attackPower
-                : null;
+            const offset = (index - (cell.unitInstanceIds.length - 1) / 2) * 12;
+            const tokenOffsetStyle = { '--stack-offset-x': `${offset}px` } as React.CSSProperties;
 
             return (
               <div
                 key={id}
                 className={`
                   ${styles.unitToken}
+                  ${styles.surfaceToken}
                   ${isOwn ? styles.ownUnit : styles.enemyUnit}
                   ${isSelected ? styles.selectedToken : ''}
                   ${inst.tapped ? styles.tappedToken : ''}
                   ${inst.summoningSickness ? styles.sickToken : ''}
                 `}
+                style={tokenOffsetStyle}
                 onClick={(e) => handleUnitClick(e, id)}
+                onContextMenu={(e) => handleCardRightClick(e, id)}
                 title={`${inst.card.name}${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
               >
-                <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
-                {power !== null && (
-                  <span className={styles.tokenPower}>
-                    {typeof power === 'number' ? power : `${power.attack}/${power.defense}`}
-                    {inst.damage > 0 && <span className={styles.dmg}>-{inst.damage}</span>}
-                  </span>
-                )}
-                {inst.card.type === 'avatar' && (
-                  <span className={styles.tokenLife}>
-                    ♥{game.players[inst.controllerId].life}
-                  </span>
+                {inst.card.image ? (
+                  <img
+                    src={inst.card.image}
+                    alt={inst.card.name}
+                    className={styles.unitImage}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                ) : (
+                  <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
                 )}
               </div>
             );

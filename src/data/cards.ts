@@ -3,6 +3,31 @@ import type {
 } from '../types';
 import { REAL_CARDS } from './realCards';
 
+const REAL_IMAGE_BY_ID = new Map(
+  REAL_CARDS
+    .filter(card => typeof card.image === 'string' && card.image.length > 0)
+    .map(card => [card.id, card.image as string])
+);
+
+const REAL_IMAGE_BY_NAME = new Map(
+  REAL_CARDS
+    .filter(card => typeof card.image === 'string' && card.image.length > 0)
+    .map(card => [card.name.toLowerCase(), card.image as string])
+);
+
+const LOCAL_TO_REAL_ID: Record<string, string> = {
+  avatar_sparkmage: 'sparkmage',
+  avatar_sorcerer: 'sorcerer',
+};
+
+function withFallbackImage<T extends Card>(card: T): T {
+  if (card.image) return card;
+  const mappedId = LOCAL_TO_REAL_ID[card.id];
+  const image = (mappedId ? REAL_IMAGE_BY_ID.get(mappedId) : undefined)
+    ?? REAL_IMAGE_BY_NAME.get(card.name.toLowerCase());
+  return image ? ({ ...card, image } as T) : card;
+}
+
 // ─── Avatars ──────────────────────────────────────────────────────────────────
 export const AVATARS: AvatarCard[] = [
   {
@@ -493,11 +518,11 @@ export const MAGICS: MagicCard[] = [
 
 // ─── Master card registry ─────────────────────────────────────────────────────
 const ALL_CARDS: Card[] = [
-  ...AVATARS,
-  ...SITES,
-  ...MINIONS,
-  ...ARTIFACTS,
-  ...MAGICS,
+  ...AVATARS.map(withFallbackImage),
+  ...SITES.map(withFallbackImage),
+  ...MINIONS.map(withFallbackImage),
+  ...ARTIFACTS.map(withFallbackImage),
+  ...MAGICS.map(withFallbackImage),
   ...REAL_CARDS,  // full official card list from curiosa.io API
 ];
 

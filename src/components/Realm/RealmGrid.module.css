@@ -28,14 +28,10 @@
   border-radius: 5px;
   position: relative;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
   padding: 2px;
   overflow: hidden;
   transition: border-color 0.15s, background 0.15s;
-  gap: 2px;
 }
 
 .cell:hover {
@@ -49,7 +45,7 @@
   font-size: 7px;
   color: #444;
   pointer-events: none;
-  z-index: 1;
+  z-index: 9;
 }
 
 /* Cell types */
@@ -88,12 +84,19 @@
 
 /* Site */
 .site {
-  width: 100%;
+  width: 86px;
+  height: 56px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
   border-radius: 3px;
-  padding: 2px 3px;
+  padding: 2px;
   font-size: 8px;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .siteOwn {
@@ -109,17 +112,31 @@
 .siteName {
   font-weight: bold;
   color: #ddd;
-  font-size: 7px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 8px;
+  line-height: 1.2;
+  padding: 4px;
 }
 
-.siteAffinity {
-  display: flex;
-  justify-content: center;
-  gap: 2px;
-  flex-wrap: wrap;
+.siteImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.siteLandscape {
+  padding: 0;
+}
+
+.siteLandscape .siteImage {
+  width: 56px;
+  height: 86px;
+  max-width: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .rubble {
@@ -138,29 +155,53 @@
 .water { color: #3498db; }
 
 /* Units */
-.units {
+.unitsLayer {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
   justify-content: center;
-  max-width: 100%;
+  align-items: center;
+  pointer-events: none;
+}
+
+.surfaceLayer {
+  z-index: 5;
+}
+
+.undergroundLayer {
+  z-index: 2;
 }
 
 .unitToken {
+  --stack-offset-x: 0px;
+  --stack-offset-y: 0px;
+  --tap-rotate: 0deg;
+  --tap-shift-x: 0px;
+  --hover-scale: 1;
+  position: absolute;
   border-radius: 4px;
-  padding: 2px 3px;
+  padding: 2px;
   font-size: 7px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 32px;
-  transition: transform 0.1s, box-shadow 0.1s;
+  justify-content: space-between;
+  width: 42px;
+  min-height: 56px;
+  transition: transform 0.1s, box-shadow 0.1s, opacity 0.1s;
   border: 1px solid transparent;
+  overflow: hidden;
+  pointer-events: auto;
+  transform:
+    translate(var(--stack-offset-x), var(--stack-offset-y))
+    translateX(var(--tap-shift-x))
+    rotate(var(--tap-rotate))
+    scale(var(--hover-scale));
 }
 
 .unitToken:hover {
-  transform: scale(1.1);
+  --hover-scale: 1.08;
   z-index: 5;
 }
 
@@ -183,7 +224,8 @@
 
 .tappedToken {
   opacity: 0.65;
-  transform: rotate(15deg);
+  --tap-rotate: 15deg;
+  --tap-shift-x: 6px;
 }
 
 .sickToken {
@@ -196,20 +238,22 @@
   white-space: nowrap;
 }
 
-.tokenPower {
-  font-size: 9px;
-  font-weight: bold;
-  color: #fff;
+.unitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
-.tokenLife {
-  font-size: 8px;
-  color: #ff6b6b;
+.surfaceToken {
+  z-index: 6;
 }
 
-.dmg {
-  color: #ff4444;
-  font-size: 7px;
+.undergroundToken {
+  z-index: 2;
+  opacity: 0.72;
+  filter: brightness(0.7) saturate(0.9);
 }
 
 /* Aura indicator */
@@ -218,4 +262,5 @@
   bottom: 2px;
   right: 2px;
   font-size: 10px;
+  z-index: 8;
 }

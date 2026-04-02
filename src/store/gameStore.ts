@@ -64,13 +64,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config: GameSetupConfig = {
       player1: {
         name: 'Player 1',
-        avatarId: 'sorcerer',
+        avatarId: 'avatar_sorcerer',
         atlasIds: buildFireAtlas(),
         spellbookIds: buildFireSpellbook(),
       },
       player2: {
         name: 'Player 2',
-        avatarId: 'sparkmage',
+        avatarId: 'avatar_sparkmage',
         atlasIds: buildWaterAtlas(),
         spellbookIds: buildWaterSpellbook(),
       },
