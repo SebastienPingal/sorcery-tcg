@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { GameState, MinionCard, SiteCard, AvatarCard } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { ELEMENT_SYMBOLS } from '../../utils/elementSymbols';
@@ -10,6 +10,8 @@ interface CardDetailProps {
 
 export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
   const { cardDetailId, showCardDetail } = useGameStore();
+  const [zoomed, setZoomed] = useState(false);
+
   if (!cardDetailId) return null;
   const inst = game.instances[cardDetailId];
   if (!inst) return null;
@@ -41,6 +43,19 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
   const typeIcon = { avatar: '👤', site: '🏔', minion: '⚔', artifact: '🔮', aura: '✨', magic: '💥' }[card.type] ?? '?';
 
   return (
+    <>
+    {/* Lightbox: full-size image */}
+    {zoomed && card.image && (
+      <div className={styles.lightbox} onClick={() => setZoomed(false)}>
+        <img
+          src={card.image}
+          alt={card.name}
+          className={`${styles.lightboxImg} ${isSite ? styles.lightboxImgSite : ''}`}
+        />
+        <span className={styles.lightboxHint}>Click anywhere to close</span>
+      </div>
+    )}
+
     <div className={styles.overlay} onClick={() => showCardDetail(null)}>
       <div className={styles.panel} onClick={e => e.stopPropagation()}>
 
@@ -50,8 +65,10 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
             <img
               src={card.image}
               alt={card.name}
-              className={`${styles.cardImage} ${isSite ? styles.cardImageSite : ''}`}
+              className={`${styles.cardImage} ${isSite ? styles.cardImageSite : ''} ${styles.imageClickable}`}
+              onClick={(e) => { e.stopPropagation(); setZoomed(true); }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              title="Click to zoom"
             />
           ) : (
             <div className={styles.imageFallback} style={{ background: getTypeColor() }}>
@@ -133,5 +150,6 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
         <button className={styles.closeBtn} onClick={() => showCardDetail(null)}>✕</button>
       </div>
     </div>
+    </>
   );
 };

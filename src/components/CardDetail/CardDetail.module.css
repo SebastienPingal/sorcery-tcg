@@ -1,3 +1,43 @@
+/* ── Lightbox ─────────────────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  cursor: zoom-out;
+}
+
+.lightboxImg {
+  max-height: 90vh;
+  max-width: 90vw;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Sites shown in landscape in lightbox too */
+.lightboxImgSite {
+  transform: rotate(90deg);
+  max-height: 80vw;
+  max-width: 80vh;
+}
+
+.lightboxHint {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+}
+
+.imageClickable {
+  cursor: zoom-in;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -27,7 +67,8 @@
 
 .imageCol {
   flex-shrink: 0;
-  width: 200px;          /* portrait width */
+  width: 200px;
+  min-height: 280px;     /* enough for a portrait card at this width */
   background: #0a0a14;
   display: flex;
   align-items: center;
@@ -37,7 +78,10 @@
 
 /* Site: wider column to display the landscape image comfortably */
 .imageColSite {
-  width: 260px;
+  width: 280px;
+  /* Fixed height so the rotated portrait image renders as landscape */
+  height: 200px;
+  position: relative;
 }
 
 .cardImage {
@@ -48,17 +92,19 @@
   display: block;
 }
 
-/* Site image: rotate 90° so the portrait card image appears in landscape.
-   The column is 260px wide × however tall the panel is (~280px).
-   We want the image to fill 260px wide after rotation.
-   Portrait image natural ratio ≈ 5:7, so natural height ≈ 260 × 1.4 = 364px.
-   After rotating 90°: image appears 364px wide × 260px tall — we crop it to fit. */
+/* Site: the portrait image is rotated 90° inside a fixed landscape box.
+   We give it fixed dimensions matching the landscape viewport (200px tall × 280px wide),
+   then rotate: after rotating 90° a 200×280 box becomes 280×200 visually. */
 .cardImageSite {
-  width: auto;
-  height: 260px;         /* this becomes the width after rotation */
+  position: absolute;
+  /* Before rotation: width = container height (200px), height = container width (280px) */
+  width: 200px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
   object-fit: cover;
-  transform: rotate(90deg);
-  transform-origin: center center;
+  object-position: center center;
 }
 
 .imageFallback {
