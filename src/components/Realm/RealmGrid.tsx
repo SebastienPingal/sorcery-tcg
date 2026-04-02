@@ -19,6 +19,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     pendingAvatarAbility,
     moveAndAttack,
     showCardDetail,
+    hoverInstance,
   } = useGameStore();
 
   const selectedInst = selectedInstanceId ? game.instances[selectedInstanceId] : null;
@@ -235,6 +236,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   style={tokenOffsetStyle}
                   onClick={(e) => handleUnitClick(e, id)}
                   onContextMenu={(e) => handleCardRightClick(e, id)}
+                  onMouseEnter={() => hoverInstance(id)}
+                  onMouseLeave={() => hoverInstance(null)}
                   title={`${inst.card.name} [Underground]${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
                 >
                   {inst.card.image ? (
@@ -262,6 +265,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
             `}
             onClick={(e) => { e.stopPropagation(); handleUnitClick(e, siteInst.instanceId); }}
             onContextMenu={(e) => handleCardRightClick(e, siteInst.instanceId)}
+            onMouseEnter={() => hoverInstance(siteInst.instanceId)}
+            onMouseLeave={() => hoverInstance(null)}
             title={siteInst.card.name}
           >
             {siteInst.card.image ? (
@@ -302,6 +307,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                 style={tokenOffsetStyle}
                 onClick={(e) => handleUnitClick(e, id)}
                 onContextMenu={(e) => handleCardRightClick(e, id)}
+                onMouseEnter={() => hoverInstance(id)}
+                onMouseLeave={() => hoverInstance(null)}
                 title={`${inst.card.name}${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
               >
                 {inst.card.image ? (

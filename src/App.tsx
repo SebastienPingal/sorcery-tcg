@@ -7,6 +7,7 @@ import { GameLog } from './components/GameLog/GameLog';
 import { Controls } from './components/Controls/Controls';
 import { MulliganScreen } from './components/GameLog/MulliganScreen';
 import { CardDetail } from './components/CardDetail/CardDetail';
+import { CardPreview } from './components/CardPreview/CardPreview';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
@@ -121,14 +122,24 @@ const App: React.FC = () => {
 
       {/* Main area */}
       <div className={styles.mainArea}>
-        <div className={styles.logPanel}>
-          <GameLog entries={game.log} />
+        {/* Left: controls + log */}
+        <div className={styles.leftPanel}>
+          <div className={styles.controlsPanel}>
+            <Controls game={game} humanPlayerId={humanPlayerId} />
+          </div>
+          <div className={styles.logPanel}>
+            <GameLog entries={game.log} />
+          </div>
         </div>
+
+        {/* Center: realm */}
         <div className={styles.realmPanel}>
           <RealmGrid game={game} humanPlayerId={humanPlayerId} flipped={flipped} />
         </div>
-        <div className={styles.controlsPanel}>
-          <Controls game={game} humanPlayerId={humanPlayerId} />
+
+        {/* Right: card hover preview */}
+        <div className={styles.previewPanel}>
+          <CardPreview game={game} />
         </div>
       </div>
 

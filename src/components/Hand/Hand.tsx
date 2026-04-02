@@ -16,6 +16,7 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     selectedInstanceId, selectInstance,
     pendingAvatarAbility,
     showCardDetail,
+    hoverInstance,
   } = useGameStore();
 
   const player = game.players[playerId];
@@ -127,6 +128,8 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
               `}
               onClick={() => handleCardClick(instanceId)}
               onContextMenu={(e) => handleRightClick(e, instanceId)}
+              onMouseEnter={() => hoverInstance(instanceId)}
+              onMouseLeave={() => hoverInstance(null)}
             >
               <CardView instance={inst} selected={selected} />
               {reason && (

@@ -31,13 +31,29 @@
   gap: 0;
 }
 
-.logPanel {
-  width: 220px;
+/* Left column: controls on top, log below */
+.leftPanel {
+  width: 230px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #1a1a2e;
+  overflow: hidden;
+}
+
+.controlsPanel {
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.logPanel {
+  flex: 1;
+  min-height: 0;
   padding: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border-top: 1px solid #1a1a2e;
 }
 
 .realmPanel {
@@ -49,8 +65,9 @@
   overflow: auto;
 }
 
-.controlsPanel {
-  width: 240px;
+/* Right column: card hover preview */
+.previewPanel {
+  width: 220px;
   flex-shrink: 0;
   overflow: hidden;
 }
