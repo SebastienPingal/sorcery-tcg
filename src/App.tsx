@@ -120,7 +120,7 @@ const App: React.FC = () => {
 
       {/* Opponent bar (top) */}
       <div className={styles.topBar}>
-        <PlayerInfo game={game} playerId={opponentId} isActive={game.activePlayerId === opponentId} />
+        <PlayerInfo game={game} playerId={opponentId} isActive={game.activePlayerId === opponentId} compact />
         <Hand game={game} playerId={opponentId} isHidden={true} />
       </div>
 

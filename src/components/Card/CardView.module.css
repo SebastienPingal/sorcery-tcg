@@ -21,9 +21,20 @@
   z-index: 10;
 }
 
+/* Player ownership borders */
+.player1 {
+  border-color: #c8780a;
+  box-shadow: 0 0 6px rgba(200, 120, 10, 0.25);
+}
+
+.player2 {
+  border-color: #2878c8;
+  box-shadow: 0 0 6px rgba(40, 120, 200, 0.25);
+}
+
 .selected {
   border-color: #c8b896 !important;
-  box-shadow: 0 0 10px rgba(200, 184, 150, 0.3);
+  box-shadow: 0 0 10px rgba(200, 184, 150, 0.3) !important;
 }
 
 .tapped {

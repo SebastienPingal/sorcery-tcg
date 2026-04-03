@@ -237,6 +237,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                     ${styles.unitToken}
                     ${styles.undergroundToken}
                     ${isOwn ? styles.ownUnit : styles.enemyUnit}
+                  ${inst.controllerId === 'player1' ? styles.player1Unit : styles.player2Unit}
                     ${isSelected ? styles.selectedToken : ''}
                     ${inst.tapped ? styles.tappedToken : ''}
                     ${inst.summoningSickness ? styles.sickToken : ''}
@@ -269,6 +270,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
             className={`
               ${styles.site}
               ${siteInst.controllerId === humanPlayerId ? styles.siteOwn : styles.siteEnemy}
+              ${siteInst.controllerId === 'player1' ? styles.sitePlayer1 : styles.sitePlayer2}
               ${siteInst.card.image ? styles.siteLandscape : ''}
             `}
             onClick={(e) => {
@@ -316,6 +318,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   ${styles.unitToken}
                   ${styles.surfaceToken}
                   ${isOwn ? styles.ownUnit : styles.enemyUnit}
+                  ${inst.controllerId === 'player1' ? styles.player1Unit : styles.player2Unit}
                   ${isSelected ? styles.selectedToken : ''}
                   ${inst.tapped ? styles.tappedToken : ''}
                   ${inst.summoningSickness ? styles.sickToken : ''}

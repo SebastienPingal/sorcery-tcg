@@ -108,6 +108,17 @@
   border: 1px solid #3e2e2e;
 }
 
+/* Player-specific site borders */
+.sitePlayer1 {
+  border-color: #c8780a;
+  box-shadow: inset 0 0 8px rgba(200, 120, 10, 0.15);
+}
+
+.sitePlayer2 {
+  border-color: #2878c8;
+  box-shadow: inset 0 0 8px rgba(40, 120, 200, 0.15);
+}
+
 .siteName {
   font-weight: bold;
   color: #aaa;
@@ -204,6 +215,17 @@
   background: rgba(32, 24, 24, 0.92);
   border-color: #4a3a3a;
   color: #b8aaaa;
+}
+
+/* Player-specific unit borders */
+.player1Unit {
+  border-color: #c8780a;
+  box-shadow: 0 0 5px rgba(200, 120, 10, 0.3);
+}
+
+.player2Unit {
+  border-color: #2878c8;
+  box-shadow: 0 0 5px rgba(40, 120, 200, 0.3);
 }
 
 .selectedToken {

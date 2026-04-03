@@ -8,9 +8,10 @@ interface PlayerInfoProps {
   game: GameState;
   playerId: PlayerId;
   isActive: boolean;
+  compact?: boolean;
 }
 
-export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive }) => {
+export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive, compact }) => {
   const player = game.players[playerId];
   const avatarInst = game.instances[player.avatarInstanceId];
   const affinity = computeAffinity(game, playerId);
@@ -20,6 +21,46 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive
   const lifeColor = player.isAtDeathsDoor
     ? '#ff0000'
     : lifePercent > 50 ? '#4caf50' : lifePercent > 25 ? '#ff9800' : '#f44336';
+
+  if (compact) {
+    return (
+      <div className={`${styles.playerInfoCompact} ${isActive ? styles.active : ''} ${player.isAtDeathsDoor ? styles.deathsDoor : ''}`}>
+        {/* Row 1: name + active badge */}
+        <div className={styles.compactName}>
+          {player.name}
+          {isActive && <span className={styles.activeBadge}> ◆</span>}
+          {player.isAtDeathsDoor && <span className={styles.deathBadge}> ☠</span>}
+          {avatarInst?.tapped && <span className={styles.tappedBadge}> ⟳</span>}
+        </div>
+
+        {/* Row 2: life */}
+        <div className={styles.compactLifeRow}>
+          <span className={styles.lifeLabel}>♥</span>
+          <div className={styles.lifeBar}>
+            <div className={styles.lifeBarFill} style={{ width: `${lifePercent}%`, backgroundColor: lifeColor }} />
+          </div>
+          <span className={styles.lifeNum} style={{ color: lifeColor }}>
+            {player.life}/{player.maxLife}
+          </span>
+        </div>
+
+        {/* Row 3: mana + affinity + decks */}
+        <div className={styles.compactStatsRow}>
+          <span className={styles.compactStat}>◈ {manaAvail}/{player.manaPool}</span>
+          <span className={styles.compactDivider}>·</span>
+          {Object.entries(affinity).filter(([, v]) => v! > 0).map(([el, v]) => (
+            <span key={el} className={styles.compactAffinity}
+              style={{ color: ELEMENT_COLORS[el as keyof typeof ELEMENT_COLORS] }}>
+              {ELEMENT_SYMBOLS[el as keyof typeof ELEMENT_SYMBOLS]}×{v}
+            </span>
+          ))}
+          {Object.keys(affinity).length === 0 && <span className={styles.noAffinity}>—</span>}
+          <span className={styles.compactDivider}>·</span>
+          <span className={styles.compactStat}>📜{player.atlasCards.length} 📖{player.spellbookCards.length}</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`${styles.playerInfo} ${isActive ? styles.active : ''} ${player.isAtDeathsDoor ? styles.deathsDoor : ''}`}>

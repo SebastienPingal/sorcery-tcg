@@ -15,7 +15,8 @@ interface CardViewProps {
 export const CardView: React.FC<CardViewProps> = ({
   instance, selected, onClick, onRightClick, compact, showBack
 }) => {
-  const { card, tapped, damage, summoningSickness } = instance;
+  const { card, tapped, damage, summoningSickness, ownerId } = instance;
+  const playerClass = ownerId === 'player1' ? styles.player1 : styles.player2;
 
   if (showBack) {
     return (
@@ -33,7 +34,7 @@ export const CardView: React.FC<CardViewProps> = ({
     return (
       <div
         className={`
-          ${styles.card} ${styles.imageOnly}
+          ${styles.card} ${styles.imageOnly} ${playerClass}
           ${tapped ? styles.tapped : ''}
           ${selected ? styles.selected : ''}
           ${summoningSickness ? styles.sick : ''}
@@ -138,7 +139,7 @@ export const CardView: React.FC<CardViewProps> = ({
     return (
       <div
         className={`
-          ${styles.card} ${styles.compact}
+          ${styles.card} ${styles.compact} ${playerClass}
           ${tapped ? styles.tapped : ''}
           ${selected ? styles.selected : ''}
           ${summoningSickness ? styles.sick : ''}
@@ -157,7 +158,7 @@ export const CardView: React.FC<CardViewProps> = ({
   return (
     <div
       className={`
-        ${styles.card}
+        ${styles.card} ${playerClass}
         ${tapped ? styles.tapped : ''}
         ${selected ? styles.selected : ''}
         ${summoningSickness ? styles.sick : ''}
