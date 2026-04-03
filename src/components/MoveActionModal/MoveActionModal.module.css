@@ -1,0 +1,221 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1800;
+}
+
+.panel {
+  background: #111;
+  border: 1px solid #3a2020;
+  border-radius: 8px;
+  padding: 20px 24px;
+  min-width: 320px;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8), 0 0 20px rgba(192, 64, 64, 0.06);
+}
+
+/* ── Header: attacker card + name ─────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 14px;
+}
+
+.headerLeft { flex-shrink: 0; }
+
+.attackerThumb {
+  width: 56px;
+  height: 78px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #3a3020;
+}
+
+.attackerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: bold;
+  color: #c8b896;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #888;
+}
+
+/* ── Section label ────────────────────────────────────────── */
+.sectionLabel {
+  font-size: 10px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* ── Target cards row ─────────────────────────────────────── */
+.targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cardThumbWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* Portrait card (units, avatars) */
+.cardThumb {
+  width: 90px;
+  height: 126px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid #6a2020;
+  position: relative;
+  transition: border-color 0.15s, transform 0.12s;
+}
+
+/* Site card — landscape (wider, shorter, image rotated) */
+.cardThumbSite {
+  width: 126px;
+  height: 90px;
+}
+
+.cardThumb:hover,
+.cardThumbSite:hover {
+  border-color: #e05050;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(192, 64, 64, 0.35);
+}
+
+.cardThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Site image: fill the landscape frame */
+.cardThumbSite .cardThumbImg {
+  object-fit: cover;
+}
+
+.cardThumbFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #bbb;
+  background: #1a1a1a;
+  padding: 4px;
+  text-align: center;
+}
+
+/* Red "Attaquer" overlay on hover */
+.cardThumbOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(192, 40, 40, 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  transition: background 0.15s;
+}
+
+.cardThumb:hover .cardThumbOverlay {
+  background: rgba(192, 40, 40, 0.45);
+}
+
+.cardThumbLabel {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.cardThumb:hover .cardThumbLabel {
+  opacity: 1;
+}
+
+.cardThumbName {
+  font-size: 10px;
+  color: #bbb;
+  text-align: center;
+  max-width: 126px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Bottom actions ───────────────────────────────────────── */
+.bottomActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid #1e1e1e;
+  padding-top: 12px;
+}
+
+.moveBtn {
+  flex: 1;
+  padding: 9px 14px;
+  background: #111820;
+  border: 1px solid #2a3a50;
+  border-radius: 5px;
+  color: #7aaad0;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.moveBtn:hover {
+  background: #162030;
+  border-color: #4a7aaa;
+}
+
+.cancelBtn {
+  padding: 9px 14px;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 5px;
+  color: #666;
+  cursor: pointer;
+  font-size: 11px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.cancelBtn:hover {
+  border-color: #555;
+  color: #aaa;
+}

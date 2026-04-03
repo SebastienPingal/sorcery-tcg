@@ -23,6 +23,8 @@ interface GameStore {
   pendingAvatarAbility: string | null;
   // Card detail overlay (right-click)
   cardDetailId: string | null;
+  // Two-step move/attack: first pick destination, then pick action
+  pendingMove: { unitInstanceId: string; destSquare: Square } | null;
 
   // Setup
   initGame: (config: GameSetupConfig) => void;
@@ -41,6 +43,7 @@ interface GameStore {
   drawSiteViaAbility: (playerId: PlayerId, abilityId: string) => void;
   activateAbility: (playerId: PlayerId, abilityId: string, targetSquare?: Square, siteId?: string) => void;
   moveAndAttack: (unitId: string, path: Square[], attackTargetId?: string) => void;
+  setPendingMove: (move: { unitInstanceId: string; destSquare: Square } | null) => void;
   chooseDrawSource: (playerId: PlayerId, source: 'atlas' | 'spellbook') => void;
   endTurn: () => void;
   clearError: () => void;
@@ -55,6 +58,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   actionError: null,
   pendingAvatarAbility: null,
   cardDetailId: null,
+  pendingMove: null,
 
   initGame: (config) => {
     const game = initGame(config);
@@ -187,6 +191,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
+  setPendingMove: (move) => set({ pendingMove: move }),
+
   moveAndAttack: (unitId, path, attackTargetId) => {
     const { game } = get();
     if (!game) return;
@@ -195,7 +201,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (err) {
       set({ actionError: err });
     } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null });
+      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingMove: null });
     }
   },
 

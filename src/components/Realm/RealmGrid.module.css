@@ -74,11 +74,24 @@
   border-color: #3a3828;
 }
 
-/* Highlighted squares — parchment gold glow */
+/* Highlighted squares — parchment gold glow (movement) */
 .highlighted {
   border-color: #c8b896 !important;
   background: rgba(200, 184, 150, 0.08) !important;
   box-shadow: inset 0 0 6px rgba(200, 184, 150, 0.15);
+}
+
+/* Attack target squares — red glow */
+.attackTarget {
+  border-color: #c04040 !important;
+  background: rgba(192, 64, 64, 0.10) !important;
+  box-shadow: inset 0 0 8px rgba(192, 64, 64, 0.2);
+  animation: attackPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes attackPulse {
+  from { border-color: #c04040; box-shadow: inset 0 0 6px rgba(192, 64, 64, 0.15); }
+  to   { border-color: #e05050; box-shadow: inset 0 0 14px rgba(220, 80, 80, 0.30); }
 }
 
 /* Site */

@@ -9,6 +9,7 @@ import { MulliganScreen } from './components/GameLog/MulliganScreen';
 import { CardDetail } from './components/CardDetail/CardDetail';
 import { CardPreview } from './components/CardPreview/CardPreview';
 import { DrawChoiceModal } from './components/DrawChoiceModal/DrawChoiceModal';
+import { MoveActionModal } from './components/MoveActionModal/MoveActionModal';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
@@ -98,6 +99,11 @@ const App: React.FC = () => {
       {/* Draw choice modal */}
       {game.status === 'playing' && !handoff && (
         <DrawChoiceModal game={game} humanPlayerId={humanPlayerId} />
+      )}
+
+      {/* Move/attack action picker */}
+      {game.status === 'playing' && !handoff && (
+        <MoveActionModal game={game} humanPlayerId={humanPlayerId} />
       )}
 
       {/* Pass-the-device handoff screen */}

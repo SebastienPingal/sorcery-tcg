@@ -18,6 +18,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     playSiteViaAbility,
     pendingAvatarAbility,
     moveAndAttack,
+    setPendingMove,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
@@ -25,13 +26,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const selectedInst = selectedInstanceId ? game.instances[selectedInstanceId] : null;
   const isMyTurn = game.activePlayerId === humanPlayerId;
 
-  const getHighlightedSquares = (): { squares: Square[]; mode: string } => {
-    if (!selectedInst) return { squares: [], mode: '' };
+  const getHighlightedSquares = (): { squares: Square[]; attackSquares: Square[]; mode: string } => {
+    if (!selectedInst) return { squares: [], attackSquares: [], mode: '' };
     const card = selectedInst.card;
 
     // Sites can only be placed when a pendingAvatarAbility is active
     if (card.type === 'site' && !selectedInst.location && pendingAvatarAbility) {
-      return { squares: validSitePlacements(game, humanPlayerId), mode: 'place_site' };
+      return { squares: validSitePlacements(game, humanPlayerId), attackSquares: [], mode: 'place_site' };
     }
 
     if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
@@ -47,21 +48,37 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
         }
       }
       const mode = card.type === 'minion' ? 'cast_minion' : card.type === 'artifact' ? 'cast_artifact' : 'cast_magic';
-      return { squares, mode };
+      return { squares, attackSquares: [], mode };
     }
 
     if (selectedInst.location && (card.type === 'minion' || card.type === 'avatar') && isMyTurn) {
       if (!selectedInst.tapped && !selectedInst.summoningSickness) {
         const range = getMovementRange(selectedInst);
         const reachable = reachableSquares(game, selectedInst, range);
-        return { squares: reachable, mode: 'move' };
+        // Also include the current square (attack in place / use abilities here)
+        const startSq = selectedInst.location.square;
+        if (!reachable.some(s => s.row === startSq.row && s.col === startSq.col)) {
+          reachable.unshift({ row: startSq.row, col: startSq.col });
+        }
+        // Separate attack targets (squares with enemies) from plain movement squares
+        const attackSqs: Square[] = [];
+        for (const sq of reachable) {
+          const cell = game.realm[sq.row][sq.col];
+          const hasEnemyUnit = cell.unitInstanceIds.some(
+            id => game.instances[id]?.controllerId !== humanPlayerId
+          );
+          const site = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+          const hasEnemySite = !!site && site.controllerId !== humanPlayerId && !site.isRubble;
+          if (hasEnemyUnit || hasEnemySite) attackSqs.push(sq);
+        }
+        return { squares: reachable, attackSquares: attackSqs, mode: 'move' };
       }
     }
 
-    return { squares: [], mode: '' };
+    return { squares: [], attackSquares: [], mode: '' };
   };
 
-  const { squares: highlightedSquares, mode: highlightMode } = getHighlightedSquares();
+  const { squares: highlightedSquares, attackSquares: attackTargetSquares, mode: highlightMode } = getHighlightedSquares();
 
   const isHighlighted = (sq: Square): boolean =>
     highlightedSquares.some(h => h.row === sq.row && h.col === sq.col);
@@ -98,33 +115,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
 
     if (selectedInst.location && isHighlighted(sq) && highlightMode === 'move') {
-      const currentSq = selectedInst.location.square;
-      const isSameSquare = currentSq.row === sq.row && currentSq.col === sq.col;
-
-      if (isSameSquare) {
-        const enemies = cell.unitInstanceIds
-          .map(id => game.instances[id])
-          .filter(inst => inst && inst.controllerId !== humanPlayerId);
-        if (enemies.length > 0) {
-          moveAndAttack(selectedInst.instanceId, [], enemies[0].instanceId);
-        } else if (cell.siteInstanceId) {
-          const siteInst = game.instances[cell.siteInstanceId];
-          if (siteInst?.controllerId !== humanPlayerId) {
-            moveAndAttack(selectedInst.instanceId, [], cell.siteInstanceId);
-          }
-        }
-      } else {
-        const path = [sq];
-        const enemies = cell.unitInstanceIds
-          .map(id => game.instances[id])
-          .filter(inst => inst && inst.controllerId !== humanPlayerId);
-        if (enemies.length > 0) {
-          moveAndAttack(selectedInst.instanceId, path, enemies[0].instanceId);
-        } else {
-          moveAndAttack(selectedInst.instanceId, path);
-        }
-      }
-      selectInstance(null);
+      // Two-step: pick destination first, then choose action in a modal
+      setPendingMove({ unitInstanceId: selectedInst.instanceId, destSquare: sq });
       return;
     }
 
@@ -149,8 +141,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       if (highlightMode === 'move' && inst.controllerId !== humanPlayerId) {
         const sq = inst.location?.square;
         if (sq && isHighlighted(sq)) {
-          moveAndAttack(selectedInst.instanceId, [sq], instanceId);
-          selectInstance(null);
+          // Two-step: open action modal for the destination square
+          setPendingMove({ unitInstanceId: selectedInst.instanceId, destSquare: sq });
           return;
         }
       }
@@ -167,6 +159,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
         selectInstance(null);
         return;
       }
+    }
+
+    // Re-clicking the already-selected unit in move mode → open action modal on current square
+    if (instanceId === selectedInstanceId && highlightMode === 'move') {
+      const sq = inst.location?.square;
+      if (sq) setPendingMove({ unitInstanceId: instanceId, destSquare: sq });
+      return;
     }
 
     selectInstance(instanceId === selectedInstanceId ? null : instanceId);
@@ -197,10 +196,14 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
   };
 
+  const isAttackTarget = (sq: Square): boolean =>
+    attackTargetSquares.some(h => h.row === sq.row && h.col === sq.col);
+
   const renderCell = (row: number, col: number) => {
     const cell = game.realm[row][col];
     const sq = { row, col };
     const highlighted = isHighlighted(sq);
+    const attackTarget = isAttackTarget(sq);
     const siteInst = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
     const isWaterSite = siteInst?.card.type === 'site' && siteInst.card.isWaterSite;
 
@@ -214,7 +217,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     return (
       <div
         key={`${row}-${col}`}
-        className={`${styles.cell} ${styles[cellType]} ${highlighted ? styles.highlighted : ''}`}
+        className={`${styles.cell} ${styles[cellType]} ${attackTarget ? styles.attackTarget : highlighted ? styles.highlighted : ''}`}
         onClick={() => handleSquareClick(row, col)}
         onContextMenu={(e) => handleCellRightClick(e, row, col)}
       >
