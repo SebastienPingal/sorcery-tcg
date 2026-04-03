@@ -247,6 +247,7 @@ export type PendingInteraction =
   | { type: 'select_square'; prompt: string; validSquares: Square[]; forAction: GameAction }
   | { type: 'defend_prompt'; attackerId: string; targetId: string }
   | { type: 'mulligan'; playerId: PlayerId }
+  | { type: 'choose_draw'; playerId: PlayerId }
   | null;
 
 // ─── Full Game State ──────────────────────────────────────────────────────────

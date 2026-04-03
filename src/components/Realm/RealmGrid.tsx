@@ -34,7 +34,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       return { squares: validSitePlacements(game, humanPlayerId), mode: 'place_site' };
     }
 
-    if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic')) {
+    if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
       const squares: Square[] = [];
       for (const row of game.realm) {
         for (const cell of row) {
@@ -46,7 +46,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
           }
         }
       }
-      return { squares, mode: card.type === 'minion' ? 'cast_minion' : 'cast_magic' };
+      const mode = card.type === 'minion' ? 'cast_minion' : card.type === 'artifact' ? 'cast_artifact' : 'cast_magic';
+      return { squares, mode };
     }
 
     if (selectedInst.location && (card.type === 'minion' || card.type === 'avatar') && isMyTurn) {
@@ -79,7 +80,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       return;
     }
 
-    if (card.type === 'minion' && !selectedInst.location && isHighlighted(sq)) {
+    if ((card.type === 'minion' || card.type === 'artifact') && !selectedInst.location && isHighlighted(sq)) {
       castSpell(avatarInstId, selectedInstanceId!, sq);
       selectInstance(null);
       return;
@@ -154,6 +155,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
         }
       }
       if (selectedInst.card.type === 'magic' && !selectedInst.location && inst.controllerId !== humanPlayerId) {
+        const player = game.players[humanPlayerId];
+        castSpell(player.avatarInstanceId, selectedInst.instanceId, undefined, instanceId);
+        selectInstance(null);
+        return;
+      }
+      // Artifact → click any unit/avatar to attach it
+      if (selectedInst.card.type === 'artifact' && !selectedInst.location) {
         const player = game.players[humanPlayerId];
         castSpell(player.avatarInstanceId, selectedInst.instanceId, undefined, instanceId);
         selectInstance(null);
@@ -263,7 +271,15 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
               ${siteInst.controllerId === humanPlayerId ? styles.siteOwn : styles.siteEnemy}
               ${siteInst.card.image ? styles.siteLandscape : ''}
             `}
-            onClick={(e) => { e.stopPropagation(); handleUnitClick(e, siteInst.instanceId); }}
+            onClick={(e) => {
+              if (highlighted) {
+                // Placing a card — treat click on site as click on the square
+                handleSquareClick(row, col);
+              } else {
+                e.stopPropagation();
+                handleUnitClick(e, siteInst.instanceId);
+              }
+            }}
             onContextMenu={(e) => handleCardRightClick(e, siteInst.instanceId)}
             onMouseEnter={() => hoverInstance(siteInst.instanceId)}
             onMouseLeave={() => hoverInstance(null)}
@@ -320,6 +336,35 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   />
                 ) : (
                   <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
+                )}
+                {inst.carriedArtifacts.length > 0 && (
+                  <div className={styles.carriedArtifactsRow}>
+                    {inst.carriedArtifacts.map(artId => {
+                      const artInst = game.instances[artId];
+                      if (!artInst) return null;
+                      return (
+                        <div
+                          key={artId}
+                          className={styles.carriedArtifactBadge}
+                          title={artInst.card.name}
+                          onContextMenu={(e) => handleCardRightClick(e, artId)}
+                          onMouseEnter={(e) => { e.stopPropagation(); hoverInstance(artId); }}
+                          onMouseLeave={(e) => { e.stopPropagation(); hoverInstance(null); }}
+                        >
+                          {artInst.card.image ? (
+                            <img
+                              src={artInst.card.image}
+                              alt={artInst.card.name}
+                              className={styles.carriedArtifactImage}
+                              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                            />
+                          ) : (
+                            <span className={styles.carriedArtifactLabel}>{artInst.card.name.substring(0, 3)}</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
             );

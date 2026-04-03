@@ -197,25 +197,23 @@ function resolveStartPhase(state: GameState): void {
   // Step 3: Update elemental affinity
   player.elementalAffinity = computeAffinity(state, pid);
 
-  // Step 4: Draw (skip on turn 1 for first player)
-  // isFirstPlayerFirstTurn: skip draw on very first turn for first player (handled below)
-  // Actually first player only skips if it's their very first action
-  // We track this differently — just always draw except on game turn 1 player 1
-  if (!(state.turnNumber === 1 && pid === 'player1' && !hasPlayerTakenTurn(state, pid))) {
-    // For now: skip draw on the very first turn for first player
+  // Step 4: Draw — skip on the very first turn (player1, turn 1); otherwise prompt
+  if (state.turnNumber === 1) {
+    // First player skips their draw on turn 1 (rule: going first = no draw)
+    state.log.push(makeLog(
+      `${player.name} — Start Phase (mana: ${player.manaPool}, no draw on turn 1)`,
+      'phase'
+    ));
+    return;
   }
-  drawCards(state, pid, 1, Math.random() < 0.5 ? 'spellbook' : 'atlas');
-
+  // Prompt the active player to choose which deck to draw from
+  state.pendingInteraction = { type: 'choose_draw', playerId: pid };
   state.log.push(makeLog(
-    `${player.name} — Start Phase (mana: ${player.manaPool}, affinity: ${JSON.stringify(player.elementalAffinity)})`,
+    `${player.name} — Start Phase (mana: ${player.manaPool}) — choose your draw`,
     'phase'
   ));
 }
 
-// Simplified: just check if player has ever completed a turn
-function hasPlayerTakenTurn(_state: GameState, _pid: PlayerId): boolean {
-  return false; // simplified
-}
 
 function resolveEndPhase(state: GameState): void {
   const pid = state.activePlayerId;
@@ -250,11 +248,14 @@ function resolveEndPhase(state: GameState): void {
   state.turnNumber += 1;
   state.currentTurn = { spellsCastCount: 0, attacksDeclared: [], unitsThatMoved: [] };
 
-  // Start next player's turn immediately
+  // Start next player's turn
   resolveStartPhase(state);
-  state.phase = 'main';
-  state.step = 'main_open';
-  state.log.push(makeLog(`${state.players[nextPid].name} — Main Phase`, 'phase'));
+  // If a draw choice is pending, stay in start phase until player chooses
+  if (state.pendingInteraction?.type !== 'choose_draw') {
+    state.phase = 'main';
+    state.step = 'main_open';
+    state.log.push(makeLog(`${state.players[nextPid].name} — Main Phase`, 'phase'));
+  }
 }
 
 // ─── Start game from mulligan ─────────────────────────────────────────────────
@@ -262,15 +263,31 @@ export function startGame(state: GameState): void {
   state.status = 'playing';
   state.pendingInteraction = null;
 
-  // Resolve first player's start phase
+  // Resolve first player's start phase (turn 1 skips draw)
   resolveStartPhase(state);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if ((state.pendingInteraction as any)?.type !== 'choose_draw') {
+    state.phase = 'main';
+    state.step = 'main_open';
+    state.log.push(makeLog(
+      `${state.players[state.activePlayerId].name} goes first! First turn: you must play a site on your Avatar's square.`,
+      'phase'
+    ));
+  }
+}
+
+// ─── Draw choice ─────────────────────────────────────────────────────────────
+export function chooseDrawSource(state: GameState, playerId: PlayerId, source: 'atlas' | 'spellbook'): string | null {
+  if (state.pendingInteraction?.type !== 'choose_draw') return 'No draw choice pending';
+  if (state.pendingInteraction.playerId !== playerId) return 'Not your draw choice';
+  const player = state.players[playerId];
+  drawCards(state, playerId, 1, source);
+  state.pendingInteraction = null;
+  state.log.push(makeLog(`${player.name} draws from their ${source}.`));
   state.phase = 'main';
   state.step = 'main_open';
-
-  state.log.push(makeLog(
-    `${state.players[state.activePlayerId].name} goes first! First turn: you must play a site on your Avatar's square.`,
-    'phase'
-  ));
+  state.log.push(makeLog(`${player.name} — Main Phase`, 'phase'));
+  return null;
 }
 
 // ─── Mulligan ─────────────────────────────────────────────────────────────────

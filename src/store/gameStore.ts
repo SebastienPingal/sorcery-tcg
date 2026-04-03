@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import type { GameState, PlayerId, Square } from '../types';
 import {
   initGame, startGame, doMulligan, castSpell,
-  activateAvatarAbility, moveAndAttack, advancePhase,
+  activateAvatarAbility, moveAndAttack, advancePhase, chooseDrawSource,
   type GameSetupConfig,
 } from '../engine/gameEngine';
 import {
@@ -41,6 +41,7 @@ interface GameStore {
   drawSiteViaAbility: (playerId: PlayerId, abilityId: string) => void;
   activateAbility: (playerId: PlayerId, abilityId: string, targetSquare?: Square, siteId?: string) => void;
   moveAndAttack: (unitId: string, path: Square[], attackTargetId?: string) => void;
+  chooseDrawSource: (playerId: PlayerId, source: 'atlas' | 'spellbook') => void;
   endTurn: () => void;
   clearError: () => void;
   showCardDetail: (instanceId: string | null) => void;
@@ -84,8 +85,19 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    startGame(newGame);
-    set({ game: newGame, actionError: null });
+    const currentMulliganPlayer = newGame.pendingInteraction?.type === 'mulligan'
+      ? newGame.pendingInteraction.playerId : newGame.activePlayerId;
+    if (currentMulliganPlayer === newGame.activePlayerId) {
+      // First player done → set up second player's mulligan
+      const next: import('../types').PlayerId = currentMulliganPlayer === 'player1' ? 'player2' : 'player1';
+      newGame.pendingInteraction = { type: 'mulligan', playerId: next };
+      set({ game: newGame, actionError: null });
+    } else {
+      // Second player done → start the game
+      newGame.pendingInteraction = null;
+      startGame(newGame);
+      set({ game: newGame, actionError: null });
+    }
   },
 
   takeMulligan: (playerId, returnIds) => {
@@ -93,8 +105,18 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!game) return;
     const newGame = structuredClone(game);
     doMulligan(newGame, playerId, returnIds);
-    startGame(newGame);
-    set({ game: newGame, actionError: null });
+    const currentMulliganPlayer = playerId;
+    if (currentMulliganPlayer === newGame.activePlayerId) {
+      // First player done → set up second player's mulligan
+      const next: import('../types').PlayerId = currentMulliganPlayer === 'player1' ? 'player2' : 'player1';
+      newGame.pendingInteraction = { type: 'mulligan', playerId: next };
+      set({ game: newGame, actionError: null });
+    } else {
+      // Second player done → start the game
+      newGame.pendingInteraction = null;
+      startGame(newGame);
+      set({ game: newGame, actionError: null });
+    }
   },
 
   selectInstance: (instanceId) => {
@@ -177,15 +199,28 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
+  chooseDrawSource: (playerId, source) => {
+    const { game } = get();
+    if (!game) return;
+    const newGame = structuredClone(game);
+    const err = chooseDrawSource(newGame, playerId, source);
+    if (err) set({ actionError: err });
+    else set({ game: newGame, actionError: null });
+  },
+
   endTurn: () => {
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
     advancePhase(newGame);
-    if (newGame.phase === 'main') {
+    // If the next player has a draw choice pending, stay in start phase — don't skip ahead
+    if (newGame.pendingInteraction?.type === 'choose_draw') {
+      set({ game: newGame, actionError: null, selectedInstanceId: null });
+    } else if (newGame.phase !== 'main') {
+      // Rare: advance once more to reach main phase
+      advancePhase(newGame);
       set({ game: newGame, actionError: null, selectedInstanceId: null });
     } else {
-      advancePhase(newGame);
       set({ game: newGame, actionError: null, selectedInstanceId: null });
     }
   },

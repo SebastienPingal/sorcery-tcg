@@ -86,8 +86,8 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
         </div>
       )}
 
-      {/* Avatar abilities (only when no pending action) */}
-      {isMyTurn && !pendingAvatarAbility && (
+      {/* Avatar abilities (only when no pending action and no draw choice pending) */}
+      {isMyTurn && !pendingAvatarAbility && game.pendingInteraction?.type !== 'choose_draw' && (
         <div className={styles.section}>
           <div className={styles.sectionTitle}>{avatarCard.name}'s Abilities</div>
           <div className={styles.abilities}>
@@ -111,7 +111,7 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
       )}
 
       {/* Selected card info (spells / units on board) */}
-      {selectedInstanceId && !pendingAvatarAbility && (
+      {selectedInstanceId && !pendingAvatarAbility && game.pendingInteraction?.type !== 'choose_draw' && (
         <div className={styles.selectedInfo}>
           <div className={styles.sectionTitle}>Selected:</div>
           <div className={styles.selectedName}>
@@ -140,11 +140,11 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
       {/* End turn */}
       <div className={styles.endTurnSection}>
         <button
-          className={`${styles.endTurnBtn} ${!isMyTurn ? styles.disabled : ''}`}
-          onClick={() => isMyTurn && endTurn()}
-          disabled={!isMyTurn}
+          className={`${styles.endTurnBtn} ${(!isMyTurn || game.pendingInteraction?.type === 'choose_draw') ? styles.disabled : ''}`}
+          onClick={() => isMyTurn && game.pendingInteraction?.type !== 'choose_draw' && endTurn()}
+          disabled={!isMyTurn || game.pendingInteraction?.type === 'choose_draw'}
         >
-          {isMyTurn ? '⏭ End Turn' : '⏳ Waiting…'}
+          {!isMyTurn ? '⏳ Waiting…' : game.pendingInteraction?.type === 'choose_draw' ? '📥 Draw first…' : '⏭ End Turn'}
         </button>
       </div>
 

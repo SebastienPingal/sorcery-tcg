@@ -14,7 +14,7 @@ interface HandProps {
 export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
   const {
     selectedInstanceId, selectInstance,
-    pendingAvatarAbility,
+    pendingAvatarAbility, setPendingAvatarAbility,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
@@ -51,8 +51,14 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     const card = inst.card;
 
     if (card.type === 'site') {
-      // Sites can only be selected during the "play or draw site" avatar ability
-      return pendingAvatarAbility !== null;
+      if (pendingAvatarAbility !== null) return true;
+      // Also actionable if avatar has the ability and is untapped
+      const player = game.players[playerId];
+      const avatarInst = game.instances[player.avatarInstanceId];
+      if (avatarInst.tapped) return false;
+      return !!(avatarInst.card as any).abilities?.some(
+        (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
+      );
     }
 
     if ('manaCost' in card) {
@@ -71,7 +77,11 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     const card = inst.card;
 
     if (card.type === 'site') {
-      return pendingAvatarAbility ? null : 'Use Avatar ability';
+      if (pendingAvatarAbility) return null;
+      const player = game.players[playerId];
+      const avatarInst = game.instances[player.avatarInstanceId];
+      if (avatarInst.tapped) return 'Avatar tapped';
+      return null;
     }
     if ('manaCost' in card) {
       if (manaAvail < card.manaCost) return `Need ${card.manaCost} mana`;
@@ -86,10 +96,23 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     const inst = game.instances[instanceId];
     if (!inst) return;
 
-    // Sites: only selectable when avatar ability is pending
+    // Sites: select and auto-activate the avatar's play-site ability if available
     if (inst.card.type === 'site') {
       if (pendingAvatarAbility) {
         selectInstance(instanceId === selectedInstanceId ? null : instanceId);
+      } else {
+        // Auto-find and trigger the avatar's play-or-draw-site ability
+        const player = game.players[playerId];
+        const avatarInst = game.instances[player.avatarInstanceId];
+        if (!avatarInst.tapped) {
+          const ab = (avatarInst.card as any).abilities?.find(
+            (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
+          );
+          if (ab) {
+            setPendingAvatarAbility(ab.id);
+            selectInstance(instanceId);
+          }
+        }
       }
       return;
     }

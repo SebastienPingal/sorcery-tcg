@@ -8,24 +8,31 @@ import { Controls } from './components/Controls/Controls';
 import { MulliganScreen } from './components/GameLog/MulliganScreen';
 import { CardDetail } from './components/CardDetail/CardDetail';
 import { CardPreview } from './components/CardPreview/CardPreview';
+import { DrawChoiceModal } from './components/DrawChoiceModal/DrawChoiceModal';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
   const { game, startQuickGame } = useGameStore();
 
-  // Hot-seat: show a "pass the device" screen between turns
+  // Hot-seat: show a "pass the device" screen between turns and between mulligans
   const [handoff, setHandoff] = useState(false);
-  const prevActiveRef = useRef<PlayerId | null>(null);
+  const prevHumanRef = useRef<PlayerId | null>(null);
 
-  // Detect turn change → trigger handoff screen
+  // Derive the current "human" player id (works during both mulligan and play)
+  const currentHumanId: PlayerId | null = !game ? null
+    : game.status === 'mulligan'
+      ? (game.pendingInteraction?.type === 'mulligan' ? game.pendingInteraction.playerId : 'player1')
+      : game.activePlayerId;
+
+  // Detect player change → trigger handoff screen
   useEffect(() => {
-    if (!game || game.status !== 'playing') return;
-    if (prevActiveRef.current && prevActiveRef.current !== game.activePlayerId) {
+    if (!game || !currentHumanId) return;
+    if (prevHumanRef.current && prevHumanRef.current !== currentHumanId) {
       setHandoff(true);
     }
-    prevActiveRef.current = game.activePlayerId;
-  }, [game?.activePlayerId, game?.status]);
+    prevHumanRef.current = currentHumanId;
+  }, [currentHumanId, game?.status]);
 
   // Keyboard shortcut: Escape to deselect
   useEffect(() => {
@@ -72,15 +79,7 @@ const App: React.FC = () => {
     );
   }
 
-  // During mulligan: pendingInteraction tells us whose turn it is to mulligan
-  const mulliganPlayer: PlayerId =
-    game.pendingInteraction?.type === 'mulligan'
-      ? game.pendingInteraction.playerId
-      : 'player1';
-
-  // During play: the active player is "you" for this turn
-  const humanPlayerId: PlayerId =
-    game.status === 'mulligan' ? mulliganPlayer : game.activePlayerId;
+  const humanPlayerId: PlayerId = currentHumanId ?? game.activePlayerId;
 
   const opponentId: PlayerId = humanPlayerId === 'player1' ? 'player2' : 'player1';
 
@@ -94,6 +93,11 @@ const App: React.FC = () => {
       {/* Mulligan overlay */}
       {game.status === 'mulligan' && (
         <MulliganScreen game={game} humanPlayerId={humanPlayerId} />
+      )}
+
+      {/* Draw choice modal */}
+      {game.status === 'playing' && !handoff && (
+        <DrawChoiceModal game={game} humanPlayerId={humanPlayerId} />
       )}
 
       {/* Pass-the-device handoff screen */}

@@ -62,7 +62,7 @@
 
 /* Right column: card hover preview */
 .previewPanel {
-  width: 220px;
+  width: 300px;
   flex-shrink: 0;
   overflow: hidden;
   border-left: 1px solid #1e1e1e;
