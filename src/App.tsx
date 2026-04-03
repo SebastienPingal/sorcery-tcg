@@ -11,11 +11,12 @@ import { CardPreview } from './components/CardPreview/CardPreview';
 import { DrawChoiceModal } from './components/DrawChoiceModal/DrawChoiceModal';
 import { MoveActionModal } from './components/MoveActionModal/MoveActionModal';
 import { SquareDetailModal } from './components/SquareDetailModal/SquareDetailModal';
+import { DeckSelectScreen } from './components/DeckSelect/DeckSelectScreen';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
-  const { game, startQuickGame } = useGameStore();
+  const { game, startQuickGame, initGame } = useGameStore();
 
   // Hot-seat: show a "pass the device" screen between turns and between mulligans
   const [handoff, setHandoff] = useState(false);
@@ -49,21 +50,7 @@ const App: React.FC = () => {
   }, []);
 
   if (!game) {
-    return (
-      <div className={styles.startScreen}>
-        <div className={styles.startPanel}>
-          <h1 className={styles.logo}>SORCERY</h1>
-          <h2 className={styles.subtitle}>Contested Realm</h2>
-          <p className={styles.tagline}>A digital adaptation of the TCG</p>
-          <button className={styles.startBtn} onClick={startQuickGame}>
-            ⚔ Hot-seat (2 players, 1 computer)
-          </button>
-          <div className={styles.deckInfo}>
-            <p>Player 1: Sorcerer (Fire/Earth) vs Player 2: Sparkmage (Water/Air)</p>
-          </div>
-        </div>
-      </div>
-    );
+    return <DeckSelectScreen onStart={initGame} />;
   }
 
   if (game.status === 'ended') {

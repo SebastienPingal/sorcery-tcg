@@ -1,0 +1,180 @@
+.screen {
+  width: 100vw;
+  height: 100vh;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(ellipse at center, #111 0%, #050505 100%);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 48px;
+  max-width: 760px;
+  width: 100%;
+}
+
+.logo {
+  font-size: 42px;
+  font-weight: bold;
+  color: #c8b896;
+  letter-spacing: 8px;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(200, 184, 150, 0.3);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  letter-spacing: 4px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.stepTitle {
+  font-size: 13px;
+  color: #aaa;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #222;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 2×2 grid of deck cards */
+.deckGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.deckCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: #0e0e0e;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+  position: relative;
+  min-height: 90px;
+}
+
+.deckCard:hover {
+  border-color: #555;
+  background: #131313;
+  transform: translateY(-2px);
+}
+
+.deckCardSelected {
+  border-color: #c8b896 !important;
+  background: #141310 !important;
+  box-shadow: 0 0 12px rgba(200, 184, 150, 0.12);
+}
+
+.avatarImg {
+  width: 54px;
+  height: 76px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+}
+
+.avatarImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.deckInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.deckName {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ddd;
+  letter-spacing: 1px;
+}
+
+.deckDesc {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.deckCounts {
+  display: flex;
+  gap: 6px;
+  font-size: 10px;
+  color: #555;
+  margin-top: 2px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 14px;
+  color: #c8b896;
+}
+
+.bottomRow {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.nextBtn {
+  padding: 10px 28px;
+  background: #1a1610;
+  border: 1px solid #c8b896;
+  border-radius: 6px;
+  color: #c8b896;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  align-self: flex-end;
+}
+
+.nextBtn:hover:not(:disabled) {
+  background: #242010;
+  box-shadow: 0 0 12px rgba(200, 184, 150, 0.2);
+}
+
+.nextBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.backBtn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.backBtn:hover {
+  border-color: #555;
+  color: #aaa;
+}
