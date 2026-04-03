@@ -10,6 +10,7 @@ import { CardDetail } from './components/CardDetail/CardDetail';
 import { CardPreview } from './components/CardPreview/CardPreview';
 import { DrawChoiceModal } from './components/DrawChoiceModal/DrawChoiceModal';
 import { MoveActionModal } from './components/MoveActionModal/MoveActionModal';
+import { SquareDetailModal } from './components/SquareDetailModal/SquareDetailModal';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
@@ -104,6 +105,11 @@ const App: React.FC = () => {
       {/* Move/attack action picker */}
       {game.status === 'playing' && !handoff && (
         <MoveActionModal game={game} humanPlayerId={humanPlayerId} />
+      )}
+
+      {/* Square detail modal (right-click on cell) */}
+      {game.status === 'playing' && !handoff && (
+        <SquareDetailModal game={game} />
       )}
 
       {/* Pass-the-device handoff screen */}

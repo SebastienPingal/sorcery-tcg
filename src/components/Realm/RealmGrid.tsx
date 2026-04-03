@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { GameState, Square, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { validSitePlacements, getMovementRange, reachableSquares } from '../../engine/utils';
@@ -19,9 +19,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     pendingAvatarAbility,
     moveAndAttack,
     setPendingMove,
+    setSquareDetail,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
+
+  // Track which cell is hovered for spread animation
+  const [hoveredCell, setHoveredCell] = useState<{ row: number; col: number } | null>(null);
 
   const selectedInst = selectedInstanceId ? game.instances[selectedInstanceId] : null;
   const isMyTurn = game.activePlayerId === humanPlayerId;
@@ -180,20 +184,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const handleCellRightClick = (e: React.MouseEvent, row: number, col: number) => {
     e.preventDefault();
     e.stopPropagation();
-    const cell = game.realm[row][col];
-    const topSurface = cell.unitInstanceIds[cell.unitInstanceIds.length - 1];
-    if (topSurface) {
-      showCardDetail(topSurface);
-      return;
-    }
-    const topUnderground = cell.subsurfaceUnitIds[cell.subsurfaceUnitIds.length - 1];
-    if (topUnderground) {
-      showCardDetail(topUnderground);
-      return;
-    }
-    if (cell.siteInstanceId) {
-      showCardDetail(cell.siteInstanceId);
-    }
+    setSquareDetail({ row, col });
   };
 
   const isAttackTarget = (sq: Square): boolean =>
@@ -206,6 +197,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     const attackTarget = isAttackTarget(sq);
     const siteInst = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
     const isWaterSite = siteInst?.card.type === 'site' && siteInst.card.isWaterSite;
+    const isHovered = hoveredCell?.row === row && hoveredCell?.col === col;
 
     let cellType = 'void';
     if (siteInst) {
@@ -217,9 +209,11 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     return (
       <div
         key={`${row}-${col}`}
-        className={`${styles.cell} ${styles[cellType]} ${attackTarget ? styles.attackTarget : highlighted ? styles.highlighted : ''}`}
+        className={`${styles.cell} ${styles[cellType]} ${attackTarget ? styles.attackTarget : highlighted ? styles.highlighted : ''} ${isHovered ? styles.cellHovered : ''}`}
         onClick={() => handleSquareClick(row, col)}
         onContextMenu={(e) => handleCellRightClick(e, row, col)}
+        onMouseEnter={() => setHoveredCell({ row, col })}
+        onMouseLeave={() => setHoveredCell(null)}
       >
         <span className={styles.coord}>{row},{col}</span>
 
@@ -230,7 +224,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
               if (!inst) return null;
               const isSelected = id === selectedInstanceId;
               const isOwn = inst.controllerId === humanPlayerId;
-              const offset = (index - (cell.subsurfaceUnitIds.length - 1) / 2) * 12;
+              const spread = isHovered ? 32 : 12;
+              const offset = (index - (cell.subsurfaceUnitIds.length - 1) / 2) * spread;
               const tokenOffsetStyle = { '--stack-offset-x': `${offset}px` } as React.CSSProperties;
 
               return (
@@ -275,6 +270,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
               ${siteInst.controllerId === humanPlayerId ? styles.siteOwn : styles.siteEnemy}
               ${siteInst.controllerId === 'player1' ? styles.sitePlayer1 : styles.sitePlayer2}
               ${siteInst.card.image ? styles.siteLandscape : ''}
+              ${isHovered ? styles.siteHovered : ''}
             `}
             onClick={(e) => {
               if (highlighted) {
@@ -311,7 +307,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
             if (!inst) return null;
             const isSelected = id === selectedInstanceId;
             const isOwn = inst.controllerId === humanPlayerId;
-            const offset = (index - (cell.unitInstanceIds.length - 1) / 2) * 12;
+            const spread = isHovered ? 32 : 12;
+            const offset = (index - (cell.unitInstanceIds.length - 1) / 2) * spread;
             const tokenOffsetStyle = { '--stack-offset-x': `${offset}px` } as React.CSSProperties;
 
             return (
