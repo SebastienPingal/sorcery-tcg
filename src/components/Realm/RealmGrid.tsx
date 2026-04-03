@@ -172,7 +172,9 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       return;
     }
 
-    selectInstance(instanceId === selectedInstanceId ? null : instanceId);
+    if (inst.controllerId === humanPlayerId) {
+      selectInstance(instanceId === selectedInstanceId ? null : instanceId);
+    }
   };
 
   const handleCardRightClick = (e: React.MouseEvent, instanceId: string) => {

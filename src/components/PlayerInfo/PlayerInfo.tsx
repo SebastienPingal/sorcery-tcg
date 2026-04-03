@@ -29,15 +29,19 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive
         <div className={styles.compactName}>
           {player.name}
           {isActive && <span className={styles.activeBadge}> ◆</span>}
-          {player.isAtDeathsDoor && <span className={styles.deathBadge}> ☠</span>}
           {avatarInst?.tapped && <span className={styles.tappedBadge}> ⟳</span>}
         </div>
 
         {/* Row 2: life */}
         <div className={styles.compactLifeRow}>
           <span className={styles.lifeLabel}>♥</span>
-          <div className={styles.lifeBar}>
-            <div className={styles.lifeBarFill} style={{ width: `${lifePercent}%`, backgroundColor: lifeColor }} />
+          <div className={styles.lifeBarWrapper}>
+            <div className={styles.lifeBar}>
+              <div className={styles.lifeBarFill} style={{ width: `${lifePercent}%`, backgroundColor: lifeColor }} />
+            </div>
+            {player.isAtDeathsDoor && (
+              <div className={styles.deathsDoorOverlay}>☠ Death's Door</div>
+            )}
           </div>
           <span className={styles.lifeNum} style={{ color: lifeColor }}>
             {player.life}/{player.maxLife}
@@ -67,17 +71,21 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive
       <div className={styles.name}>
         {player.name}
         {isActive && <span className={styles.activeBadge}> ◆ Active</span>}
-        {player.isAtDeathsDoor && <span className={styles.deathBadge}> ☠ Death's Door!</span>}
-      </div>
+        </div>
 
       {/* Life bar */}
       <div className={styles.lifeSection}>
         <span className={styles.lifeLabel}>♥</span>
-        <div className={styles.lifeBar}>
-          <div
-            className={styles.lifeBarFill}
-            style={{ width: `${lifePercent}%`, backgroundColor: lifeColor }}
-          />
+        <div className={styles.lifeBarWrapper}>
+          <div className={styles.lifeBar}>
+            <div
+              className={styles.lifeBarFill}
+              style={{ width: `${lifePercent}%`, backgroundColor: lifeColor }}
+            />
+          </div>
+          {player.isAtDeathsDoor && (
+            <div className={styles.deathsDoorOverlay}>☠ Death's Door</div>
+          )}
         </div>
         <span className={styles.lifeNum} style={{ color: lifeColor }}>
           {player.life}/{player.maxLife}

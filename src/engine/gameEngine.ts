@@ -68,6 +68,7 @@ function makePlayer(
     life,
     maxLife: life,
     isAtDeathsDoor: false,
+    deathsDoorTurn: null,
     manaPool: 0,
     manaUsed: 0,
     elementalAffinity: {},
@@ -621,6 +622,20 @@ function attackSite(
 
   // Damage the site (causes avatar life loss)
   const defender = state.players[targetPlayerId];
+
+  if (defender.isAtDeathsDoor) {
+    if (isDeathsDoorImmune(state, targetPlayerId)) {
+      // Entered Death's Door this same turn — fully immune
+      state.log.push(makeLog(`${defender.name} is at Death's Door but immune this turn!`, 'combat'));
+      return null;
+    }
+    // Already at Death's Door since a previous turn — death blow
+    state.winner = opponent(targetPlayerId);
+    state.status = 'ended';
+    state.log.push(makeLog(`DEATH BLOW! ${defender.name} is defeated!`, 'combat'));
+    return null;
+  }
+
   defender.life -= atkPower;
 
   state.log.push(makeLog(
@@ -663,10 +678,15 @@ function dealDamageToUnit(state: GameState, inst: CardInstance, amount: number):
   if (inst.card.type === 'avatar') {
     const player = state.players[inst.controllerId];
     if (player.isAtDeathsDoor) {
-      // Death blow
-      state.winner = opponent(inst.controllerId);
-      state.status = 'ended';
-      state.log.push(makeLog(`DEATH BLOW! ${player.name} is defeated!`, 'combat'));
+      if (isDeathsDoorImmune(state, inst.controllerId)) {
+        // Entered Death's Door this same turn — fully immune
+        state.log.push(makeLog(`${player.name} is at Death's Door but immune this turn!`, 'combat'));
+      } else {
+        // Death blow
+        state.winner = opponent(inst.controllerId);
+        state.status = 'ended';
+        state.log.push(makeLog(`DEATH BLOW! ${player.name} is defeated!`, 'combat'));
+      }
     } else {
       player.life -= amount;
       state.log.push(makeLog(`${player.name}'s Avatar takes ${amount} damage (life: ${player.life})`, 'combat'));
@@ -701,8 +721,15 @@ function checkDeathsDoor(state: GameState, playerId: PlayerId): void {
   if (player.life <= 0 && !player.isAtDeathsDoor) {
     player.life = 0;
     player.isAtDeathsDoor = true;
+    player.deathsDoorTurn = state.turnNumber;
     state.log.push(makeLog(`${player.name} is at Death's Door!`, 'combat'));
   }
+}
+
+/** Returns true if the player is immune to all effects this turn (entered Death's Door this very turn). */
+function isDeathsDoorImmune(state: GameState, playerId: PlayerId): boolean {
+  const player = state.players[playerId];
+  return player.isAtDeathsDoor && player.deathsDoorTurn === state.turnNumber;
 }
 
 function killUnit(state: GameState, inst: CardInstance): void {

@@ -59,6 +59,13 @@
   color: #cc6666;
 }
 
+.lifeBarWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .lifeBar {
   flex: 1;
   height: 8px;
@@ -66,6 +73,22 @@
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid #2a2a2a;
+}
+
+.deathsDoorOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+  color: #ff4444;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px rgba(255, 60, 60, 0.8);
+  animation: blink 0.5s step-end infinite;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .lifeBarFill {

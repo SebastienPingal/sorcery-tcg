@@ -184,6 +184,7 @@ export interface Player {
   life: number;
   maxLife: number;
   isAtDeathsDoor: boolean;
+  deathsDoorTurn: number | null; // turn number when they entered Death's Door (immune that whole turn)
   manaPool: number;
   manaUsed: number;
   elementalAffinity: ElementalThreshold;
