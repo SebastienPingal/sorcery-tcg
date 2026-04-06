@@ -104,15 +104,15 @@ type CheckAction =
 Four true atomic actions — each does exactly one thing:
 
 ```ts
-  | { type: 'ATTACH_ARTIFACT';           artifactId: string; carrierId: string }
+  | { type: 'ATTACH_ARTIFACT';             artifactId: string; carrierId: string }
   // sets artifact.carriedBy = carrierId, adds artifactId to carrier.carriedArtifacts
   // does NOT change artifact's board location
 
-  | { type: 'DETACH_ARTIFACT';           artifactId: string }
+  | { type: 'DETACH_ARTIFACT';             artifactId: string }
   // clears artifact.carriedBy and removes from carrier.carriedArtifacts
   // does NOT move the artifact anywhere — must be followed by PLACE_ARTIFACT_ON_SQUARE or DESTROY_ARTIFACT
 
-  | { type: 'PLACE_ARTIFACT_ON_SQUARE';  artifactId: string; square: Square }
+  | { type: 'PLACE_ARTIFACT_ON_SQUARE';    artifactId: string; square: Square }
   // sets artifact's board location — used after DETACH or when entering play uncarried
 
   | { type: 'REMOVE_ARTIFACT_FROM_SQUARE'; artifactId: string }
@@ -123,6 +123,36 @@ Four true atomic actions — each does exactly one thing:
 > - `PICK_UP_ARTIFACT` → `REMOVE_ARTIFACT_FROM_SQUARE` + `ATTACH_ARTIFACT`
 > - `DROP_ARTIFACT` → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE`
 > - On carrier death → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE` (same square as dead unit)
+
+### Unit Carrying
+
+Some units can carry other units (rules: same Pick Up / Drop mechanic as artifacts, once per turn).
+
+**Key difference from artifact carrying:** a carried unit keeps its board square — it remains in `RealmSquare.unitInstanceIds`, can be targeted, can cast spells and activate abilities. Only the `carriedBy` relationship is set.
+
+Two atomic actions:
+
+```ts
+  | { type: 'ATTACH_UNIT_TO_CARRIER';  unitId: string; carrierId: string }
+  // sets unit.carriedBy = carrierId, adds unitId to carrier.carriedUnitIds
+  // unit stays at its current square — NO square change
+
+  | { type: 'DETACH_UNIT_FROM_CARRIER'; unitId: string }
+  // clears unit.carriedBy, removes from carrier.carriedUnitIds
+  // unit stays at its current square
+```
+
+> `PICK_UP_UNIT` → `ATTACH_UNIT_TO_CARRIER` only (unit already shares the square)
+> `DROP_UNIT`    → `DETACH_UNIT_FROM_CARRIER` only (unit stays at the same square)
+> On carrier death → `DETACH_UNIT_FROM_CARRIER` (carried unit stays at the death square, now free)
+> If carried unit independently moves to a different square → `DETACH_UNIT_FROM_CARRIER` fires automatically
+
+**Passive effects from unit carrying** (computed at read time in `computeStats`):
+- Carrier's movement keywords (Airborne, Burrowing, Submerge, Voidwalk) are granted to carried unit
+- Other keyword grants from specific card abilities are handled the same way
+
+**`MOVE_UNIT` with a carrying unit:** when a unit carrying other units moves, the engine also updates each carried unit's square (same path). This is part of the `MOVE_UNIT` atomic action — the carried units' positions are updated atomically with the carrier.
+
 
 ### Damage & Life
 
