@@ -123,12 +123,18 @@ type CheckAction =
 >
 > **Split Power note:** Some minions (26 in the current dataset) have separate attack and defense values (`power: { attack, defense }`). The `amount` in `DEAL_DAMAGE` is always resolved from `getAttackPower(sourceId, state)` at decomposition time. Death is checked against `getDefensePower(targetId, state)`. Both functions must scan passive modifiers and active floating effects in addition to the base card value.
 
+> **Damage persistence:** Minion damage accumulates across the entire turn and resets at the **end of the active player's turn** (End Phase, step 2). This means:
+> - If player A damages a minion belonging to player B during player A's turn, that minion carries those damage tokens into player B's turn. The damage only resets at the end of player B's turn.
+> - Damage from multiple sources within the same turn is cumulative (rule confirmed).
+> - Avatars never reset life — only minion damage resets.
+> - `RESET_ALL_DAMAGE` fires inside `END_TURN`, **before** `SWITCH_ACTIVE_PLAYER`, so it always resets the current active player's turn damage, not the next player's.
+
 ```ts
   | { type: 'DEAL_DAMAGE';     sourceId: string; targetId: string; amount: number }
   | { type: 'LOSE_LIFE';       playerId: PlayerId; amount: number }  // site attack, life loss effects
   | { type: 'GAIN_LIFE';       playerId: PlayerId; amount: number }
-  | { type: 'RESET_DAMAGE';    instanceId: string }   // end of turn, minion only
-  | { type: 'RESET_ALL_DAMAGE'; }                     // end of turn sweep
+  | { type: 'RESET_DAMAGE';    instanceId: string }   // reset single minion (e.g. ability effect)
+  | { type: 'RESET_ALL_DAMAGE'; }                     // End Phase sweep — resets ALL minions on board
 ```
 
 ### Death & Death's Door
@@ -286,11 +292,15 @@ CHECK_ABILITY_USABLE(instanceId, abilityId)   ← checks cost, tap, threshold, n
 
 ### `END_TURN`
 
+Per rules End Phase order: (1) end_of_turn triggers, (2) reset minion damage, (3) floating "for your turn" effects expire, (4) mana lost, (5) opponent's turn begins.
+
 ```
 CHECK_IS_ACTIVE_PLAYER
-RESET_ALL_DAMAGE
-CLEAR_MANA(activePlayerId)
-SWITCH_ACTIVE_PLAYER
+TRIGGER_FIRED('end_of_turn', ...)           ← step 1: all end_of_turn abilities fire
+TICK_FLOATING_EFFECTS(activePlayerId)       ← step 3: decrement durations, remove expired "this turn" effects
+RESET_ALL_DAMAGE                            ← step 2: all minion damage tokens cleared
+CLEAR_MANA(activePlayerId)                  ← step 4: unspent mana lost
+SWITCH_ACTIVE_PLAYER                        ← step 5: opponent's turn begins
 INCREMENT_TURN
 UNTAP_ALL(nextPlayerId)
 CLEAR_SUMMONING_SICKNESS(nextPlayerId)
@@ -298,8 +308,10 @@ COMPUTE_MANA_POOL(nextPlayerId)
 COMPUTE_AFFINITY(nextPlayerId)
 → if not turn 1 first player: SET_PENDING_INTERACTION({ type: 'choose_draw', playerId })
    else: ADVANCE_PHASE
-TRIGGER_FIRED('start_of_turn', avatarId)   ← after draw choice resolved
+TRIGGER_FIRED('start_of_turn', ...)         ← after draw choice resolved
 ```
+
+Note: `RESET_ALL_DAMAGE` resets **all minions currently on the board**, regardless of controller. Damage accumulated during the active player's turn on the opponent's minions is also cleared here — those minions do **not** carry damage into the next turn.
 
 ---
 
