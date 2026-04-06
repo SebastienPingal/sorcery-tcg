@@ -113,13 +113,15 @@ type CheckAction =
 
 > **Rule distinction:**
 > - `DEAL_DAMAGE` — damages a unit or avatar directly (from combat, spells, abilities).
->   - On a **minion**: accumulates as `damage` tokens; minion dies when `damage >= power`.
+>   - On a **minion**: accumulates as `damage` tokens; minion dies when `damage >= defensePower`.
 >   - On an **avatar**: reduces life. Can trigger Death's Door. Can deliver a death blow.
 >   - Is blocked by Death's Door immunity (the turn an avatar enters it).
 > - `LOSE_LIFE` — the controller of a site loses life when that site is attacked.
 >   - Bypasses minions. Reduces life directly.
 >   - **Cannot** deliver a death blow (rule: site attacks never cause a death blow).
 >   - Is also blocked by Death's Door immunity.
+>
+> **Split Power note:** Some minions (26 in the current dataset) have separate attack and defense values (`power: { attack, defense }`). The `amount` in `DEAL_DAMAGE` is always resolved from `getAttackPower(sourceId, state)` at decomposition time. Death is checked against `getDefensePower(targetId, state)`. Both functions must scan passive modifiers and active floating effects in addition to the base card value.
 
 ```ts
   | { type: 'DEAL_DAMAGE';     sourceId: string; targetId: string; amount: number }
@@ -132,7 +134,8 @@ type CheckAction =
 ### Death & Death's Door
 
 ```ts
-  | { type: 'CHECK_MINION_DEATH';  instanceId: string }  // check if damage >= power, trigger destroy
+  | { type: 'CHECK_MINION_DEATH';  instanceId: string }
+  // compares inst.damage >= getDefensePower(instanceId, state) — uses defensePower, not attackPower
   | { type: 'DESTROY_UNIT';        instanceId: string }   // remove from board, send to cemetery
   | { type: 'CHECK_DEATHS_DOOR';   playerId: PlayerId }   // check if life <= 0
   | { type: 'ENTER_DEATHS_DOOR';   playerId: PlayerId }
@@ -437,7 +440,30 @@ PlayerAction received
 
 ### 1. Passive Abilities — Computed at Read Time
 
-Passive abilities (always-on modifiers: +X power, keyword grants, etc.) are **never stored as mutations** in the event log. They are computed on the fly when reading the relevant part of the game state (e.g. `getEffectivePower(instanceId, state)` scans all in-play auras/artifacts and sums their modifiers).
+Passive abilities (always-on modifiers: +X power, keyword grants, etc.) are **never stored as mutations** in the event log. They are computed on the fly through a unified `computeStats(instanceId, state)` function that is the single point of truth for a unit's effective stats.
+
+```ts
+interface UnitStats {
+  attackPower: number;    // used as DEAL_DAMAGE amount when this unit strikes
+  defensePower: number;   // threshold for CHECK_MINION_DEATH (damage >= defensePower → dies)
+  movement: number;
+  keywords: KeywordAbility[];
+}
+
+// Modifier: used by both passive abilities (permanent) and floating effects (temporary)
+interface Modifier {
+  stat: 'attackPower' | 'defensePower' | 'both_power' | 'movement';
+  operation: 'add' | 'set';
+  amount: number;
+}
+```
+
+`computeStats(id, state)` aggregation order:
+1. Base card value (`power: number` → both equal; `power: { attack, defense }` → split)
+2. Add modifiers from passive abilities of all in-play permanents that affect this unit
+3. Add modifiers from `state.floatingEffects` targeting this unit
+
+For avatars: `attackPower` comes from `card.attackPower`; they have no `defensePower` (avatars lose life, not damage tokens).
 
 This means state is always minimal and never out-of-sync. No mutation is needed when an aura enters or leaves — the effect disappears automatically because the aura is no longer in play.
 
@@ -692,7 +718,7 @@ These cards have effects with **no current atomic action or composite pattern** 
 |---------|--------|------------|
 | **Floating effects + passives** | Both must be scanned in `getEffectivePower()` — risk of missing one | All stat reads go through a single `computeStats(id, state)` function that aggregates permanents + floatingEffects |
 | **Waterbound keyword** | Minion is disabled when NOT on a water site — context-sensitive disable | `isDisabled(id, state)` checks board position, not a stored flag |
-| **Split Power (Attack\|Defense)** | Some cards have separate attack and defense values | Confirm `realCards.ts` structure; add `defensePower?: number` to `CardInstance` if needed |
+| **Split Power (Attack\|Defense)** | 26 minions already use `power: { attack, defense }` in realCards.ts — the `Power` type union already handles this. `computeStats()` reads `.attack` / `.defense` accordingly. No schema change needed. |
 | **Lance token** | Enters with minion, grants strike-first + bonus damage, breaks after first strike | Tracked as a counter `'lance': 1` on the unit; strike-first checked at attack resolution; counter removed after first strike |
 | **PEEK_DECK locks undo** | Peeking reveals hidden info → must lock undo same as DRAW_CARD | `PEEK_DECK` triggers `LOCK_UNDO` in the pipeline |
 | **Cascade trigger false-positive loop detection** | Two different cards both responding to the same event could be incorrectly deduplicated | Seen-set key must include `sourceInstanceId` (the card whose ability fires), not just triggerType + targetId |
