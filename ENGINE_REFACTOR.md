@@ -433,9 +433,90 @@ PlayerAction received
 
 ---
 
-## Open Questions (to decide before implementation)
+## Design Decisions
 
-- How should **passive abilities** (always-on stat modifiers, e.g. +1 power auras) be integrated? Options: computed at read time from `GameState`, or applied as mutations when the aura enters/leaves.
-- Should triggered abilities be able to trigger other abilities (cascade depth limit)?
-- Which player actions should be **undoable** vs locked (e.g. can you undo after seeing a drawn card)?
-- How should **targeting mid-sequence** be handled? (e.g. a spell that requires a target — the composite resolver must pause and wait for UI input via `pendingInteraction` before completing the sequence)
+### 1. Passive Abilities — Computed at Read Time
+
+Passive abilities (always-on modifiers: +X power, keyword grants, etc.) are **never stored as mutations** in the event log. They are computed on the fly when reading the relevant part of the game state (e.g. `getEffectivePower(instanceId, state)` scans all in-play auras/artifacts and sums their modifiers).
+
+This means state is always minimal and never out-of-sync. No mutation is needed when an aura enters or leaves — the effect disappears automatically because the aura is no longer in play.
+
+### 2. Trigger Cascades — No Depth Limit, Infinite Loop Detection
+
+Triggered abilities can trigger other abilities with no hard depth limit. The trigger queue tracks a **seen set** of `(sourceInstanceId, triggerType, targetId)` tuples per resolution chain. If the same tuple would be enqueued again in the same chain, it is silently dropped (loop detected).
+
+### 3. Undo — Blocked on Information Reveal
+
+Undo is available freely during a player's turn **up until new hidden information is revealed**. The moment a card is drawn (from either deck), the undo stack for that turn is cleared. The player cannot go back past a draw.
+
+Concretely: `DRAW_CARD` triggers a `LOCK_UNDO` side effect in the undo stack.
+
+### 4. Targeting Mid-Sequence — Suspended Sequence
+
+`SELECT_TARGET` and `SELECT_SQUARE` are first-class atomic actions in a sequence. When the engine encounters one, it **pauses execution**, stores the remaining sequence, and emits a `pendingInteraction`. The partial state (including already-applied mutations) is saved to the store. When the player responds, the engine resumes from the stored sequence with the chosen value filled in.
+
+**Cancellation**: If the player cancels a mid-sequence selection, the engine restores the pre-action snapshot (undo). All partial mutations are rolled back cleanly.
+
+The suspended sequence is stored inside `pendingInteraction` to keep the state fully serializable:
+
+```ts
+type PendingInteraction =
+  | {
+      type: 'select_target';
+      prompt: string;
+      conditions: TargetCondition[];
+      resumeSequence: AtomicAction[];  // remaining actions, with placeholder refs filled on resume
+    }
+  | {
+      type: 'select_square';
+      prompt: string;
+      conditions: SquareCondition[];
+      resumeSequence: AtomicAction[];
+    }
+  | { type: 'choose_draw'; playerId: PlayerId }
+  | { type: 'mulligan';    playerId: PlayerId }
+  | null;
+```
+
+New atomic actions to support this:
+
+```ts
+  | { type: 'SELECT_TARGET'; prompt: string; conditions: TargetCondition[]; resultKey: string }
+  | { type: 'SELECT_SQUARE'; prompt: string; conditions: SquareCondition[]; resultKey: string }
+  | { type: 'LOCK_UNDO' }   // called after DRAW_CARD — clears undo stack
+```
+
+---
+
+## Revised Engine Pipeline (per Player Action)
+
+```
+PlayerAction received
+  │
+  ├─ 1. decompose → AtomicAction[]   (composite resolver, may contain SELECT_TARGET / SELECT_SQUARE)
+  │
+  ├─ 2. run CHECK_* actions first (dry-run, no state change)  → abort if any fails
+  │
+  ├─ 3. push GameState snapshot → undo stack
+  │
+  ├─ 4. for each AtomicAction in sequence:
+  │       ┌─ if SELECT_TARGET / SELECT_SQUARE:
+  │       │     store remaining sequence in pendingInteraction
+  │       │     return state to UI → wait for player input
+  │       │     [on cancel] → restore snapshot, clear sequence
+  │       │     [on confirm] → fill resultKey, resume sequence from here
+  │       └─ else:
+  │             a. apply mutation → new GameState
+  │             b. if DRAW_CARD: also apply LOCK_UNDO → clear undo stack
+  │             c. append to event log
+  │             d. check trigger registry → enqueue triggered effects
+  │
+  ├─ 5. drain trigger queue (FIFO):
+  │       for each queued trigger:
+  │         decompose → AtomicAction[]
+  │         apply (same pipeline, no new undo snapshot)
+  │         loop detection: drop if same (source, trigger, target) seen in this chain
+  │         may enqueue further triggers (cascade)
+  │
+  └─ 6. return final GameState → store updates UI
+```
