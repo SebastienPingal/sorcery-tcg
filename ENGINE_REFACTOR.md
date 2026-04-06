@@ -101,13 +101,28 @@ type CheckAction =
 
 ### Artifacts
 
+Four true atomic actions — each does exactly one thing:
+
 ```ts
-  | { type: 'ATTACH_ARTIFACT';      artifactId: string; carrierId: string }
-  | { type: 'DETACH_ARTIFACT';      artifactId: string }
-  | { type: 'PLACE_ARTIFACT_ON_SQUARE'; artifactId: string; square: Square }
-  | { type: 'PICK_UP_ARTIFACT';     unitId: string; artifactId: string }
-  | { type: 'DROP_ARTIFACT';        unitId: string; artifactId: string; square: Square }
+  | { type: 'ATTACH_ARTIFACT';           artifactId: string; carrierId: string }
+  // sets artifact.carriedBy = carrierId, adds artifactId to carrier.carriedArtifacts
+  // does NOT change artifact's board location
+
+  | { type: 'DETACH_ARTIFACT';           artifactId: string }
+  // clears artifact.carriedBy and removes from carrier.carriedArtifacts
+  // does NOT move the artifact anywhere — must be followed by PLACE_ARTIFACT_ON_SQUARE or DESTROY_ARTIFACT
+
+  | { type: 'PLACE_ARTIFACT_ON_SQUARE';  artifactId: string; square: Square }
+  // sets artifact's board location — used after DETACH or when entering play uncarried
+
+  | { type: 'REMOVE_ARTIFACT_FROM_SQUARE'; artifactId: string }
+  // clears artifact's board location — used before ATTACH (pick up) or DESTROY_ARTIFACT
 ```
+
+> `DROP_ARTIFACT` and `PICK_UP_ARTIFACT` are **player actions (composite)**, not atomic:
+> - `PICK_UP_ARTIFACT` → `REMOVE_ARTIFACT_FROM_SQUARE` + `ATTACH_ARTIFACT`
+> - `DROP_ARTIFACT` → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE`
+> - On carrier death → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE` (same square as dead unit)
 
 ### Damage & Life
 
