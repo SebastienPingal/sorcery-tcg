@@ -507,7 +507,7 @@ PlayerAction received
   │       │     [on confirm] → fill resultKey, resume sequence from here
   │       └─ else:
   │             a. apply mutation → new GameState
-  │             b. if DRAW_CARD: also apply LOCK_UNDO → clear undo stack
+  │             b. if DRAW_CARD or PEEK_DECK: also apply LOCK_UNDO → clear undo stack
   │             c. append to event log
   │             d. check trigger registry → enqueue triggered effects
   │
@@ -520,3 +520,179 @@ PlayerAction received
   │
   └─ 6. return final GameState → store updates UI
 ```
+
+---
+
+## Compatibility Analysis — Rules & Cards
+
+This section documents findings from a full scan of RULES.md and all 1104 cards in realCards.ts.
+
+**Overall compatibility: ~85–90%.** The architecture handles the vast majority of mechanics. All gaps are additive (new atomic actions), not architectural redesigns.
+
+---
+
+### Confirmed Gaps in Current Atomic Action List
+
+#### A. Bury vs. Destroy
+
+Rules define two distinct ways for a minion to go to the cemetery:
+- **Destroy** → triggers `on_death` (Deathrite) abilities
+- **Bury** → goes to cemetery silently, does **not** trigger Deathrite
+
+```ts
+| { type: 'BURY_UNIT'; instanceId: string }   // no on_death trigger
+```
+
+#### B. Ward
+
+Ward absorbs one targeting/damage/destruction effect and then breaks. Must be an atomic action so it can be logged and so triggers on ward-break can fire.
+
+```ts
+| { type: 'BREAK_WARD'; instanceId: string }
+```
+
+`CHECK_TARGET_VALID` must check for Ward and route through `BREAK_WARD` instead of applying the effect.
+
+#### C. Artifact Destruction
+
+Currently only `DROP_ARTIFACT` (artifact lands on ground). Need explicit destruction (to cemetery).
+
+```ts
+| { type: 'DESTROY_ARTIFACT'; artifactId: string }
+```
+
+#### D. Banish (from cemetery / from play)
+
+Several cards banish units as a cost or effect. Banished cards do not go to the cemetery — they are removed from the game.
+
+```ts
+| { type: 'BANISH'; instanceId: string; from: 'board' | 'cemetery' | 'hand' }
+```
+
+#### E. Floating Effects (temporary, expiring)
+
+~72 cards (~6.7%) have effects that last "until your next turn", "this turn", or "for X turns". Passives are permanent; these are not.
+
+Floating effects must be stored as data in `GameState` and ticked at turn boundaries.
+
+```ts
+interface FloatingEffect {
+  id: string;
+  targetId: string;
+  modifier: Modifier;       // same type used by passive abilities
+  expiresAfterTurns: number;  // decremented at TICK_FLOATING_EFFECTS
+  ownerPlayerId: PlayerId;
+}
+// GameState gains: floatingEffects: FloatingEffect[]
+```
+
+```ts
+| { type: 'APPLY_FLOATING_EFFECT'; effect: FloatingEffect }
+| { type: 'TICK_FLOATING_EFFECTS'; playerId: PlayerId }   // called at turn start, removes expired
+| { type: 'REMOVE_FLOATING_EFFECT'; effectId: string }
+```
+
+`getEffectivePower()` and all passive-read functions must also scan `floatingEffects`.
+
+#### F. Random Outcomes
+
+~25 cards (~2.3%) have random effects ("deal 3 damage to a **random** unit", "cast a copy of a **random** spell"). `Math.random()` breaks event log replay.
+
+Resolution: randomness is resolved **at decomposition time** (before any mutation), and the chosen outcome is stored in the atomic action itself. Replaying the log replays the same choice.
+
+```ts
+| { type: 'CHOOSE_RANDOM'; scope: 'unit' | 'spell' | 'square'; resolvedId: string }
+// resolvedId is computed once and stored in the log entry — deterministic on replay
+```
+
+#### G. Deck Manipulation
+
+Several cards allow peeking, reordering, or putting cards on the bottom of a deck.
+
+```ts
+| { type: 'PEEK_DECK';            playerId: PlayerId; deck: 'atlas' | 'spellbook'; count: number; resolvedIds: string[] }
+// resolvedIds stored at peek time → deterministic replay, triggers LOCK_UNDO
+| { type: 'MOVE_CARD_TO_DECK_BOTTOM'; instanceId: string; playerId: PlayerId; deck: 'atlas' | 'spellbook' }
+| { type: 'REORDER_DECK_TOP';     playerId: PlayerId; deck: 'atlas' | 'spellbook'; order: string[] }
+```
+
+#### H. Unit Carrying
+
+A small number of cards allow carrying allied minions (separate from artifact-carrying, already implemented). The carried unit moves with the carrier and may gain keywords from the carrier.
+
+```ts
+| { type: 'CARRY_UNIT';  carrierId: string; carriedUnitId: string }
+| { type: 'DROP_UNIT';   carrierId: string; carriedUnitId: string; square: Square }
+```
+
+Carried units' passive keyword grants (e.g. Airborne from carrier) fall under the existing passive read-time system — no new action needed there.
+
+#### I. Position Swapping
+
+```ts
+| { type: 'SWAP_POSITIONS'; instanceId1: string; instanceId2: string }  // units
+| { type: 'SWAP_SITES';     square1: Square; square2: Square }           // sites (e.g. Baba Yaga's Hut)
+| { type: 'EXCHANGE_LIFE';  player1Id: PlayerId; player2Id: PlayerId }
+```
+
+#### J. Copying / Cloning
+
+Some cards enter as a copy of another card, or cast copies of spells.
+
+```ts
+| { type: 'SUMMON_AS_COPY'; instanceId: string; copyOfCardId: string; square: Square }
+// creates a new CardInstance whose card definition mirrors copyOfCardId
+```
+
+#### K. Conditional Strike (one-way combat)
+
+Some cards (e.g. Escyllion Cyclops: "doesn't strike back while defending") prevent reciprocal damage in combat. The existing simultaneous-strike model in `ATTACK_UNIT` must check a condition before applying the defender's `DEAL_DAMAGE`.
+
+No new atomic action needed — handled with a condition check inside the `ATTACK_UNIT` composite resolver using `hasCondition(instanceId, 'no_retaliation', state)`.
+
+#### L. Force Discard / Hand Manipulation
+
+```ts
+| { type: 'FORCE_DISCARD'; playerId: PlayerId; instanceId: string | 'random' }
+| { type: 'REVEAL_HAND';   playerId: PlayerId }   // opponent sees hand (UI only, but logged)
+```
+
+#### M. Search Effects
+
+Cards that let a player search a deck or cemetery for a specific card.
+Handled via a `SELECT_TARGET` pause pointing at a filtered zone — no new atomic action needed, but the `conditions` system on `SELECT_TARGET` must support `zone: 'deck' | 'cemetery'`.
+
+---
+
+### Cards Outside Current Framework
+
+These cards have effects with **no current atomic action or composite pattern** that covers them:
+
+| Card | rulesText excerpt | Missing mechanic |
+|------|-------------------|-----------------|
+| **Doomsday Device** | "Enters with 6 counters. End of turn, remove 1. At 0: destroy all minions." | Counter-driven deferred effect → needs `TICK_FLOATING_EFFECTS` + counter-threshold trigger |
+| **The Immortal Throne** | "Gains a level counter when you cast a spell costing ≥ its level count" | Counter read in trigger condition → counter-aware trigger registry |
+| **Baba Yaga's Hut** | "May swap positions with an empty site in the back row" | `SWAP_SITES` |
+| **Evil Twin** | "Enters as an evil copy of target enemy minion" | `SUMMON_AS_COPY` |
+| **Far East Assassin** | "Throw a carried artifact: deal damage equal to its mana cost" | Needs artifact's mana cost read at resolution time + `DESTROY_ARTIFACT` |
+| **Entangle Terrain** (aura) | "Lasts 3 of your turns" | `APPLY_FLOATING_EFFECT` with duration |
+| **Any Deathrite card** | "When ~ dies, [effect]" | Already planned — `TRIGGER_FIRED('on_death')` — but requires `BURY_UNIT` to be distinct so Deathrite is not triggered on bury |
+| **Escyllion Cyclops** | "Doesn't strike back while defending" | `SET_CONDITION('no_retaliation')` + conditional check in `ATTACK_UNIT` |
+| **"Banish" cards** | "Banish target minion from the game" | `BANISH` action |
+| **Random-target cards** (~25) | "Deal damage to a random unit here" | `CHOOSE_RANDOM` with pre-resolved `resolvedId` |
+| **Peek/reorder cards** | "Look at top 7 spells, arrange in any order" | `PEEK_DECK` + `REORDER_DECK_TOP` |
+| **Copy-spell cards** | "Cast a copy of a random spell in your spellbook" | `CHOOSE_RANDOM` + `SUMMON_AS_COPY` / cast copy |
+| **Carrier units** | "May carry any number of allied minions; carried minions gain Airborne" | `CARRY_UNIT` / `DROP_UNIT` |
+
+---
+
+### Concerns & Edge Cases
+
+| Concern | Detail | Mitigation |
+|---------|--------|------------|
+| **Floating effects + passives** | Both must be scanned in `getEffectivePower()` — risk of missing one | All stat reads go through a single `computeStats(id, state)` function that aggregates permanents + floatingEffects |
+| **Waterbound keyword** | Minion is disabled when NOT on a water site — context-sensitive disable | `isDisabled(id, state)` checks board position, not a stored flag |
+| **Split Power (Attack\|Defense)** | Some cards have separate attack and defense values | Confirm `realCards.ts` structure; add `defensePower?: number` to `CardInstance` if needed |
+| **Lance token** | Enters with minion, grants strike-first + bonus damage, breaks after first strike | Tracked as a counter `'lance': 1` on the unit; strike-first checked at attack resolution; counter removed after first strike |
+| **PEEK_DECK locks undo** | Peeking reveals hidden info → must lock undo same as DRAW_CARD | `PEEK_DECK` triggers `LOCK_UNDO` in the pipeline |
+| **Cascade trigger false-positive loop detection** | Two different cards both responding to the same event could be incorrectly deduplicated | Seen-set key must include `sourceInstanceId` (the card whose ability fires), not just triggerType + targetId |
