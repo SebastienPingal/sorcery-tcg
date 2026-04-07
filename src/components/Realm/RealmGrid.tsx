@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { GameState, Square, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
-import { validSitePlacements, getMovementRange, reachableSquares } from '../../engine/utils';
+import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
 import styles from './RealmGrid.module.css';
 
 interface RealmGridProps {
@@ -36,7 +36,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
     // Sites can only be placed when a pendingAvatarAbility is active
     if (card.type === 'site' && !selectedInst.location && pendingAvatarAbility) {
-      return { squares: validSitePlacements(game, humanPlayerId), attackSquares: [], mode: 'place_site' };
+      return { squares: selectValidSitePlacements(game, humanPlayerId), attackSquares: [], mode: 'place_site' };
     }
 
     if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
@@ -57,8 +57,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
     if (selectedInst.location && (card.type === 'minion' || card.type === 'avatar') && isMyTurn) {
       if (!selectedInst.tapped && !selectedInst.summoningSickness) {
-        const range = getMovementRange(selectedInst);
-        const reachable = reachableSquares(game, selectedInst, range);
+        const reachable = selectReachableSquares(game, selectedInst);
         // Also include the current square (attack in place / use abilities here)
         const startSq = selectedInst.location.square;
         if (!reachable.some(s => s.row === startSq.row && s.col === startSq.col)) {

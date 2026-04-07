@@ -2,7 +2,8 @@ import React from 'react';
 import type { GameState, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { CardView } from '../Card/CardView';
-import { getManaAvailable, meetsThreshold, computeAffinity } from '../../engine/utils';
+import { meetsThreshold } from '../../engine/utils';
+import { selectAffinity, selectManaAvailable } from '../../engine/selectors';
 import styles from './Hand.module.css';
 
 interface HandProps {
@@ -39,8 +40,8 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     );
   }
 
-  const affinity = computeAffinity(game, playerId);
-  const manaAvail = getManaAvailable(player);
+  const affinity = selectAffinity(game, playerId);
+  const manaAvail = selectManaAvailable(player);
 
   // A card is "actionable" (can be clicked to select for playing) based on context:
   // - Sites: ONLY when pendingAvatarAbility is set (must go through avatar ability)

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { GameState, PlayerId } from '../../types';
-import { computeAffinity, getManaAvailable } from '../../engine/utils';
+import { selectAffinity, selectManaAvailable } from '../../engine/selectors';
 import { ELEMENT_SYMBOLS, ELEMENT_COLORS } from '../../utils/elementSymbols';
 import styles from './PlayerInfo.module.css';
 
@@ -14,8 +14,8 @@ interface PlayerInfoProps {
 export const PlayerInfo: React.FC<PlayerInfoProps> = ({ game, playerId, isActive, compact }) => {
   const player = game.players[playerId];
   const avatarInst = game.instances[player.avatarInstanceId];
-  const affinity = computeAffinity(game, playerId);
-  const manaAvail = getManaAvailable(player);
+  const affinity = selectAffinity(game, playerId);
+  const manaAvail = selectManaAvailable(player);
 
   const lifePercent = Math.max(0, (player.life / player.maxLife) * 100);
   const lifeColor = player.isAtDeathsDoor
