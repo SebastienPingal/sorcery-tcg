@@ -3,275 +3,361 @@
 ## Goals
 
 - Decompose all game actions into the most granular atomic actions possible
-- Game state is pure serializable data; UI is a read-only projection of it
+- Game state is pure serializable data; the UI is a read-only projection of it
 - Event sourcing: the action log is the source of truth; state can be rebuilt by replaying it
 - Enable save/load of games
-- Enable undo at player decision boundaries
-- Support triggered abilities (cards reacting to atomic actions) via a trigger queue
-- Keep the engine in a standalone TypeScript module, decoupled from React and the store
+- Enable undo at player decision boundaries, locked on information reveal
+- Support triggered abilities via a FIFO trigger queue (no player reactions)
+- Engine is a standalone TypeScript module, decoupled from React and the store
 
 ---
 
-## Architecture Layers
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
-│                  React UI                    │  ← reads GameState, dispatches PlayerActions
+│                  React UI                    │  reads GameState, dispatches PlayerActions
 ├─────────────────────────────────────────────┤
-│               Zustand Store                  │  ← bridges UI ↔ engine, holds UI-only state
+│               Zustand Store                  │  bridges UI ↔ engine, holds UI-only state
 ├─────────────────────────────────────────────┤
-│            Engine Orchestrator               │  ← receives PlayerAction, coordinates layers
+│            Engine Orchestrator               │  receives PlayerAction, runs the pipeline
 ├──────────────┬──────────────────────────────┤
-│  Composite   │  Trigger Queue               │  ← PlayerAction → sequence of AtomicActions
-│  Resolvers   │  (FIFO, no player reactions) │     triggers fire after relevant atomics
+│  Composite   │  Trigger Queue (FIFO)        │  PlayerAction → AtomicAction[]
+│  Resolvers   │  no player reactions         │  triggers fire after each mutation
 ├──────────────┴──────────────────────────────┤
-│            Atomic Action Applier             │  ← applies one AtomicAction → new GameState
+│            Atomic Action Applier             │  (state, action) => state
 ├─────────────────────────────────────────────┤
-│       Event Log  /  Undo Stack              │  ← append-only log + snapshots for undo
+│          Event Log  /  Undo Stack            │  append-only log + snapshots
 ├─────────────────────────────────────────────┤
-│                 GameState                    │  ← plain serializable data (JSON-safe)
+│                 GameState                    │  plain JSON-serializable data
 └─────────────────────────────────────────────┘
+```
+
+### Pipeline (per Player Action)
+
+```
+PlayerAction received
+  │
+  ├─ 1. decompose → AtomicAction[]
+  │       (composite resolver; sequence may contain SELECT_TARGET / SELECT_SQUARE)
+  │
+  ├─ 2. run all CHECK_* first (dry-run, no state change) → abort entire sequence if any fails
+  │
+  ├─ 3. push GameState snapshot → undo stack
+  │
+  ├─ 4. for each remaining AtomicAction:
+  │       ┌─ if SELECT_TARGET or SELECT_SQUARE:
+  │       │     store remaining sequence in pendingInteraction (serializable)
+  │       │     return state to UI → wait for player input
+  │       │     [on cancel]  → restore snapshot, clear sequence
+  │       │     [on confirm] → fill resultKey, resume from here
+  │       └─ else (mutation):
+  │             a. apply mutation → new GameState
+  │             b. append to event log
+  │             c. if action.type ∈ INFORMATION_REVEALING_ACTIONS → undoStack.lock()
+  │             d. check trigger registry → enqueue triggered effects
+  │
+  ├─ 5. drain trigger queue (FIFO):
+  │       for each queued trigger:
+  │         decompose → AtomicAction[]
+  │         run same pipeline (no new undo snapshot)
+  │         loop detection: drop if (sourceId, triggerType, targetId) already seen this chain
+  │         cascading triggers are allowed (no depth limit)
+  │
+  └─ 6. return final GameState → store updates UI
+```
+
+---
+
+## Key Data Types
+
+```ts
+type Region   = 'surface' | 'underground' | 'underwater' | 'void';
+type PlayerId = string;
+
+interface Square   { row: number; col: number }
+interface Location { square: Square; region: Region }
+// A Location fully identifies where a unit is — square + which level of that square.
+// Burrowing steps: { same square, 'underground' }. Airborne: diagonal square, 'surface'. Etc.
+
+interface UnitStats {
+  attackPower:  number;          // used as DEAL_DAMAGE amount when this unit strikes
+  defensePower: number;          // CHECK_MINION_DEATH threshold (damage >= defensePower → dies)
+  movement:     number;          // total steps available (base 1 + Movement +X)
+  keywords:     KeywordAbility[];
+}
+// computeStats(id, state) is the single read point — aggregates:
+//   1. base card value (power: number → both equal; power: { attack, defense } → split)
+//   2. modifiers from passive abilities of all in-play permanents
+//   3. modifiers from state.floatingEffects targeting this unit
+// Avatars: attackPower from card.attackPower; no defensePower (they lose life, not damage tokens).
+
+interface Modifier {
+  stat:      'attackPower' | 'defensePower' | 'both_power' | 'movement';
+  operation: 'add' | 'set';
+  amount:    number;
+}
+
+interface FloatingEffect {
+  id:                string;
+  targetId:          string;
+  modifier:          Modifier;
+  expiresAfterTurns: number;   // decremented by TICK_FLOATING_EFFECTS; removed at 0
+  ownerPlayerId:     PlayerId;
+}
+// GameState gains: floatingEffects: FloatingEffect[]
+
+type PendingInteraction =
+  | { type: 'select_target'; prompt: string; conditions: TargetCondition[];
+      resumeSequence: AtomicAction[] }
+  | { type: 'select_square'; prompt: string; conditions: SquareCondition[];
+      resumeSequence: AtomicAction[] }
+  | { type: 'choose_draw'; playerId: PlayerId }
+  | { type: 'mulligan';    playerId: PlayerId }
+  | null;
 ```
 
 ---
 
 ## Atomic Actions
 
-An `AtomicAction` is the smallest indivisible unit of game change or validation.
-It is either a **check** (validates a condition, throws if invalid) or a **mutation** (modifies state).
+An `AtomicAction` is either a **check** (validates a condition, throws on failure — no state change) or a **mutation** (modifies state, appended to event log).
 
-All atomic actions are typed as a discriminated union. Every mutation is appended to the event log.
+Checks are run as a dry-run pass before any mutation is applied; a single failure aborts the whole sequence.
 
-### Checks (validation — no state change)
+### Checks
 
 ```ts
 type CheckAction =
-  | { type: 'CHECK_HAS_MANA';            playerId: PlayerId; amount: number }
-  | { type: 'CHECK_ELEMENTAL_THRESHOLD'; playerId: PlayerId; threshold: ElementalThreshold }
-  | { type: 'CHECK_CARD_IN_HAND';        playerId: PlayerId; instanceId: string }
-  | { type: 'CHECK_NOT_TAPPED';          instanceId: string }
-  | { type: 'CHECK_NO_SUMMONING_SICKNESS'; instanceId: string }
-  | { type: 'CHECK_UNIT_ON_BOARD';       instanceId: string }
-  | { type: 'CHECK_SQUARE_HAS_SITE';     square: Square }
-  | { type: 'CHECK_SQUARE_CONTROLLED';   square: Square; playerId: PlayerId }
-  | { type: 'CHECK_LOCATION_REACHABLE';  unitId: string; location: Location }
-  // replaces CHECK_SQUARE_REACHABLE — includes region in reachability check
-  | { type: 'CHECK_TARGET_VALID';        targetId: string; conditions: TargetCondition[] }
-  | { type: 'CHECK_SQUARE_VALID';        square: Square; conditions: SquareCondition[] }
-  | { type: 'CHECK_LOCATION_VALID';      location: Location; conditions: LocationCondition[] }
-  | { type: 'CHECK_IS_ACTIVE_PLAYER';    playerId: PlayerId }
-  | { type: 'CHECK_PHASE';               phase: Phase }
-  | { type: 'CHECK_ABILITY_USABLE';      instanceId: string; abilityId: string }
-  | { type: 'CHECK_NOT_AT_DEATHS_DOOR';  playerId: PlayerId }
-  | { type: 'CHECK_CAN_ENTER_REGION';    instanceId: string; region: Region }
-  // validates that the unit has the required keyword for hazardous regions
-  // underground → Burrowing required; underwater → Submerge required; void → Voidwalk required
-  // this is a CHECK (throws if unit can't enter), but region hazards applied during MOVE_UNIT
-  // are mutations (DESTROY_UNIT / BANISH) — not aborts
+  | { type: 'CHECK_IS_ACTIVE_PLAYER';       playerId: PlayerId }
+  | { type: 'CHECK_PHASE';                  phase: Phase }
+  | { type: 'CHECK_HAS_MANA';               playerId: PlayerId; amount: number }
+  | { type: 'CHECK_ELEMENTAL_THRESHOLD';    playerId: PlayerId; threshold: ElementalThreshold }
+  | { type: 'CHECK_CARD_IN_HAND';           playerId: PlayerId; instanceId: string }
+  | { type: 'CHECK_NOT_TAPPED';             instanceId: string }
+  | { type: 'CHECK_NO_SUMMONING_SICKNESS';  instanceId: string }
+  | { type: 'CHECK_UNIT_ON_BOARD';          instanceId: string }
+  | { type: 'CHECK_ABILITY_USABLE';         instanceId: string; abilityId: string }
+  | { type: 'CHECK_SQUARE_HAS_SITE';        square: Square }
+  | { type: 'CHECK_SQUARE_CONTROLLED';      square: Square; playerId: PlayerId }
+  | { type: 'CHECK_LOCATION_VALID';         location: Location; conditions: LocationCondition[] }
+  | { type: 'CHECK_LOCATION_REACHABLE';     unitId: string; location: Location }
+  | { type: 'CHECK_TARGET_VALID';           targetId: string; conditions: TargetCondition[] }
+  | { type: 'CHECK_NOT_AT_DEATHS_DOOR';     playerId: PlayerId }
+  | { type: 'CHECK_CAN_ENTER_REGION';       instanceId: string; region: Region }
+  // 'underground' → Burrowing required  → else DESTROY_UNIT on entry
+  // 'underwater'  → Submerge required   → else DESTROY_UNIT on entry
+  // 'void'        → Voidwalk required   → else BANISH on entry
+  // Used as a pre-flight check; the actual hazard consequence is a mutation applied mid-MOVE_UNIT.
 ```
 
-### Mana Mutations
+### Mana
 
 ```ts
-  | { type: 'PAY_MANA';             playerId: PlayerId; amount: number }
-  | { type: 'GAIN_MANA';            playerId: PlayerId; amount: number }
-  | { type: 'COMPUTE_MANA_POOL';    playerId: PlayerId }   // recount from controlled sites
-  | { type: 'COMPUTE_AFFINITY';     playerId: PlayerId }   // recount elemental thresholds
+  | { type: 'PAY_MANA';          playerId: PlayerId; amount: number }
+  | { type: 'GAIN_MANA';         playerId: PlayerId; amount: number }
+  | { type: 'CLEAR_MANA';        playerId: PlayerId }
+  | { type: 'COMPUTE_MANA_POOL'; playerId: PlayerId }   // recount from controlled sites
+  | { type: 'COMPUTE_AFFINITY';  playerId: PlayerId }   // recount elemental thresholds
 ```
 
-### Card Zone Mutations
+### Card Zones
 
 ```ts
-  | { type: 'MOVE_CARD_TO_HAND';      instanceId: string; playerId: PlayerId }
-  | { type: 'MOVE_CARD_TO_CEMETERY';  instanceId: string }
-  | { type: 'MOVE_CARD_TO_DECK_TOP';  instanceId: string; deck: 'atlas' | 'spellbook' }
-  | { type: 'MOVE_CARD_FROM_HAND';    instanceId: string }   // removes from hand (before placing)
-  | { type: 'SHUFFLE_DECK';           playerId: PlayerId; deck: 'atlas' | 'spellbook' }
-  | { type: 'DRAW_CARD';              playerId: PlayerId; deck: 'atlas' | 'spellbook' }
+  | { type: 'MOVE_CARD_TO_HAND';        instanceId: string; playerId: PlayerId }
+  | { type: 'MOVE_CARD_FROM_HAND';      instanceId: string }
+  | { type: 'MOVE_CARD_TO_CEMETERY';    instanceId: string }
+  | { type: 'MOVE_CARD_TO_DECK_TOP';    instanceId: string; deck: 'atlas' | 'spellbook' }
+  | { type: 'MOVE_CARD_TO_DECK_BOTTOM'; instanceId: string; playerId: PlayerId;
+      deck: 'atlas' | 'spellbook' }
+  | { type: 'DRAW_CARD';                playerId: PlayerId; deck: 'atlas' | 'spellbook' }
+  // ⚠ information-revealing → locks undo
+  | { type: 'SHUFFLE_DECK';             playerId: PlayerId; deck: 'atlas' | 'spellbook' }
+  | { type: 'PEEK_DECK';                playerId: PlayerId; deck: 'atlas' | 'spellbook';
+      count: number; resolvedIds: string[] }
+  // resolvedIds computed once at decomposition time → deterministic replay
+  // ⚠ information-revealing → locks undo
+  | { type: 'REORDER_DECK_TOP';         playerId: PlayerId; deck: 'atlas' | 'spellbook';
+      order: string[] }
+  | { type: 'FORCE_DISCARD';            playerId: PlayerId; instanceId: string | 'random' }
+  | { type: 'REVEAL_HAND';              playerId: PlayerId }
+  // ⚠ information-revealing → locks undo
+  | { type: 'BANISH';                   instanceId: string; from: 'board' | 'cemetery' | 'hand' }
+  // removed from game entirely — does NOT go to cemetery
 ```
 
-### Board Mutations
+### Board — Units
 
 ```ts
-  | { type: 'PLACE_UNIT'; instanceId: string; location: Location }
-  // Location = { square, region }. Region can be 'surface', 'underground', 'underwater', or 'void'.
+  | { type: 'PLACE_UNIT';  instanceId: string; location: Location }
+  // For 2×2 units: location is the anchor; engine derives all 4 occupied locations.
   // Fires on_enter trigger for the new location.
 
   | { type: 'REMOVE_UNIT'; instanceId: string }
 
-  | { type: 'MOVE_UNIT'; instanceId: string; path: Location[] }
-  // path is Location[] not Square[] — each step may change square AND/OR region.
-  // This allows region transitions: surface→underground (Burrowing), surface→void (Voidwalk), diagonal (Airborne).
-  // After each step, CHECK_CAN_ENTER_REGION fires for the new location.
-  // on_enter fires for each NEW location entered along the path (even if passing through).
-  // Carried units and carried artifacts move to the same final location atomically.
-  // TAP and RECORD_MOVE are separate actions applied after MOVE_UNIT (in the composite resolver).
+  | { type: 'MOVE_UNIT';   instanceId: string; path: Location[] }
+  // path is Location[] — each step may change square, region, or both.
+  // After each step: hazard check fires (underground/underwater/void without keyword
+  //   → DESTROY_UNIT or BANISH).
+  // on_enter fires for each NEW location entered along the path (including pass-through).
+  // Carried units + carried artifacts update to the same final location atomically.
+  // TAP and RECORD_MOVE are separate actions in the composite resolver.
 
   | { type: 'FORCE_MOVE_UNIT'; instanceId: string; destination: Location }
-  // Forced movement (push/pull/teleport). Path not declared — unit goes directly to destination.
-  // Does NOT tap the unit. Cannot be intercepted. Ignores Airborne/Burrowing/Submerge/Voidwalk.
-  // Region hazards still apply (entering underground without Burrowing → DESTROY_UNIT, etc.).
+  // Forced movement (push/pull/teleport).
+  // Does NOT tap. Cannot be intercepted. Movement keywords (Airborne etc.) do NOT apply.
+  // Region hazards still apply on arrival.
 
-  | { type: 'TAP';                  instanceId: string }
-  | { type: 'UNTAP';                instanceId: string }
-  | { type: 'UNTAP_ALL';            playerId: PlayerId }
-  | { type: 'SET_SUMMONING_SICKNESS'; instanceId: string; value: boolean }
+  | { type: 'TAP';                      instanceId: string }
+  | { type: 'UNTAP';                    instanceId: string }
+  | { type: 'UNTAP_ALL';                playerId: PlayerId }
+  | { type: 'SET_SUMMONING_SICKNESS';   instanceId: string; value: boolean }
   | { type: 'CLEAR_SUMMONING_SICKNESS'; playerId: PlayerId }
-  | { type: 'PLACE_SITE';           instanceId: string; square: Square }
-  | { type: 'REMOVE_SITE';          square: Square }
-  | { type: 'SET_RUBBLE';           square: Square; value: boolean }
 ```
 
-#### Movement Keywords & Region Model
-
-A `Location` = `{ square: Square; region: Region }` where `Region = 'surface' | 'underground' | 'underwater' | 'void'`.
-
-Each step in a path is a `Location`. A step may change square, region, or both.
-
-| Keyword | What it enables | Path effect |
-|---------|-----------------|-------------|
-| *(none)* | Surface-to-surface only | Steps between adjacent squares, same `surface` region |
-| **Airborne** | Diagonal steps on surface | Steps may go to diagonal squares (still `surface` region). Also: cannot be attacked/intercepted by non-Airborne (checked at combat time). |
-| **Burrowing** | Underground movement | Steps may include `{ same square, 'underground' }` (drop down) or `{ adjacent square, 'underground' }`. Transitioning: surface→underground of same square costs 1 step. |
-| **Submerge** | Underwater movement | Same as Burrowing but for `'underwater'` region (water sites only). |
-| **Voidwalk** | Void movement | Steps may enter void squares (`region: 'void'`). Can also exit void onto adjacent site's surface or subsurface. |
-| **Movement +X** | Extra steps | `computeStats().movement` = base 1 + X. Path may have up to `movement` steps. |
-| **Moves Freely** | Zero-cost steps | No step budget spent while start/end satisfies condition. Handled in path validator. |
-
-#### Region Hazards
-
-After each step in `MOVE_UNIT` or `FORCE_MOVE_UNIT`, the engine applies:
+### Board — Sites
 
 ```ts
-  | { type: 'CHECK_CAN_ENTER_REGION'; instanceId: string; region: Region }
-  // 'underground' → requires Burrowing keyword on unit → else DESTROY_UNIT
-  // 'underwater'  → requires Submerge keyword        → else DESTROY_UNIT
-  // 'void'        → requires Voidwalk keyword         → else BANISH
-  // 'surface'     → always allowed
-```
+  | { type: 'PLACE_SITE';  instanceId: string; square: Square }
+  | { type: 'REMOVE_SITE'; square: Square }
+  | { type: 'SET_RUBBLE';  square: Square; value: boolean }
 
-> **Forced movement** still triggers region hazards — Voidwalk/Burrowing/Submerge are NOT applied for forced moves, but entering a hazardous region without the keyword is still lethal.
+  | { type: 'MOVE_SITE';   instanceId: string; toSquare: Square }
+  // Moves site to a void square. All occupants (surface + subsurface units, artifacts, auras)
+  // relocate to toSquare atomically.
+  // Occupants are NOT considered to have moved themselves — no on_enter triggers for them.
+  // Destination must be void (checked by CHECK_LOCATION_VALID).
 
-#### Oversized Units (2×2)
-
-Some minions occupy four squares simultaneously (placed at intersection of a 2×2 block). These need `occupiedLocations: Location[]` on `CardInstance` (1 or 4 entries).
-
-```ts
-  | { type: 'PLACE_UNIT'; instanceId: string; location: Location }
-  // For 2×2 units: location = anchor square; engine derives all 4 locations automatically.
-```
-
-Movement of 2×2 units: choose a direction; the entire 2×2 block must be able to move that way or none can. Damage grid interactions sum values across all occupied squares.
-
-```ts
-  // Board Mutations continued:
-  | { type: 'MOVE_SITE'; instanceId: string; toSquare: Square }
-
-  | { type: 'MOVE_SITE'; instanceId: string; toSquare: Square }
-  // Moves site to a void square. All occupants (surface units, subsurface units,
-  // artifacts, auras) are relocated to toSquare atomically.
-  // Rule: occupants are NOT considered to have moved themselves — no on_enter triggers for them.
-  // Rule: destination must be void (no existing site). Checked by CHECK_SQUARE_VALID.
-
-  | { type: 'SWAP_SITES'; instanceId1: string; instanceId2: string }
+  | { type: 'SWAP_SITES';  instanceId1: string; instanceId2: string }
   // Atomically exchanges two sites and all their occupants.
-  // Cannot be decomposed into two MOVE_SITE actions (neither destination is void mid-swap).
-  // Same rule applies: occupants are not considered to have moved themselves.
+  // Cannot be two sequential MOVE_SITEs (neither target is void during the swap).
+  // Same rule: occupants not considered to have moved themselves.
 ```
 
 ### Artifacts
 
-Four true atomic actions — each does exactly one thing:
+Each action does exactly one thing — carry relationship and board position are fully independent:
 
 ```ts
   | { type: 'ATTACH_ARTIFACT';             artifactId: string; carrierId: string }
-  // sets artifact.carriedBy = carrierId, adds artifactId to carrier.carriedArtifacts
-  // does NOT change artifact's board location
+  // sets artifact.carriedBy = carrierId — does NOT change artifact's board location
 
   | { type: 'DETACH_ARTIFACT';             artifactId: string }
-  // clears artifact.carriedBy and removes from carrier.carriedArtifacts
-  // does NOT move the artifact anywhere — must be followed by PLACE_ARTIFACT_ON_SQUARE or DESTROY_ARTIFACT
+  // clears artifact.carriedBy — does NOT move the artifact
+  // must be followed by PLACE_ARTIFACT_ON_SQUARE or DESTROY_ARTIFACT
 
   | { type: 'PLACE_ARTIFACT_ON_SQUARE';    artifactId: string; square: Square }
-  // sets artifact's board location — used after DETACH or when entering play uncarried
+  // sets artifact's board location (after DETACH, or entering play uncarried)
 
   | { type: 'REMOVE_ARTIFACT_FROM_SQUARE'; artifactId: string }
-  // clears artifact's board location — used before ATTACH (pick up) or DESTROY_ARTIFACT
+  // clears artifact's board location (before ATTACH, or before DESTROY_ARTIFACT)
+
+  | { type: 'DESTROY_ARTIFACT';            artifactId: string }
+  // sends artifact to cemetery (distinct from dropping it on the ground)
 ```
 
-> `DROP_ARTIFACT` and `PICK_UP_ARTIFACT` are **player actions (composite)**, not atomic:
+> Composite operations:
 > - `PICK_UP_ARTIFACT` → `REMOVE_ARTIFACT_FROM_SQUARE` + `ATTACH_ARTIFACT`
-> - `DROP_ARTIFACT` → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE`
-> - On carrier death → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE` (same square as dead unit)
+> - `DROP_ARTIFACT`    → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE`
+> - On carrier death   → `DETACH_ARTIFACT` + `PLACE_ARTIFACT_ON_SQUARE` (same square)
 
 ### Unit Carrying
 
-Some units can carry other units (rules: same Pick Up / Drop mechanic as artifacts, once per turn).
+Some units can carry other units (same Pick Up / Drop mechanic as artifacts, once per turn).
 
-**Key difference from artifact carrying:** a carried unit keeps its board square — it remains in `RealmSquare.unitInstanceIds`, can be targeted, can cast spells and activate abilities. Only the `carriedBy` relationship is set.
-
-Two atomic actions:
+**Key difference from artifact carrying:** a carried unit keeps its board square — it remains targetable, can cast spells, and activate abilities. Only the carry relationship changes.
 
 ```ts
-  | { type: 'ATTACH_UNIT_TO_CARRIER';  unitId: string; carrierId: string }
-  // sets unit.carriedBy = carrierId, adds unitId to carrier.carriedUnitIds
-  // unit stays at its current square — NO square change
+  | { type: 'ATTACH_UNIT_TO_CARRIER';   unitId: string; carrierId: string }
+  // sets unit.carriedBy = carrierId — unit stays at its current square
 
   | { type: 'DETACH_UNIT_FROM_CARRIER'; unitId: string }
-  // clears unit.carriedBy, removes from carrier.carriedUnitIds
-  // unit stays at its current square
+  // clears unit.carriedBy — unit stays at its current square
 ```
 
-> `PICK_UP_UNIT` → `ATTACH_UNIT_TO_CARRIER` only (unit already shares the square)
-> `DROP_UNIT`    → `DETACH_UNIT_FROM_CARRIER` only (unit stays at the same square)
-> On carrier death → `DETACH_UNIT_FROM_CARRIER` (carried unit stays at the death square, now free)
-> If carried unit independently moves to a different square → `DETACH_UNIT_FROM_CARRIER` fires automatically
+> - `PICK_UP_UNIT` → `ATTACH_UNIT_TO_CARRIER` only (unit already shares the square)
+> - `DROP_UNIT`    → `DETACH_UNIT_FROM_CARRIER` only (unit stays at the same square)
+> - On carrier death → `DETACH_UNIT_FROM_CARRIER` (carried unit stays at death square)
+> - If carried unit moves independently to a different square → `DETACH_UNIT_FROM_CARRIER` fires automatically
 
-**Passive effects from unit carrying** (computed at read time in `computeStats`):
-- Carrier's movement keywords (Airborne, Burrowing, Submerge, Voidwalk) are granted to carried unit
-- Other keyword grants from specific card abilities are handled the same way
+Carrier's movement keywords (Airborne, Burrowing, Submerge, Voidwalk) are **passively granted** to carried units — computed at read time in `computeStats`, no mutation needed.
 
-**`MOVE_UNIT` with a carrying unit:** when a unit carrying other units moves, the engine also updates each carried unit's square (same path). This is part of the `MOVE_UNIT` atomic action — the carried units' positions are updated atomically with the carrier.
+### Combat — Damage & Life
 
+> **`DEAL_DAMAGE` vs `LOSE_LIFE`:**
+> - `DEAL_DAMAGE` — combat, spells, abilities hitting a unit or avatar.
+>   - On a minion: accumulates `damage` tokens; dies when `damage >= getDefensePower(id, state)`.
+>   - On an avatar: reduces life. Can trigger Death's Door. Can deliver a death blow.
+>   - Blocked by Death's Door immunity (the turn the avatar entered it).
+> - `LOSE_LIFE` — site attack; the site controller loses life directly.
+>   - **Cannot** deliver a death blow (rule: site attacks are life loss, not damage).
+>   - Also blocked by Death's Door immunity.
 
-### Damage & Life
+> **Damage persistence:** minion damage resets at the **end of the active player's turn**
+> (`RESET_ALL_DAMAGE` fires before `SWITCH_ACTIVE_PLAYER`). Damage dealt to opponent's minions
+> during your turn persists into their turn and resets at the end of theirs. Avatars never reset life.
 
-> **Rule distinction:**
-> - `DEAL_DAMAGE` — damages a unit or avatar directly (from combat, spells, abilities).
->   - On a **minion**: accumulates as `damage` tokens; minion dies when `damage >= defensePower`.
->   - On an **avatar**: reduces life. Can trigger Death's Door. Can deliver a death blow.
->   - Is blocked by Death's Door immunity (the turn an avatar enters it).
-> - `LOSE_LIFE` — the controller of a site loses life when that site is attacked.
->   - Bypasses minions. Reduces life directly.
->   - **Cannot** deliver a death blow (rule: site attacks never cause a death blow).
->   - Is also blocked by Death's Door immunity.
->
-> **Split Power note:** Some minions (26 in the current dataset) have separate attack and defense values (`power: { attack, defense }`). The `amount` in `DEAL_DAMAGE` is always resolved from `getAttackPower(sourceId, state)` at decomposition time. Death is checked against `getDefensePower(targetId, state)`. Both functions must scan passive modifiers and active floating effects in addition to the base card value.
-
-> **Damage persistence:** Minion damage accumulates across the entire turn and resets at the **end of the active player's turn** (End Phase, step 2). This means:
-> - If player A damages a minion belonging to player B during player A's turn, that minion carries those damage tokens into player B's turn. The damage only resets at the end of player B's turn.
-> - Damage from multiple sources within the same turn is cumulative (rule confirmed).
-> - Avatars never reset life — only minion damage resets.
-> - `RESET_ALL_DAMAGE` fires inside `END_TURN`, **before** `SWITCH_ACTIVE_PLAYER`, so it always resets the current active player's turn damage, not the next player's.
+> **Split Power:** 26 minions have `power: { attack, defense }`. `DEAL_DAMAGE` amount always uses
+> `getAttackPower(sourceId, state)`; death threshold uses `getDefensePower(targetId, state)`.
+> Both functions scan passives and floatingEffects in addition to the base card value.
 
 ```ts
-  | { type: 'DEAL_DAMAGE';     sourceId: string; targetId: string; amount: number }
-  | { type: 'LOSE_LIFE';       playerId: PlayerId; amount: number }  // site attack, life loss effects
-  | { type: 'GAIN_LIFE';       playerId: PlayerId; amount: number }
-  | { type: 'RESET_DAMAGE';    instanceId: string }   // reset single minion (e.g. ability effect)
-  | { type: 'RESET_ALL_DAMAGE'; }                     // End Phase sweep — resets ALL minions on board
+  | { type: 'DEAL_DAMAGE';    sourceId: string; targetId: string; amount: number }
+  | { type: 'LOSE_LIFE';      playerId: PlayerId; amount: number }
+  | { type: 'GAIN_LIFE';      playerId: PlayerId; amount: number }
+  | { type: 'RESET_DAMAGE';   instanceId: string }
+  | { type: 'RESET_ALL_DAMAGE' }   // End Phase sweep — ALL minions on board, both players
 ```
 
-### Death & Death's Door
+### Combat — Death & Death's Door
 
 ```ts
-  | { type: 'CHECK_MINION_DEATH';  instanceId: string }
-  // compares inst.damage >= getDefensePower(instanceId, state) — uses defensePower, not attackPower
-  | { type: 'DESTROY_UNIT';        instanceId: string }   // remove from board, send to cemetery
-  | { type: 'CHECK_DEATHS_DOOR';   playerId: PlayerId }   // check if life <= 0
-  | { type: 'ENTER_DEATHS_DOOR';   playerId: PlayerId }
-  | { type: 'CHECK_DEATH_BLOW';    playerId: PlayerId }   // already at death's door + damaged → win
-  | { type: 'SET_WINNER';          playerId: PlayerId }
+  | { type: 'CHECK_MINION_DEATH'; instanceId: string }
+  // evaluates damage >= getDefensePower(id, state) → triggers DESTROY_UNIT if true
+
+  | { type: 'DESTROY_UNIT';       instanceId: string }
+  // removes from board, sends to cemetery, fires on_death trigger (Deathrite)
+
+  | { type: 'BURY_UNIT';          instanceId: string }
+  // removes from board, sends to cemetery — does NOT fire on_death (no Deathrite)
+
+  | { type: 'CHECK_DEATHS_DOOR';  playerId: PlayerId }
+  | { type: 'ENTER_DEATHS_DOOR';  playerId: PlayerId }
+  | { type: 'CHECK_DEATH_BLOW';   playerId: PlayerId }
+  | { type: 'SET_WINNER';         playerId: PlayerId }
+```
+
+### Floating Effects
+
+```ts
+  | { type: 'APPLY_FLOATING_EFFECT';  effect: FloatingEffect }
+  | { type: 'TICK_FLOATING_EFFECTS';  playerId: PlayerId }
+  // called during END_TURN — decrements expiresAfterTurns, removes effects at 0
+  | { type: 'REMOVE_FLOATING_EFFECT'; effectId: string }
+```
+
+### Tokens, Counters, Conditions
+
+```ts
+  | { type: 'SUMMON_TOKEN';    tokenCardId: string; location: Location; controllerId: PlayerId }
+  | { type: 'ADD_COUNTER';     instanceId: string; counter: string; amount: number }
+  | { type: 'REMOVE_COUNTER';  instanceId: string; counter: string; amount: number }
+  | { type: 'SET_CONDITION';   instanceId: string; condition: Condition; value: boolean }
+  // Conditions: tapped, disabled, silenced, stealth, ward, no_retaliation, ...
+  | { type: 'BREAK_WARD';      instanceId: string }
+  // absorbs one targeting/damage/destruction effect; fires on ward-break trigger
+```
+
+### Misc
+
+```ts
+  | { type: 'CHOOSE_RANDOM';  scope: 'unit' | 'spell' | 'square'; resolvedId: string }
+  // randomness resolved at decomposition time; resolvedId stored in log → deterministic replay
+  // ⚠ information-revealing → locks undo
+
+  | { type: 'SWAP_POSITIONS'; instanceId1: string; instanceId2: string }  // two units
+  | { type: 'EXCHANGE_LIFE';  player1Id: PlayerId; player2Id: PlayerId }
+  | { type: 'SUMMON_AS_COPY'; instanceId: string; copyOfCardId: string; location: Location }
 ```
 
 ### Turn & Phase
@@ -281,27 +367,28 @@ Two atomic actions:
   | { type: 'ADVANCE_STEP' }
   | { type: 'SWITCH_ACTIVE_PLAYER' }
   | { type: 'INCREMENT_TURN' }
-  | { type: 'CLEAR_MANA';          playerId: PlayerId }
-  | { type: 'RECORD_ATTACK';       unitId: string }
-  | { type: 'RECORD_MOVE';         unitId: string }
-  | { type: 'RECORD_SPELL_CAST'; }
-  | { type: 'SET_PENDING_INTERACTION'; interaction: PendingInteraction }
+  | { type: 'RECORD_ATTACK';    unitId: string }
+  | { type: 'RECORD_MOVE';      unitId: string }
+  | { type: 'RECORD_SPELL_CAST' }
+  | { type: 'SET_PENDING_INTERACTION';   interaction: PendingInteraction }
   | { type: 'CLEAR_PENDING_INTERACTION' }
 ```
 
-### Tokens, Counters, Conditions
+### UI / Sequencing
 
 ```ts
-  | { type: 'ADD_COUNTER';         instanceId: string; counter: string; amount: number }
-  | { type: 'REMOVE_COUNTER';      instanceId: string; counter: string; amount: number }
-  | { type: 'SET_CONDITION';       instanceId: string; condition: Condition; value: boolean }
-  | { type: 'SUMMON_TOKEN';        tokenCardId: string; square: Square; controllerId: PlayerId }
+  | { type: 'SELECT_TARGET'; prompt: string; conditions: TargetCondition[]; resultKey: string }
+  | { type: 'SELECT_SQUARE'; prompt: string; conditions: SquareCondition[];  resultKey: string }
+  // When the engine encounters these, execution pauses.
+  // The remaining sequence is stored in pendingInteraction.resumeSequence (serializable).
+  // On cancel  → restore pre-action snapshot (full rollback of any partial mutations).
+  // On confirm → fill resultKey into the sequence and resume.
 ```
 
-### Trigger System
+### Triggers
 
 ```ts
-  | { type: 'TRIGGER_FIRED';  triggerType: TriggerType; sourceId: string; payload: TriggerPayload }
+  | { type: 'TRIGGER_FIRED';    triggerType: TriggerType; sourceId: string; payload: TriggerPayload }
   | { type: 'TRIGGER_RESOLVED'; triggerId: string }
 ```
 
@@ -309,7 +396,7 @@ Two atomic actions:
 
 ## Player Actions (Composite)
 
-A `PlayerAction` is what a player initiates. The engine decomposes it into an ordered sequence of `AtomicAction`s. Checks come first; if any check fails the whole sequence is aborted (no state change).
+A `PlayerAction` is what a player initiates. The composite resolver decomposes it into an ordered `AtomicAction[]`. Checks always come before mutations; a failed check aborts the whole sequence with no state change.
 
 ### `CAST_SPELL`
 
@@ -319,27 +406,26 @@ CHECK_PHASE('main')
 CHECK_CARD_IN_HAND(cardId)
 CHECK_HAS_MANA(cost)
 CHECK_ELEMENTAL_THRESHOLD(threshold)
-[CHECK_SQUARE_VALID / CHECK_TARGET_VALID]   ← if spell needs a target
+[CHECK_LOCATION_VALID / CHECK_TARGET_VALID]   ← if the spell requires a target
 PAY_MANA(cost)
 MOVE_CARD_FROM_HAND(cardId)
 → branch by card type:
-  Minion:
-    CHECK_SQUARE_HAS_SITE(targetSquare)
-    CHECK_SQUARE_CONTROLLED(targetSquare)
-    PLACE_UNIT(instanceId, targetSquare)
-    SET_SUMMONING_SICKNESS(instanceId, true)
-    TRIGGER_FIRED('on_enter', instanceId)
-  Site:
-    [via PLAY_SITE player action below]
-  Artifact:
-    [ATTACH_ARTIFACT or PLACE_ARTIFACT_ON_SQUARE]
-    TRIGGER_FIRED('on_enter', instanceId)
-  Aura:
-    PLACE_UNIT(instanceId, targetSquare)
-    TRIGGER_FIRED('on_enter', instanceId)
-  Magic (instant):
-    [DEAL_DAMAGE / GAIN_LIFE / ... per ability effects]
-    MOVE_CARD_TO_CEMETERY(instanceId)
+    Minion:
+      CHECK_SQUARE_HAS_SITE(targetSquare)
+      CHECK_SQUARE_CONTROLLED(targetSquare)
+      PLACE_UNIT(instanceId, { square: targetSquare, region: 'surface' })
+      SET_SUMMONING_SICKNESS(instanceId, true)
+      TRIGGER_FIRED('on_enter', instanceId)
+    Artifact:
+      [ATTACH_ARTIFACT or PLACE_ARTIFACT_ON_SQUARE]
+      TRIGGER_FIRED('on_enter', instanceId)
+    Aura:
+      PLACE_UNIT(instanceId, targetLocation)
+      TRIGGER_FIRED('on_enter', instanceId)
+    Magic (instant):
+      [SELECT_TARGET if needed]
+      [DEAL_DAMAGE / GAIN_LIFE / ... per effect]
+      MOVE_CARD_TO_CEMETERY(instanceId)
 RECORD_SPELL_CAST
 ```
 
@@ -348,7 +434,7 @@ RECORD_SPELL_CAST
 ```
 CHECK_IS_ACTIVE_PLAYER
 CHECK_CARD_IN_HAND(instanceId)
-CHECK_SQUARE_VALID(targetSquare, [is valid site placement])
+CHECK_LOCATION_VALID(targetSquare, [valid placement rules])
 MOVE_CARD_FROM_HAND(instanceId)
 [SET_RUBBLE(square, false)]   ← if replacing rubble
 PLACE_SITE(instanceId, targetSquare)
@@ -357,50 +443,36 @@ COMPUTE_AFFINITY(playerId)
 TRIGGER_FIRED('on_enter', instanceId)
 ```
 
-### `MOVE_UNIT`
+### `MOVE_AND_ATTACK`
 
 ```
 CHECK_IS_ACTIVE_PLAYER
 CHECK_UNIT_ON_BOARD(unitId)
 CHECK_NOT_TAPPED(unitId)
 CHECK_NO_SUMMONING_SICKNESS(unitId)
-[CHECK_SQUARE_VALID for each step in path]
-CHECK_SQUARE_REACHABLE(unitId, destination)
-MOVE_UNIT(unitId, path)
+CHECK_LOCATION_REACHABLE(unitId, destination)
+MOVE_UNIT(unitId, path)              ← path: Location[]
+  [per step: hazard check + on_enter if new location]
 TAP(unitId)
 RECORD_MOVE(unitId)
-```
-
-### `ATTACK_UNIT`
-
-```
-[after MOVE_UNIT or from same square]
-CHECK_TARGET_VALID(targetId, [is enemy, is adjacent/reachable])
-RECORD_ATTACK(unitId)
-DEAL_DAMAGE(attackerId, targetId, attackerPower)
-→ if target is minion:
-    DEAL_DAMAGE(targetId, attackerId, targetPower)   ← simultaneous strike
+→ if attacking a unit:
+    CHECK_TARGET_VALID(targetId, [is enemy, reachable, region rules])
+    RECORD_ATTACK(unitId)
+    DEAL_DAMAGE(attackerId, targetId, getAttackPower(attacker))
+    DEAL_DAMAGE(targetId, attackerId, getAttackPower(target))   ← simultaneous
     CHECK_MINION_DEATH(targetId)
       → if dead: DESTROY_UNIT(targetId), TRIGGER_FIRED('on_death', targetId)
     CHECK_MINION_DEATH(attackerId)
       → if dead: DESTROY_UNIT(attackerId), TRIGGER_FIRED('on_death', attackerId)
-→ if target is avatar:
-    CHECK_DEATH_BLOW(targetPlayerId)
-      → if death blow: SET_WINNER(attackerPlayerId)
-    CHECK_DEATHS_DOOR(targetPlayerId)
-      → if life <= 0: ENTER_DEATHS_DOOR(targetPlayerId)
-```
-
-### `ATTACK_SITE`
-
-```
-CHECK_TARGET_VALID(siteSquare, [has enemy site, attacker is adjacent])
-RECORD_ATTACK(unitId)
-TAP(unitId)
-LOSE_LIFE(siteOwnerId, attackerPower)   ← NOT DEAL_DAMAGE — cannot deliver death blow
-CHECK_DEATHS_DOOR(siteOwnerId)
-  → if life <= 0 AND not already at death's door: ENTER_DEATHS_DOOR(siteOwnerId)
-  → if already at death's door: death blow cannot occur from LOSE_LIFE (rule)
+    → if target is avatar:
+        CHECK_DEATH_BLOW(targetPlayerId)   → if death blow: SET_WINNER(attackerPlayerId)
+        CHECK_DEATHS_DOOR(targetPlayerId)  → if life <= 0: ENTER_DEATHS_DOOR(targetPlayerId)
+→ if attacking a site:
+    CHECK_TARGET_VALID(siteSquare, [has enemy site, attacker is there])
+    RECORD_ATTACK(unitId)
+    LOSE_LIFE(siteOwnerId, getAttackPower(attacker))   ← life loss, NOT damage → no death blow
+    CHECK_DEATHS_DOOR(siteOwnerId)
+      → if life <= 0 and not yet at death's door: ENTER_DEATHS_DOOR(siteOwnerId)
 ```
 
 ### `ACTIVATE_ABILITY`
@@ -408,119 +480,127 @@ CHECK_DEATHS_DOOR(siteOwnerId)
 ```
 CHECK_IS_ACTIVE_PLAYER
 CHECK_UNIT_ON_BOARD(instanceId)
-CHECK_ABILITY_USABLE(instanceId, abilityId)   ← checks cost, tap, threshold, not already used
+CHECK_ABILITY_USABLE(instanceId, abilityId)   ← cost, tap, threshold, once-per-turn
 [PAY_MANA(cost)]
 [TAP(instanceId)]
 [LOSE_LIFE(playerId, lifeCost)]
+[SELECT_TARGET / SELECT_SQUARE]               ← if ability needs a target
 → resolve effect (same decomposition as spell effects)
 ```
 
 ### `END_TURN`
 
-Per rules End Phase order: (1) end_of_turn triggers, (2) reset minion damage, (3) floating "for your turn" effects expire, (4) mana lost, (5) opponent's turn begins.
+Per rulebook End Phase order: (1) end_of_turn triggers, (2) floating "this turn" effects expire,
+(3) minion damage resets, (4) mana lost, (5) opponent's turn begins.
 
 ```
 CHECK_IS_ACTIVE_PLAYER
-TRIGGER_FIRED('end_of_turn', ...)           ← step 1: all end_of_turn abilities fire
-TICK_FLOATING_EFFECTS(activePlayerId)       ← step 3: decrement durations, remove expired "this turn" effects
-RESET_ALL_DAMAGE                            ← step 2: all minion damage tokens cleared
-CLEAR_MANA(activePlayerId)                  ← step 4: unspent mana lost
-SWITCH_ACTIVE_PLAYER                        ← step 5: opponent's turn begins
+TRIGGER_FIRED('end_of_turn', ...)
+TICK_FLOATING_EFFECTS(activePlayerId)
+RESET_ALL_DAMAGE
+CLEAR_MANA(activePlayerId)
+SWITCH_ACTIVE_PLAYER
 INCREMENT_TURN
 UNTAP_ALL(nextPlayerId)
 CLEAR_SUMMONING_SICKNESS(nextPlayerId)
 COMPUTE_MANA_POOL(nextPlayerId)
 COMPUTE_AFFINITY(nextPlayerId)
-→ if not turn 1 first player: SET_PENDING_INTERACTION({ type: 'choose_draw', playerId })
-   else: ADVANCE_PHASE
-TRIGGER_FIRED('start_of_turn', ...)         ← after draw choice resolved
+→ if not turn 1 first player:
+    SET_PENDING_INTERACTION({ type: 'choose_draw', playerId })
+    [after player chooses]: DRAW_CARD → ADVANCE_PHASE
+  else:
+    ADVANCE_PHASE
+TRIGGER_FIRED('start_of_turn', ...)
 ```
-
-Note: `RESET_ALL_DAMAGE` resets **all minions currently on the board**, regardless of controller. Damage accumulated during the active player's turn on the opponent's minions is also cleared here — those minions do **not** carry damage into the next turn.
 
 ---
 
-## Trigger System
+## System Mechanics
 
-After each **mutation** atomic action is applied, the engine checks a **trigger registry**: a map from `TriggerType` to all currently-in-play cards that have an ability listening to that trigger.
+### Movement & Regions
 
-If a match is found, a `TRIGGER_FIRED` action is appended to the log, and the triggered ability's composite action sequence is pushed to the **trigger queue** (FIFO).
+Each step in a `MOVE_UNIT` path is a `Location = { square, region }`. A step may change the square, the region, or both.
 
-The trigger queue is drained before the next player action is accepted.
+| Keyword | Enables | Step type |
+|---------|---------|-----------|
+| *(none)* | Surface only | Adjacent square, same `surface` region |
+| **Airborne** | Diagonal steps | Diagonal square, `surface` region. Also immune to attacks/intercepts by non-Airborne. |
+| **Burrowing** | Underground | `{ same square, 'underground' }` (drop down) or `{ adjacent square, 'underground' }` |
+| **Submerge** | Underwater | Same as Burrowing for `'underwater'` (water sites only) |
+| **Voidwalk** | Void squares | Step into adjacent void, or exit void onto adjacent site surface/subsurface |
+| **Movement +X** | Extra steps | `computeStats().movement` = base 1 + X |
+| **Moves Freely** | Zero-cost steps | No step budget consumed while condition is satisfied |
 
-```
-TriggerType:
-  'on_enter'        → fires after PLACE_UNIT / PLACE_SITE
-  'on_death'        → fires after DESTROY_UNIT
-  'start_of_turn'   → fires during END_TURN resolution (after untap/draw)
-  'end_of_turn'     → fires during END_TURN resolution (before mana clear)
-  'on_damage'       → fires after DEAL_DAMAGE (for reactive abilities)
-  'passive'         → not a trigger — always-on modifier, applied at state read time
-```
+Region hazards fire after each step (including forced moves — keywords don't protect in forced movement):
 
-No player can react between trigger resolutions (no stack, no priority).
+| Entering | Without keyword | Consequence |
+|----------|-----------------|-------------|
+| `underground` | Burrowing | `DESTROY_UNIT` |
+| `underwater` | Submerge | `DESTROY_UNIT` |
+| `void` | Voidwalk | `BANISH` |
 
----
+### Passive Abilities
 
-## Event Sourcing — Event Log
+Passive abilities are **never mutations**. `computeStats(id, state)` is the single read point, aggregating base card value → in-play passive modifiers → active floatingEffects.
 
-The event log is the source of truth. Every **mutation** atomic action applied to the game state is appended as an `EventLogEntry`. Checks are not logged.
+Context-sensitive passives (e.g. Waterbound: disabled when not on a water site) are evaluated at read time via `isDisabled(id, state)` — no stored flag.
+
+### Trigger System
+
+After each mutation, the engine checks a **trigger registry** mapping `TriggerType` to in-play cards listening for that trigger. Matches are enqueued (FIFO) and drained before the next player action.
+
+| TriggerType | Fires after |
+|-------------|-------------|
+| `on_enter` | `PLACE_UNIT` / `PLACE_SITE` |
+| `on_death` | `DESTROY_UNIT` (not `BURY_UNIT`) |
+| `on_damage` | `DEAL_DAMAGE` |
+| `end_of_turn` | Start of `END_TURN` composite |
+| `start_of_turn` | After draw choice resolved in `END_TURN` |
+
+Loop detection: each chain tracks a seen-set of `(sourceInstanceId, triggerType, targetId)`. Duplicate enqueue in the same chain is silently dropped. No depth limit.
+
+### Event Log
+
+Every mutation is appended as an `EventLogEntry`. Checks are not logged.
 
 ```ts
 interface EventLogEntry {
-  id: string;
-  playerActionIndex: number;   // groups atomics under the parent player action
-  atomicAction: MutationAction;
-  timestamp: number;
-}
-
-interface EventLog {
-  entries: EventLogEntry[];
-  playerActionCount: number;
+  id:                string;
+  playerActionIndex: number;        // groups atomics under their parent player action
+  atomicAction:      MutationAction;
+  timestamp:         number;
 }
 ```
 
-The full `GameState` can be rebuilt by replaying the log from the initial state.
+Randomness (`CHOOSE_RANDOM`) and deck-peek (`PEEK_DECK`) store resolved outcomes directly in the action — replay is fully deterministic.
 
----
+### Undo System
 
-## Undo System
-
-Undo operates at **player action boundaries** (not per atomic action, which would be too granular for UX).
-
-**Strategy: snapshot-based** (simpler and instant, event log remains available for replay/audit).
-
-Before each player action is processed, the engine stores a full `GameState` snapshot. Undo restores the previous snapshot.
+Snapshot-based, at player action boundaries.
 
 ```ts
 interface UndoStack {
   snapshots: GameState[];
-  locked: boolean;          // true after any information-revealing action fires
+  locked:    boolean;
   push(state: GameState): void;
-  pop(): GameState | undefined;   // only works if !locked
-  lock(): void;             // clears snapshots, sets locked = true
-  canUndo(): boolean;       // !locked && snapshots.length > 0
+  pop():     GameState | undefined;   // no-op if locked
+  lock():    void;                    // clears snapshots, sets locked = true
+  canUndo(): boolean;                 // !locked && snapshots.length > 0
 }
 ```
 
-Undo is only available during the active player's turn (cannot undo the opponent's actions after passing turn).
-
-### Information-Revealing Actions
-
-Certain atomic mutations reveal **hidden information** to the player — once seen, the action cannot be taken back. When any of these fires (whether in a player action or in a triggered ability chain), `undoStack.lock()` is called immediately.
+**Information-revealing actions** lock the undo stack immediately when they fire — whether from a player action or a triggered ability:
 
 ```ts
 const INFORMATION_REVEALING_ACTIONS = new Set([
-  'DRAW_CARD',       // player sees a new card from their deck
-  'PEEK_DECK',       // player sees top N cards of deck (resolvedIds stored in action)
-  'CHOOSE_RANDOM',   // random outcome is revealed and stored in the action
-  'REVEAL_HAND',     // opponent's hand contents are revealed
+  'DRAW_CARD',     // player sees a new card
+  'PEEK_DECK',     // player sees top N cards
+  'CHOOSE_RANDOM', // random outcome revealed and stored
+  'REVEAL_HAND',   // opponent's hand revealed
 ]);
 ```
 
-> The `LOCK_UNDO` atomic action is removed — locking is a side effect of the undo stack itself, not a separate action in the log. The pipeline checks `INFORMATION_REVEALING_ACTIONS` after each mutation and calls `undoStack.lock()` if matched.
-
-**Implication for triggered abilities:** if a spell's `on_enter` trigger draws a card automatically, undo is locked even though the player did not explicitly choose to draw. The hidden information has been revealed regardless of how it happened.
+Undo is only available during the active player's turn. Cancelling a `SELECT_TARGET`/`SELECT_SQUARE` mid-sequence restores the pre-action snapshot (full rollback of any partial mutations).
 
 ---
 
@@ -530,352 +610,57 @@ const INFORMATION_REVEALING_ACTIONS = new Set([
 src/
   engine/
     core/
-      atomicActions.ts      ← full AtomicAction discriminated union
-      gameState.ts          ← GameState type (pure serializable data)
-      applyAtomicAction.ts  ← (state, action) => state  — one switch per action type
-      checks.ts             ← all CHECK_* validators, throw GameError on failure
+      atomicActions.ts        ← full AtomicAction discriminated union
+      gameState.ts            ← GameState type (pure serializable data)
+      applyAtomicAction.ts    ← (state, action) => state — one switch per action type
+      checks.ts               ← all CHECK_* validators, throw GameError on failure
+      computeStats.ts         ← computeStats(id, state) → UnitStats
     composite/
-      castSpell.ts          ← PlayerAction → AtomicAction[]
+      castSpell.ts
       playSite.ts
-      moveUnit.ts
-      attackUnit.ts
-      attackSite.ts
+      moveAndAttack.ts
       activateAbility.ts
       endTurn.ts
       mulligan.ts
     triggers/
-      triggerRegistry.ts    ← scan in-play cards for matching triggers
-      triggerQueue.ts       ← FIFO queue of pending triggered effects
+      triggerRegistry.ts      ← maps TriggerType → in-play listeners
+      triggerQueue.ts         ← FIFO queue + loop detection
     log/
-      eventLog.ts           ← append, serialize, replay
+      eventLog.ts             ← append, serialize, replay
     undo/
-      undoStack.ts          ← snapshot push/pop
-    utils.ts                ← grid math, pathfinding (unchanged)
-    gameEngine.ts           ← orchestrator: receives PlayerAction, runs full pipeline
+      undoStack.ts            ← snapshot push/pop + lock
+    utils.ts                  ← grid math, pathfinding, region helpers
+    gameEngine.ts             ← orchestrator: pipeline entry point
   store/
-    gameStore.ts            ← Zustand: calls engine, holds UI-only state
+    gameStore.ts              ← Zustand: calls engine, holds UI-only state
   types/
-    index.ts                ← all shared types
+    index.ts                  ← all shared types
   data/
     cards.ts
     realCards.ts
   components/
-    ...                     ← unchanged structure, reads state from store
+    ...                       ← unchanged, reads state from store
 ```
 
 ---
 
-## Engine Pipeline (per Player Action)
-
-```
-PlayerAction received
-  │
-  ├─ 1. decompose → AtomicAction[]   (composite resolver)
-  │
-  ├─ 2. run checks first (dry-run)   → abort whole sequence if any check fails
-  │
-  ├─ 3. push GameState snapshot      → undo stack
-  │
-  ├─ 4. for each AtomicAction:
-  │       a. apply mutation → new GameState
-  │       b. append to event log
-  │       c. check trigger registry → enqueue triggered effects
-  │
-  ├─ 5. drain trigger queue:
-  │       for each queued trigger:
-  │         decompose → AtomicAction[]
-  │         apply (same pipeline, no new undo snapshot)
-  │         may enqueue further triggers (cascade)
-  │
-  └─ 6. return new GameState → store updates UI
-```
-
----
-
-## Design Decisions
-
-### 1. Passive Abilities — Computed at Read Time
-
-Passive abilities (always-on modifiers: +X power, keyword grants, etc.) are **never stored as mutations** in the event log. They are computed on the fly through a unified `computeStats(instanceId, state)` function that is the single point of truth for a unit's effective stats.
-
-```ts
-interface UnitStats {
-  attackPower: number;    // used as DEAL_DAMAGE amount when this unit strikes
-  defensePower: number;   // threshold for CHECK_MINION_DEATH (damage >= defensePower → dies)
-  movement: number;
-  keywords: KeywordAbility[];
-}
-
-// Modifier: used by both passive abilities (permanent) and floating effects (temporary)
-interface Modifier {
-  stat: 'attackPower' | 'defensePower' | 'both_power' | 'movement';
-  operation: 'add' | 'set';
-  amount: number;
-}
-```
-
-`computeStats(id, state)` aggregation order:
-1. Base card value (`power: number` → both equal; `power: { attack, defense }` → split)
-2. Add modifiers from passive abilities of all in-play permanents that affect this unit
-3. Add modifiers from `state.floatingEffects` targeting this unit
-
-For avatars: `attackPower` comes from `card.attackPower`; they have no `defensePower` (avatars lose life, not damage tokens).
-
-This means state is always minimal and never out-of-sync. No mutation is needed when an aura enters or leaves — the effect disappears automatically because the aura is no longer in play.
-
-### 2. Trigger Cascades — No Depth Limit, Infinite Loop Detection
-
-Triggered abilities can trigger other abilities with no hard depth limit. The trigger queue tracks a **seen set** of `(sourceInstanceId, triggerType, targetId)` tuples per resolution chain. If the same tuple would be enqueued again in the same chain, it is silently dropped (loop detected).
-
-### 3. Undo — Blocked on Information Reveal
-
-Undo is available freely during a player's turn **up until new hidden information is revealed**. The moment a card is drawn (from either deck), the undo stack for that turn is cleared. The player cannot go back past a draw.
-
-Concretely: `DRAW_CARD`, `PEEK_DECK`, `CHOOSE_RANDOM`, and `REVEAL_HAND` are all **information-revealing actions** — see the Undo System section for the full mechanism.
-
-### 4. Targeting Mid-Sequence — Suspended Sequence
-
-`SELECT_TARGET` and `SELECT_SQUARE` are first-class atomic actions in a sequence. When the engine encounters one, it **pauses execution**, stores the remaining sequence, and emits a `pendingInteraction`. The partial state (including already-applied mutations) is saved to the store. When the player responds, the engine resumes from the stored sequence with the chosen value filled in.
-
-**Cancellation**: If the player cancels a mid-sequence selection, the engine restores the pre-action snapshot (undo). All partial mutations are rolled back cleanly.
-
-The suspended sequence is stored inside `pendingInteraction` to keep the state fully serializable:
-
-```ts
-type PendingInteraction =
-  | {
-      type: 'select_target';
-      prompt: string;
-      conditions: TargetCondition[];
-      resumeSequence: AtomicAction[];  // remaining actions, with placeholder refs filled on resume
-    }
-  | {
-      type: 'select_square';
-      prompt: string;
-      conditions: SquareCondition[];
-      resumeSequence: AtomicAction[];
-    }
-  | { type: 'choose_draw'; playerId: PlayerId }
-  | { type: 'mulligan';    playerId: PlayerId }
-  | null;
-```
-
-New atomic actions to support this:
-
-```ts
-  | { type: 'SELECT_TARGET'; prompt: string; conditions: TargetCondition[]; resultKey: string }
-  | { type: 'SELECT_SQUARE'; prompt: string; conditions: SquareCondition[]; resultKey: string }
-  // Note: LOCK_UNDO is removed — undo locking is a side effect of the UndoStack, not a logged action.
-  // The pipeline checks INFORMATION_REVEALING_ACTIONS after each mutation automatically.
-```
-
----
-
-## Revised Engine Pipeline (per Player Action)
-
-```
-PlayerAction received
-  │
-  ├─ 1. decompose → AtomicAction[]   (composite resolver, may contain SELECT_TARGET / SELECT_SQUARE)
-  │
-  ├─ 2. run CHECK_* actions first (dry-run, no state change)  → abort if any fails
-  │
-  ├─ 3. push GameState snapshot → undo stack
-  │
-  ├─ 4. for each AtomicAction in sequence:
-  │       ┌─ if SELECT_TARGET / SELECT_SQUARE:
-  │       │     store remaining sequence in pendingInteraction
-  │       │     return state to UI → wait for player input
-  │       │     [on cancel] → restore snapshot, clear sequence
-  │       │     [on confirm] → fill resultKey, resume sequence from here
-  │       └─ else:
-  │             a. apply mutation → new GameState
-  │             b. append to event log
-  │             c. if action.type ∈ INFORMATION_REVEALING_ACTIONS → undoStack.lock()
-  │             d. check trigger registry → enqueue triggered effects
-  │
-  ├─ 5. drain trigger queue (FIFO):
-  │       for each queued trigger:
-  │         decompose → AtomicAction[]
-  │         apply (same pipeline, no new undo snapshot)
-  │         loop detection: drop if same (source, trigger, target) seen in this chain
-  │         may enqueue further triggers (cascade)
-  │
-  └─ 6. return final GameState → store updates UI
-```
-
----
-
-## Compatibility Analysis — Rules & Cards
-
-This section documents findings from a full scan of RULES.md and all 1104 cards in realCards.ts.
-
-**Overall compatibility: ~85–90%.** The architecture handles the vast majority of mechanics. All gaps are additive (new atomic actions), not architectural redesigns.
-
----
-
-### Confirmed Gaps in Current Atomic Action List
-
-#### A. Bury vs. Destroy
-
-Rules define two distinct ways for a minion to go to the cemetery:
-- **Destroy** → triggers `on_death` (Deathrite) abilities
-- **Bury** → goes to cemetery silently, does **not** trigger Deathrite
-
-```ts
-| { type: 'BURY_UNIT'; instanceId: string }   // no on_death trigger
-```
-
-#### B. Ward
-
-Ward absorbs one targeting/damage/destruction effect and then breaks. Must be an atomic action so it can be logged and so triggers on ward-break can fire.
-
-```ts
-| { type: 'BREAK_WARD'; instanceId: string }
-```
-
-`CHECK_TARGET_VALID` must check for Ward and route through `BREAK_WARD` instead of applying the effect.
-
-#### C. Artifact Destruction
-
-Currently only `DROP_ARTIFACT` (artifact lands on ground). Need explicit destruction (to cemetery).
-
-```ts
-| { type: 'DESTROY_ARTIFACT'; artifactId: string }
-```
-
-#### D. Banish (from cemetery / from play)
-
-Several cards banish units as a cost or effect. Banished cards do not go to the cemetery — they are removed from the game.
-
-```ts
-| { type: 'BANISH'; instanceId: string; from: 'board' | 'cemetery' | 'hand' }
-```
-
-#### E. Floating Effects (temporary, expiring)
-
-~72 cards (~6.7%) have effects that last "until your next turn", "this turn", or "for X turns". Passives are permanent; these are not.
-
-Floating effects must be stored as data in `GameState` and ticked at turn boundaries.
-
-```ts
-interface FloatingEffect {
-  id: string;
-  targetId: string;
-  modifier: Modifier;       // same type used by passive abilities
-  expiresAfterTurns: number;  // decremented at TICK_FLOATING_EFFECTS
-  ownerPlayerId: PlayerId;
-}
-// GameState gains: floatingEffects: FloatingEffect[]
-```
-
-```ts
-| { type: 'APPLY_FLOATING_EFFECT'; effect: FloatingEffect }
-| { type: 'TICK_FLOATING_EFFECTS'; playerId: PlayerId }   // called at turn start, removes expired
-| { type: 'REMOVE_FLOATING_EFFECT'; effectId: string }
-```
-
-`getEffectivePower()` and all passive-read functions must also scan `floatingEffects`.
-
-#### F. Random Outcomes
-
-~25 cards (~2.3%) have random effects ("deal 3 damage to a **random** unit", "cast a copy of a **random** spell"). `Math.random()` breaks event log replay.
-
-Resolution: randomness is resolved **at decomposition time** (before any mutation), and the chosen outcome is stored in the atomic action itself. Replaying the log replays the same choice.
-
-```ts
-| { type: 'CHOOSE_RANDOM'; scope: 'unit' | 'spell' | 'square'; resolvedId: string }
-// resolvedId is computed once and stored in the log entry — deterministic on replay
-```
-
-#### G. Deck Manipulation
-
-Several cards allow peeking, reordering, or putting cards on the bottom of a deck.
-
-```ts
-| { type: 'PEEK_DECK';            playerId: PlayerId; deck: 'atlas' | 'spellbook'; count: number; resolvedIds: string[] }
-// resolvedIds stored at peek time → deterministic replay; information-revealing → locks undo
-| { type: 'MOVE_CARD_TO_DECK_BOTTOM'; instanceId: string; playerId: PlayerId; deck: 'atlas' | 'spellbook' }
-| { type: 'REORDER_DECK_TOP';     playerId: PlayerId; deck: 'atlas' | 'spellbook'; order: string[] }
-```
-
-#### H. Unit Carrying
-
-A small number of cards allow carrying allied minions (separate from artifact-carrying, already implemented). The carried unit moves with the carrier and may gain keywords from the carrier.
-
-```ts
-| { type: 'CARRY_UNIT';  carrierId: string; carriedUnitId: string }
-| { type: 'DROP_UNIT';   carrierId: string; carriedUnitId: string; square: Square }
-```
-
-Carried units' passive keyword grants (e.g. Airborne from carrier) fall under the existing passive read-time system — no new action needed there.
-
-#### I. Position Swapping
-
-```ts
-| { type: 'SWAP_POSITIONS'; instanceId1: string; instanceId2: string }  // units
-| { type: 'SWAP_SITES';     square1: Square; square2: Square }           // sites (e.g. Baba Yaga's Hut)
-| { type: 'EXCHANGE_LIFE';  player1Id: PlayerId; player2Id: PlayerId }
-```
-
-#### J. Copying / Cloning
-
-Some cards enter as a copy of another card, or cast copies of spells.
-
-```ts
-| { type: 'SUMMON_AS_COPY'; instanceId: string; copyOfCardId: string; square: Square }
-// creates a new CardInstance whose card definition mirrors copyOfCardId
-```
-
-#### K. Conditional Strike (one-way combat)
-
-Some cards (e.g. Escyllion Cyclops: "doesn't strike back while defending") prevent reciprocal damage in combat. The existing simultaneous-strike model in `ATTACK_UNIT` must check a condition before applying the defender's `DEAL_DAMAGE`.
-
-No new atomic action needed — handled with a condition check inside the `ATTACK_UNIT` composite resolver using `hasCondition(instanceId, 'no_retaliation', state)`.
-
-#### L. Force Discard / Hand Manipulation
-
-```ts
-| { type: 'FORCE_DISCARD'; playerId: PlayerId; instanceId: string | 'random' }
-| { type: 'REVEAL_HAND';   playerId: PlayerId }   // opponent sees hand (UI only, but logged)
-```
-
-#### M. Search Effects
-
-Cards that let a player search a deck or cemetery for a specific card.
-Handled via a `SELECT_TARGET` pause pointing at a filtered zone — no new atomic action needed, but the `conditions` system on `SELECT_TARGET` must support `zone: 'deck' | 'cemetery'`.
-
----
-
-### Cards Outside Current Framework
-
-These cards have effects with **no current atomic action or composite pattern** that covers them:
-
-| Card | rulesText excerpt | Missing mechanic |
-|------|-------------------|-----------------|
-| **Doomsday Device** | "Enters with 6 counters. End of turn, remove 1. At 0: destroy all minions." | Counter-driven deferred effect → needs `TICK_FLOATING_EFFECTS` + counter-threshold trigger |
-| **The Immortal Throne** | "Gains a level counter when you cast a spell costing ≥ its level count" | Counter read in trigger condition → counter-aware trigger registry |
-| **Baba Yaga's Hut** | "May swap positions with an empty site in the back row" | `SWAP_SITES` |
-| **Evil Twin** | "Enters as an evil copy of target enemy minion" | `SUMMON_AS_COPY` |
-| **Far East Assassin** | "Throw a carried artifact: deal damage equal to its mana cost" | Needs artifact's mana cost read at resolution time + `DESTROY_ARTIFACT` |
-| **Entangle Terrain** (aura) | "Lasts 3 of your turns" | `APPLY_FLOATING_EFFECT` with duration |
-| **Any Deathrite card** | "When ~ dies, [effect]" | Already planned — `TRIGGER_FIRED('on_death')` — but requires `BURY_UNIT` to be distinct so Deathrite is not triggered on bury |
-| **Escyllion Cyclops** | "Doesn't strike back while defending" | `SET_CONDITION('no_retaliation')` + conditional check in `ATTACK_UNIT` |
-| **"Banish" cards** | "Banish target minion from the game" | `BANISH` action |
-| **Random-target cards** (~25) | "Deal damage to a random unit here" | `CHOOSE_RANDOM` with pre-resolved `resolvedId` |
-| **Peek/reorder cards** | "Look at top 7 spells, arrange in any order" | `PEEK_DECK` + `REORDER_DECK_TOP` |
-| **Copy-spell cards** | "Cast a copy of a random spell in your spellbook" | `CHOOSE_RANDOM` + `SUMMON_AS_COPY` / cast copy |
-| **Carrier units** | "May carry any number of allied minions; carried minions gain Airborne" | `CARRY_UNIT` / `DROP_UNIT` |
-
----
-
-### Concerns & Edge Cases
-
-| Concern | Detail | Mitigation |
-|---------|--------|------------|
-| **Floating effects + passives** | Both must be scanned in `getEffectivePower()` — risk of missing one | All stat reads go through a single `computeStats(id, state)` function that aggregates permanents + floatingEffects |
-| **Waterbound keyword** | Minion is disabled when NOT on a water site — context-sensitive disable | `isDisabled(id, state)` checks board position, not a stored flag |
-| **Split Power (Attack\|Defense)** | 26 minions already use `power: { attack, defense }` in realCards.ts — the `Power` type union already handles this. `computeStats()` reads `.attack` / `.defense` accordingly. No schema change needed. |
-| **Lance token** | Enters with minion, grants strike-first + bonus damage, breaks after first strike | Tracked as a counter `'lance': 1` on the unit; strike-first checked at attack resolution; counter removed after first strike |
-| **Information-revealing actions** | DRAW_CARD, PEEK_DECK, CHOOSE_RANDOM, REVEAL_HAND all lock undo — including when fired by triggers, not just player actions | `INFORMATION_REVEALING_ACTIONS` set checked after every mutation in the pipeline |
-| **Cascade trigger false-positive loop detection** | Two different cards both responding to the same event could be incorrectly deduplicated | Seen-set key must include `sourceInstanceId` (the card whose ability fires), not just triggerType + targetId |
+## Known Gaps & Cards Outside Current Framework
+
+Mechanics not yet expressible with the current atomic action set. All are **additive** — no architectural changes needed.
+
+| Mechanic | Cards / scope | Status |
+|----------|---------------|--------|
+| **Counter-threshold triggers** | Doomsday Device, Immortal Throne | Counter values must be readable in trigger conditions |
+| **Oversized units (2×2)** | Large minions | `occupiedLocations: Location[]` on CardInstance |
+| **Artifact throw** | Far East Assassin | Read artifact mana cost at resolve time + `DESTROY_ARTIFACT` |
+| **Search effects** | Tutor cards | `SELECT_TARGET` with `zone: 'deck' \| 'cemetery'` condition — no new action |
+
+### Edge Cases
+
+| Issue | Mitigation |
+|-------|------------|
+| **Loop detection key** | Seen-set must include `sourceInstanceId` — two different cards can both respond to the same event |
+| **Waterbound context-disable** | `isDisabled(id, state)` checks board position at read time — no stored flag |
+| **Lance token** | Counter `'lance': 1` on unit; strike-first + bonus damage at attack resolution; counter removed after first strike |
+| **Oversized unit damage grid** | Sum damage values across all occupied squares |
+| **Conditional strike** (Escyllion Cyclops) | `SET_CONDITION('no_retaliation')` + check in `MOVE_AND_ATTACK` composite before applying defender's `DEAL_DAMAGE` |
