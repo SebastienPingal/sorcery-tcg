@@ -54,13 +54,20 @@ type CheckAction =
   | { type: 'CHECK_UNIT_ON_BOARD';       instanceId: string }
   | { type: 'CHECK_SQUARE_HAS_SITE';     square: Square }
   | { type: 'CHECK_SQUARE_CONTROLLED';   square: Square; playerId: PlayerId }
-  | { type: 'CHECK_SQUARE_REACHABLE';    unitId: string; square: Square }
+  | { type: 'CHECK_LOCATION_REACHABLE';  unitId: string; location: Location }
+  // replaces CHECK_SQUARE_REACHABLE — includes region in reachability check
   | { type: 'CHECK_TARGET_VALID';        targetId: string; conditions: TargetCondition[] }
   | { type: 'CHECK_SQUARE_VALID';        square: Square; conditions: SquareCondition[] }
+  | { type: 'CHECK_LOCATION_VALID';      location: Location; conditions: LocationCondition[] }
   | { type: 'CHECK_IS_ACTIVE_PLAYER';    playerId: PlayerId }
   | { type: 'CHECK_PHASE';               phase: Phase }
   | { type: 'CHECK_ABILITY_USABLE';      instanceId: string; abilityId: string }
-  | { type: 'CHECK_NOT_AT_DEATHS_DOOR';  playerId: PlayerId }  // for death blow logic
+  | { type: 'CHECK_NOT_AT_DEATHS_DOOR';  playerId: PlayerId }
+  | { type: 'CHECK_CAN_ENTER_REGION';    instanceId: string; region: Region }
+  // validates that the unit has the required keyword for hazardous regions
+  // underground → Burrowing required; underwater → Submerge required; void → Voidwalk required
+  // this is a CHECK (throws if unit can't enter), but region hazards applied during MOVE_UNIT
+  // are mutations (DESTROY_UNIT / BANISH) — not aborts
 ```
 
 ### Mana Mutations
@@ -86,10 +93,25 @@ type CheckAction =
 ### Board Mutations
 
 ```ts
-  | { type: 'PLACE_UNIT';           instanceId: string; square: Square }
-  | { type: 'REMOVE_UNIT';          instanceId: string }
-  | { type: 'MOVE_UNIT';            instanceId: string; path: Square[] }
-  // MOVE_UNIT also updates squares of all carried units and carried artifacts atomically
+  | { type: 'PLACE_UNIT'; instanceId: string; location: Location }
+  // Location = { square, region }. Region can be 'surface', 'underground', 'underwater', or 'void'.
+  // Fires on_enter trigger for the new location.
+
+  | { type: 'REMOVE_UNIT'; instanceId: string }
+
+  | { type: 'MOVE_UNIT'; instanceId: string; path: Location[] }
+  // path is Location[] not Square[] — each step may change square AND/OR region.
+  // This allows region transitions: surface→underground (Burrowing), surface→void (Voidwalk), diagonal (Airborne).
+  // After each step, CHECK_CAN_ENTER_REGION fires for the new location.
+  // on_enter fires for each NEW location entered along the path (even if passing through).
+  // Carried units and carried artifacts move to the same final location atomically.
+  // TAP and RECORD_MOVE are separate actions applied after MOVE_UNIT (in the composite resolver).
+
+  | { type: 'FORCE_MOVE_UNIT'; instanceId: string; destination: Location }
+  // Forced movement (push/pull/teleport). Path not declared — unit goes directly to destination.
+  // Does NOT tap the unit. Cannot be intercepted. Ignores Airborne/Burrowing/Submerge/Voidwalk.
+  // Region hazards still apply (entering underground without Burrowing → DESTROY_UNIT, etc.).
+
   | { type: 'TAP';                  instanceId: string }
   | { type: 'UNTAP';                instanceId: string }
   | { type: 'UNTAP_ALL';            playerId: PlayerId }
@@ -98,6 +120,52 @@ type CheckAction =
   | { type: 'PLACE_SITE';           instanceId: string; square: Square }
   | { type: 'REMOVE_SITE';          square: Square }
   | { type: 'SET_RUBBLE';           square: Square; value: boolean }
+```
+
+#### Movement Keywords & Region Model
+
+A `Location` = `{ square: Square; region: Region }` where `Region = 'surface' | 'underground' | 'underwater' | 'void'`.
+
+Each step in a path is a `Location`. A step may change square, region, or both.
+
+| Keyword | What it enables | Path effect |
+|---------|-----------------|-------------|
+| *(none)* | Surface-to-surface only | Steps between adjacent squares, same `surface` region |
+| **Airborne** | Diagonal steps on surface | Steps may go to diagonal squares (still `surface` region). Also: cannot be attacked/intercepted by non-Airborne (checked at combat time). |
+| **Burrowing** | Underground movement | Steps may include `{ same square, 'underground' }` (drop down) or `{ adjacent square, 'underground' }`. Transitioning: surface→underground of same square costs 1 step. |
+| **Submerge** | Underwater movement | Same as Burrowing but for `'underwater'` region (water sites only). |
+| **Voidwalk** | Void movement | Steps may enter void squares (`region: 'void'`). Can also exit void onto adjacent site's surface or subsurface. |
+| **Movement +X** | Extra steps | `computeStats().movement` = base 1 + X. Path may have up to `movement` steps. |
+| **Moves Freely** | Zero-cost steps | No step budget spent while start/end satisfies condition. Handled in path validator. |
+
+#### Region Hazards
+
+After each step in `MOVE_UNIT` or `FORCE_MOVE_UNIT`, the engine applies:
+
+```ts
+  | { type: 'CHECK_CAN_ENTER_REGION'; instanceId: string; region: Region }
+  // 'underground' → requires Burrowing keyword on unit → else DESTROY_UNIT
+  // 'underwater'  → requires Submerge keyword        → else DESTROY_UNIT
+  // 'void'        → requires Voidwalk keyword         → else BANISH
+  // 'surface'     → always allowed
+```
+
+> **Forced movement** still triggers region hazards — Voidwalk/Burrowing/Submerge are NOT applied for forced moves, but entering a hazardous region without the keyword is still lethal.
+
+#### Oversized Units (2×2)
+
+Some minions occupy four squares simultaneously (placed at intersection of a 2×2 block). These need `occupiedLocations: Location[]` on `CardInstance` (1 or 4 entries).
+
+```ts
+  | { type: 'PLACE_UNIT'; instanceId: string; location: Location }
+  // For 2×2 units: location = anchor square; engine derives all 4 locations automatically.
+```
+
+Movement of 2×2 units: choose a direction; the entire 2×2 block must be able to move that way or none can. Damage grid interactions sum values across all occupied squares.
+
+```ts
+  // Board Mutations continued:
+  | { type: 'MOVE_SITE'; instanceId: string; toSquare: Square }
 
   | { type: 'MOVE_SITE'; instanceId: string; toSquare: Square }
   // Moves site to a void square. All occupants (surface units, subsurface units,
