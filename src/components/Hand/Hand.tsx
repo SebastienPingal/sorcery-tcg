@@ -3,7 +3,7 @@ import type { GameState, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { CardView } from '../Card/CardView';
 import { meetsThreshold } from '../../engine/utils';
-import { selectAffinity, selectManaAvailable } from '../../engine/selectors';
+import { selectAffinity, selectManaAvailable, selectValidSitePlacements } from '../../engine/selectors';
 import styles from './Hand.module.css';
 
 interface HandProps {
@@ -16,6 +16,7 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
   const {
     selectedInstanceId, selectInstance,
     pendingAvatarAbility, setPendingAvatarAbility,
+    playSiteViaAbility,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
@@ -99,22 +100,24 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
     // Sites: select and auto-activate the avatar's play-site ability if available
     if (inst.card.type === 'site') {
-      if (pendingAvatarAbility) {
-        selectInstance(instanceId === selectedInstanceId ? null : instanceId);
-      } else {
-        // Auto-find and trigger the avatar's play-or-draw-site ability
-        const player = game.players[playerId];
-        const avatarInst = game.instances[player.avatarInstanceId];
-        if (!avatarInst.tapped) {
-          const ab = (avatarInst.card as any).abilities?.find(
-            (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
-          );
-          if (ab) {
-            setPendingAvatarAbility(ab.id);
-            selectInstance(instanceId);
-          }
-        }
+      const player = game.players[playerId];
+      const avatarInst = game.instances[player.avatarInstanceId];
+      const fallbackAbilityId =
+        !avatarInst.tapped
+          ? (avatarInst.card as any).abilities?.find(
+              (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play'),
+            )?.id ?? null
+          : null;
+      const activeAbilityId = pendingAvatarAbility ?? fallbackAbilityId ?? 'auto_play_site';
+
+      const placements = selectValidSitePlacements(game, playerId);
+      if (placements.length === 1) {
+        playSiteViaAbility(playerId, activeAbilityId, instanceId, placements[0]);
+        return;
       }
+
+      if (!pendingAvatarAbility) setPendingAvatarAbility(activeAbilityId);
+      selectInstance(instanceId);
       return;
     }
 

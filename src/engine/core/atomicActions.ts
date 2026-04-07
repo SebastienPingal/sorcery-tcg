@@ -32,12 +32,12 @@ export type MutationAction =
   | { type: 'SET_PENDING_INTERACTION'; interaction: import('../../types').PendingInteraction }
   | { type: 'CLEAR_PENDING_INTERACTION' }
   | { type: 'DEAL_DAMAGE'; sourceId: string; targetId: string; amount: number }
-  | { type: 'PLAY_SITE_LEGACY'; playerId: PlayerId; siteInstanceId: string; square: Square }
-  | { type: 'CAST_SPELL_LEGACY'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string }
-  | { type: 'MOVE_AND_ATTACK_LEGACY'; unitId: string; path: Square[]; attackTargetId?: string }
-  | { type: 'ACTIVATE_ABILITY_LEGACY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }
-  | { type: 'CHOOSE_DRAW_LEGACY'; playerId: PlayerId; source: 'atlas' | 'spellbook' }
-  | { type: 'MULLIGAN_LEGACY'; playerId: PlayerId; returnIds: string[] };
+  | { type: 'PLAY_SITE'; playerId: PlayerId; siteInstanceId: string; square: Square }
+  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string }
+  | { type: 'MOVE_AND_ATTACK'; unitId: string; path: Square[]; attackTargetId?: string }
+  | { type: 'ACTIVATE_ABILITY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }
+  | { type: 'CHOOSE_DRAW'; playerId: PlayerId; source: 'atlas' | 'spellbook' }
+  | { type: 'MULLIGAN'; playerId: PlayerId; returnIds: string[] };
 
 export type SequencingAction =
   | { type: 'SELECT_TARGET'; prompt: string; resultKey: string }
@@ -63,5 +63,5 @@ export interface EventLogEntry {
 
 export const INFORMATION_REVEALING_ACTIONS = new Set<MutationAction['type']>([
   'DRAW_CARD',
-  'CHOOSE_DRAW_LEGACY',
+  'CHOOSE_DRAW',
 ]);

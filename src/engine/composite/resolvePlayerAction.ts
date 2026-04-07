@@ -20,7 +20,7 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
       return {
         checks: [{ type: 'CHECK_IS_ACTIVE_PLAYER', playerId: state.activePlayerId }],
         mutations: [{
-          type: 'CAST_SPELL_LEGACY',
+          type: 'CAST_SPELL',
           casterId: action.casterId,
           cardInstanceId: action.cardInstanceId,
           targetSquare: action.targetSquare,
@@ -31,7 +31,7 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
       return {
         checks: [{ type: 'CHECK_IS_ACTIVE_PLAYER', playerId: action.playerId }],
         mutations: [{
-          type: 'PLAY_SITE_LEGACY',
+          type: 'PLAY_SITE',
           playerId: action.playerId,
           siteInstanceId: action.siteInstanceId,
           square: action.targetSquare,
@@ -46,7 +46,7 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
           { type: 'CHECK_NO_SUMMONING_SICKNESS', instanceId: action.unitId },
         ],
         mutations: [{
-          type: 'MOVE_AND_ATTACK_LEGACY',
+          type: 'MOVE_AND_ATTACK',
           unitId: action.unitId,
           path: action.path,
           attackTargetId: action.attackTargetId,
@@ -56,7 +56,7 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
       return {
         checks: [{ type: 'CHECK_IS_ACTIVE_PLAYER', playerId: action.playerId }],
         mutations: [{
-          type: 'ACTIVATE_ABILITY_LEGACY',
+          type: 'ACTIVATE_ABILITY',
           playerId: action.playerId,
           abilityId: action.abilityId,
           targetSquare: action.targetSquare,
@@ -66,12 +66,12 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
     case 'CHOOSE_DRAW':
       return {
         checks: [],
-        mutations: [{ type: 'CHOOSE_DRAW_LEGACY', playerId: action.playerId, source: action.source }],
+        mutations: [{ type: 'CHOOSE_DRAW', playerId: action.playerId, source: action.source }],
       };
     case 'MULLIGAN':
       return {
         checks: [],
-        mutations: [{ type: 'MULLIGAN_LEGACY', playerId: action.playerId, returnIds: action.returnIds }],
+        mutations: [{ type: 'MULLIGAN', playerId: action.playerId, returnIds: action.returnIds }],
       };
     case 'END_TURN': {
       const sequence = endTurnSequence(state);

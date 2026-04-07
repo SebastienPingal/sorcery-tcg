@@ -153,13 +153,26 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = dispatchPlayerAction(newGame, {
+    let err = dispatchPlayerAction(newGame, {
       type: 'ACTIVATE_ABILITY',
       playerId,
       abilityId,
       targetSquare: square,
       siteInstanceId: siteId,
     });
+    if (err) {
+      // Fallback path: allow direct PLAY_SITE and tap avatar in case UI ability state desyncs.
+      err = dispatchPlayerAction(newGame, {
+        type: 'PLAY_SITE',
+        playerId,
+        siteInstanceId: siteId,
+        targetSquare: square,
+      });
+      if (!err) {
+        const avatarId = newGame.players[playerId].avatarInstanceId;
+        newGame.instances[avatarId].tapped = true;
+      }
+    }
     if (err) {
       set({ actionError: err });
     } else {

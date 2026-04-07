@@ -29,13 +29,24 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
   const selectedInst = selectedInstanceId ? game.instances[selectedInstanceId] : null;
   const isMyTurn = game.activePlayerId === humanPlayerId;
+  const player = game.players[humanPlayerId];
+  const avatarInst = game.instances[player.avatarInstanceId];
+  const fallbackPlaySiteAbilityId =
+    avatarInst.card.type === 'avatar' && !avatarInst.tapped
+      ? avatarInst.card.abilities.find((ability) =>
+          ability.id.includes('play_site') ||
+          ability.id.includes('flamecaller_play') ||
+          ability.id.includes('sparkmage_play'),
+        )?.id ?? null
+      : null;
+  const activePlaySiteAbilityId = pendingAvatarAbility ?? fallbackPlaySiteAbilityId;
 
   const getHighlightedSquares = (): { squares: Square[]; attackSquares: Square[]; mode: string } => {
     if (!selectedInst) return { squares: [], attackSquares: [], mode: '' };
     const card = selectedInst.card;
 
     // Sites can only be placed when a pendingAvatarAbility is active
-    if (card.type === 'site' && !selectedInst.location && pendingAvatarAbility) {
+    if (card.type === 'site' && !selectedInst.location) {
       return { squares: selectValidSitePlacements(game, humanPlayerId), attackSquares: [], mode: 'place_site' };
     }
 
@@ -92,11 +103,10 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     if (!selectedInst) return;
 
     const card = selectedInst.card;
-    const player = game.players[humanPlayerId];
     const avatarInstId = player.avatarInstanceId;
 
-    if (card.type === 'site' && !selectedInst.location && isHighlighted(sq) && pendingAvatarAbility) {
-      playSiteViaAbility(humanPlayerId, pendingAvatarAbility, selectedInstanceId!, sq);
+    if (card.type === 'site' && !selectedInst.location && isHighlighted(sq)) {
+      playSiteViaAbility(humanPlayerId, activePlaySiteAbilityId ?? '', selectedInstanceId!, sq);
       return;
     }
 
@@ -141,6 +151,17 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     if (!inst) return;
 
     if (selectedInst) {
+      if (
+        selectedInst.card.type === 'site' &&
+        !selectedInst.location &&
+        inst.location
+      ) {
+        const sq = inst.location.square;
+        if (isHighlighted(sq)) {
+          playSiteViaAbility(humanPlayerId, activePlaySiteAbilityId ?? '', selectedInstanceId!, sq);
+          return;
+        }
+      }
       if (highlightMode === 'move' && inst.controllerId !== humanPlayerId) {
         const sq = inst.location?.square;
         if (sq && isHighlighted(sq)) {

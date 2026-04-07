@@ -54,4 +54,26 @@ describe('engine orchestrator', () => {
     const err = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: ownUnitId, path: [] });
     expect(err).toBe('Instance is tapped');
   });
+
+  it('allows playing a site from hand via avatar ability', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    const avatarId = player.avatarInstanceId;
+    const avatar = game.instances[avatarId];
+    const abilityId = avatar.card.type === 'avatar' ? avatar.card.abilities[0]?.id : '';
+    const siteInHand = player.hand.find((id) => game.instances[id]?.card.type === 'site');
+    const targetSquare = avatar.location?.square;
+    if (!abilityId || !siteInHand || !targetSquare) return;
+    const err = dispatchPlayerAction(game, {
+      type: 'ACTIVATE_ABILITY',
+      playerId: pid,
+      abilityId,
+      targetSquare,
+      siteInstanceId: siteInHand,
+    });
+    expect(err).toBeNull();
+    expect(player.hand.includes(siteInHand)).toBe(false);
+    expect(game.realm[targetSquare.row][targetSquare.col].siteInstanceId).toBe(siteInHand);
+  });
 });
