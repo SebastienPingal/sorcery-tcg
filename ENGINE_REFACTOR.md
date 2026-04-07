@@ -89,6 +89,7 @@ type CheckAction =
   | { type: 'PLACE_UNIT';           instanceId: string; square: Square }
   | { type: 'REMOVE_UNIT';          instanceId: string }
   | { type: 'MOVE_UNIT';            instanceId: string; path: Square[] }
+  // MOVE_UNIT also updates squares of all carried units and carried artifacts atomically
   | { type: 'TAP';                  instanceId: string }
   | { type: 'UNTAP';                instanceId: string }
   | { type: 'UNTAP_ALL';            playerId: PlayerId }
@@ -97,6 +98,17 @@ type CheckAction =
   | { type: 'PLACE_SITE';           instanceId: string; square: Square }
   | { type: 'REMOVE_SITE';          square: Square }
   | { type: 'SET_RUBBLE';           square: Square; value: boolean }
+
+  | { type: 'MOVE_SITE'; instanceId: string; toSquare: Square }
+  // Moves site to a void square. All occupants (surface units, subsurface units,
+  // artifacts, auras) are relocated to toSquare atomically.
+  // Rule: occupants are NOT considered to have moved themselves — no on_enter triggers for them.
+  // Rule: destination must be void (no existing site). Checked by CHECK_SQUARE_VALID.
+
+  | { type: 'SWAP_SITES'; instanceId1: string; instanceId2: string }
+  // Atomically exchanges two sites and all their occupants.
+  // Cannot be decomposed into two MOVE_SITE actions (neither destination is void mid-swap).
+  // Same rule applies: occupants are not considered to have moved themselves.
 ```
 
 ### Artifacts
