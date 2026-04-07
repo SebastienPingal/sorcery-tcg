@@ -494,14 +494,33 @@ Before each player action is processed, the engine stores a full `GameState` sna
 
 ```ts
 interface UndoStack {
-  snapshots: GameState[];   // index 0 = start of game
+  snapshots: GameState[];
+  locked: boolean;          // true after any information-revealing action fires
   push(state: GameState): void;
-  pop(): GameState | undefined;
-  canUndo(): boolean;
+  pop(): GameState | undefined;   // only works if !locked
+  lock(): void;             // clears snapshots, sets locked = true
+  canUndo(): boolean;       // !locked && snapshots.length > 0
 }
 ```
 
 Undo is only available during the active player's turn (cannot undo the opponent's actions after passing turn).
+
+### Information-Revealing Actions
+
+Certain atomic mutations reveal **hidden information** to the player — once seen, the action cannot be taken back. When any of these fires (whether in a player action or in a triggered ability chain), `undoStack.lock()` is called immediately.
+
+```ts
+const INFORMATION_REVEALING_ACTIONS = new Set([
+  'DRAW_CARD',       // player sees a new card from their deck
+  'PEEK_DECK',       // player sees top N cards of deck (resolvedIds stored in action)
+  'CHOOSE_RANDOM',   // random outcome is revealed and stored in the action
+  'REVEAL_HAND',     // opponent's hand contents are revealed
+]);
+```
+
+> The `LOCK_UNDO` atomic action is removed — locking is a side effect of the undo stack itself, not a separate action in the log. The pipeline checks `INFORMATION_REVEALING_ACTIONS` after each mutation and calls `undoStack.lock()` if matched.
+
+**Implication for triggered abilities:** if a spell's `on_enter` trigger draws a card automatically, undo is locked even though the player did not explicitly choose to draw. The hidden information has been revealed regardless of how it happened.
 
 ---
 
@@ -612,7 +631,7 @@ Triggered abilities can trigger other abilities with no hard depth limit. The tr
 
 Undo is available freely during a player's turn **up until new hidden information is revealed**. The moment a card is drawn (from either deck), the undo stack for that turn is cleared. The player cannot go back past a draw.
 
-Concretely: `DRAW_CARD` triggers a `LOCK_UNDO` side effect in the undo stack.
+Concretely: `DRAW_CARD`, `PEEK_DECK`, `CHOOSE_RANDOM`, and `REVEAL_HAND` are all **information-revealing actions** — see the Undo System section for the full mechanism.
 
 ### 4. Targeting Mid-Sequence — Suspended Sequence
 
@@ -646,7 +665,8 @@ New atomic actions to support this:
 ```ts
   | { type: 'SELECT_TARGET'; prompt: string; conditions: TargetCondition[]; resultKey: string }
   | { type: 'SELECT_SQUARE'; prompt: string; conditions: SquareCondition[]; resultKey: string }
-  | { type: 'LOCK_UNDO' }   // called after DRAW_CARD — clears undo stack
+  // Note: LOCK_UNDO is removed — undo locking is a side effect of the UndoStack, not a logged action.
+  // The pipeline checks INFORMATION_REVEALING_ACTIONS after each mutation automatically.
 ```
 
 ---
@@ -670,8 +690,8 @@ PlayerAction received
   │       │     [on confirm] → fill resultKey, resume sequence from here
   │       └─ else:
   │             a. apply mutation → new GameState
-  │             b. if DRAW_CARD or PEEK_DECK: also apply LOCK_UNDO → clear undo stack
-  │             c. append to event log
+  │             b. append to event log
+  │             c. if action.type ∈ INFORMATION_REVEALING_ACTIONS → undoStack.lock()
   │             d. check trigger registry → enqueue triggered effects
   │
   ├─ 5. drain trigger queue (FIFO):
@@ -774,7 +794,7 @@ Several cards allow peeking, reordering, or putting cards on the bottom of a dec
 
 ```ts
 | { type: 'PEEK_DECK';            playerId: PlayerId; deck: 'atlas' | 'spellbook'; count: number; resolvedIds: string[] }
-// resolvedIds stored at peek time → deterministic replay, triggers LOCK_UNDO
+// resolvedIds stored at peek time → deterministic replay; information-revealing → locks undo
 | { type: 'MOVE_CARD_TO_DECK_BOTTOM'; instanceId: string; playerId: PlayerId; deck: 'atlas' | 'spellbook' }
 | { type: 'REORDER_DECK_TOP';     playerId: PlayerId; deck: 'atlas' | 'spellbook'; order: string[] }
 ```
@@ -857,5 +877,5 @@ These cards have effects with **no current atomic action or composite pattern** 
 | **Waterbound keyword** | Minion is disabled when NOT on a water site — context-sensitive disable | `isDisabled(id, state)` checks board position, not a stored flag |
 | **Split Power (Attack\|Defense)** | 26 minions already use `power: { attack, defense }` in realCards.ts — the `Power` type union already handles this. `computeStats()` reads `.attack` / `.defense` accordingly. No schema change needed. |
 | **Lance token** | Enters with minion, grants strike-first + bonus damage, breaks after first strike | Tracked as a counter `'lance': 1` on the unit; strike-first checked at attack resolution; counter removed after first strike |
-| **PEEK_DECK locks undo** | Peeking reveals hidden info → must lock undo same as DRAW_CARD | `PEEK_DECK` triggers `LOCK_UNDO` in the pipeline |
+| **Information-revealing actions** | DRAW_CARD, PEEK_DECK, CHOOSE_RANDOM, REVEAL_HAND all lock undo — including when fired by triggers, not just player actions | `INFORMATION_REVEALING_ACTIONS` set checked after every mutation in the pipeline |
 | **Cascade trigger false-positive loop detection** | Two different cards both responding to the same event could be incorrectly deduplicated | Seen-set key must include `sourceInstanceId` (the card whose ability fires), not just triggerType + targetId |
