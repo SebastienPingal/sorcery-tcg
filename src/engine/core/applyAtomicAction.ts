@@ -67,7 +67,7 @@ function killUnit(state: GameState, inst: CardInstance): void {
   sendToCemetery(state, inst.instanceId, inst.ownerId);
 }
 
-function dealDamage(state: GameState, targetId: string, amount: number): string | null {
+function dealDamage(state: GameState, targetId: string, amount: number, sourceId?: string): string | null {
   const target = state.instances[targetId];
   if (!target) return 'Target not found';
 
@@ -86,6 +86,11 @@ function dealDamage(state: GameState, targetId: string, amount: number): string 
   }
 
   if (target.card.type === 'minion') {
+    const source = sourceId ? state.instances[sourceId] : null;
+    if (amount > 0 && source && hasKeyword(source, 'lethal')) {
+      killUnit(state, target);
+      return null;
+    }
     const card = target.card as MinionCard;
     const maxPower = typeof card.power === 'number' ? card.power : Math.max(card.power.attack, card.power.defense);
     target.damage += amount;
@@ -200,7 +205,7 @@ function castSpell(
     const magic = cardInst.card as MagicCard;
     for (const ability of magic.abilities) {
       if (ability.effect.type === 'deal_damage' && targetInstanceId) {
-        const error = dealDamage(state, targetInstanceId, ability.effect.amount);
+        const error = dealDamage(state, targetInstanceId, ability.effect.amount, cardInst.instanceId);
         if (error) return error;
       }
     }
@@ -233,9 +238,9 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
 
   const attackerPower = getAttackPower(attacker);
   const defenderPower = getAttackPower(target);
-  const aErr = dealDamage(state, attacker.instanceId, defenderPower);
+  const aErr = dealDamage(state, attacker.instanceId, defenderPower, target.instanceId);
   if (aErr) return aErr;
-  const dErr = dealDamage(state, target.instanceId, attackerPower);
+  const dErr = dealDamage(state, target.instanceId, attackerPower, attacker.instanceId);
   if (dErr) return dErr;
   return null;
 }
@@ -261,8 +266,10 @@ function addUnitToCellByRegion(state: GameState, unitId: string, location: { squ
 function moveAndAttack(state: GameState, unitInstanceId: string, path: Square[], attackTargetId?: string): string | null {
   const inst = state.instances[unitInstanceId];
   if (!inst) return 'Unit not found';
+  if (hasKeyword(inst, 'disable')) return 'Disabled units cannot move or attack';
+  if (hasKeyword(inst, 'immobile') && path.length > 0) return 'Immobile units cannot take steps';
   if (inst.tapped) return 'Unit is already tapped';
-  if (inst.summoningSickness) return 'Unit has summoning sickness';
+  if (inst.summoningSickness && !hasKeyword(inst, 'charge')) return 'Unit has summoning sickness';
   if (hasKeyword(inst, 'waterbound')) {
     const location = inst.location;
     if (!location || !isWaterLocation(state, location)) return 'Waterbound unit is disabled off water locations';
@@ -437,7 +444,7 @@ export function applyAtomicAction(state: GameState, action: MutationAction): str
       state.pendingInteraction = null;
       return null;
     case 'DEAL_DAMAGE':
-      return dealDamage(state, action.targetId, action.amount);
+      return dealDamage(state, action.targetId, action.amount, action.sourceId);
     case 'PLAY_SITE':
       return playSite(state, action.playerId, action.siteInstanceId, action.square);
     case 'CAST_SPELL':

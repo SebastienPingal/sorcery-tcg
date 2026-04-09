@@ -301,4 +301,69 @@ describe('engine orchestrator', () => {
     expect(err).toBeNull();
     expect(game.instances[minionId].location).toEqual({ square: targetSquare, region: 'void' });
   });
+
+  it('allows charge units to move despite summoning sickness', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 1, col: 1 };
+    const destination = { row: 1, col: 2 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, destination, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['charge']);
+    minion.summoningSickness = true;
+
+    const err = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [destination] });
+    expect(err).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: destination, region: 'surface' });
+  });
+
+  it('rejects movement actions for disabled units', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 1, col: 1 };
+    const destination = { row: 1, col: 2 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, destination, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['disable']);
+
+    const err = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [destination] });
+    expect(err).toBe('Disabled units cannot move or attack');
+  });
+
+  it('rejects steps for immobile units', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 1, col: 1 };
+    const destination = { row: 1, col: 2 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, destination, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['immobile']);
+
+    const err = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [destination] });
+    expect(err).toBe('Immobile units cannot take steps');
+  });
+
+  it('kills minions on any positive damage from lethal sources', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 1, col: 1 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const attacker = placeMinion(game, square, attackerId, ['lethal']);
+    const defender = placeMinion(game, square, defenderId, []);
+    if (attacker.card.type !== 'minion' || defender.card.type !== 'minion') throw new Error('Expected minions');
+    attacker.card = { ...attacker.card, power: 1 };
+    defender.card = { ...defender.card, power: 8 };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: attacker.instanceId,
+      path: [],
+      attackTargetId: defender.instanceId,
+    });
+    expect(err).toBeNull();
+    expect(game.players[defender.ownerId].cemetery).toContain(defender.instanceId);
+  });
 });

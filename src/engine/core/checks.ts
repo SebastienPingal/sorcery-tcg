@@ -1,6 +1,6 @@
 import type { GameState } from './gameState';
 import type { CheckAction } from './atomicActions';
-import { getManaAvailable, meetsThreshold } from '../utils';
+import { getManaAvailable, hasKeyword, meetsThreshold } from '../utils';
 
 export class GameError extends Error {}
 
@@ -38,7 +38,9 @@ export function runCheck(state: GameState, action: CheckAction): void {
       if (state.instances[action.instanceId]?.tapped) throw new GameError('Instance is tapped');
       return;
     case 'CHECK_NO_SUMMONING_SICKNESS':
-      if (state.instances[action.instanceId]?.summoningSickness) throw new GameError('Summoning sickness');
+      if (state.instances[action.instanceId]?.summoningSickness && !hasKeyword(state.instances[action.instanceId], 'charge')) {
+        throw new GameError('Summoning sickness');
+      }
       return;
     case 'CHECK_SQUARE_HAS_SITE': {
       const cell = state.realm[action.square.row][action.square.col];
