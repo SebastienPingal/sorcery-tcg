@@ -266,6 +266,49 @@
   --tap-shift-x: 6px;
 }
 
+.wardToken {
+  box-shadow:
+    0 0 8px rgba(255, 228, 122, 0.62),
+    0 0 14px rgba(255, 214, 92, 0.44),
+    inset 0 0 8px rgba(255, 238, 160, 0.17);
+}
+
+.stealthToken::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      125deg,
+      rgba(180, 95, 255, 0.08) 0%,
+      rgba(180, 95, 255, 0.08) 28%,
+      rgba(198, 128, 255, 0.32) 44%,
+      rgba(122, 61, 195, 0.48) 52%,
+      rgba(198, 128, 255, 0.30) 60%,
+      rgba(110, 52, 170, 0.10) 80%
+    );
+  background-size: 220% 220%;
+  background-position: 0% 50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: stealthSheen 2.7s ease-in-out infinite;
+}
+
+@keyframes stealthSheen {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.62;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.92;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.62;
+  }
+}
+
 .sickToken { opacity: 0.65; }
 
 .undergroundToken.sickToken {

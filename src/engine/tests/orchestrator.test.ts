@@ -426,4 +426,160 @@ describe('engine orchestrator', () => {
     expect(err).toBeNull();
     expect(game.players[defender.ownerId].cemetery).toContain(defender.instanceId);
   });
+
+  it('allows ranged strikes to adjacent units without moving', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const attackerSquare = { row: 1, col: 1 };
+    const defenderSquare = { row: 1, col: 2 };
+    placeSite(game, attackerSquare, attackerId, { isWaterSite: false });
+    placeSite(game, defenderSquare, defenderId, { isWaterSite: false });
+
+    const attacker = placeMinion(game, attackerSquare, attackerId, ['ranged']);
+    const defender = placeMinion(game, defenderSquare, defenderId, []);
+    if (attacker.card.type !== 'minion' || defender.card.type !== 'minion') throw new Error('Expected minions');
+    attacker.card = { ...attacker.card, power: 2 };
+    defender.card = { ...defender.card, power: 1 };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: attacker.instanceId,
+      path: [],
+      attackTargetId: defender.instanceId,
+    });
+    expect(err).toBeNull();
+    expect(game.instances[attacker.instanceId].location).toEqual({ square: attackerSquare, region: 'surface' });
+    expect(game.players[defender.ownerId].cemetery).toContain(defender.instanceId);
+  });
+
+  it('blocks attacks targeting enemy stealth units', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 0, col: 0 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const attacker = placeMinion(game, square, attackerId, []);
+    const stealthDefender = placeMinion(game, square, defenderId, ['stealth']);
+    stealthDefender.tokens.push('stealth');
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: attacker.instanceId,
+      path: [],
+      attackTargetId: stealthDefender.instanceId,
+    });
+    expect(err).toBe('Cannot target stealth unit');
+  });
+
+  it('removes stealth token when the minion strikes', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 0, col: 1 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const stealthAttacker = placeMinion(game, square, attackerId, ['stealth']);
+    const defender = placeMinion(game, square, defenderId, []);
+    stealthAttacker.tokens.push('stealth');
+    if (stealthAttacker.card.type !== 'minion' || defender.card.type !== 'minion') throw new Error('Expected minions');
+    stealthAttacker.card = { ...stealthAttacker.card, power: 3 };
+    defender.card = { ...defender.card, power: 0 };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: stealthAttacker.instanceId,
+      path: [],
+      attackTargetId: defender.instanceId,
+    });
+    expect(err).toBeNull();
+    expect(game.instances[stealthAttacker.instanceId].tokens).not.toContain('stealth');
+  });
+
+  it('breaks ward before applying damage', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 1, col: 0 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const attacker = placeMinion(game, square, attackerId, []);
+    const wardedDefender = placeMinion(game, square, defenderId, ['ward']);
+    wardedDefender.tokens.push('ward');
+    if (attacker.card.type !== 'minion' || wardedDefender.card.type !== 'minion') throw new Error('Expected minions');
+    attacker.card = { ...attacker.card, power: 1 };
+    wardedDefender.card = { ...wardedDefender.card, power: 0 };
+
+    const firstErr = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: attacker.instanceId,
+      path: [],
+      attackTargetId: wardedDefender.instanceId,
+    });
+    expect(firstErr).toBeNull();
+    expect(game.instances[wardedDefender.instanceId].tokens).not.toContain('ward');
+    expect(game.players[defenderId].cemetery).not.toContain(wardedDefender.instanceId);
+
+    game.instances[attacker.instanceId].tapped = false;
+    const secondErr = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: attacker.instanceId,
+      path: [],
+      attackTargetId: wardedDefender.instanceId,
+    });
+    expect(secondErr).toBeNull();
+    expect(game.players[defenderId].cemetery).toContain(wardedDefender.instanceId);
+  });
+
+  it('applies lance bonus strike-first once and then consumes the lance token', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 2, col: 0 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const lancer = placeMinion(game, square, attackerId, ['lance']);
+    const defender = placeMinion(game, square, defenderId, []);
+    lancer.tokens.push('lance');
+    if (lancer.card.type !== 'minion' || defender.card.type !== 'minion') throw new Error('Expected minions');
+    lancer.card = { ...lancer.card, power: 1 };
+    defender.card = { ...defender.card, power: 1 };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: lancer.instanceId,
+      path: [],
+      attackTargetId: defender.instanceId,
+    });
+    expect(err).toBeNull();
+    expect(game.players[defenderId].cemetery).toContain(defender.instanceId);
+    expect(game.players[attackerId].cemetery).not.toContain(lancer.instanceId);
+    expect(game.instances[lancer.instanceId].tokens).not.toContain('lance');
+  });
+
+  it('rejects attacking a target in a different region', () => {
+    const game = createGame();
+    const attackerId: PlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    game.activePlayerId = attackerId;
+    const square = { row: 3, col: 0 };
+    placeSite(game, square, attackerId, { isWaterSite: false });
+
+    const burrowed = placeMinion(game, square, attackerId, ['burrowing'], 'underground');
+    const surfaceDefender = placeMinion(game, square, defenderId, [], 'surface');
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: burrowed.instanceId,
+      path: [],
+      attackTargetId: surfaceDefender.instanceId,
+    });
+    expect(err).toBe('Target must be in same region');
+  });
 });

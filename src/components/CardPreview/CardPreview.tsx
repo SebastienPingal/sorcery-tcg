@@ -25,6 +25,7 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ game }) => {
   }
 
   const { card, tapped, damage, summoningSickness } = inst;
+  const hasStealth = inst.tokens.includes('stealth');
   const isSite = card.type === 'site';
 
   const getTypeColor = () => {
@@ -128,10 +129,11 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ game }) => {
           )}
         </div>
 
-        {(tapped || summoningSickness) && (
+        {(tapped || summoningSickness || hasStealth) && (
           <div className={styles.tags}>
             {tapped && <span className={styles.tagTapped}>Tapped</span>}
             {summoningSickness && <span className={styles.tagSick}>Summoning Sickness</span>}
+            {hasStealth && <span className={styles.tagStealth}>Stealth</span>}
           </div>
         )}
       </div>

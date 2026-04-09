@@ -12,6 +12,7 @@ import {
   meetsThreshold,
   opponent,
   resolveMovementStep,
+  squareDistance,
   squareEq,
   validSitePlacements,
 } from '../utils';
@@ -36,6 +37,38 @@ function sendToCemetery(state: GameState, instanceId: string, ownerId: PlayerId)
   if (!inst) return;
   inst.location = null;
   state.players[ownerId].cemetery.push(instanceId);
+}
+
+function hasStatusToken(inst: CardInstance, token: string): boolean {
+  return inst.tokens.includes(token);
+}
+
+function removeStatusToken(inst: CardInstance, token: string): void {
+  inst.tokens = inst.tokens.filter((t) => t !== token);
+}
+
+function addStatusToken(inst: CardInstance, token: string): void {
+  if (!hasStatusToken(inst, token)) inst.tokens.push(token);
+}
+
+function applyKeywordStatusTokens(inst: CardInstance): void {
+  if (hasKeyword(inst, 'lance')) addStatusToken(inst, 'lance');
+  if (hasKeyword(inst, 'stealth')) addStatusToken(inst, 'stealth');
+  if (hasKeyword(inst, 'ward')) addStatusToken(inst, 'ward');
+}
+
+function consumeStealthOnInteract(inst: CardInstance): void {
+  removeStatusToken(inst, 'stealth');
+}
+
+function consumeLanceOnStrike(inst: CardInstance): void {
+  removeStatusToken(inst, 'lance');
+}
+
+function breakWardShield(inst: CardInstance): boolean {
+  if (!hasStatusToken(inst, 'ward')) return false;
+  removeStatusToken(inst, 'ward');
+  return true;
 }
 
 function checkDeathsDoor(state: GameState, playerId: PlayerId): void {
@@ -70,6 +103,7 @@ function killUnit(state: GameState, inst: CardInstance): void {
 function dealDamage(state: GameState, targetId: string, amount: number, sourceId?: string): string | null {
   const target = state.instances[targetId];
   if (!target) return 'Target not found';
+  if (amount > 0 && breakWardShield(target)) return null;
 
   if (target.card.type === 'avatar') {
     const player = state.players[target.controllerId];
@@ -120,6 +154,7 @@ function playSite(state: GameState, playerId: PlayerId, siteInstanceId: string, 
   siteInst.location = { square: targetSquare, region: 'surface' };
   siteInst.controllerId = playerId;
   cell.siteInstanceId = siteInstanceId;
+  applyKeywordStatusTokens(siteInst);
   player.hand = player.hand.filter((id) => id !== siteInstanceId);
   player.manaPool += 1;
   player.elementalAffinity = computeAffinity(state, playerId);
@@ -162,6 +197,7 @@ function castSpell(
       cardInst.location = { square: targetSquare, region: 'void' };
       cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
       cardInst.tapped = false;
+      applyKeywordStatusTokens(cardInst);
       cell.unitInstanceIds.push(cardInst.instanceId);
       return null;
     }
@@ -183,6 +219,7 @@ function castSpell(
     cardInst.location = { square: targetSquare, region: placementRegion };
     cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
     cardInst.tapped = false;
+    applyKeywordStatusTokens(cardInst);
     if (placementRegion === 'underground' || placementRegion === 'underwater') {
       cell.subsurfaceUnitIds.push(cardInst.instanceId);
     } else {
@@ -195,6 +232,13 @@ function castSpell(
     if (targetInstanceId) {
       const unitInst = state.instances[targetInstanceId];
       if (!unitInst) return 'Target unit not found';
+      if (unitInst.controllerId !== playerId && breakWardShield(unitInst)) {
+        sendToCemetery(state, cardInst.instanceId, playerId);
+        return null;
+      }
+      if (unitInst.controllerId !== playerId && hasStatusToken(unitInst, 'stealth')) {
+        return 'Cannot target stealth unit';
+      }
       cardInst.location = unitInst.location;
       cardInst.carriedBy = targetInstanceId;
       unitInst.carriedArtifacts.push(cardInst.instanceId);
@@ -223,6 +267,15 @@ function castSpell(
     const magic = cardInst.card as MagicCard;
     for (const ability of magic.abilities) {
       if (ability.effect.type === 'deal_damage' && targetInstanceId) {
+        const targetInst = state.instances[targetInstanceId];
+        if (targetInst && targetInst.controllerId !== playerId) {
+          if (breakWardShield(targetInst)) {
+            continue;
+          }
+          if (hasStatusToken(targetInst, 'stealth')) {
+            return 'Cannot target stealth unit';
+          }
+        }
         const error = dealDamage(state, targetInstanceId, ability.effect.amount, cardInst.instanceId);
         if (error) return error;
       }
@@ -237,28 +290,78 @@ function castSpell(
 function resolveAttack(state: GameState, attacker: CardInstance, targetId: string): string | null {
   const target = state.instances[targetId];
   if (!target) return 'Target not found';
-  const attackerSq = attacker.location?.square;
-  const targetSq = target.location?.square;
-  if (!attackerSq || !targetSq) return 'Invalid locations';
-  if (!squareEq(attackerSq, targetSq) && target.card.type !== 'site') return "Target must be at attacker's location";
+  const attackerLocation = attacker.location;
+  const targetLocation = target.location;
+  const attackerSq = attackerLocation?.square;
+  const targetSq = targetLocation?.square;
+  if (!attackerSq || !targetSq || !attackerLocation || !targetLocation) return 'Invalid locations';
+  if (target.controllerId !== attacker.controllerId && hasStatusToken(target, 'stealth')) {
+    return 'Cannot target stealth unit';
+  }
+  const sameSquare = squareEq(attackerSq, targetSq);
+  const sameRegion = attackerLocation.region === targetLocation.region;
+  const canRangedStrike = sameRegion && hasKeyword(attacker, 'ranged') && squareDistance(attackerSq, targetSq) === 1;
+  if (target.card.type !== 'site' && !sameRegion) return 'Target must be in same region';
+  if (!sameSquare && !canRangedStrike) return "Target must be at attacker's location";
+
+  const attackerHasLance = hasStatusToken(attacker, 'lance');
+  const attackerStrikePower = getAttackPower(attacker) + (attackerHasLance ? 1 : 0);
 
   if (target.card.type === 'site') {
     const targetPlayerId = target.controllerId;
-    const atkPower = getAttackPower(attacker);
     const defender = state.players[targetPlayerId];
     // Site hits are life loss, not avatar damage: they never deliver a death blow.
     // While at Death's Door, life cannot change (no gain/loss through life effects).
+    consumeStealthOnInteract(attacker);
+    if (attackerHasLance) consumeLanceOnStrike(attacker);
     if (defender.isAtDeathsDoor) return null;
-    defender.life -= atkPower;
+    defender.life -= attackerStrikePower;
     checkDeathsDoor(state, targetPlayerId);
     return null;
   }
 
-  const attackerPower = getAttackPower(attacker);
-  const defenderPower = getAttackPower(target);
-  const aErr = dealDamage(state, attacker.instanceId, defenderPower, target.instanceId);
+  if (canRangedStrike && !sameSquare) {
+    consumeStealthOnInteract(attacker);
+    const rangedErr = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
+    if (rangedErr) return rangedErr;
+    if (attackerHasLance) consumeLanceOnStrike(attacker);
+    return null;
+  }
+
+  const defenderHasLance = hasStatusToken(target, 'lance');
+  const defenderStrikePower = getAttackPower(target) + (defenderHasLance ? 1 : 0);
+  const attackerStrikesFirst = attackerHasLance;
+  const defenderStrikesFirst = defenderHasLance;
+
+  const attackerStrike = (): string | null => {
+    consumeStealthOnInteract(attacker);
+    const err = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
+    if (attackerHasLance) consumeLanceOnStrike(attacker);
+    return err;
+  };
+  const defenderStrike = (): string | null => {
+    consumeStealthOnInteract(target);
+    const err = dealDamage(state, attacker.instanceId, defenderStrikePower, target.instanceId);
+    if (defenderHasLance) consumeLanceOnStrike(target);
+    return err;
+  };
+
+  if (attackerStrikesFirst && !defenderStrikesFirst) {
+    const firstErr = attackerStrike();
+    if (firstErr) return firstErr;
+    if (!state.instances[target.instanceId]?.location) return null;
+    return defenderStrike();
+  }
+  if (defenderStrikesFirst && !attackerStrikesFirst) {
+    const firstErr = defenderStrike();
+    if (firstErr) return firstErr;
+    if (!state.instances[attacker.instanceId]?.location) return null;
+    return attackerStrike();
+  }
+
+  const aErr = defenderStrike();
   if (aErr) return aErr;
-  const dErr = dealDamage(state, target.instanceId, attackerPower, attacker.instanceId);
+  const dErr = attackerStrike();
   if (dErr) return dErr;
   return null;
 }

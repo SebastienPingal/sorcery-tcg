@@ -203,7 +203,7 @@
 
 .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
 
-.tagTapped, .tagSick {
+.tagTapped, .tagSick, .tagStealth {
   font-size: 9px;
   padding: 2px 6px;
   border-radius: 3px;
@@ -219,4 +219,10 @@
   background: rgba(255, 100, 100, 0.15);
   border: 1px solid #ff6464;
   color: #ff6464;
+}
+
+.tagStealth {
+  background: rgba(144, 97, 225, 0.18);
+  border: 1px solid #9061e1;
+  color: #caa8ff;
 }

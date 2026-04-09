@@ -288,6 +288,9 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const isAttackTarget = (sq: Square): boolean =>
     attackTargetSquares.some(h => h.row === sq.row && h.col === sq.col);
 
+  const hasStatusToken = (instanceId: string, token: string): boolean =>
+    game.instances[instanceId]?.tokens.includes(token) ?? false;
+
   const renderCell = (row: number, col: number) => {
     const cell = game.realm[row][col];
     const sq = { row, col };
@@ -337,13 +340,15 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                     ${isSelected ? styles.selectedToken : ''}
                     ${inst.tapped ? styles.tappedToken : ''}
                     ${inst.summoningSickness ? styles.sickToken : ''}
+                    ${hasStatusToken(id, 'ward') ? styles.wardToken : ''}
+                    ${hasStatusToken(id, 'stealth') ? styles.stealthToken : ''}
                   `}
                   style={tokenOffsetStyle}
                   onClick={(e) => handleUnitClick(e, id)}
                   onContextMenu={(e) => handleCardRightClick(e, id)}
                   onMouseEnter={() => hoverInstance(id)}
                   onMouseLeave={() => hoverInstance(null)}
-                  title={`${inst.card.name} [Underground]${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
+                  title={`${inst.card.name} [Underground]${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}${hasStatusToken(id, 'stealth') ? ' [Stealth]' : ''}`}
                 >
                   {inst.card.image ? (
                     <img
@@ -420,13 +425,15 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   ${isSelected ? styles.selectedToken : ''}
                   ${inst.tapped ? styles.tappedToken : ''}
                   ${inst.summoningSickness ? styles.sickToken : ''}
+                  ${hasStatusToken(id, 'ward') ? styles.wardToken : ''}
+                  ${hasStatusToken(id, 'stealth') ? styles.stealthToken : ''}
                 `}
                 style={tokenOffsetStyle}
                 onClick={(e) => handleUnitClick(e, id)}
                 onContextMenu={(e) => handleCardRightClick(e, id)}
                 onMouseEnter={() => hoverInstance(id)}
                 onMouseLeave={() => hoverInstance(null)}
-                title={`${inst.card.name}${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}`}
+                title={`${inst.card.name}${inst.tapped ? ' [Tapped]' : ''}${inst.summoningSickness ? ' [Sick]' : ''}${hasStatusToken(id, 'stealth') ? ' [Stealth]' : ''}`}
               >
                 {inst.card.image ? (
                   <img

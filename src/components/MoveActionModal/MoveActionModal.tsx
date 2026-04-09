@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GameState, PlayerId, CardInstance } from '../../types';
 import { useGameStore } from '../../store/gameStore';
-import { getMovementRange, resolveMovementStep } from '../../engine/utils';
+import { getMovementRange, hasKeyword, resolveMovementStep } from '../../engine/utils';
 import styles from './MoveActionModal.module.css';
 
 interface MoveActionModalProps {
@@ -9,11 +9,25 @@ interface MoveActionModalProps {
   humanPlayerId: PlayerId;
 }
 
-function CardThumb({ inst, onClick, label }: { inst: CardInstance; onClick: () => void; label: string }) {
+function CardThumb({
+  inst,
+  hoverLabel,
+  secondaryActionLabel,
+  secondaryAction,
+  onCardClick,
+  onRightClick,
+}: {
+  inst: CardInstance;
+  hoverLabel: string;
+  secondaryActionLabel?: string;
+  secondaryAction?: () => void;
+  onCardClick: () => void;
+  onRightClick: (e: React.MouseEvent) => void;
+}) {
   const isSite = inst.card.type === 'site';
   return (
-    <div className={styles.cardThumbWrapper} onClick={onClick}>
-      <div className={`${styles.cardThumb} ${isSite ? styles.cardThumbSite : ''}`}>
+    <div className={styles.cardThumbWrapper} onContextMenu={onRightClick}>
+      <div className={`${styles.cardThumb} ${isSite ? styles.cardThumbSite : ''}`} onClick={onCardClick}>
         {inst.card.image ? (
           <img
             src={inst.card.image}
@@ -25,10 +39,17 @@ function CardThumb({ inst, onClick, label }: { inst: CardInstance; onClick: () =
           <div className={styles.cardThumbFallback}>{inst.card.name}</div>
         )}
         <div className={styles.cardThumbOverlay}>
-          <span className={styles.cardThumbLabel}>{label}</span>
+          <span className={styles.cardThumbLabel}>{hoverLabel}</span>
         </div>
       </div>
       <div className={styles.cardThumbName}>{inst.card.name}</div>
+      {secondaryAction && secondaryActionLabel && (
+        <div className={styles.targetActionRow}>
+          <button className={styles.targetActionBtn} onClick={secondaryAction}>
+            {secondaryActionLabel}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -42,6 +63,7 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
     moveAndAttack,
     castSpell,
     selectInstance,
+    showCardDetail,
   } = useGameStore();
 
   if (!pendingMove && !pendingSummon) return null;
@@ -151,17 +173,34 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
     }
   }
 
-  const enemyUnits: CardInstance[] = cell.unitInstanceIds
+  const destinationRegion = currentLocation.region;
+  const candidateUnitIds =
+    destinationRegion === 'underground' || destinationRegion === 'underwater'
+      ? cell.subsurfaceUnitIds
+      : cell.unitInstanceIds;
+
+  const enemyUnits: CardInstance[] = candidateUnitIds
     .map(id => game.instances[id])
-    .filter((inst): inst is CardInstance => !!inst && inst.controllerId !== humanPlayerId);
+    .filter((inst): inst is CardInstance => (
+      !!inst &&
+      inst.controllerId !== humanPlayerId &&
+      inst.location?.region === destinationRegion
+    ));
 
   const enemySite: CardInstance | null = (() => {
+    if (destinationRegion !== 'surface') return null;
     const s = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
     return s && s.controllerId !== humanPlayerId && !s.isRubble ? s : null;
   })();
 
   const hasTargets = enemyUnits.length > 0 || !!enemySite;
   const canMove = !isSameSquare || regionPathOptions.length > 0;
+  const canRangedStrikeFromOrigin =
+    !isSameSquare &&
+    path.length === 1 &&
+    !basePathError &&
+    hasKeyword(unit, 'ranged') &&
+    (enemyUnits.length > 0 || !!enemySite);
 
   const cancel = () => {
     setPendingMove(null);
@@ -173,6 +212,10 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
   };
   const doAttack = (targetId: string) => {
     moveAndAttack(unitInstanceId, path, targetId);
+    selectInstance(null);
+  };
+  const doRangedAttack = (targetId: string) => {
+    moveAndAttack(unitInstanceId, [], targetId);
     selectInstance(null);
   };
 
@@ -203,20 +246,41 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
         {hasTargets && (
           <>
             <div className={styles.sectionLabel}>⚔ Choisir une cible</div>
+            <div className={styles.subtitle}>Right-click a target card to open full details.</div>
             <div className={styles.targets}>
               {enemyUnits.map(target => (
                 <CardThumb
                   key={target.instanceId}
                   inst={target}
-                  onClick={() => doAttack(target.instanceId)}
-                  label="Attaquer"
+                  hoverLabel={canRangedStrikeFromOrigin ? 'Ranged' : 'Attack'}
+                  secondaryActionLabel={canRangedStrikeFromOrigin ? 'Move and melee attack' : undefined}
+                  secondaryAction={canRangedStrikeFromOrigin ? () => doAttack(target.instanceId) : undefined}
+                  onCardClick={() => {
+                    if (canRangedStrikeFromOrigin) doRangedAttack(target.instanceId);
+                    else doAttack(target.instanceId);
+                  }}
+                  onRightClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showCardDetail(target.instanceId);
+                  }}
                 />
               ))}
               {enemySite && (
                 <CardThumb
                   inst={enemySite}
-                  onClick={() => doAttack(enemySite.instanceId)}
-                  label="Attaquer"
+                  hoverLabel={canRangedStrikeFromOrigin ? 'Ranged' : 'Attack'}
+                  secondaryActionLabel={canRangedStrikeFromOrigin ? 'Move and melee attack' : undefined}
+                  secondaryAction={canRangedStrikeFromOrigin ? () => doAttack(enemySite.instanceId) : undefined}
+                  onCardClick={() => {
+                    if (canRangedStrikeFromOrigin) doRangedAttack(enemySite.instanceId);
+                    else doAttack(enemySite.instanceId);
+                  }}
+                  onRightClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showCardDetail(enemySite.instanceId);
+                  }}
                 />
               )}
             </div>
