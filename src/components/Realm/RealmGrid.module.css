@@ -23,6 +23,17 @@
   letter-spacing: 1px;
 }
 
+.spellcasterChoiceHint {
+  color: #d9e5ff;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  background: rgba(39, 56, 88, 0.5);
+  border: 1px solid rgba(124, 156, 216, 0.55);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
 /* Cell */
 .cell {
   border: 1px solid #2e2e2e;
@@ -258,6 +269,13 @@
 .selectedToken {
   border-color: #c8b896 !important;
   box-shadow: 0 0 6px rgba(200, 184, 150, 0.4);
+}
+
+.spellcasterChoiceToken {
+  border-color: #9f80ff !important;
+  box-shadow:
+    0 0 10px rgba(173, 126, 255, 0.72),
+    0 0 16px rgba(132, 98, 216, 0.5);
 }
 
 .tappedToken {

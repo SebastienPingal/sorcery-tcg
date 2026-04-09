@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useGameStore } from './store/gameStore';
+import { Toaster, toast } from 'sonner';
 import { RealmGrid } from './components/Realm/RealmGrid';
 import { Hand } from './components/Hand/Hand';
 import { PlayerInfo } from './components/PlayerInfo/PlayerInfo';
@@ -16,7 +17,7 @@ import type { PlayerId } from './types';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
-  const { game, startQuickGame, initGame } = useGameStore();
+  const { game, startQuickGame, initGame, actionError, clearError } = useGameStore();
 
   // Hot-seat: show a "pass the device" screen between turns and between mulligans
   const [handoff, setHandoff] = useState(false);
@@ -40,14 +41,27 @@ const App: React.FC = () => {
   // Keyboard shortcut: Escape to deselect
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        useGameStore.getState().selectInstance(null);
-        useGameStore.getState().clearError();
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        e.preventDefault();
+        e.stopPropagation();
+        const store = useGameStore.getState();
+        store.selectInstance(null);
+        store.setPendingMove(null);
+        store.setPendingSummon(null);
+        store.cancelPendingSpellcastChoice();
+        store.clearError();
       }
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
+    window.addEventListener('keydown', handler, true);
+    return () => window.removeEventListener('keydown', handler, true);
   }, []);
+
+  // Global popup feedback for gameplay errors.
+  useEffect(() => {
+    if (!actionError) return;
+    toast.error(actionError, { duration: 4500 });
+    clearError();
+  }, [actionError, clearError]);
 
   if (!game) {
     return <DeckSelectScreen onStart={initGame} />;
@@ -77,6 +91,13 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.app}>
+      <Toaster
+        position="top-right"
+        richColors
+        closeButton
+        theme="system"
+        toastOptions={{ style: { fontSize: '0.9rem' } }}
+      />
       <CardDetail game={game} />
 
       {/* Mulligan overlay */}

@@ -48,6 +48,21 @@ export type KeywordAbility =
   | 'flooded'
   | 'ward';
 
+export type CasterFilter =
+  | { type: 'spellcaster' }
+  | { type: 'has_keyword'; keyword: KeywordAbility }
+  | { type: 'has_subtype'; subtype: string }
+  | { type: 'is_avatar'; value: boolean }
+  | { type: 'in_region'; region: Region }
+  | { type: 'has_token'; token: string }
+  | { type: 'rules_text_matches'; pattern: string };
+
+export interface CasterEligibilityRules {
+  all?: CasterFilter[];
+  any?: CasterFilter[];
+  not?: CasterFilter[];
+}
+
 export interface MovementBonus {
   type: 'movement_plus';
   value: number;
@@ -94,6 +109,14 @@ export interface BaseCard {
   typeLine?: string;    // e.g. "An Ordinary Mortal of magnificent stature"
   image?: string;       // CDN URL
   artist?: string;
+  // Controls whether UI must ask which spellcaster casts this card when several are eligible.
+  // - auto: resolve caster automatically
+  // - require_choice: force player to choose on the realm
+  // - custom: card uses non-standard caster eligibility rules
+  casterChoicePolicy?: 'auto' | 'require_choice' | 'custom';
+  // Preferred modular eligibility model.
+  // If omitted, runtime falls back to the default spellcaster rule.
+  casterEligibility?: CasterEligibilityRules;
 }
 
 // ─── Avatar ───────────────────────────────────────────────────────────────────

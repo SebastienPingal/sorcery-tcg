@@ -23,24 +23,22 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
   const avatarCard = avatarInst.card;
   const avatarAbilities = avatarCard.type === 'avatar' ? avatarCard.abilities : [];
 
-  const isPlayOrDrawSite = (abilityId: string) =>
-    abilityId.includes('play_site') || abilityId.includes('flamecaller_play') || abilityId.includes('sparkmage_play');
+  const isPlayOrDrawSite = (abilityId: string) => {
+    const ability = avatarAbilities.find((ab) => ab.id === abilityId);
+    return ability?.effect.type === 'play_or_draw_site';
+  };
 
   const handleAvatarAbility = (abilityId: string) => {
     if (!isMyTurn || avatarInst.tapped) return;
 
     if (isPlayOrDrawSite(abilityId)) {
-      // Two-step action: set pending state, let user choose play vs draw
-      setPendingAvatarAbility(abilityId);
+      // Playing a site is already auto-triggered from hand selection.
+      // The explicit avatar button is now dedicated to drawing a site.
+      drawSiteViaAbility(humanPlayerId, abilityId);
     } else {
       // Other abilities resolve immediately
       activateAbility(humanPlayerId, abilityId);
     }
-  };
-
-  const handleDrawSite = () => {
-    if (!pendingAvatarAbility) return;
-    drawSiteViaAbility(humanPlayerId, pendingAvatarAbility);
   };
 
   const handleCancelPending = () => {
@@ -72,15 +70,12 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
       {/* Pending "play or draw site" resolution */}
       {pendingAvatarAbility && isMyTurn && (
         <div className={styles.pendingAbility}>
-          <div className={styles.pendingTitle}>⚡ Play or Draw a Site</div>
+          <div className={styles.pendingTitle}>⚡ Play a Site</div>
           <div className={styles.pendingHint}>
             {selectedInst?.card.type === 'site'
               ? '→ Click a highlighted square to place the site'
-              : 'Select a site from your hand, or draw one below.'}
+              : 'Select a site from your hand to place it.'}
           </div>
-          <button className={styles.drawSiteBtn} onClick={handleDrawSite}>
-            📖 Draw a site from Atlas
-          </button>
           <button className={styles.cancelPendingBtn} onClick={handleCancelPending}>
             ✕ Cancel
           </button>
@@ -93,16 +88,22 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
           <div className={styles.sectionTitle}>{avatarCard.name}'s Abilities</div>
           <div className={styles.abilities}>
             {avatarAbilities.map(ab => (
+              (() => {
+                const playOrDraw = isPlayOrDrawSite(ab.id);
+                const buttonLabel = playOrDraw ? 'Draw a site from Atlas' : ab.description;
+                return (
               <button
                 key={ab.id}
                 className={`${styles.abilityBtn} ${avatarInst.tapped ? styles.tappedAbility : ''}`}
                 disabled={avatarInst.tapped}
                 onClick={() => handleAvatarAbility(ab.id)}
-                title={ab.description}
+                title={buttonLabel}
               >
                 <span className={styles.abilityIcon}>⚡</span>
-                <span className={styles.abilityText}>{ab.description}</span>
+                <span className={styles.abilityText}>{buttonLabel}</span>
               </button>
+                );
+              })()
             ))}
             {avatarInst.tapped && (
               <div className={styles.avatarTappedMsg}>Avatar is tapped</div>

@@ -1,6 +1,6 @@
 import type {
   Square, CardInstance, GameState, Player, PlayerId,
-  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard, Location,
+  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard, Location, Element, Card, CasterEligibilityRules, CasterFilter,
 } from '../types';
 
 // ─── UUID ─────────────────────────────────────────────────────────────────────
@@ -306,12 +306,144 @@ export function reachableSquares(
 }
 
 export function hasKeyword(inst: CardInstance, keyword: string): boolean {
-  const card = inst.card as { keywords?: string[]; abilities?: Array<{ keyword?: string }> };
+  if (keyword === 'spellcaster' && inst.card.type === 'avatar') return true;
+  const card = inst.card as { keywords?: string[] };
   if (card.keywords?.includes(keyword)) return true;
-  for (const ab of [...(card.abilities ?? []), ...inst.temporaryAbilities]) {
+  for (const ab of inst.temporaryAbilities) {
     if (ab.keyword === keyword) return true;
   }
   return false;
+}
+
+interface SpellcasterProfile {
+  allowedElements: Set<Element>;
+  blockedElements: Set<Element>;
+}
+
+const ELEMENTS: Element[] = ['air', 'earth', 'fire', 'water'];
+
+function getCardTextForSpellcasterProfile(inst: CardInstance): string {
+  const cardRules = inst.card.rulesText ?? '';
+  const cardAbilities = 'abilities' in inst.card
+    ? inst.card.abilities.map((ability) => ability.description ?? '').join('\n')
+    : '';
+  const temporaryRules = inst.temporaryAbilities.map((ability) => ability.description ?? '').join('\n');
+  return `${cardRules}\n${cardAbilities}\n${temporaryRules}`.toLowerCase();
+}
+
+function getSpellcasterProfile(inst: CardInstance): SpellcasterProfile {
+  const text = getCardTextForSpellcasterProfile(inst);
+  const profile: SpellcasterProfile = {
+    allowedElements: new Set<Element>(),
+    blockedElements: new Set<Element>(),
+  };
+
+  for (const element of ELEMENTS) {
+    const nonPattern = new RegExp(`\\bnon[-\\s]+${element}\\s+spellcaster\\b`, 'i');
+    if (nonPattern.test(text)) profile.blockedElements.add(element);
+  }
+
+  const dualElementMatches = text.matchAll(/\b(air|earth|fire|water)\s+and\s+(air|earth|fire|water)\s+spellcaster\b/g);
+  for (const match of dualElementMatches) {
+    profile.allowedElements.add(match[1] as Element);
+    profile.allowedElements.add(match[2] as Element);
+  }
+
+  const singleElementMatches = text.matchAll(/\b(air|earth|fire|water)\s+spellcaster\b/g);
+  for (const match of singleElementMatches) {
+    const matchedElement = match[1] as Element;
+    const start = match.index ?? 0;
+    const prefix = text.slice(Math.max(0, start - 6), start);
+    if (prefix.endsWith('non-') || prefix.endsWith('non ')) continue;
+    profile.allowedElements.add(matchedElement);
+  }
+
+  return profile;
+}
+
+function getSpellThresholdElements(card: Card): Element[] {
+  if (!('threshold' in card) || !card.threshold) return [];
+  const elements: Element[] = [];
+  for (const element of ELEMENTS) {
+    if ((card.threshold[element] ?? 0) > 0) elements.push(element);
+  }
+  return elements;
+}
+
+function hasSubtype(inst: CardInstance, subtype: string): boolean {
+  if (inst.card.type !== 'minion') return false;
+  const normalized = subtype.toLowerCase();
+  const subtypes = (inst.card as MinionCard).subtypes ?? [];
+  if (subtypes.some((s) => s.toLowerCase() === normalized)) return true;
+  const typeLine = inst.card.typeLine ?? '';
+  return new RegExp(`\\b${normalized}\\b`, 'i').test(typeLine);
+}
+
+function matchesCasterFilter(caster: CardInstance, card: Card, filter: CasterFilter): boolean {
+  switch (filter.type) {
+    case 'spellcaster':
+      return canSpellcasterCastCard(caster, card);
+    case 'has_keyword':
+      return hasKeyword(caster, filter.keyword);
+    case 'has_subtype':
+      return hasSubtype(caster, filter.subtype);
+    case 'is_avatar':
+      return (caster.card.type === 'avatar') === filter.value;
+    case 'in_region':
+      return caster.location?.region === filter.region;
+    case 'has_token':
+      return caster.tokens.includes(filter.token);
+    case 'rules_text_matches': {
+      const text = (caster.card.rulesText ?? '').toLowerCase();
+      return text.includes(filter.pattern.toLowerCase());
+    }
+    default:
+      return false;
+  }
+}
+
+function evaluateCasterEligibilityRules(caster: CardInstance, card: Card, rules: CasterEligibilityRules): boolean {
+  if (rules.all && !rules.all.every((filter) => matchesCasterFilter(caster, card, filter))) return false;
+  if (rules.any && rules.any.length > 0 && !rules.any.some((filter) => matchesCasterFilter(caster, card, filter))) return false;
+  if (rules.not && rules.not.some((filter) => matchesCasterFilter(caster, card, filter))) return false;
+  return true;
+}
+
+function inferCasterEligibilityRules(card: Card): CasterEligibilityRules {
+  if (card.casterEligibility) return card.casterEligibility;
+  return { all: [{ type: 'spellcaster' }] };
+}
+
+export function canSpellcasterCastCard(spellcaster: CardInstance, card: Card): boolean {
+  if (!hasKeyword(spellcaster, 'spellcaster')) return false;
+  const thresholdElements = getSpellThresholdElements(card);
+  if (thresholdElements.length === 0) return true;
+  const profile = getSpellcasterProfile(spellcaster);
+
+  for (const element of thresholdElements) {
+    if (profile.blockedElements.has(element)) return false;
+  }
+
+  if (profile.allowedElements.size === 0) return true;
+  return thresholdElements.every((element) => profile.allowedElements.has(element));
+}
+
+export function canCasterCastCard(caster: CardInstance, card: Card): boolean {
+  const rules = inferCasterEligibilityRules(card);
+  return evaluateCasterEligibilityRules(caster, card, rules);
+}
+
+export function getEligibleSpellcasters(
+  state: GameState,
+  playerId: PlayerId,
+  cardToCast: Card,
+): CardInstance[] {
+  return Object.values(state.instances).filter((inst) => (
+    inst.controllerId === playerId &&
+    !!inst.location &&
+    !hasKeyword(inst, 'disable') &&
+    canCasterCastCard(inst, cardToCast)
+  ));
 }
 
 function movementStepCandidates(inst: CardInstance, fromSquare: Square): Square[] {

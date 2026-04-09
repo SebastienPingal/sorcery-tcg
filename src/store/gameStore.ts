@@ -5,6 +5,7 @@ import {
   type GameSetupConfig,
 } from '../engine/gameEngine';
 import { dispatchPlayerAction } from '../engine/orchestrator';
+import { getEligibleSpellcasters } from '../engine/utils';
 import {
   buildFireAtlas, buildFireSpellbook,
   buildWaterAtlas, buildWaterSpellbook,
@@ -32,6 +33,13 @@ interface GameStore {
     targetSquare: Square;
     options: Region[];
   } | null;
+  pendingSpellcastChoice: {
+    cardInstanceId: string;
+    targetSquare?: Square;
+    targetId?: string;
+    targetRegion?: Region;
+    candidateCasterIds: string[];
+  } | null;
   // Square detail overlay (right-click on cell)
   squareDetail: Square | null;
 
@@ -48,6 +56,8 @@ interface GameStore {
   hoverInstance: (instanceId: string | null) => void;
   setPendingAvatarAbility: (abilityId: string | null) => void;
   castSpell: (casterId: string, cardId: string, targetSquare?: Square, targetId?: string, targetRegion?: Region) => void;
+  chooseSpellcasterForPendingCast: (casterId: string) => void;
+  cancelPendingSpellcastChoice: () => void;
   setPendingSummon: (
     pending: {
       casterId: string;
@@ -78,6 +88,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   cardDetailId: null,
   pendingMove: null,
   pendingSummon: null,
+  pendingSpellcastChoice: null,
   squareDetail: null,
 
   initGame: (config) => {
@@ -222,9 +233,44 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
+    const cardInst = newGame.instances[cardId];
+    if (!cardInst) {
+      set({ actionError: 'Card not found' });
+      return;
+    }
+    const ownerId = cardInst.ownerId;
+    const candidates = getEligibleSpellcasters(newGame, ownerId, cardInst.card);
+    if (candidates.length === 0) {
+      set({ actionError: 'No eligible spellcaster can cast this card' });
+      return;
+    }
+    const candidateIds = candidates.map((inst) => inst.instanceId);
+    const getCasterChoicePolicy = (): 'auto' | 'require_choice' | 'custom' =>
+      cardInst.card.casterChoicePolicy ?? 'auto';
+    const pickAutoCaster = (): string => {
+      if (candidateIds.includes(casterId)) return casterId;
+      const ownerAvatarId = newGame.players[ownerId].avatarInstanceId;
+      if (candidateIds.includes(ownerAvatarId)) return ownerAvatarId;
+      return candidateIds[0];
+    };
+    const policy = getCasterChoicePolicy();
+    if (candidateIds.length > 1 && (policy === 'require_choice' || policy === 'custom')) {
+      set({
+        pendingSpellcastChoice: {
+          cardInstanceId: cardId,
+          targetSquare,
+          targetId,
+          targetRegion,
+          candidateCasterIds: candidateIds,
+        },
+        actionError: null,
+      });
+      return;
+    }
+    const resolvedCasterId = pickAutoCaster();
     const err = dispatchPlayerAction(newGame, {
       type: 'CAST_SPELL',
-      casterId,
+      casterId: resolvedCasterId,
       cardInstanceId: cardId,
       targetSquare,
       targetInstanceId: targetId,
@@ -233,8 +279,43 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (err) {
       set({ actionError: err });
     } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingSummon: null });
+      set({
+        game: newGame,
+        actionError: null,
+        selectedInstanceId: null,
+        pendingSummon: null,
+        pendingSpellcastChoice: null,
+      });
     }
+  },
+
+  chooseSpellcasterForPendingCast: (casterId) => {
+    const { game, pendingSpellcastChoice } = get();
+    if (!game || !pendingSpellcastChoice) return;
+    const newGame = structuredClone(game);
+    const err = dispatchPlayerAction(newGame, {
+      type: 'CAST_SPELL',
+      casterId,
+      cardInstanceId: pendingSpellcastChoice.cardInstanceId,
+      targetSquare: pendingSpellcastChoice.targetSquare,
+      targetInstanceId: pendingSpellcastChoice.targetId,
+      targetRegion: pendingSpellcastChoice.targetRegion,
+    });
+    if (err) {
+      set({ actionError: err });
+      return;
+    }
+    set({
+      game: newGame,
+      actionError: null,
+      selectedInstanceId: null,
+      pendingSummon: null,
+      pendingSpellcastChoice: null,
+    });
+  },
+
+  cancelPendingSpellcastChoice: () => {
+    set({ pendingSpellcastChoice: null });
   },
 
   setPendingSummon: (pending) => set({ pendingSummon: pending }),
@@ -268,7 +349,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (err) {
       set({ actionError: err, pendingMove: null });
     } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingMove: null, pendingSummon: null });
+      set({
+        game: newGame,
+        actionError: null,
+        selectedInstanceId: null,
+        pendingMove: null,
+        pendingSummon: null,
+        pendingSpellcastChoice: null,
+      });
     }
   },
 

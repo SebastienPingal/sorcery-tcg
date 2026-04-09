@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { initGame, startGame } from '../gameEngine';
 import { dispatchPlayerAction, getEventLog } from '../orchestrator';
 import { buildFireAtlas, buildFireSpellbook, buildWaterAtlas, buildWaterSpellbook } from '../../data/cards';
+import { getEligibleSpellcasters } from '../utils';
 import type { CardInstance, GameState, KeywordAbility, PlayerId, Square } from '../../types';
 
 function createGame(): GameState {
@@ -73,6 +74,22 @@ function placeMinion(
   return minion;
 }
 
+function placeSpellcaster(
+  game: GameState,
+  square: Square,
+  controllerId: PlayerId,
+  rulesText = 'Spellcaster',
+): CardInstance {
+  const caster = placeMinion(game, square, controllerId, ['spellcaster']);
+  if (caster.card.type !== 'minion') throw new Error('Expected minion');
+  caster.card = {
+    ...caster.card,
+    keywords: ['spellcaster'],
+    rulesText,
+  };
+  return caster;
+}
+
 describe('engine orchestrator', () => {
   it('appends event log entries for player actions', () => {
     const game = createGame();
@@ -123,6 +140,42 @@ describe('engine orchestrator', () => {
     expect(err).toBeNull();
     expect(player.hand.includes(siteInHand)).toBe(false);
     expect(game.realm[targetSquare.row][targetSquare.col].siteInstanceId).toBe(siteInHand);
+  });
+
+  it('injects base play-or-draw ability for avatars missing parsed abilities', () => {
+    const game = initGame({
+      player1: {
+        name: 'Player 1',
+        avatarId: 'harbinger',
+        atlasIds: buildFireAtlas(),
+        spellbookIds: buildFireSpellbook(),
+      },
+      player2: {
+        name: 'Player 2',
+        avatarId: 'sorcerer',
+        atlasIds: buildWaterAtlas(),
+        spellbookIds: buildWaterSpellbook(),
+      },
+      firstPlayer: 'player1',
+    });
+    game.pendingInteraction = null;
+    startGame(game);
+
+    const pid: PlayerId = 'player1';
+    const player = game.players[pid];
+    const avatar = game.instances[player.avatarInstanceId];
+    if (avatar.card.type !== 'avatar') throw new Error('Expected avatar');
+    const abilityId = avatar.card.abilities.find((ab) => ab.effect.type === 'play_or_draw_site')?.id;
+    expect(abilityId).toBeTruthy();
+    const atlasBefore = player.atlasCards.length;
+
+    const err = dispatchPlayerAction(game, {
+      type: 'ACTIVATE_ABILITY',
+      playerId: pid,
+      abilityId: abilityId!,
+    });
+    expect(err).toBeNull();
+    expect(player.atlasCards.length).toBe(atlasBefore - 1);
   });
 
   it('site attacks do not cause death blow at deaths door', () => {
@@ -282,6 +335,9 @@ describe('engine orchestrator', () => {
     const targetSquare = { row: 2, col: 2 };
     const rubble = placeSite(game, targetSquare, pid, { isWaterSite: false });
     rubble.isRubble = true;
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
 
     const minionId = Object.values(game.instances).find(
       (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
@@ -294,7 +350,7 @@ describe('engine orchestrator', () => {
 
     const err = dispatchPlayerAction(game, {
       type: 'CAST_SPELL',
-      casterId: player.avatarInstanceId,
+      casterId: spellcaster.instanceId,
       cardInstanceId: minionId,
       targetSquare,
     });
@@ -312,6 +368,9 @@ describe('engine orchestrator', () => {
 
     const targetSquare = { row: 1, col: 1 };
     placeSite(game, targetSquare, pid, { isWaterSite: false });
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
     const minionId = Object.values(game.instances).find(
       (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
     )?.instanceId;
@@ -323,7 +382,7 @@ describe('engine orchestrator', () => {
 
     const err = dispatchPlayerAction(game, {
       type: 'CAST_SPELL',
-      casterId: player.avatarInstanceId,
+      casterId: spellcaster.instanceId,
       cardInstanceId: minionId,
       targetSquare,
       targetRegion: 'underground',
@@ -342,6 +401,9 @@ describe('engine orchestrator', () => {
 
     const targetSquare = { row: 1, col: 1 };
     placeSite(game, targetSquare, pid, { isWaterSite: true });
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: true });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
     const minionId = Object.values(game.instances).find(
       (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
     )?.instanceId;
@@ -353,7 +415,7 @@ describe('engine orchestrator', () => {
 
     const err = dispatchPlayerAction(game, {
       type: 'CAST_SPELL',
-      casterId: player.avatarInstanceId,
+      casterId: spellcaster.instanceId,
       cardInstanceId: minionId,
       targetSquare,
       targetRegion: 'underwater',
@@ -573,6 +635,9 @@ describe('engine orchestrator', () => {
 
     const targetSquare = { row: 2, col: 2 };
     placeSite(game, targetSquare, pid, { isWaterSite: false });
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
     const minionId = Object.values(game.instances).find(
       (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
     )?.instanceId;
@@ -584,7 +649,7 @@ describe('engine orchestrator', () => {
 
     const err = dispatchPlayerAction(game, {
       type: 'CAST_SPELL',
-      casterId: player.avatarInstanceId,
+      casterId: spellcaster.instanceId,
       cardInstanceId: minionId,
       targetSquare,
     });
@@ -615,5 +680,309 @@ describe('engine orchestrator', () => {
       attackTargetId: surfaceDefender.instanceId,
     });
     expect(err).toBe('Target must be in same region');
+  });
+
+  it('allows avatars to cast spells as spellcasters', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const targetSquare = { row: 2, col: 2 };
+    placeSite(game, targetSquare, pid, { isWaterSite: false });
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      casterEligibility: { all: [{ type: 'spellcaster' }] },
+    };
+
+    const enemyAvatarId = game.players[pid === 'player1' ? 'player2' : 'player1'].avatarInstanceId;
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: player.avatarInstanceId,
+      cardInstanceId: spellId,
+      targetInstanceId: enemyAvatarId,
+    });
+    expect(err).toBeNull();
+  });
+
+  it('rejects casting with non-spellcaster minions', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const nonCaster = placeMinion(game, casterSquare, pid, []);
+    if (nonCaster.card.type !== 'minion') throw new Error('Expected minion');
+    nonCaster.card = {
+      ...nonCaster.card,
+      keywords: [],
+      abilities: [],
+      rulesText: 'Ordinary ally with no spellcasting trait.',
+    };
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+
+    const enemyAvatarId = game.players[pid === 'player1' ? 'player2' : 'player1'].avatarInstanceId;
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: nonCaster.instanceId,
+      cardInstanceId: spellId,
+      targetInstanceId: enemyAvatarId,
+    });
+    expect(err).toBe('Selected caster cannot cast this spell');
+  });
+
+  it('blocks incompatible elemental spellcasters from casting', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const fireSpellcaster = placeSpellcaster(game, casterSquare, pid, 'Fire Spellcaster');
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      threshold: { water: 1 },
+      rulesText: 'A pure elemental spell.',
+      casterEligibility: { all: [{ type: 'spellcaster' }] },
+    };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: fireSpellcaster.instanceId,
+      cardInstanceId: spellId,
+      targetInstanceId: game.players[pid === 'player1' ? 'player2' : 'player1'].avatarInstanceId,
+    });
+    expect(err).toBe('Selected caster cannot cast this spell');
+  });
+
+  it('filters eligible spellcasters by spell threshold variants', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const fireSpellcaster = placeSpellcaster(game, casterSquare, pid, 'Fire Spellcaster');
+    const waterSpellcaster = placeSpellcaster(game, casterSquare, pid, 'Water Spellcaster');
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      threshold: { water: 1 },
+      rulesText: 'A pure elemental spell.',
+      casterEligibility: { all: [{ type: 'spellcaster' }] },
+    };
+
+    const eligible = getEligibleSpellcasters(game, pid, spellInst.card).map((inst) => inst.instanceId);
+    expect(eligible).toContain(waterSpellcaster.instanceId);
+    expect(eligible).not.toContain(fireSpellcaster.instanceId);
+  });
+
+  it('enforces same-region targeting for spell casts', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const enemyId: PlayerId = pid === 'player1' ? 'player2' : 'player1';
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
+
+    const enemySquare = { row: 2, col: 1 };
+    placeSite(game, enemySquare, enemyId, { isWaterSite: false });
+    const enemyUnderground = placeMinion(game, enemySquare, enemyId, ['burrowing'], 'underground');
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      threshold: {},
+      rulesText: 'Spellcaster-compatible region test spell.',
+      casterEligibility: { all: [{ type: 'spellcaster' }] },
+    };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: spellcaster.instanceId,
+      cardInstanceId: spellId,
+      targetInstanceId: enemyUnderground.instanceId,
+    });
+    expect(err).toBe('Spell target must be in caster region');
+  });
+
+  it('allows the same spellcaster to cast multiple spells if resources allow', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const enemyId: PlayerId = pid === 'player1' ? 'player2' : 'player1';
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const spellcaster = placeSpellcaster(game, casterSquare, pid);
+
+    const magicIds = Object.values(game.instances)
+      .filter((inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location)
+      .slice(0, 2)
+      .map((inst) => inst.instanceId);
+    if (magicIds.length < 2) throw new Error('Need at least two magic spells');
+    for (const spellId of magicIds) {
+      if (!player.hand.includes(spellId)) player.hand.push(spellId);
+      const spellInst = game.instances[spellId];
+      if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+      spellInst.card = {
+        ...spellInst.card,
+        rulesText: 'A pure spellcaster cast test.',
+        casterEligibility: { all: [{ type: 'spellcaster' }] },
+      };
+    }
+
+    const enemyAvatarId = game.players[enemyId].avatarInstanceId;
+    const firstErr = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: spellcaster.instanceId,
+      cardInstanceId: magicIds[0],
+      targetInstanceId: enemyAvatarId,
+    });
+    expect(firstErr).toBeNull();
+
+    const secondErr = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: spellcaster.instanceId,
+      cardInstanceId: magicIds[1],
+      targetInstanceId: enemyAvatarId,
+    });
+    expect(secondErr).toBeNull();
+  });
+
+  it('allows "may be cast by an allied Mortal" cards to be cast by non-spellcaster mortals', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const enemyId: PlayerId = pid === 'player1' ? 'player2' : 'player1';
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const casterSquare = { row: 3, col: 1 };
+    placeSite(game, casterSquare, pid, { isWaterSite: false });
+    const mortalCaster = placeMinion(game, casterSquare, pid, []);
+    if (mortalCaster.card.type !== 'minion') throw new Error('Expected minion');
+    mortalCaster.card = {
+      ...mortalCaster.card,
+      subtypes: ['Mortal'],
+      keywords: [],
+      rulesText: 'A trained allied mortal.',
+    };
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      threshold: {},
+      rulesText: 'May be cast by an allied Mortal.',
+      casterEligibility: { all: [{ type: 'has_subtype', subtype: 'Mortal' }] },
+    };
+
+    const enemyAvatarId = game.players[enemyId].avatarInstanceId;
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: mortalCaster.instanceId,
+      cardInstanceId: spellId,
+      targetInstanceId: enemyAvatarId,
+    });
+    expect(err).toBeNull();
+  });
+
+  it('supports modular caster filters with all/any/not', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const square = { row: 3, col: 1 };
+    placeSite(game, square, pid, { isWaterSite: false });
+    const mortal = placeMinion(game, square, pid, []);
+    if (mortal.card.type !== 'minion') throw new Error('Expected minion');
+    mortal.card = { ...mortal.card, subtypes: ['Mortal'], rulesText: 'Ordinary ally.' };
+    mortal.tokens.push('marked');
+
+    const spellcaster = placeSpellcaster(game, square, pid, 'Spellcaster');
+
+    const spellId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'magic' && !inst.location,
+    )?.instanceId;
+    if (!spellId) throw new Error('No magic instance available');
+    if (!player.hand.includes(spellId)) player.hand.push(spellId);
+    const spellInst = game.instances[spellId];
+    if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
+    spellInst.card = {
+      ...spellInst.card,
+      threshold: {},
+      rulesText: 'Custom eligibility test',
+      casterEligibility: {
+        all: [{ type: 'has_subtype', subtype: 'Mortal' }],
+        any: [{ type: 'has_token', token: 'marked' }, { type: 'spellcaster' }],
+        not: [{ type: 'is_avatar', value: true }, { type: 'has_keyword', keyword: 'spellcaster' }],
+      },
+    };
+
+    const eligible = getEligibleSpellcasters(game, pid, spellInst.card).map((inst) => inst.instanceId);
+    expect(eligible).toContain(mortal.instanceId);
+    expect(eligible).not.toContain(spellcaster.instanceId);
+    expect(eligible).not.toContain(game.players[pid].avatarInstanceId);
   });
 });

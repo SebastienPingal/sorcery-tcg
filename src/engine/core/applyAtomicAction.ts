@@ -2,9 +2,11 @@ import type { GameState } from './gameState';
 import type { MutationAction } from './atomicActions';
 import type { ArtifactCard, CardInstance, MagicCard, MinionCard, PlayerId, Region, Square } from '../../types';
 import {
+  canCasterCastCard,
   computeAffinity,
   computeMana,
   getAttackPower,
+  getEligibleSpellcasters,
   getManaAvailable,
   getMovementRange,
   hasKeyword,
@@ -215,6 +217,7 @@ function castSpell(
 ): string | null {
   const casterInst = state.instances[casterId];
   if (!casterInst) return 'Caster not found';
+  if (!casterInst.location) return 'Caster must be in the realm';
   const playerId = casterInst.controllerId;
   const player = state.players[playerId];
   const cardInst = state.instances[cardInstanceId];
@@ -222,6 +225,18 @@ function castSpell(
   if (!player.hand.includes(cardInstanceId)) return 'Card not in hand';
   const card = cardInst.card;
   if (card.type === 'avatar' || card.type === 'site') return 'Cannot cast this card type as a spell';
+  if (hasKeyword(casterInst, 'disable')) return 'Disabled caster cannot cast spells';
+  if (!canCasterCastCard(casterInst, card)) return 'Selected caster cannot cast this spell';
+  if (casterInst.controllerId !== cardInst.ownerId) return 'Caster must be allied to cast this spell';
+  if (getEligibleSpellcasters(state, playerId, card).length === 0) return 'No eligible caster can cast this spell';
+  const casterRegion = casterInst.location.region;
+  if (targetInstanceId) {
+    const targeted = state.instances[targetInstanceId];
+    if (!targeted) return 'Target not found';
+    if (!targeted.location || targeted.location.region !== casterRegion) {
+      return 'Spell target must be in caster region';
+    }
+  }
   const manaCost = 'manaCost' in card ? card.manaCost : 0;
   if (getManaAvailable(player) < manaCost) return 'Not enough mana';
   if ('threshold' in card && card.threshold && !meetsThreshold(player.elementalAffinity, card.threshold)) {
@@ -244,6 +259,7 @@ function castSpell(
       applyKeywordStatusTokens(cardInst);
       attachLanceTokenIfNeeded(state, cardInst);
       cell.unitInstanceIds.push(cardInst.instanceId);
+      state.currentTurn.spellsCastCount += 1;
       return null;
     }
     const siteInst = occupyingSite;
@@ -260,7 +276,6 @@ function castSpell(
     } else if (placementRegion !== 'surface') {
       return 'Invalid summon region';
     }
-
     cardInst.location = { square: targetSquare, region: placementRegion };
     cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
     cardInst.tapped = false;
@@ -271,6 +286,7 @@ function castSpell(
     } else {
       cell.unitInstanceIds.push(cardInst.instanceId);
     }
+    state.currentTurn.spellsCastCount += 1;
     return null;
   }
 
@@ -280,6 +296,7 @@ function castSpell(
       if (!unitInst) return 'Target unit not found';
       if (unitInst.controllerId !== playerId && breakWardShield(unitInst)) {
         sendToCemetery(state, cardInst.instanceId, playerId);
+        state.currentTurn.spellsCastCount += 1;
         return null;
       }
       if (unitInst.controllerId !== playerId && hasStatusToken(unitInst, 'stealth')) {
@@ -288,6 +305,7 @@ function castSpell(
       cardInst.location = unitInst.location;
       cardInst.carriedBy = targetInstanceId;
       unitInst.carriedArtifacts.push(cardInst.instanceId);
+      state.currentTurn.spellsCastCount += 1;
       return null;
     }
     if (targetSquare) {
@@ -297,6 +315,7 @@ function castSpell(
       if (siteInst.controllerId !== playerId) return 'Must place on a site you control';
       cardInst.location = { square: targetSquare, region: 'surface' };
       cell.artifactInstanceIds.push(cardInst.instanceId);
+      state.currentTurn.spellsCastCount += 1;
       return null;
     }
     return 'Must specify placement for artifact';
@@ -306,6 +325,7 @@ function castSpell(
     if (!targetSquare) return 'Must specify target square for aura';
     cardInst.location = { square: targetSquare, region: 'surface' };
     state.realm[targetSquare.row][targetSquare.col].auraInstanceIds.push(cardInst.instanceId);
+    state.currentTurn.spellsCastCount += 1;
     return null;
   }
 
@@ -327,6 +347,7 @@ function castSpell(
       }
     }
     sendToCemetery(state, cardInst.instanceId, playerId);
+    state.currentTurn.spellsCastCount += 1;
     return null;
   }
 

@@ -1,10 +1,27 @@
-import type { CardInstance, GameState, LogEntry, Player, PlayerId } from '../types';
+import type { AvatarCard, CardInstance, GameState, LogEntry, Player, PlayerId } from '../types';
 import { CARD_REGISTRY } from '../data/cards';
 import { computeAffinity, computeMana, makeEmptyRealm, opponent, shuffle, uid } from './utils';
 
 function makeInstance(cardId: string, ownerId: PlayerId): CardInstance {
-  const card = CARD_REGISTRY[cardId];
-  if (!card) throw new Error(`Unknown card: ${cardId}`);
+  const rawCard = CARD_REGISTRY[cardId];
+  if (!rawCard) throw new Error(`Unknown card: ${cardId}`);
+  const card = (() => {
+    if (rawCard.type !== 'avatar') return rawCard;
+    const avatar = rawCard as AvatarCard;
+    if (avatar.abilities.length > 0) return rawCard;
+    // Many real avatars currently have empty parsed abilities.
+    // Ensure the baseline game action always exists.
+    return {
+      ...avatar,
+      abilities: [{
+        id: `${avatar.id}_play_or_draw_site`,
+        trigger: 'tap',
+        cost: { tap: true },
+        description: 'Play or draw a site.',
+        effect: { type: 'play_or_draw_site' },
+      }],
+    } as AvatarCard;
+  })();
   return {
     instanceId: uid(),
     cardId,

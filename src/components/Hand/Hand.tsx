@@ -22,6 +22,10 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
   } = useGameStore();
 
   const player = game.players[playerId];
+  const avatarInst = game.instances[player.avatarInstanceId];
+  const avatarPlayOrDrawAbilityId = avatarInst.card.type === 'avatar'
+    ? avatarInst.card.abilities.find((ability) => ability.effect.type === 'play_or_draw_site')?.id ?? null
+    : null;
   const isMyHand = playerId === game.activePlayerId || !isHidden;
 
   if (isHidden) {
@@ -53,14 +57,10 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     const card = inst.card;
 
     if (card.type === 'site') {
-      const player = game.players[playerId];
-      const avatarInst = game.instances[player.avatarInstanceId];
       if (avatarInst.tapped) return false;
       if (pendingAvatarAbility !== null) return true;
-      // Also actionable if avatar has the ability and is untapped
-      return !!(avatarInst.card as any).abilities?.some(
-        (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
-      );
+      // Also actionable if avatar has the generic play-or-draw-site ability and is untapped
+      return !!avatarPlayOrDrawAbilityId;
     }
 
     if ('manaCost' in card) {
@@ -80,8 +80,6 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
     if (card.type === 'site') {
       if (pendingAvatarAbility) return null;
-      const player = game.players[playerId];
-      const avatarInst = game.instances[player.avatarInstanceId];
       if (avatarInst.tapped) return 'Avatar tapped';
       return null;
     }
@@ -100,14 +98,7 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
     // Sites: select and auto-activate the avatar's play-site ability if available
     if (inst.card.type === 'site') {
-      const player = game.players[playerId];
-      const avatarInst = game.instances[player.avatarInstanceId];
-      const fallbackAbilityId =
-        !avatarInst.tapped
-          ? (avatarInst.card as any).abilities?.find(
-              (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play'),
-            )?.id ?? null
-          : null;
+      const fallbackAbilityId = !avatarInst.tapped ? avatarPlayOrDrawAbilityId : null;
       const activeAbilityId = pendingAvatarAbility ?? fallbackAbilityId ?? 'auto_play_site';
       if (avatarInst.tapped) return;
 

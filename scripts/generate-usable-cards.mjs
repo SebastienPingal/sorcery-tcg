@@ -49,10 +49,37 @@ function extractKeywordsFromCard(card) {
   return Array.from(merged);
 }
 
+function inferCasterChoicePolicy(card) {
+  const abilityText = Array.isArray(card.abilities)
+    ? card.abilities.map((ability) => ability?.description ?? '').join('\n')
+    : '';
+  const text = `${card.rulesText ?? ''}\n${abilityText}`.toLowerCase();
+  if (/\bmay be cast by an allied mortal\b/i.test(text)) return 'custom';
+  if (card.type === 'minion') return 'auto';
+  if (text.includes('projectile')) return 'require_choice';
+  return 'auto';
+}
+
+function inferCasterEligibility(card) {
+  const abilityText = Array.isArray(card.abilities)
+    ? card.abilities.map((ability) => ability?.description ?? '').join('\n')
+    : '';
+  const text = `${card.rulesText ?? ''}\n${abilityText}`.toLowerCase();
+  if (/\bmay be cast by an allied mortal\b/i.test(text)) {
+    return { all: [{ type: 'has_subtype', subtype: 'Mortal' }] };
+  }
+  return { all: [{ type: 'spellcaster' }] };
+}
+
 function buildUsableCard(card, overridesById) {
-  const base = Array.isArray(card.keywords)
+  const baseWithKeywords = Array.isArray(card.keywords)
     ? { ...card, keywords: extractKeywordsFromCard(card) }
     : card;
+  const base = {
+    ...baseWithKeywords,
+    casterChoicePolicy: inferCasterChoicePolicy(baseWithKeywords),
+    casterEligibility: inferCasterEligibility(baseWithKeywords),
+  };
   const override = overridesById[card.id];
   if (!override || typeof override !== 'object') return base;
   return { ...base, ...override };

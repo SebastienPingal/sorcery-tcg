@@ -19,7 +19,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "a_midsummer_nights_dream",
@@ -34,7 +42,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aaj_kegon_ghost_crabs",
@@ -56,7 +72,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "abaddon_succubus",
@@ -74,7 +98,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "abundance",
@@ -89,7 +121,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "abyssal_assault",
@@ -104,7 +144,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "accursed_albatross",
@@ -124,7 +172,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "accursed_desert",
@@ -139,7 +195,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "accursed_tower",
@@ -154,7 +218,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "accusation",
@@ -169,7 +241,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "acid_rain",
@@ -185,7 +265,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "active_volcano",
@@ -200,7 +288,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 2
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "adept_illusionist",
@@ -220,7 +316,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "adtonitum",
@@ -240,7 +344,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aethermoeba",
@@ -260,7 +372,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aino",
@@ -280,7 +400,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "alabaster_box",
@@ -297,7 +425,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "albespine_pikemen",
@@ -316,7 +452,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "algae_bloom",
@@ -331,7 +475,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "algor_omphalos",
@@ -350,7 +502,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "all_mortals_gone",
@@ -365,7 +525,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "all_terrain_vestments",
@@ -386,7 +554,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "altar_of_malachai",
@@ -399,7 +575,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "alvalinne_dryads",
@@ -418,7 +602,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "amazon_warriors",
@@ -436,7 +628,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "amethyst_core",
@@ -453,7 +653,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "amulet_of_niniane",
@@ -470,7 +678,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ancient_dragon",
@@ -490,7 +706,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "angel_ascendant",
@@ -512,7 +736,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "angels_egg",
@@ -529,7 +761,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "angry_mob",
@@ -550,7 +790,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "animist",
@@ -563,7 +811,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Margaret Organ-Kean",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "annual_fair",
@@ -576,7 +832,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "anui_undine",
@@ -597,7 +861,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "apostles_of_thamariel",
@@ -617,7 +889,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "apply_alkahest",
@@ -635,7 +915,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "apprentice_wizard",
@@ -656,7 +944,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aquamarine_core",
@@ -673,7 +969,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aqueduct",
@@ -689,7 +993,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "aramos_mercenaries",
@@ -708,7 +1020,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "arc_lightning",
@@ -724,7 +1044,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "arcade_of_bones",
@@ -742,7 +1070,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "arcane_barrage",
@@ -757,7 +1093,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "archangel_gabriel",
@@ -779,7 +1123,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "archangel_michael",
@@ -801,7 +1153,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "archangel_raphael",
@@ -823,7 +1183,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "archangel_samael",
@@ -845,7 +1213,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "archimago",
@@ -858,7 +1234,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Rodney Matthews",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "arid_desert",
@@ -873,7 +1257,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "arjaro_exorcist",
@@ -894,7 +1286,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "armageddon",
@@ -913,7 +1313,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 2,
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "army_of_the_dead",
@@ -932,7 +1340,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 8,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "askelon_phoenix",
@@ -952,7 +1368,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "asmodeus",
@@ -973,7 +1397,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "assimilator_snail",
@@ -991,7 +1423,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "assorted_animals",
@@ -1006,7 +1446,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "astral_alcazar",
@@ -1019,7 +1467,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "atlantean_fate",
@@ -1034,7 +1490,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "atlas_wanderers",
@@ -1054,7 +1518,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "attack_by_night",
@@ -1069,7 +1541,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "autumn_bloom",
@@ -1084,7 +1564,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "autumn_river",
@@ -1099,7 +1587,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "autumn_unicorn",
@@ -1117,7 +1613,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avalon",
@@ -1135,7 +1639,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avatar_of_air",
@@ -1148,7 +1660,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avatar_of_earth",
@@ -1161,7 +1681,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avatar_of_fire",
@@ -1174,7 +1702,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avatar_of_water",
@@ -1187,7 +1723,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "avenging_angel",
@@ -1209,7 +1753,15 @@ export const USABLE_CARDS: Card[] = [
       "charge",
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "awakened_mummies",
@@ -1228,7 +1780,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "azuridge_caravan",
@@ -1247,7 +1807,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "baba_yagas_hut",
@@ -1260,7 +1828,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Mattias Frisk",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "babbling_brook",
@@ -1275,7 +1851,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "backstab",
@@ -1290,7 +1874,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bailey",
@@ -1308,7 +1900,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ball_lightning",
@@ -1323,7 +1923,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "balor_of_the_evil_eye",
@@ -1342,7 +1950,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "band_of_thieves",
@@ -1363,7 +1979,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bane_of_aventis",
@@ -1385,7 +2009,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bane_widow",
@@ -1406,7 +2038,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "baptize",
@@ -1422,7 +2062,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "barging_barghest",
@@ -1442,7 +2090,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "barrow_wight",
@@ -1462,7 +2118,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "battering_ram",
@@ -1479,7 +2143,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "battlefield",
@@ -1492,7 +2164,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "battlemage",
@@ -1505,7 +2185,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "startingLife": 20,
     "attackPower": 3,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "beacon",
@@ -1520,7 +2208,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "beast_of_burden",
@@ -1539,7 +2235,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bedrock",
@@ -1554,7 +2258,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "begone",
@@ -1569,7 +2281,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "belfry",
@@ -1586,7 +2306,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "belmotte_longbowmen",
@@ -1607,7 +2335,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "betrayal",
@@ -1623,7 +2359,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bind_evil",
@@ -1639,7 +2383,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bitten",
@@ -1660,7 +2412,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bitter_departed",
@@ -1681,7 +2441,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "black_cat",
@@ -1699,7 +2467,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "black_knight",
@@ -1721,7 +2497,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "black_mass",
@@ -1736,7 +2520,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "black_obelisk",
@@ -1753,7 +2545,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blacksmith_family",
@@ -1769,7 +2569,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bladderblimp",
@@ -1790,7 +2598,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blade_of_thorns",
@@ -1807,7 +2623,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bladedancer",
@@ -1820,7 +2644,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Brian Smith",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blasphemy",
@@ -1837,7 +2669,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blasted_oak",
@@ -1854,7 +2694,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blaze",
@@ -1869,7 +2717,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blaze_of_glory",
@@ -1885,7 +2741,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bleeding_skull",
@@ -1902,7 +2766,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bless",
@@ -1917,7 +2789,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blessed_village",
@@ -1933,7 +2813,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blessed_well",
@@ -1949,7 +2837,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blightstone",
@@ -1969,7 +2865,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blink",
@@ -1984,7 +2888,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blizzard",
@@ -1999,7 +2911,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blood_mana",
@@ -2015,7 +2935,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blood_ravens",
@@ -2036,7 +2964,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blue_knight",
@@ -2061,7 +2997,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bluecap_knockers",
@@ -2081,7 +3025,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "blunderbore",
@@ -2100,7 +3052,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bodach_bogeyman",
@@ -2119,7 +3079,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bog",
@@ -2134,7 +3102,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "boil",
@@ -2149,7 +3125,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bone_jumble",
@@ -2170,7 +3154,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bone_rabble",
@@ -2188,7 +3180,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bone_spear",
@@ -2204,7 +3204,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "boneyard",
@@ -2217,7 +3225,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bonfire",
@@ -2232,7 +3248,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "book_burners",
@@ -2250,7 +3274,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "book_of_blessings",
@@ -2270,7 +3302,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "book_of_the_dead",
@@ -2289,7 +3329,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "border_militia",
@@ -2304,7 +3352,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bosk_troll",
@@ -2322,7 +3378,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bottomless_pit",
@@ -2335,7 +3399,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "boudicca",
@@ -2353,7 +3425,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "boulevard_of_bones",
@@ -2368,7 +3448,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bound_spirit",
@@ -2390,7 +3478,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bower_of_bliss",
@@ -2403,7 +3499,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "briar_patch",
@@ -2418,7 +3522,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bridge_troll",
@@ -2437,7 +3549,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "brobdingnag_bullfrog",
@@ -2458,7 +3578,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "broceliande",
@@ -2471,7 +3599,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "broomstick_witch",
@@ -2493,7 +3629,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "brother_knight",
@@ -2516,7 +3660,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "brown_bears",
@@ -2534,7 +3686,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "browse",
@@ -2549,7 +3709,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bruin",
@@ -2565,7 +3733,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bull_demons_of_adum",
@@ -2584,7 +3760,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bull_whip",
@@ -2601,7 +3785,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "bureau_of_occult_control",
@@ -2614,7 +3806,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "buried_alive",
@@ -2630,7 +3830,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "buried_treasure",
@@ -2647,7 +3855,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "burning_hands",
@@ -2662,7 +3878,16 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "custom",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "has_subtype",
+          "subtype": "Mortal"
+        }
+      ]
+    }
   },
   {
     "id": "bury",
@@ -2678,7 +3903,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "caelestis",
@@ -2702,7 +3935,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "caerleon_upon_usk",
@@ -2719,7 +3960,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cage_of_sidrak",
@@ -2740,7 +3989,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "call_of_the_sea",
@@ -2756,7 +4013,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "call_to_war",
@@ -2771,7 +4036,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "camelot",
@@ -2784,7 +4057,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jeff A. Menges",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "candlemas_monks",
@@ -2805,7 +4086,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "captain_baldassare",
@@ -2823,7 +4112,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "carrion_beetles",
@@ -2844,7 +4141,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "carrionette",
@@ -2859,7 +4164,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cast_into_exile",
@@ -2875,7 +4188,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "castle_haunt",
@@ -2893,7 +4214,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "castle_servants",
@@ -2909,7 +4238,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "castles_ablaze",
@@ -2924,7 +4261,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cauldron_crones",
@@ -2945,7 +4290,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cave_in",
@@ -2960,7 +4313,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cave_trolls",
@@ -2981,7 +4342,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cemetery_rats",
@@ -3003,7 +4372,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cerberus_in_chains",
@@ -3021,7 +4398,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "chain_lightning",
@@ -3036,7 +4421,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "chains_of_prometheus",
@@ -3054,7 +4447,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "chaos_twister",
@@ -3069,7 +4470,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "chaoswish",
@@ -3086,7 +4495,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 2,
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "char_omphalos",
@@ -3105,7 +4522,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "charge",
@@ -3120,7 +4545,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cherubim",
@@ -3141,7 +4574,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "chorus_of_condemnation",
@@ -3156,7 +4597,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "city_of_glass",
@@ -3169,7 +4618,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "city_of_plenty",
@@ -3182,7 +4639,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Liz Danforth",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "city_of_souls",
@@ -3195,7 +4660,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Brian Smith",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "city_of_traitors",
@@ -3208,7 +4681,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "clairvoyant",
@@ -3228,7 +4709,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "clamor_of_harpies",
@@ -3249,7 +4738,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "clay_golem",
@@ -3269,7 +4766,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite"
     ],
     "abilities": [],
-    "power": 3
+    "power": 3,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cloud_city",
@@ -3284,7 +4789,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cloud_spirit",
@@ -3305,7 +4818,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cold_iron_rod",
@@ -3325,7 +4846,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "colicky_dragonettes",
@@ -3344,7 +4873,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "common_cottagers",
@@ -3360,7 +4897,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "common_sense",
@@ -3376,7 +4921,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "common_village",
@@ -3391,7 +4944,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cone_of_flame",
@@ -3406,7 +4967,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "conqueror_worm",
@@ -3424,7 +4993,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 8,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "consecrate",
@@ -3439,7 +5016,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "consecrated_ground",
@@ -3454,7 +5039,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "coral_reef_kelpie",
@@ -3475,7 +5068,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cornerstone",
@@ -3488,7 +5089,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Margaret Organ-Kean",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "corpse_catapult",
@@ -3505,7 +5114,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "corpse_explosion",
@@ -3521,7 +5138,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "corruptor",
@@ -3534,7 +5159,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Heidi Taillefer",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "corruptor_freak",
@@ -3552,7 +5185,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "court_jester",
@@ -3570,7 +5211,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "courtesan_thais",
@@ -3591,7 +5240,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "coy_nixie",
@@ -3611,7 +5268,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cradle_of_etherrum",
@@ -3628,7 +5293,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cranky_overseer",
@@ -3647,7 +5320,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "craterize",
@@ -3662,7 +5343,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crave_golem",
@@ -3681,7 +5370,15 @@ export const USABLE_CARDS: Card[] = [
     "isMonument": false,
     "keywords": [],
     "abilities": [],
-    "power": 3
+    "power": 3,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crawler",
@@ -3700,7 +5397,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crawling_congregation",
@@ -3719,7 +5424,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "critical_strike",
@@ -3734,7 +5447,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "croaking_swamp",
@@ -3749,7 +5470,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "croll_morlocks",
@@ -3770,7 +5499,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crossroads",
@@ -3783,7 +5520,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Vasiliy Ermolaev",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crown_of_the_victor",
@@ -3801,7 +5546,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crown_prince",
@@ -3822,7 +5575,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crucifix",
@@ -3841,7 +5602,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "crusade",
@@ -3856,7 +5625,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cursed_iron",
@@ -3871,7 +5648,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "cursed_land",
@@ -3886,7 +5671,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dalcean_phalanx",
@@ -3905,7 +5698,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dame_britomart",
@@ -3930,7 +5731,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dank_omphalos",
@@ -3949,7 +5758,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "daperyll_vampire",
@@ -3969,7 +5786,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dark_alley",
@@ -3984,7 +5809,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dark_tower",
@@ -3999,7 +5832,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "darkest_dungeon",
@@ -4012,7 +5853,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Pedro Ferreira",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "day_of_judgment",
@@ -4027,7 +5876,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "de_vermis_mysteriis",
@@ -4047,7 +5904,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dead_of_night_demon",
@@ -4068,7 +5933,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "death_dealer",
@@ -4089,7 +5962,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "death_knight",
@@ -4108,7 +5989,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "deathspeaker",
@@ -4121,7 +6010,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Tony Szczudlo",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "deathwish",
@@ -4138,7 +6035,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 2,
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "deep_sea",
@@ -4153,7 +6058,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 2
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "deep_sea_mermaids",
@@ -4174,7 +6087,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "defiler_spire",
@@ -4189,7 +6110,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "degradation",
@@ -4205,7 +6134,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "deliverance",
@@ -4220,7 +6157,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "demon_hunter",
@@ -4241,7 +6186,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "demonic_contract",
@@ -4256,7 +6209,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "den_of_evil",
@@ -4271,7 +6232,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "desecrate",
@@ -4286,7 +6255,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "desecrated_ground",
@@ -4301,7 +6278,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "desecrator_kite",
@@ -4321,7 +6306,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "desert_bloom",
@@ -4336,7 +6329,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "detonate",
@@ -4351,7 +6352,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "devils_egg",
@@ -4368,7 +6377,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dhol_chants",
@@ -4383,7 +6400,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "diluvian_kraken",
@@ -4403,7 +6428,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dirium_fomorians",
@@ -4425,7 +6458,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "disenchant",
@@ -4441,7 +6482,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "disintegrate",
@@ -4457,7 +6506,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dispel",
@@ -4473,7 +6530,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "displace",
@@ -4488,7 +6553,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "divine_healing",
@@ -4504,7 +6577,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "divine_intervention",
@@ -4522,7 +6603,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "divine_lance",
@@ -4537,7 +6626,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "doctor_demetrius",
@@ -4557,7 +6654,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dodge_roll",
@@ -4572,7 +6677,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dome_of_osiros",
@@ -4585,7 +6698,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Vincent Pompetti",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "donnybrook_inn",
@@ -4598,7 +6719,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Vasiliy Ermolaev",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "doomsday_cult",
@@ -4616,7 +6745,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "doomsday_device",
@@ -4633,7 +6770,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "doomsday_prophet",
@@ -4652,7 +6797,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dormant_monstrosity",
@@ -4673,7 +6826,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dozmary_pool",
@@ -4688,7 +6849,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "draco_corvus",
@@ -4711,7 +6880,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "draconian_bonekite",
@@ -4731,7 +6908,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dragonlord",
@@ -4744,7 +6929,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ed Beard Jr.",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dragonlords_lair",
@@ -4757,7 +6950,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ed Beard Jr.",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dread_thicket",
@@ -4772,7 +6973,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dreadwing",
@@ -4793,7 +7002,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dream_quest",
@@ -4809,7 +7026,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dredge",
@@ -4824,7 +7049,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "driftwood_marrows",
@@ -4845,7 +7078,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge"
     ],
     "abilities": [],
-    "power": 3
+    "power": 3,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "drought",
@@ -4860,7 +7101,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "drown",
@@ -4875,7 +7124,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "drowned",
@@ -4896,7 +7153,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "druid",
@@ -4909,7 +7174,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Bryon Wackwitz",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "drums_of_doom",
@@ -4929,7 +7202,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "duel",
@@ -4945,7 +7226,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "duplicator",
@@ -4958,7 +7247,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dwarven_digging_team",
@@ -4978,7 +7275,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "dwarven_forge",
@@ -4993,7 +7298,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "earl_of_the_ivory_towers",
@@ -5014,7 +7327,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "earthquake",
@@ -5029,7 +7350,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "east_west_dragon",
@@ -5049,7 +7378,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "eclipse",
@@ -5064,7 +7401,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "edge_of_the_world",
@@ -5077,7 +7422,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Adam Burke",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "eerie_coral",
@@ -5096,7 +7449,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "elder_ruins",
@@ -5111,7 +7472,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "elementalist",
@@ -5124,7 +7493,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elvira Shakirova",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "eltham_townsfolk",
@@ -5142,7 +7519,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "enchantress",
@@ -5155,7 +7540,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "endless_fence",
@@ -5170,7 +7563,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "enduring_faith",
@@ -5186,7 +7587,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "enraged_familiar",
@@ -5204,7 +7613,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "entangle_terrain",
@@ -5219,7 +7636,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "entombed",
@@ -5240,7 +7665,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "eriks_curiosa",
@@ -5257,7 +7690,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ersatz_platz",
@@ -5270,7 +7711,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "escyllion_cyclops",
@@ -5289,7 +7738,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "estranged_loner",
@@ -5309,7 +7766,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ether_core",
@@ -5326,7 +7791,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "evil_presence",
@@ -5341,7 +7814,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "evil_twin",
@@ -5360,7 +7841,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "excalibur",
@@ -5377,7 +7866,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "exhume",
@@ -5393,7 +7890,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "exorcism",
@@ -5409,7 +7914,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "extinguish",
@@ -5424,7 +7937,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fade",
@@ -5440,7 +7961,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fae_city",
@@ -5455,7 +7984,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fail_not_bow",
@@ -5475,7 +8012,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "failed_mutation",
@@ -5494,7 +8039,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "faith_incarnate",
@@ -5515,7 +8068,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fallen_angel",
@@ -5535,7 +8096,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "falling_star",
@@ -5550,7 +8119,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "false_idol",
@@ -5567,7 +8144,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "far_east_assassin",
@@ -5587,7 +8172,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fatality",
@@ -5603,7 +8196,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1,
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "feast_for_crows",
@@ -5618,7 +8219,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "feign_death",
@@ -5633,7 +8242,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "felbog_frog_men",
@@ -5651,7 +8268,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fenvale_muse",
@@ -5673,7 +8298,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ferrymans_coin",
@@ -5690,7 +8323,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fertile_earth",
@@ -5705,7 +8346,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 2
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fey_changeling",
@@ -5725,7 +8374,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "field_laborers",
@@ -5743,7 +8400,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fields_of_camlann",
@@ -5758,7 +8423,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fields_of_phyxis",
@@ -5773,7 +8446,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fine_courser",
@@ -5793,7 +8474,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "finwife",
@@ -5814,7 +8503,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fire_harpoons",
@@ -5829,7 +8526,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fireball",
@@ -5844,7 +8549,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "firebolts",
@@ -5859,7 +8572,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "firebreathing",
@@ -5874,7 +8595,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fishermans_family",
@@ -5890,7 +8619,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flagellant",
@@ -5909,7 +8646,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flame_of_the_first_ones",
@@ -5927,7 +8672,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flame_strike",
@@ -5942,7 +8695,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flame_wave",
@@ -5957,7 +8718,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flamecaller",
@@ -5970,7 +8739,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Francesca Baerald",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flaming_skull",
@@ -5991,7 +8768,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flaming_sword",
@@ -6008,7 +8793,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flanking_maneuver",
@@ -6023,7 +8816,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flayer",
@@ -6043,7 +8844,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "flood",
@@ -6059,7 +8868,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "floodplain",
@@ -6074,7 +8891,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "font_of_life",
@@ -6089,7 +8914,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldier_1",
@@ -6105,7 +8938,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldier_2",
@@ -6121,7 +8962,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldier_3",
@@ -6137,7 +8986,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldier_english",
@@ -6153,7 +9010,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldier_saracen",
@@ -6169,7 +9034,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "foot_soldiers",
@@ -6185,7 +9058,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "forge",
@@ -6200,7 +9081,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "forgotten_tomb",
@@ -6215,7 +9104,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "forlorn_keep",
@@ -6230,7 +9127,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "forsaken",
@@ -6251,7 +9156,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "forsaken_crypt",
@@ -6266,7 +9179,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "four_fat_frogs",
@@ -6281,7 +9202,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "four_waters_of_paradise",
@@ -6298,7 +9227,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fourberie_knot",
@@ -6315,7 +9252,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "fowl_bones",
@@ -6335,7 +9280,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "free_city",
@@ -6348,7 +9301,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "freeze",
@@ -6363,7 +9324,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frisky_red_squirrel",
@@ -6383,7 +9352,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frog",
@@ -6401,7 +9378,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frog_blue",
@@ -6419,7 +9404,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frog_green",
@@ -6437,7 +9430,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frog_red",
@@ -6455,7 +9456,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frontier_settlers",
@@ -6474,7 +9483,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frost_nova",
@@ -6489,7 +9506,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "frozen_horror",
@@ -6510,7 +9535,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "funeral_pyre",
@@ -6525,7 +9558,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "garden_of_eden",
@@ -6541,7 +9582,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gargantula",
@@ -6561,7 +9610,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "geomancer",
@@ -6574,7 +9631,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Francesca Baerald",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "geyser",
@@ -6589,7 +9654,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ghost_ship",
@@ -6609,7 +9682,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ghost_town",
@@ -6622,7 +9703,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jeff A. Menges",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ghostfire",
@@ -6637,7 +9726,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ghoul",
@@ -6655,7 +9752,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "giant_killer",
@@ -6676,7 +9781,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "giant_shark",
@@ -6697,7 +9810,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "waterbound"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gibbous_nightgaunts",
@@ -6718,7 +9839,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gift_of_the_frog",
@@ -6733,7 +9862,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gift_of_the_raven",
@@ -6748,7 +9885,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gift_of_the_serpent",
@@ -6763,7 +9908,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gift_of_the_wolf",
@@ -6778,7 +9931,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gigantism",
@@ -6794,7 +9955,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gilded_aegis",
@@ -6811,7 +9980,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gilman_house",
@@ -6826,7 +10003,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "glastonbury_tor",
@@ -6843,7 +10028,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gloam_toads",
@@ -6863,7 +10056,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "immobile"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gnarled_wendigo",
@@ -6882,7 +10083,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gneissgnath_gnomes",
@@ -6902,7 +10111,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gnome_hollows",
@@ -6917,7 +10134,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "goat_for_azazel",
@@ -6936,7 +10161,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "golden_dawn",
@@ -6951,7 +10184,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 4
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "golden_harp",
@@ -6968,7 +10209,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "golgor",
@@ -6986,7 +10235,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 7,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gossamer_ghost",
@@ -7008,7 +10265,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "goswhit_helmet",
@@ -7026,7 +10291,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gothic_tower",
@@ -7041,7 +10314,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grain_sparrow",
@@ -7062,7 +10343,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "granary_rats",
@@ -7081,7 +10370,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grand_old_boar",
@@ -7102,7 +10399,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grandmaster_wizard",
@@ -7123,7 +10428,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grapple_shot",
@@ -7138,7 +10451,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grasping_ground",
@@ -7153,7 +10474,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gravedigger",
@@ -7175,7 +10504,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "great_old_one",
@@ -7198,7 +10535,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "flooded"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "great_wall",
@@ -7211,7 +10556,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "greater_blood_demon",
@@ -7232,7 +10585,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grey_wolves",
@@ -7250,7 +10611,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grief_larvae",
@@ -7270,7 +10639,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grievous_insult",
@@ -7286,7 +10663,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grigori_rasputin",
@@ -7306,7 +10691,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grim_guisarme",
@@ -7324,7 +10717,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grim_reaper",
@@ -7344,7 +10745,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "grosse_poltergeist",
@@ -7362,7 +10771,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "guardian_angel",
@@ -7384,7 +10801,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "guards",
@@ -7399,7 +10824,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "guile_sirens",
@@ -7419,7 +10852,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "gyre_hippogriffs",
@@ -7441,7 +10882,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "haast_eagle",
@@ -7462,7 +10911,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hamlet",
@@ -7475,7 +10932,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Andrea Modesti",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hamlets_ablaze",
@@ -7490,7 +10955,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hand_of_glory",
@@ -7509,7 +10982,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "harassing_ruffians",
@@ -7527,7 +11008,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "harbinger",
@@ -7540,7 +11029,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Doug Kovacs",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "harpyon_urge",
@@ -7555,7 +11052,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "harvest_festival",
@@ -7572,7 +11077,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hauntless_head",
@@ -7594,7 +11107,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "haystack",
@@ -7609,7 +11130,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "headless_haunt",
@@ -7630,7 +11159,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hearkening_kraken",
@@ -7650,7 +11187,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "heat_ray",
@@ -7665,7 +11210,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "heirloom_lost",
@@ -7678,7 +11231,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hellfire",
@@ -7693,7 +11254,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hellhounds",
@@ -7711,7 +11280,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hellmouth",
@@ -7726,7 +11303,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hellstar",
@@ -7746,7 +11331,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "helpful_hob",
@@ -7767,7 +11360,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hemogoblet",
@@ -7784,7 +11385,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hemogoblin",
@@ -7805,7 +11414,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hemogolem",
@@ -7824,7 +11441,15 @@ export const USABLE_CARDS: Card[] = [
     "isMonument": false,
     "keywords": [],
     "abilities": [],
-    "power": 4
+    "power": 4,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "heretics_of_seth",
@@ -7845,7 +11470,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "highland_clansmen",
@@ -7866,7 +11499,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "highland_falconer",
@@ -7887,7 +11528,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "highland_princess",
@@ -7908,7 +11557,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hillock_basilisk",
@@ -7928,7 +11585,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hillside_chapel",
@@ -7943,7 +11608,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hollow_one",
@@ -7964,7 +11637,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "holy_ground",
@@ -7979,7 +11660,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "holy_nova",
@@ -7995,7 +11684,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "holy_warrior",
@@ -8016,7 +11713,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "holy_water",
@@ -8035,7 +11740,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "homecoming",
@@ -8051,7 +11764,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "horn_of_caerleon",
@@ -8071,7 +11792,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "horns_of_behemoth",
@@ -8086,7 +11815,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "horrible_hybrids",
@@ -8104,7 +11841,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hotwheel",
@@ -8125,7 +11870,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hounds_of_ondaros",
@@ -8150,7 +11903,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "house_arn_bannerman",
@@ -8169,7 +11930,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "howl_from_beyond",
@@ -8184,7 +11953,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "humble_village",
@@ -8199,7 +11976,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hunters_lodge",
@@ -8214,7 +11999,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hunting_party",
@@ -8236,7 +12029,15 @@ export const USABLE_CARDS: Card[] = [
       "ranged",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hyperparasite",
@@ -8255,7 +12056,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "hyter_sprites",
@@ -8275,7 +12084,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "i_am_colossus",
@@ -8293,7 +12110,15 @@ export const USABLE_CARDS: Card[] = [
     "isMonument": false,
     "keywords": [],
     "abilities": [],
-    "power": 10
+    "power": 10,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ice_lance",
@@ -8308,7 +12133,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ice_shards",
@@ -8324,7 +12157,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "iceberg",
@@ -8339,7 +12180,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ignis_rex",
@@ -8359,7 +12208,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ignited",
@@ -8380,7 +12237,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "immolation",
@@ -8395,7 +12260,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "impenetrable_copse",
@@ -8410,7 +12283,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "imperial_road",
@@ -8423,7 +12304,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Vincent Pompetti",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "imposter",
@@ -8436,7 +12325,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 0,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "incinerate",
@@ -8452,7 +12349,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "infernal_legion",
@@ -8471,7 +12376,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "infiltrate",
@@ -8486,7 +12399,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "infusion_factory",
@@ -8499,7 +12420,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "innsmouth_dock",
@@ -8514,7 +12443,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "instigator_imp",
@@ -8535,7 +12472,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "interrogator",
@@ -8548,7 +12493,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Anson Maddocks",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "into_the_abyss",
@@ -8564,7 +12517,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "intrepid_hero",
@@ -8585,7 +12546,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "invasion",
@@ -8600,7 +12569,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "invigorate",
@@ -8616,7 +12593,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "iron_maiden",
@@ -8633,7 +12618,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "iron_man_talus",
@@ -8654,7 +12647,15 @@ export const USABLE_CARDS: Card[] = [
       "disable"
     ],
     "abilities": [],
-    "power": 3
+    "power": 3,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "iron_shackles",
@@ -8674,7 +12675,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ironclad",
@@ -8687,7 +12696,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "island_leviathan",
@@ -8702,7 +12719,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "jack_the_ripper",
@@ -8722,7 +12747,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "jihad",
@@ -8737,7 +12770,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "joust",
@@ -8752,7 +12793,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "joyous_garde",
@@ -8769,7 +12818,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "just_a_rock",
@@ -8786,7 +12843,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kairos_the_archivist",
@@ -8807,7 +12872,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis"
     ],
     "abilities": [],
-    "power": 3
+    "power": 3,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "karkemish_chimera",
@@ -8825,7 +12898,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "keening_banshee",
@@ -8843,7 +12924,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kelp_cavern",
@@ -8858,7 +12947,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kettletop_leprechaun",
@@ -8879,7 +12976,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "key_to_the_city",
@@ -8897,7 +13002,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "khamaseen_mummy",
@@ -8918,7 +13031,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "king_arthur",
@@ -8940,7 +13061,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "king_of_the_realm",
@@ -8958,7 +13087,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kingdom_of_agartha",
@@ -8973,7 +13110,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kings_council",
@@ -8989,7 +13134,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kingswood_poachers",
@@ -9010,7 +13163,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kiss_of_death",
@@ -9026,7 +13187,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kiss_of_judas",
@@ -9041,7 +13210,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kissers_of_wounds",
@@ -9062,7 +13239,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kite_archer",
@@ -9082,7 +13267,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "knighthood",
@@ -9097,7 +13290,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kor_crematory",
@@ -9112,7 +13313,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "koscheis_egg",
@@ -9131,7 +13340,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "kythera_mechanism",
@@ -9149,7 +13366,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lacuna_entity",
@@ -9171,7 +13396,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lady_iseult",
@@ -9190,7 +13423,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lake_afanc",
@@ -9212,7 +13453,15 @@ export const USABLE_CARDS: Card[] = [
       "lethal",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lance",
@@ -9231,7 +13480,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "land_deed",
@@ -9249,7 +13506,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "land_surveyor",
@@ -9270,7 +13535,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "landmass",
@@ -9286,7 +13559,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lash",
@@ -9301,7 +13582,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lava_flow",
@@ -9316,7 +13605,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lava_salamander",
@@ -9337,7 +13634,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "leadworks",
@@ -9352,7 +13657,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "leap_attack",
@@ -9367,7 +13680,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "led_astray",
@@ -9382,7 +13703,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "legion_of_gall",
@@ -9403,7 +13732,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lesser_blood_demon",
@@ -9424,7 +13761,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "leyline_henge",
@@ -9437,7 +13782,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jeff A. Menges",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lifewish",
@@ -9454,7 +13807,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 2,
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lighthouse",
@@ -9470,7 +13831,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lightning_bolt",
@@ -9485,7 +13854,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lilith",
@@ -9503,7 +13880,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "locusts_of_illyria",
@@ -9523,7 +13908,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lone_tower",
@@ -9538,7 +13931,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lookout",
@@ -9553,7 +13954,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_destruction",
@@ -9571,7 +13980,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_fear",
@@ -9590,7 +14007,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_greed",
@@ -9608,7 +14033,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_lies",
@@ -9626,7 +14059,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_the_void",
@@ -9646,7 +14087,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lord_of_unland",
@@ -9667,7 +14116,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "love_potion",
@@ -9684,7 +14141,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lucid_dreamers",
@@ -9704,7 +14169,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lucky_charm",
@@ -9721,7 +14194,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lugbog_cat",
@@ -9740,7 +14221,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lumbering_giant",
@@ -9759,7 +14248,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "lure",
@@ -9774,7 +14271,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mad_dash",
@@ -9790,7 +14295,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "maddening_bells",
@@ -9810,7 +14323,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "maelstrom",
@@ -9825,7 +14346,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mage_slayer",
@@ -9847,7 +14376,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "magellan_globe",
@@ -9865,7 +14402,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "magic_missiles",
@@ -9880,7 +14425,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "magician",
@@ -9893,7 +14446,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Jussi Pylkäs",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "magnetic_muzzle",
@@ -9910,7 +14471,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "maiden_mother_crone",
@@ -9931,7 +14500,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "major_city",
@@ -9944,7 +14521,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Marta Molina",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "major_explosion",
@@ -9959,7 +14544,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "makeshift_barricade",
@@ -9977,7 +14570,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "malakhim",
@@ -9998,7 +14599,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mandrake_jars",
@@ -10017,7 +14626,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "marine_voyage",
@@ -10032,7 +14649,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mariners_curse",
@@ -10047,7 +14672,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "martyrs_of_tomorrow",
@@ -10069,7 +14702,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mask_of_mayhem",
@@ -10086,7 +14727,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "master_necromancer",
@@ -10107,7 +14756,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "master_tracker",
@@ -10128,7 +14785,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mayor_of_milborne",
@@ -10147,7 +14812,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "maze_minotaur",
@@ -10165,7 +14838,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mazuj_ifrit",
@@ -10185,7 +14866,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "meat_hook",
@@ -10202,7 +14891,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "megalurker",
@@ -10223,7 +14920,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "megamoeba",
@@ -10241,7 +14946,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "men_of_leng",
@@ -10259,7 +14972,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mephistopheles",
@@ -10277,7 +14998,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "merlin",
@@ -10297,7 +15026,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "merlins_staff",
@@ -10316,7 +15053,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "merlins_tower",
@@ -10331,7 +15076,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mesmer_demon",
@@ -10351,7 +15104,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mesmerism",
@@ -10366,7 +15127,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 4
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mester_stoor_worm",
@@ -10388,7 +15157,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "waterbound"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "meteor_shower",
@@ -10403,7 +15180,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "midland_army",
@@ -10423,7 +15208,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "midnight_rogue",
@@ -10445,7 +15238,15 @@ export const USABLE_CARDS: Card[] = [
       "ranged",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mimic",
@@ -10464,7 +15265,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "minecart_madness",
@@ -10479,7 +15288,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "minor_explosion",
@@ -10494,7 +15311,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "miracle_workers",
@@ -10515,7 +15340,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mirage",
@@ -10530,7 +15363,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mirror_realm",
@@ -10543,7 +15384,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Liz Danforth",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mismanaged_mortuary",
@@ -10556,7 +15405,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Drew Tucker",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mix_aer",
@@ -10573,7 +15430,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mix_aqua",
@@ -10590,7 +15455,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mix_ignis",
@@ -10607,7 +15480,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mix_terra",
@@ -10624,7 +15505,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "molten_maar",
@@ -10639,7 +15528,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "monastery_gargoyle",
@@ -10660,7 +15557,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "monks_of_kobalsa",
@@ -10681,7 +15586,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "monster_hunter",
@@ -10702,7 +15615,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "monstermorphosis",
@@ -10717,7 +15638,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "monstrous_lion",
@@ -10738,7 +15667,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "moon_clan_werewolf",
@@ -10757,7 +15694,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "moonsong_talagelum",
@@ -10778,7 +15723,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mordric_druids",
@@ -10798,7 +15751,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "morgana_le_fay",
@@ -10820,7 +15781,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mortal_soil",
@@ -10835,7 +15804,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mortality",
@@ -10851,7 +15828,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "moss_troll",
@@ -10872,7 +15857,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mother_nature",
@@ -10890,7 +15883,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mount_ussar_sanctuary",
@@ -10905,7 +15906,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mountain_giant",
@@ -10924,7 +15933,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 8,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mountain_pass",
@@ -10939,7 +15956,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mountain_peaks",
@@ -10954,7 +15979,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 2
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mover_of_mountains",
@@ -10974,7 +16007,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "muck_lampreys",
@@ -10996,7 +16037,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "muddy_pigs",
@@ -11017,7 +16066,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mudflow",
@@ -11030,7 +16087,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Drew Tucker",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "mudslide",
@@ -11045,7 +16110,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "muirid_fomorians",
@@ -11067,7 +16140,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "murder_of_crows",
@@ -11082,7 +16163,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "myrrhs_trophy_room",
@@ -11095,7 +16184,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Pedro Ferreira",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nadir_seed",
@@ -11113,7 +16210,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "necromancer",
@@ -11126,7 +16231,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Brian Smith",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "necronomiconcert",
@@ -11142,7 +16255,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "necropotence",
@@ -11157,7 +16278,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nelly_longarms",
@@ -11177,7 +16306,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nightmare",
@@ -11196,7 +16333,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nightwatchmen",
@@ -11218,7 +16363,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nimbus_jinn",
@@ -11238,7 +16391,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "no_mans_land",
@@ -11253,7 +16414,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "noisome_twosome",
@@ -11274,7 +16443,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nommo_monitor",
@@ -11295,7 +16472,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "nosferatu",
@@ -11317,7 +16502,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "novice_necromancer",
@@ -11339,7 +16532,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "noxious_corpse",
@@ -11360,7 +16561,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "oasis",
@@ -11376,7 +16585,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "observatory",
@@ -11391,7 +16608,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "occult_ritual",
@@ -11407,7 +16632,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ogre_goons",
@@ -11425,7 +16658,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "old_mortimers_den",
@@ -11438,7 +16679,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "old_salt_anchorman",
@@ -11457,7 +16706,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ominous_owl",
@@ -11477,7 +16734,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "one_shot_wizard",
@@ -11499,7 +16764,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "onslaught",
@@ -11516,7 +16789,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1,
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "onyx_core",
@@ -11533,7 +16814,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "open_grave",
@@ -11548,7 +16837,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "open_mausoleum",
@@ -11563,7 +16860,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ophanim",
@@ -11586,7 +16891,15 @@ export const USABLE_CARDS: Card[] = [
       "voidwalk",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "orb_of_baal_berith",
@@ -11604,7 +16917,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "order_of_the_pale_worm",
@@ -11625,7 +16946,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "order_of_the_sacred_oak",
@@ -11646,7 +16975,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "order_of_the_white_wing",
@@ -11667,7 +17004,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "orm_infestor",
@@ -11688,7 +17033,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ormund_harpooneers",
@@ -11706,7 +17059,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "orpheus_crossing",
@@ -11721,7 +17082,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "outback_strider",
@@ -11739,7 +17108,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "overbearing_bailiff",
@@ -11758,7 +17135,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "overflow",
@@ -11774,7 +17159,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "overpower",
@@ -11790,7 +17183,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pact_with_the_devil",
@@ -11805,7 +17206,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "paladins_of_bazia",
@@ -11827,7 +17236,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "palliburrie_bats",
@@ -11849,7 +17266,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "panorama_manticore",
@@ -11870,7 +17295,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "panpipes_of_pnom",
@@ -11887,7 +17320,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pathfinder",
@@ -11900,7 +17341,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Drew Tucker",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "payload_trebuchet",
@@ -11917,7 +17366,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "peace_offering",
@@ -11937,7 +17394,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "peacemaker_arbalest",
@@ -11960,7 +17425,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "peasant_revolt",
@@ -11976,7 +17449,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pebbled_paths",
@@ -11991,7 +17472,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "peculiar_port",
@@ -12006,7 +17495,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pendragon_banner",
@@ -12023,7 +17520,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pendragon_legacy",
@@ -12039,7 +17544,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pendulum_of_peril",
@@ -12056,7 +17569,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "penitent_knight",
@@ -12074,7 +17595,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "peregrine_apparition",
@@ -12096,7 +17625,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "perilous_bridge",
@@ -12111,7 +17648,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "persecutor",
@@ -12124,7 +17669,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Zohn Dee",
     "startingLife": 20,
     "attackPower": 2,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "petrosian_cavalry",
@@ -12145,7 +17698,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "phantasmal_shade",
@@ -12163,7 +17724,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "phantom_steed",
@@ -12183,7 +17752,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "phase_assassin",
@@ -12204,7 +17781,15 @@ export const USABLE_CARDS: Card[] = [
       "stealth",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "philosophers_stone",
@@ -12221,7 +17806,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pied_piper_of_hameln",
@@ -12240,7 +17833,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pigs_of_the_sounder",
@@ -12260,7 +17861,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pile_of_skulls",
@@ -12277,7 +17886,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pilgrims_shrine",
@@ -12292,7 +17909,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pillar_of_zeiros",
@@ -12307,7 +17932,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pirate_ship",
@@ -12328,7 +17961,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "waterbound"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pit_vipers",
@@ -12350,7 +17991,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pith_imp",
@@ -12372,7 +18021,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "plague_of_frogs",
@@ -12388,7 +18045,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "plague_pits",
@@ -12403,7 +18068,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "plague_rat",
@@ -12424,7 +18097,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "planar_gate",
@@ -12437,7 +18118,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Liz Danforth",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "plate_of_the_whale",
@@ -12456,7 +18145,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "immobile"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "plumed_pegasus",
@@ -12477,7 +18174,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pnakotic_manuscript",
@@ -12495,7 +18200,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "poison_nova",
@@ -12510,7 +18223,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "poisoned_well",
@@ -12525,7 +18246,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "poisonous_dagger",
@@ -12545,7 +18274,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "polar_bears",
@@ -12563,7 +18300,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "polar_explorers",
@@ -12581,7 +18326,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pollimorph",
@@ -12596,7 +18349,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pond",
@@ -12611,7 +18372,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pookas",
@@ -12631,7 +18400,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "porcupine_pufferfish",
@@ -12653,7 +18430,15 @@ export const USABLE_CARDS: Card[] = [
       "lethal",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "postern_gate",
@@ -12666,7 +18451,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "power_of_flight",
@@ -12681,7 +18474,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "powerwish",
@@ -12698,7 +18499,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 2,
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "primordial_spring",
@@ -12711,7 +18520,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Drew Tucker",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pristine_paradise",
@@ -12729,7 +18546,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "profane_revenant",
@@ -12748,7 +18573,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "psionic_blast",
@@ -12764,7 +18597,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "pudge_butcher",
@@ -12784,7 +18625,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "immobile"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "puppet_master",
@@ -12805,7 +18654,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "purgatory",
@@ -12820,7 +18677,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "purge_juggernaut",
@@ -12838,7 +18703,15 @@ export const USABLE_CARDS: Card[] = [
     "isMonument": false,
     "keywords": [],
     "abilities": [],
-    "power": 4
+    "power": 4,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "purple_knight",
@@ -12863,7 +18736,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "putrid_presence",
@@ -12884,7 +18765,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "quagmire",
@@ -12899,7 +18788,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "quarrelsome_kobolds",
@@ -12918,7 +18815,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "queen_guinevere",
@@ -12940,7 +18845,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "queen_of_midland",
@@ -12959,7 +18872,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "questing_beast",
@@ -12980,7 +18901,15 @@ export const USABLE_CARDS: Card[] = [
       "lethal",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "raal_dromedary",
@@ -12998,7 +18927,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rain_of_arrows",
@@ -13014,7 +18951,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "raise_dead",
@@ -13030,7 +18975,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "raise_militia",
@@ -13045,7 +18998,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rat_king",
@@ -13066,7 +19027,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ravenous_werewolf",
@@ -13087,7 +19056,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "raze",
@@ -13102,7 +19079,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "realm_eater",
@@ -13115,7 +19100,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Zohn Dee",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rebecks",
@@ -13136,7 +19129,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "recall",
@@ -13151,7 +19152,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "reckless_squire",
@@ -13172,7 +19181,15 @@ export const USABLE_CARDS: Card[] = [
       "charge",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "recurring_specter",
@@ -13190,7 +19207,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "red_desert",
@@ -13205,7 +19230,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "red_rock_of_ravannis",
@@ -13222,7 +19255,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "redbreast_robin",
@@ -13242,7 +19283,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "redcap_powries",
@@ -13262,7 +19311,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "redmane_hyena",
@@ -13283,7 +19340,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "regurgitator",
@@ -13301,7 +19366,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "release_the_hounds",
@@ -13317,7 +19390,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "relentless_crowd",
@@ -13335,7 +19416,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "remote_desert",
@@ -13350,7 +19439,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "renatus_trueblood",
@@ -13370,7 +19467,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "replication",
@@ -13386,7 +19491,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rescue",
@@ -13402,7 +19515,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rest_in_peace",
@@ -13417,7 +19538,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "return_to_nature",
@@ -13433,7 +19562,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "returned_king",
@@ -13451,7 +19588,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "revered_revenant",
@@ -13472,7 +19617,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rhitta_gawr_of_snowdonia",
@@ -13490,7 +19643,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rhongomyniad",
@@ -13507,7 +19668,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ribble_boggart",
@@ -13529,7 +19698,15 @@ export const USABLE_CARDS: Card[] = [
       "lethal",
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "riddle_sphinx",
@@ -13550,7 +19727,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rift_valley",
@@ -13565,7 +19750,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rimland_nomads",
@@ -13584,7 +19777,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ring_of_morrigan",
@@ -13601,7 +19802,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "riptide",
@@ -13616,7 +19825,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "river_of_blood",
@@ -13631,7 +19848,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "river_of_flame",
@@ -13646,7 +19871,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "river_rapids",
@@ -13661,7 +19894,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "road_to_perdition",
@@ -13676,7 +19917,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "roaming_monster",
@@ -13695,7 +19944,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rolling_boulder",
@@ -13712,7 +19969,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "root_spider",
@@ -13733,7 +19998,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "roots_of_yggdrasil",
@@ -13746,7 +20019,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Vincent Pompetti",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rowdy_boys",
@@ -13765,7 +20046,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "royal_bodyguard",
@@ -13783,7 +20072,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rubble",
@@ -13796,7 +20093,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ruby_core",
@@ -13813,7 +20118,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ruins",
@@ -13829,7 +20142,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ruler_of_thul",
@@ -13849,7 +20170,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "rustic_village",
@@ -13864,7 +20193,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sacred_scarabs",
@@ -13886,7 +20223,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sacred_stag",
@@ -13908,7 +20253,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "saint_of_redemption",
@@ -13928,7 +20281,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "saintweald",
@@ -13941,7 +20302,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "salmon_of_knowledge",
@@ -13962,7 +20331,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "waterbound"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "salt_the_earth",
@@ -13977,7 +20354,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sand_worm",
@@ -13998,7 +20383,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sandstorm",
@@ -14013,7 +20406,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "saracen_raiders",
@@ -14033,7 +20434,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "saracen_scout",
@@ -14052,7 +20461,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "satanic_panic",
@@ -14068,7 +20485,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "savior",
@@ -14081,7 +20506,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sawbones",
@@ -14099,7 +20532,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scarecrow",
@@ -14119,7 +20560,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scatter",
@@ -14135,7 +20584,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1,
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scavenging_fiend",
@@ -14155,7 +20612,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scent_hounds",
@@ -14176,7 +20641,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scorched_earth",
@@ -14191,7 +20664,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "scourge_zombies",
@@ -14209,7 +20690,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "screamer",
@@ -14229,7 +20718,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "screaming_skull",
@@ -14246,7 +20743,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sea_of_ash",
@@ -14259,7 +20764,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sea_raider",
@@ -14277,7 +20790,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sea_serpent",
@@ -14299,7 +20820,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "waterbound"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sea_witch",
@@ -14321,7 +20850,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "search_party",
@@ -14340,7 +20877,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "searing_truth",
@@ -14356,7 +20901,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seasoned_sellsword",
@@ -14374,7 +20927,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "second_wind",
@@ -14389,7 +20950,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "secret_tunnel",
@@ -14404,7 +20973,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sedge_crabs",
@@ -14423,7 +21000,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seelie_court",
@@ -14442,7 +21027,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seer",
@@ -14455,7 +21048,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Dan Seagrave",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seirawan_hydra",
@@ -14474,7 +21075,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "selfsame_simulacrum",
@@ -14493,7 +21102,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sensu_of_the_fang",
@@ -14512,7 +21129,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sentinel_trap",
@@ -14529,7 +21154,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seraphim",
@@ -14550,7 +21183,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "serava_townsfolk",
@@ -14568,7 +21209,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "seven_league_boots",
@@ -14586,7 +21235,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sewer_rats",
@@ -14608,7 +21265,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shackled_demon",
@@ -14630,7 +21295,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shallow_grave",
@@ -14645,7 +21318,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shameless_squire",
@@ -14666,7 +21347,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shapeshift",
@@ -14681,7 +21370,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shatter_strike",
@@ -14696,7 +21393,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shellycoat",
@@ -14717,7 +21422,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sherwood_huntress",
@@ -14738,7 +21451,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shield_maidens",
@@ -14757,7 +21478,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shield_wall",
@@ -14772,7 +21501,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shifting_sands",
@@ -14787,7 +21524,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shoggoth",
@@ -14809,7 +21554,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shrike_orchard",
@@ -14824,7 +21577,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shrine_of_the_dragonlord",
@@ -14843,7 +21604,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "shrink",
@@ -14858,7 +21627,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "siege_ballista",
@@ -14875,7 +21652,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "siege_giant",
@@ -14893,7 +21678,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "silence",
@@ -14908,7 +21701,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "silent_hills",
@@ -14923,7 +21724,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "silver_bullet",
@@ -14940,7 +21749,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "silver_valkyries",
@@ -14960,7 +21777,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "simple_village",
@@ -14975,7 +21800,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sinister_pond",
@@ -14990,7 +21823,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sinkhole",
@@ -15003,7 +21844,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Michal Nagypál",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sinterfee",
@@ -15023,7 +21872,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_agravaine",
@@ -15047,7 +21904,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_balin",
@@ -15072,7 +21937,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_bedivere",
@@ -15094,7 +21967,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_bors_the_younger",
@@ -15119,7 +22000,15 @@ export const USABLE_CARDS: Card[] = [
       "ranged",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_gaheris",
@@ -15143,7 +22032,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_galahad",
@@ -15165,7 +22062,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_gareth",
@@ -15187,7 +22092,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_gawain",
@@ -15210,7 +22123,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_ironside",
@@ -15230,7 +22151,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_kay",
@@ -15251,7 +22180,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_lamorak",
@@ -15276,7 +22213,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_lancelot",
@@ -15300,7 +22245,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_mordred",
@@ -15322,7 +22275,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_morien",
@@ -15343,7 +22304,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_pelleas",
@@ -15367,7 +22336,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_pellinore",
@@ -15392,7 +22369,15 @@ export const USABLE_CARDS: Card[] = [
       "charge",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_perceval",
@@ -15416,7 +22401,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_priamus",
@@ -15441,7 +22434,15 @@ export const USABLE_CARDS: Card[] = [
       "lance",
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_tom_thumb",
@@ -15465,7 +22466,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_tristan",
@@ -15489,7 +22498,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sir_yvain",
@@ -15514,7 +22531,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sirian_templar",
@@ -15533,7 +22558,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sirocco_scorpions",
@@ -15554,7 +22587,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lethal"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sister_stefania",
@@ -15575,7 +22616,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sisters_of_avalon",
@@ -15596,7 +22645,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sisters_of_silence",
@@ -15615,7 +22672,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sjaelstrom",
@@ -15631,7 +22696,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "skeleton",
@@ -15647,7 +22720,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "skeleton_mage",
@@ -15669,7 +22750,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "skirmishers_of_mu",
@@ -15689,7 +22778,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sky_baron",
@@ -15709,7 +22806,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sleep",
@@ -15725,7 +22830,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "slimy_mutants",
@@ -15746,7 +22859,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sling_pixies",
@@ -15767,7 +22888,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "slobbermaw",
@@ -15788,7 +22917,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "slumbering_giantess",
@@ -15809,7 +22946,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sly_fox",
@@ -15830,7 +22975,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "smite",
@@ -15845,7 +22998,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "smokestacks_of_gnaak",
@@ -15860,7 +23021,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "snallygaster",
@@ -15878,7 +23047,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sneak_thief",
@@ -15898,7 +23075,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "snow_leopard",
@@ -15916,7 +23101,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "snowball",
@@ -15931,7 +23124,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "require_choice",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sold_out_cemetery",
@@ -15946,7 +23147,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sorcerer",
@@ -15959,7 +23168,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Francesca Baerald",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sow_the_earth",
@@ -15974,7 +23191,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sparkmage",
@@ -15987,7 +23212,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Francesca Baerald",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spear_of_destiny",
@@ -16005,7 +23238,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spearmarshal",
@@ -16025,7 +23266,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spectral_stalker",
@@ -16046,7 +23295,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spellslinger",
@@ -16059,7 +23316,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Caio Calazans",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sphere_of_animosity",
@@ -16074,7 +23339,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sphinx_sarcophagus",
@@ -16087,7 +23360,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Mattias Frisk",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spin_attack",
@@ -16102,7 +23383,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spire",
@@ -16117,7 +23406,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spire_lich",
@@ -16138,7 +23435,15 @@ export const USABLE_CARDS: Card[] = [
       "ranged",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spore_spouts",
@@ -16153,7 +23458,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "spring_river",
@@ -16168,7 +23481,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "squeakers",
@@ -16188,7 +23509,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "squirming_mass",
@@ -16206,7 +23535,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stagecoach",
@@ -16227,7 +23564,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "standing_stones",
@@ -16240,7 +23585,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Caio Calazans",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "star_seeds_of_uhr",
@@ -16256,7 +23609,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stargazer",
@@ -16277,7 +23638,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "static_servant",
@@ -16297,7 +23666,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "steppe",
@@ -16313,7 +23690,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stinging_kelp",
@@ -16328,7 +23713,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stitched_abomination",
@@ -16349,7 +23742,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stone_gaze_gorgons",
@@ -16370,7 +23771,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stone_rain",
@@ -16385,7 +23794,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stormy_seas",
@@ -16401,7 +23818,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stream",
@@ -16416,7 +23841,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sturmgeist",
@@ -16436,7 +23869,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "stygian_archers",
@@ -16456,7 +23897,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sugarplum_pixies",
@@ -16476,7 +23925,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "summer_river",
@@ -16491,7 +23948,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "summoning_sphere",
@@ -16507,7 +23972,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sunken_treasure",
@@ -16524,7 +23997,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "survivors_of_serava",
@@ -16545,7 +24026,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "swamp_buffalo",
@@ -16563,7 +24052,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "swan_maidens",
@@ -16585,7 +24082,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "swap",
@@ -16601,7 +24106,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "swindler_troupe",
@@ -16623,7 +24136,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "swiven_scout",
@@ -16642,7 +24163,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sword_and_shield",
@@ -16660,7 +24189,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "sylvan_splendor",
@@ -16675,7 +24212,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "symmetric_suffering",
@@ -16690,7 +24235,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tabula_rasa",
@@ -16707,7 +24260,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tactical_move",
@@ -16722,7 +24283,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tadpole_pool",
@@ -16737,7 +24306,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "talamh_dreig",
@@ -16755,7 +24332,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 6,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tawny",
@@ -16774,7 +24359,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tax_collector",
@@ -16794,7 +24387,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "telekinesis",
@@ -16810,7 +24411,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "teleport",
@@ -16826,7 +24435,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "templar",
@@ -16839,7 +24456,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Andrea Modesti",
     "startingLife": 20,
     "attackPower": 2,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "temple_of_moloch",
@@ -16854,7 +24479,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ten_tonne_slug",
@@ -16872,7 +24505,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 7,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thankless_squire",
@@ -16893,7 +24534,15 @@ export const USABLE_CARDS: Card[] = [
       "immobile",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_apex_of_babel",
@@ -16908,7 +24557,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_base_of_babel",
@@ -16923,7 +24580,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_black_plague",
@@ -16938,7 +24603,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_colour_out_of_space",
@@ -16956,7 +24629,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_doom_of_dilmun",
@@ -16978,7 +24659,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_empyrean",
@@ -16991,7 +24680,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Drew Tucker",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_faerie_queene",
@@ -17012,7 +24709,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_flood",
@@ -17027,7 +24732,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 4
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_geistwood",
@@ -17040,7 +24753,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_great_drowning_of_men",
@@ -17055,7 +24776,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 4
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_great_famine",
@@ -17070,7 +24799,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_green_knight",
@@ -17093,7 +24830,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_hexham_haunts",
@@ -17114,7 +24859,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_immortal_throne",
@@ -17131,7 +24884,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_inquisition",
@@ -17151,7 +24912,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_lady_of_the_lake",
@@ -17173,7 +24942,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster",
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_malleus_maleficarum",
@@ -17193,7 +24970,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_manor_at_daperyll_hill",
@@ -17208,7 +24993,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_ninth_legion",
@@ -17229,7 +25022,15 @@ export const USABLE_CARDS: Card[] = [
       "deathrite",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_pallid_bust",
@@ -17248,7 +25049,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_rack",
@@ -17265,7 +25074,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_round_table",
@@ -17282,7 +25099,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_void",
@@ -17295,7 +25120,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Ian Miller",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "the_wild_hunt",
@@ -17316,7 +25149,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thieving_magpie",
@@ -17336,7 +25177,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thin_ice",
@@ -17351,7 +25200,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thing_in_the_ice",
@@ -17372,7 +25229,15 @@ export const USABLE_CARDS: Card[] = [
       "disable",
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "those_who_linger",
@@ -17393,7 +25258,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "deathrite"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thumb_screws",
@@ -17410,7 +25283,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thundering_giant",
@@ -17430,7 +25311,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "thunderstorm",
@@ -17445,7 +25334,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tide_naiads",
@@ -17466,7 +25363,15 @@ export const USABLE_CARDS: Card[] = [
       "submerge",
       "flooded"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tintagel",
@@ -17483,7 +25388,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tithe",
@@ -17498,7 +25411,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tombstone_wardens",
@@ -17518,7 +25439,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "toolbox",
@@ -17535,7 +25464,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tooth_faeries",
@@ -17555,7 +25492,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "torch_and_pitchfork",
@@ -17573,7 +25518,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "torrid_omphalos",
@@ -17592,7 +25545,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "torshammar_trinket",
@@ -17609,7 +25570,15 @@ export const USABLE_CARDS: Card[] = [
     "isAutomaton": false,
     "isMonument": false,
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tournament_grounds",
@@ -17622,7 +25591,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Rodney Matthews",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "town",
@@ -17635,7 +25612,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "town_priest",
@@ -17656,7 +25641,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "trade_encampment",
@@ -17669,7 +25662,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Elwira Pawlikowska",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tragedy_worrywart",
@@ -17688,7 +25689,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "treetop_hideout",
@@ -17703,7 +25712,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "trial_by_fire",
@@ -17719,7 +25736,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "trial_by_water",
@@ -17735,7 +25760,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tringh_constrictor",
@@ -17755,7 +25788,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "disable"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "troll_bridge",
@@ -17770,7 +25811,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "troubled_town",
@@ -17783,7 +25832,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Pedro Ferreira",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "truesight_crossbow",
@@ -17802,7 +25859,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tufted_turtles",
@@ -17821,7 +25886,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "tvinnax_berserker",
@@ -17840,7 +25913,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "twilight_bloom",
@@ -17855,7 +25936,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "twist_of_fate",
@@ -17870,7 +25959,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "ultimate_horror",
@@ -17892,7 +25989,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "undead_ambush",
@@ -17908,7 +26013,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "undertaker_engine",
@@ -17928,7 +26041,15 @@ export const USABLE_CARDS: Card[] = [
       "burrowing"
     ],
     "abilities": [],
-    "power": 4
+    "power": 4,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "undertow",
@@ -17943,7 +26064,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "undesirables",
@@ -17964,7 +26093,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "burrowing"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "unland_angler",
@@ -17984,7 +26121,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "unland_eel",
@@ -18004,7 +26149,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "unlikely_alliance",
@@ -18020,7 +26173,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "unravel",
@@ -18036,7 +26197,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "unseelie_court",
@@ -18055,7 +26224,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "updraft_ridge",
@@ -18070,7 +26247,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "upwelling",
@@ -18086,7 +26271,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "valley",
@@ -18101,7 +26294,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "valley_of_delight",
@@ -18114,7 +26315,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Caio Calazans",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "valor",
@@ -18129,7 +26338,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vampire_bats",
@@ -18149,7 +26366,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vandal_imp",
@@ -18170,7 +26395,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vanguard_knights",
@@ -18188,7 +26421,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vanishment",
@@ -18204,7 +26445,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vantage_hills",
@@ -18219,7 +26468,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "varistus_the_evictor",
@@ -18239,7 +26496,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "varmint_warrens",
@@ -18254,7 +26519,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vast_desert",
@@ -18269,7 +26542,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vatn_draconis",
@@ -18289,7 +26570,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "submerge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vaults_of_zul",
@@ -18302,7 +26591,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Tony Szczudlo",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vengeful_heir",
@@ -18320,7 +26617,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "verdant_knight",
@@ -18345,7 +26650,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vesper_swarm",
@@ -18365,7 +26678,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vesuvius",
@@ -18380,7 +26701,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vikings",
@@ -18399,7 +26728,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vile_imp",
@@ -18420,7 +26757,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vindictive_nation",
@@ -18435,7 +26780,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "virgin_in_prayer",
@@ -18457,7 +26810,15 @@ export const USABLE_CARDS: Card[] = [
       "genesis",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vivien_the_enchantress",
@@ -18477,7 +26838,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "vril_revenant",
@@ -18497,7 +26866,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wall_of_air",
@@ -18512,7 +26889,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wall_of_brambles",
@@ -18527,7 +26912,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "earth": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wall_of_fire",
@@ -18542,7 +26935,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wall_of_ice",
@@ -18557,7 +26958,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "war_horse",
@@ -18578,7 +26987,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "warp_spasm",
@@ -18593,7 +27010,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 3
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wasteland",
@@ -18608,7 +27033,15 @@ export const USABLE_CARDS: Card[] = [
       "fire": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "watchtower",
@@ -18623,7 +27056,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "watery_grave",
@@ -18638,7 +27079,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wave_of_eviction",
@@ -18653,7 +27102,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "waveshaper",
@@ -18666,7 +27123,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Francesca Baerald",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wayfaring_pilgrim",
@@ -18684,7 +27149,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 1,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "waypoint_portal",
@@ -18699,7 +27172,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "weathered_trunks",
@@ -18718,7 +27199,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wedding_hall",
@@ -18736,7 +27225,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "weightless_squire",
@@ -18757,7 +27254,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "whirling_blades",
@@ -18772,7 +27277,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "whirlwind",
@@ -18787,7 +27300,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "white_hart",
@@ -18805,7 +27326,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "white_knight",
@@ -18827,7 +27356,15 @@ export const USABLE_CARDS: Card[] = [
     },
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wiccan_tools",
@@ -18846,7 +27383,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wicked_witch",
@@ -18867,7 +27412,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wicker_manikin",
@@ -18888,7 +27441,15 @@ export const USABLE_CARDS: Card[] = [
       "spellcaster"
     ],
     "abilities": [],
-    "power": 1
+    "power": 1,
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wild_boars",
@@ -18906,7 +27467,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wild_fanatic",
@@ -18927,7 +27496,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "charge"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wildfire",
@@ -18942,7 +27519,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "willing_tribute",
@@ -18961,7 +27546,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 2,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wills_o_the_wisp",
@@ -18981,7 +27574,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "voidwalk"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wind_sylph",
@@ -19002,7 +27603,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "spellcaster"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "windblast",
@@ -19017,7 +27626,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "windmill",
@@ -19033,7 +27650,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wings_of_invention",
@@ -19052,7 +27677,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "winter_nymph",
@@ -19072,7 +27705,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "stealth"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "winter_river",
@@ -19087,7 +27728,15 @@ export const USABLE_CARDS: Card[] = [
       "water": 1
     },
     "isWaterSite": true,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "witch",
@@ -19100,7 +27749,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "startingLife": 20,
     "attackPower": 1,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "witching_hour",
@@ -19116,7 +27773,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "witherwing_hero",
@@ -19136,7 +27801,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wizards_den",
@@ -19149,7 +27822,15 @@ export const USABLE_CARDS: Card[] = [
     "artist": "Séverine Pineaux",
     "threshold": {},
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wolpertinger",
@@ -19168,7 +27849,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 0,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wormelow_tump",
@@ -19183,7 +27872,15 @@ export const USABLE_CARDS: Card[] = [
       "earth": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wraetannis_titan",
@@ -19204,7 +27901,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wrath_of_the_sea",
@@ -19219,7 +27924,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "water": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wreathed_in_righteousness",
@@ -19234,7 +27947,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 2
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wuthering_heights",
@@ -19249,7 +27970,15 @@ export const USABLE_CARDS: Card[] = [
       "air": 1
     },
     "isWaterSite": false,
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "wyvern",
@@ -19270,7 +27999,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "xeraphine_konrul",
@@ -19291,7 +28028,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "year_of_the_blaze",
@@ -19306,7 +28051,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "fire": 4
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "yellow_knight",
@@ -19331,7 +28084,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "lance"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "yog_sothoth",
@@ -19349,7 +28110,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 10,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "yokai_kappas",
@@ -19368,7 +28137,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "young_master_damion",
@@ -19389,7 +28166,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "genesis"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "yourke_crossbowmen",
@@ -19410,7 +28195,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "ranged"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "zap",
@@ -19425,7 +28218,15 @@ export const USABLE_CARDS: Card[] = [
     "threshold": {
       "air": 1
     },
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "zephyranne_airship",
@@ -19445,7 +28246,15 @@ export const USABLE_CARDS: Card[] = [
     "keywords": [
       "airborne"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "zeppelin_of_zealots",
@@ -19466,7 +28275,15 @@ export const USABLE_CARDS: Card[] = [
       "airborne",
       "ward"
     ],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "zombie_bruiser",
@@ -19485,7 +28302,15 @@ export const USABLE_CARDS: Card[] = [
     "power": 4,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   },
   {
     "id": "zombie_horde",
@@ -19504,6 +28329,14 @@ export const USABLE_CARDS: Card[] = [
     "power": 5,
     "subtypes": [],
     "keywords": [],
-    "abilities": []
+    "abilities": [],
+    "casterChoicePolicy": "auto",
+    "casterEligibility": {
+      "all": [
+        {
+          "type": "spellcaster"
+        }
+      ]
+    }
   }
 ];

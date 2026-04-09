@@ -24,6 +24,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     setSquareDetail,
     showCardDetail,
     hoverInstance,
+    pendingSpellcastChoice,
+    chooseSpellcasterForPendingCast,
   } = useGameStore();
 
   // Track which cell is hovered for spread animation
@@ -35,15 +37,19 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const avatarInst = game.instances[player.avatarInstanceId];
   const fallbackPlaySiteAbilityId =
     avatarInst.card.type === 'avatar' && !avatarInst.tapped
-      ? avatarInst.card.abilities.find((ability) =>
-          ability.id.includes('play_site') ||
-          ability.id.includes('flamecaller_play') ||
-          ability.id.includes('sparkmage_play'),
-        )?.id ?? null
+      ? avatarInst.card.abilities.find((ability) => ability.effect.type === 'play_or_draw_site')?.id ?? null
       : null;
   const activePlaySiteAbilityId = pendingAvatarAbility ?? fallbackPlaySiteAbilityId;
+  const spellcasterChoiceIds = pendingSpellcastChoice?.candidateCasterIds ?? [];
+  const isSpellcasterChoiceActive = spellcasterChoiceIds.length > 0;
 
   const getHighlightedSquares = (): { squares: Square[]; attackSquares: Square[]; mode: string } => {
+    if (isSpellcasterChoiceActive) {
+      const casterSquares = spellcasterChoiceIds
+        .map((id) => game.instances[id]?.location?.square)
+        .filter((sq): sq is Square => !!sq);
+      return { squares: casterSquares, attackSquares: [], mode: 'choose_spellcaster' };
+    }
     if (!selectedInst) return { squares: [], attackSquares: [], mode: '' };
     const card = selectedInst.card;
 
@@ -130,6 +136,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   };
 
   const handleSquareClick = (row: number, col: number) => {
+    if (isSpellcasterChoiceActive) return;
     const sq: Square = { row, col };
     const cell = game.realm[row][col];
     if (!selectedInst) return;
@@ -209,6 +216,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     e.stopPropagation();
     const inst = game.instances[instanceId];
     if (!inst) return;
+
+    if (isSpellcasterChoiceActive) {
+      if (spellcasterChoiceIds.includes(instanceId)) {
+        chooseSpellcasterForPendingCast(instanceId);
+      }
+      return;
+    }
 
     if (selectedInst) {
       if (
@@ -356,6 +370,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                     ${inst.summoningSickness ? styles.sickToken : ''}
                     ${hasStatusToken(id, 'ward') ? styles.wardToken : ''}
                     ${hasStatusToken(id, 'stealth') ? styles.stealthToken : ''}
+                  ${spellcasterChoiceIds.includes(id) ? styles.spellcasterChoiceToken : ''}
                   `}
                   style={tokenOffsetStyle}
                   onClick={(e) => handleUnitClick(e, id)}
@@ -442,6 +457,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   ${inst.summoningSickness ? styles.sickToken : ''}
                   ${hasStatusToken(id, 'ward') ? styles.wardToken : ''}
                   ${hasStatusToken(id, 'stealth') ? styles.stealthToken : ''}
+                  ${spellcasterChoiceIds.includes(id) ? styles.spellcasterChoiceToken : ''}
                 `}
                 style={tokenOffsetStyle}
                 onClick={(e) => handleUnitClick(e, id)}
@@ -507,6 +523,11 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
   return (
     <div className={styles.realm}>
+      {isSpellcasterChoiceActive && (
+        <div className={styles.spellcasterChoiceHint}>
+          Choose spellcaster: click a highlighted allied unit (ESC to cancel).
+        </div>
+      )}
       <div className={styles.playerLabel}>↑ {game.players[opponentId].name} (Opponent)</div>
       <div className={styles.grid}>
         {rows.map((row) => row.map((_, c) => renderCell(row[c].row, c)))}
