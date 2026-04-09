@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GameState, PlayerId, CardInstance } from '../../types';
 import { useGameStore } from '../../store/gameStore';
+import { getMovementRange, resolveMovementStep } from '../../engine/utils';
 import styles from './MoveActionModal.module.css';
 
 interface MoveActionModalProps {
@@ -33,18 +34,122 @@ function CardThumb({ inst, onClick, label }: { inst: CardInstance; onClick: () =
 }
 
 export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPlayerId }) => {
-  const { pendingMove, setPendingMove, moveAndAttack, selectInstance } = useGameStore();
+  const {
+    pendingMove,
+    pendingSummon,
+    setPendingMove,
+    setPendingSummon,
+    moveAndAttack,
+    castSpell,
+    selectInstance,
+  } = useGameStore();
 
-  if (!pendingMove) return null;
+  if (!pendingMove && !pendingSummon) return null;
 
-  const { unitInstanceId, destSquare } = pendingMove;
+  if (pendingSummon) {
+    const inst = game.instances[pendingSummon.cardInstanceId];
+    if (!inst) return null;
+    const cancelSummon = () => {
+      setPendingSummon(null);
+      selectInstance(null);
+    };
+    const chooseSummon = (region: 'surface' | 'underground' | 'underwater' | 'void') => {
+      castSpell(
+        pendingSummon.casterId,
+        pendingSummon.cardInstanceId,
+        pendingSummon.targetSquare,
+        undefined,
+        region,
+      );
+      setPendingSummon(null);
+      selectInstance(null);
+    };
+
+    return (
+      <div className={styles.overlay} onClick={cancelSummon}>
+        <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
+          <div className={styles.header}>
+            <div className={styles.headerLeft}>
+              <div className={styles.attackerThumb}>
+                {inst.card.image ? (
+                  <img
+                    src={inst.card.image}
+                    alt={inst.card.name}
+                    className={styles.attackerImg}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                ) : (
+                  <div className={styles.cardThumbFallback}>{inst.card.name}</div>
+                )}
+              </div>
+            </div>
+            <div className={styles.headerRight}>
+              <div className={styles.title}>{inst.card.name}</div>
+              <div className={styles.subtitle}>
+                Choose summon mode at ({pendingSummon.targetSquare.row}, {pendingSummon.targetSquare.col})
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.bottomActions}>
+            {pendingSummon.options.map((region) => (
+              <button key={region} className={styles.moveBtn} onClick={() => chooseSummon(region)}>
+                {region === 'surface' && 'Summon on surface'}
+                {region === 'underground' && 'Summon burrowed'}
+                {region === 'underwater' && 'Summon submerged'}
+                {region === 'void' && 'Summon in void'}
+              </button>
+            ))}
+            <button className={styles.cancelBtn} onClick={cancelSummon}>
+              ✕ Annuler
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { unitInstanceId, destSquare } = pendingMove!;
   const unit = game.instances[unitInstanceId];
   if (!unit) return null;
+  const unitLocation = unit.location;
+  if (!unitLocation) return null;
 
   const cell = game.realm[destSquare.row][destSquare.col];
-  const currentSq = unit.location?.square;
-  const isSameSquare = currentSq?.row === destSquare.row && currentSq?.col === destSquare.col;
+  const currentSq = unitLocation.square;
+  const isSameSquare = currentSq.row === destSquare.row && currentSq.col === destSquare.col;
   const path = isSameSquare ? [] : [destSquare];
+
+  let currentLocation = unitLocation;
+  let basePathError: string | null = null;
+  const movementRange = getMovementRange(unit);
+  for (const stepSquare of path) {
+    const step = resolveMovementStep(game, unit, currentLocation, stepSquare);
+    if (step.error) {
+      basePathError = step.error;
+      break;
+    }
+    currentLocation = step.location;
+  }
+
+  const regionPathOptions: Array<{ path: typeof path; label: string }> = [];
+  if (!basePathError && unit.location) {
+    const regionStep = resolveMovementStep(game, unit, currentLocation, destSquare);
+    if (!regionStep.error && regionStep.location.region !== currentLocation.region) {
+      const regionPath = [...path, destSquare];
+      if (regionPath.length > movementRange) {
+        // Region toggle costs a step; hide invalid option when unit lacks movement.
+        // This prevents presenting actions the engine will reject.
+      } else {
+      const to = regionStep.location.region;
+      let label = `Move and switch region (${to})`;
+      if (to === 'underground') label = 'Move and burrow';
+      if (to === 'underwater') label = 'Move and submerge';
+      if (to === 'surface') label = currentLocation.region === 'underground' ? 'Move and unburrow' : 'Move and surface';
+      regionPathOptions.push({ path: regionPath, label });
+      }
+    }
+  }
 
   const enemyUnits: CardInstance[] = cell.unitInstanceIds
     .map(id => game.instances[id])
@@ -56,11 +161,20 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
   })();
 
   const hasTargets = enemyUnits.length > 0 || !!enemySite;
-  const canMove = !isSameSquare;
+  const canMove = !isSameSquare || regionPathOptions.length > 0;
 
-  const cancel = () => { setPendingMove(null); selectInstance(null); };
-  const doMove = () => { moveAndAttack(unitInstanceId, path); selectInstance(null); };
-  const doAttack = (targetId: string) => { moveAndAttack(unitInstanceId, path, targetId); selectInstance(null); };
+  const cancel = () => {
+    setPendingMove(null);
+    selectInstance(null);
+  };
+  const doMove = (movePath = path) => {
+    moveAndAttack(unitInstanceId, movePath);
+    selectInstance(null);
+  };
+  const doAttack = (targetId: string) => {
+    moveAndAttack(unitInstanceId, path, targetId);
+    selectInstance(null);
+  };
 
   return (
     <div className={styles.overlay} onClick={cancel}>
@@ -110,9 +224,19 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
         )}
 
         <div className={styles.bottomActions}>
-          {canMove && (
+          {canMove && !basePathError && (
             <button className={styles.moveBtn} onClick={doMove}>
               → Se déplacer seulement
+            </button>
+          )}
+          {!basePathError && regionPathOptions.map((option) => (
+            <button key={option.label} className={styles.moveBtn} onClick={() => doMove(option.path)}>
+              → {option.label}
+            </button>
+          ))}
+          {basePathError && (
+            <button className={styles.cancelBtn} onClick={cancel} title={basePathError}>
+              ✕ Invalid move ({basePathError})
             </button>
           )}
           <button className={styles.cancelBtn} onClick={cancel}>

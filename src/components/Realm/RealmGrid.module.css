@@ -268,6 +268,11 @@
 
 .sickToken { opacity: 0.65; }
 
+.undergroundToken.sickToken {
+  opacity: 0.62;
+  filter: grayscale(0.65) brightness(0.78);
+}
+
 .tokenName {
   font-weight: bold;
   font-size: 7px;
@@ -286,8 +291,9 @@
 .surfaceToken    { z-index: 6; }
 .undergroundToken {
   z-index: 2;
-  opacity: 0.65;
-  filter: brightness(0.65) saturate(0.7);
+  --stack-offset-y: -10px;
+  opacity: 1;
+  filter: none;
 }
 
 .auraIndicator {

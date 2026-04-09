@@ -302,6 +302,66 @@ describe('engine orchestrator', () => {
     expect(game.instances[minionId].location).toEqual({ square: targetSquare, region: 'void' });
   });
 
+  it('allows summoning burrowing minions underground on land sites', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const targetSquare = { row: 1, col: 1 };
+    placeSite(game, targetSquare, pid, { isWaterSite: false });
+    const minionId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
+    )?.instanceId;
+    if (!minionId) throw new Error('No minion instance available');
+    if (!player.hand.includes(minionId)) player.hand.push(minionId);
+    const minionInst = game.instances[minionId];
+    if (minionInst.card.type !== 'minion') throw new Error('Expected minion');
+    minionInst.card = { ...minionInst.card, keywords: ['burrowing'] };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: player.avatarInstanceId,
+      cardInstanceId: minionId,
+      targetSquare,
+      targetRegion: 'underground',
+    });
+    expect(err).toBeNull();
+    expect(game.instances[minionId].location).toEqual({ square: targetSquare, region: 'underground' });
+  });
+
+  it('allows summoning submerge minions underwater on water sites', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const targetSquare = { row: 1, col: 1 };
+    placeSite(game, targetSquare, pid, { isWaterSite: true });
+    const minionId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
+    )?.instanceId;
+    if (!minionId) throw new Error('No minion instance available');
+    if (!player.hand.includes(minionId)) player.hand.push(minionId);
+    const minionInst = game.instances[minionId];
+    if (minionInst.card.type !== 'minion') throw new Error('Expected minion');
+    minionInst.card = { ...minionInst.card, keywords: ['submerge'] };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: player.avatarInstanceId,
+      cardInstanceId: minionId,
+      targetSquare,
+      targetRegion: 'underwater',
+    });
+    expect(err).toBeNull();
+    expect(game.instances[minionId].location).toEqual({ square: targetSquare, region: 'underwater' });
+  });
+
   it('allows charge units to move despite summoning sickness', () => {
     const game = createGame();
     const pid: PlayerId = game.activePlayerId;

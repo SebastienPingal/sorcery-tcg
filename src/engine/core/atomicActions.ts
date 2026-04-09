@@ -1,4 +1,4 @@
-import type { ElementalThreshold, GamePhase, Location, PlayerId, Square } from '../../types';
+import type { ElementalThreshold, GamePhase, Location, PlayerId, Region, Square } from '../../types';
 
 export type CheckAction =
   | { type: 'CHECK_IS_ACTIVE_PLAYER'; playerId: PlayerId }
@@ -33,7 +33,7 @@ export type MutationAction =
   | { type: 'CLEAR_PENDING_INTERACTION' }
   | { type: 'DEAL_DAMAGE'; sourceId: string; targetId: string; amount: number }
   | { type: 'PLAY_SITE'; playerId: PlayerId; siteInstanceId: string; square: Square }
-  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string }
+  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string; targetRegion?: Region }
   | { type: 'MOVE_AND_ATTACK'; unitId: string; path: Square[]; attackTargetId?: string }
   | { type: 'ACTIVATE_ABILITY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }
   | { type: 'CHOOSE_DRAW'; playerId: PlayerId; source: 'atlas' | 'spellbook' }
@@ -46,7 +46,7 @@ export type SequencingAction =
 export type AtomicAction = CheckAction | MutationAction | SequencingAction;
 
 export type PlayerAction =
-  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string }
+  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string; targetRegion?: Region }
   | { type: 'PLAY_SITE'; playerId: PlayerId; siteInstanceId: string; targetSquare: Square }
   | { type: 'MOVE_AND_ATTACK'; unitId: string; path: Square[]; attackTargetId?: string }
   | { type: 'ACTIVATE_ABILITY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }

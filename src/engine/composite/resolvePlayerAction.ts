@@ -25,6 +25,7 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
           cardInstanceId: action.cardInstanceId,
           targetSquare: action.targetSquare,
           targetInstanceId: action.targetInstanceId,
+          targetRegion: action.targetRegion,
         }],
       };
     case 'PLAY_SITE':

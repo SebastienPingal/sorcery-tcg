@@ -1,6 +1,6 @@
 import type { GameState } from './gameState';
 import type { MutationAction } from './atomicActions';
-import type { CardInstance, MagicCard, MinionCard, PlayerId, Square } from '../../types';
+import type { CardInstance, MagicCard, MinionCard, PlayerId, Region, Square } from '../../types';
 import {
   computeAffinity,
   computeMana,
@@ -132,6 +132,7 @@ function castSpell(
   cardInstanceId: string,
   targetSquare?: Square,
   targetInstanceId?: string,
+  targetRegion?: Region,
 ): string | null {
   const casterInst = state.instances[casterId];
   if (!casterInst) return 'Caster not found';
@@ -157,8 +158,9 @@ function castSpell(
     const isVoidDestination = !occupyingSite || occupyingSite.isRubble;
     if (isVoidDestination) {
       if (!hasKeyword(cardInst, 'voidwalk')) return 'Target square has no site';
+      if (targetRegion && targetRegion !== 'void') return 'Invalid region for void summon';
       cardInst.location = { square: targetSquare, region: 'void' };
-      cardInst.summoningSickness = true;
+      cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
       cardInst.tapped = false;
       cell.unitInstanceIds.push(cardInst.instanceId);
       return null;
@@ -166,10 +168,26 @@ function castSpell(
     const siteInst = occupyingSite;
     if (!siteInst) return 'Target square has no site';
     if (siteInst.controllerId !== playerId) return 'Must place on a site you control';
-    cardInst.location = { square: targetSquare, region: 'surface' };
-    cardInst.summoningSickness = true;
+    const isWaterSite = siteInst.card.type === 'site' && (siteInst.card.isWaterSite || hasKeyword(siteInst, 'flooded'));
+    const placementRegion: Region = targetRegion ?? 'surface';
+    if (placementRegion === 'underground') {
+      if (!hasKeyword(cardInst, 'burrowing')) return 'Only burrowing minions can be summoned underground';
+      if (isWaterSite) return 'Cannot summon burrowing minions underground at water sites';
+    } else if (placementRegion === 'underwater') {
+      if (!hasKeyword(cardInst, 'submerge')) return 'Only submerge minions can be summoned underwater';
+      if (!isWaterSite) return 'Can only summon underwater at water sites';
+    } else if (placementRegion !== 'surface') {
+      return 'Invalid summon region';
+    }
+
+    cardInst.location = { square: targetSquare, region: placementRegion };
+    cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
     cardInst.tapped = false;
-    cell.unitInstanceIds.push(cardInst.instanceId);
+    if (placementRegion === 'underground' || placementRegion === 'underwater') {
+      cell.subsurfaceUnitIds.push(cardInst.instanceId);
+    } else {
+      cell.unitInstanceIds.push(cardInst.instanceId);
+    }
     return null;
   }
 
@@ -448,7 +466,7 @@ export function applyAtomicAction(state: GameState, action: MutationAction): str
     case 'PLAY_SITE':
       return playSite(state, action.playerId, action.siteInstanceId, action.square);
     case 'CAST_SPELL':
-      return castSpell(state, action.casterId, action.cardInstanceId, action.targetSquare, action.targetInstanceId);
+      return castSpell(state, action.casterId, action.cardInstanceId, action.targetSquare, action.targetInstanceId, action.targetRegion);
     case 'MOVE_AND_ATTACK':
       return moveAndAttack(state, action.unitId, action.path, action.attackTargetId);
     case 'ACTIVATE_ABILITY':

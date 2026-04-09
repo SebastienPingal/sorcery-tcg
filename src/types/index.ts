@@ -223,7 +223,14 @@ export type TurnStep =
 // ─── Actions ──────────────────────────────────────────────────────────────────
 export type GameAction =
   | { type: 'ADVANCE_PHASE' }
-  | { type: 'CAST_SPELL'; casterId: string; cardInstanceId: string; targetSquare?: Square; targetInstanceId?: string }
+  | {
+    type: 'CAST_SPELL';
+    casterId: string;
+    cardInstanceId: string;
+    targetSquare?: Square;
+    targetInstanceId?: string;
+    targetRegion?: Region;
+  }
   | { type: 'ACTIVATE_ABILITY'; unitInstanceId: string; abilityId: string; targetSquare?: Square; targetInstanceId?: string }
   | { type: 'MOVE_AND_ATTACK'; unitInstanceId: string; path: Square[]; attackTargetId?: string }
   | { type: 'DEFEND'; unitInstanceId: string; attackId: string }

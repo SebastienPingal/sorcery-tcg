@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import type { GameState, Square, PlayerId } from '../../types';
+import type { GameState, PlayerId, Region, Square } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
-import { hasKeyword } from '../../engine/utils';
+import { hasKeyword, resolveMovementStep } from '../../engine/utils';
 import styles from './RealmGrid.module.css';
 
 interface RealmGridProps {
@@ -18,7 +18,9 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     castSpell,
     playSiteViaAbility,
     pendingAvatarAbility,
+    moveAndAttack,
     setPendingMove,
+    setPendingSummon,
     setSquareDetail,
     showCardDetail,
     hoverInstance,
@@ -72,7 +74,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
 
     if (selectedInst.location && (card.type === 'minion' || card.type === 'avatar') && isMyTurn) {
-      if (!selectedInst.tapped && !selectedInst.summoningSickness) {
+      const canActWithSickness = selectedInst.summoningSickness && hasKeyword(selectedInst, 'charge');
+      if (!selectedInst.tapped && (!selectedInst.summoningSickness || canActWithSickness)) {
         const reachable = selectReachableSquares(game, selectedInst);
         // Also include the current square (attack in place / use abilities here)
         const startSq = selectedInst.location.square;
@@ -99,8 +102,32 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
   const { squares: highlightedSquares, attackSquares: attackTargetSquares, mode: highlightMode } = getHighlightedSquares();
 
+  const getSummonRegionOptions = (instanceId: string, square: Square): Region[] => {
+    const inst = game.instances[instanceId];
+    if (!inst || inst.card.type !== 'minion') return ['surface'];
+    const cell = game.realm[square.row][square.col];
+    const site = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+    if (!site || site.isRubble) return hasKeyword(inst, 'voidwalk') ? ['void'] : [];
+
+    const options: Region[] = ['surface'];
+    const isWaterSite = site.card.type === 'site' && (site.card.isWaterSite || hasKeyword(site, 'flooded'));
+    if (hasKeyword(inst, 'burrowing') && !isWaterSite) options.push('underground');
+    if (hasKeyword(inst, 'submerge') && isWaterSite) options.push('underwater');
+    return options;
+  };
+
   const isHighlighted = (sq: Square): boolean =>
     highlightedSquares.some(h => h.row === sq.row && h.col === sq.col);
+
+  const getAutoRegionTogglePath = (inst: (typeof selectedInst), square: Square): Square[] | null => {
+    if (!inst?.location) return null;
+    const current = inst.location;
+    if (current.square.row !== square.row || current.square.col !== square.col) return null;
+    const step = resolveMovementStep(game, inst, current, square);
+    if (step.error) return null;
+    if (step.location.region === current.region) return null;
+    return [square];
+  };
 
   const handleSquareClick = (row: number, col: number) => {
     const sq: Square = { row, col };
@@ -116,7 +143,22 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
 
     if ((card.type === 'minion' || card.type === 'artifact') && !selectedInst.location && isHighlighted(sq)) {
-      castSpell(avatarInstId, selectedInstanceId!, sq);
+      if (card.type === 'minion') {
+        const options = getSummonRegionOptions(selectedInstanceId!, sq);
+        if (options.length === 0) return;
+        if (options.length === 1) {
+          castSpell(avatarInstId, selectedInstanceId!, sq, undefined, options[0]);
+        } else {
+          setPendingSummon({
+            casterId: avatarInstId,
+            cardInstanceId: selectedInstanceId!,
+            targetSquare: sq,
+            options,
+          });
+        }
+      } else {
+        castSpell(avatarInstId, selectedInstanceId!, sq);
+      }
       selectInstance(null);
       return;
     }
@@ -133,6 +175,19 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
 
     if (selectedInst.location && isHighlighted(sq) && highlightMode === 'move') {
+      const hasEnemyUnitHere = cell.unitInstanceIds.some(
+        (id) => game.instances[id]?.controllerId !== humanPlayerId,
+      );
+      const siteAtSquare = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+      const hasEnemySiteHere = Boolean(siteAtSquare && siteAtSquare.controllerId !== humanPlayerId && !siteAtSquare.isRubble);
+      if (!hasEnemyUnitHere && !hasEnemySiteHere) {
+        const autoPath = getAutoRegionTogglePath(selectedInst, sq);
+        if (autoPath) {
+          moveAndAttack(selectedInst.instanceId, autoPath);
+          selectInstance(null);
+          return;
+        }
+      }
       // Two-step: pick destination first, then choose action in a modal
       setPendingMove({ unitInstanceId: selectedInst.instanceId, destSquare: sq });
       return;
@@ -193,7 +248,23 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     // Re-clicking the already-selected unit in move mode → open action modal on current square
     if (instanceId === selectedInstanceId && highlightMode === 'move') {
       const sq = inst.location?.square;
-      if (sq) setPendingMove({ unitInstanceId: instanceId, destSquare: sq });
+      if (sq) {
+        const cell = game.realm[sq.row][sq.col];
+        const hasEnemyUnitHere = cell.unitInstanceIds.some(
+          (id) => game.instances[id]?.controllerId !== humanPlayerId,
+        );
+        const siteAtSquare = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+        const hasEnemySiteHere = Boolean(siteAtSquare && siteAtSquare.controllerId !== humanPlayerId && !siteAtSquare.isRubble);
+        if (!hasEnemyUnitHere && !hasEnemySiteHere) {
+          const autoPath = getAutoRegionTogglePath(inst, sq);
+          if (autoPath) {
+            moveAndAttack(instanceId, autoPath);
+            selectInstance(null);
+            return;
+          }
+        }
+        setPendingMove({ unitInstanceId: instanceId, destSquare: sq });
+      }
       return;
     }
 

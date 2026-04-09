@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { GameState, PlayerId, Square } from '../types';
+import type { GameState, PlayerId, Region, Square } from '../types';
 import {
   initGame, startGame,
   type GameSetupConfig,
@@ -25,6 +25,13 @@ interface GameStore {
   cardDetailId: string | null;
   // Two-step move/attack: first pick destination, then pick action
   pendingMove: { unitInstanceId: string; destSquare: Square } | null;
+  // Summon-region choice for burrowing/submerge minions.
+  pendingSummon: {
+    casterId: string;
+    cardInstanceId: string;
+    targetSquare: Square;
+    options: Region[];
+  } | null;
   // Square detail overlay (right-click on cell)
   squareDetail: Square | null;
 
@@ -40,7 +47,15 @@ interface GameStore {
   selectInstance: (instanceId: string | null) => void;
   hoverInstance: (instanceId: string | null) => void;
   setPendingAvatarAbility: (abilityId: string | null) => void;
-  castSpell: (casterId: string, cardId: string, targetSquare?: Square, targetId?: string) => void;
+  castSpell: (casterId: string, cardId: string, targetSquare?: Square, targetId?: string, targetRegion?: Region) => void;
+  setPendingSummon: (
+    pending: {
+      casterId: string;
+      cardInstanceId: string;
+      targetSquare: Square;
+      options: Region[];
+    } | null,
+  ) => void;
   playSiteViaAbility: (playerId: PlayerId, abilityId: string, siteId: string, square: Square) => void;
   drawSiteViaAbility: (playerId: PlayerId, abilityId: string) => void;
   activateAbility: (playerId: PlayerId, abilityId: string, targetSquare?: Square, siteId?: string) => void;
@@ -62,6 +77,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   pendingAvatarAbility: null,
   cardDetailId: null,
   pendingMove: null,
+  pendingSummon: null,
   squareDetail: null,
 
   initGame: (config) => {
@@ -202,7 +218,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
-  castSpell: (casterId, cardId, targetSquare, targetId) => {
+  castSpell: (casterId, cardId, targetSquare, targetId, targetRegion) => {
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
@@ -212,13 +228,16 @@ export const useGameStore = create<GameStore>((set, get) => ({
       cardInstanceId: cardId,
       targetSquare,
       targetInstanceId: targetId,
+      targetRegion,
     });
     if (err) {
       set({ actionError: err });
     } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null });
+      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingSummon: null });
     }
   },
+
+  setPendingSummon: (pending) => set({ pendingSummon: pending }),
 
   activateAbility: (playerId, abilityId, targetSquare, siteId) => {
     const { game } = get();
@@ -247,9 +266,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const newGame = structuredClone(game);
     const err = dispatchPlayerAction(newGame, { type: 'MOVE_AND_ATTACK', unitId, path, attackTargetId });
     if (err) {
-      set({ actionError: err });
+      set({ actionError: err, pendingMove: null });
     } else {
-      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingMove: null });
+      set({ game: newGame, actionError: null, selectedInstanceId: null, pendingMove: null, pendingSummon: null });
     }
   },
 

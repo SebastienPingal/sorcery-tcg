@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GameState, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
+import { hasKeyword } from '../../engine/utils';
 import styles from './Controls.module.css';
 
 interface ControlsProps {
@@ -118,7 +119,7 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
             {game.instances[selectedInstanceId]?.card.name}
           </div>
           <div className={styles.selectedHint}>
-            {getSelectionHint(game, selectedInstanceId, humanPlayerId)}
+            {getSelectionHint(game, selectedInstanceId)}
           </div>
           <button className={styles.cancelBtn} onClick={() => selectInstance(null)}>
             Cancel (ESC)
@@ -161,7 +162,7 @@ export const Controls: React.FC<ControlsProps> = ({ game, humanPlayerId }) => {
   );
 };
 
-function getSelectionHint(game: GameState, instanceId: string, playerId: PlayerId): string {
+function getSelectionHint(game: GameState, instanceId: string): string {
   const inst = game.instances[instanceId];
   if (!inst) return '';
   const card = inst.card;
@@ -173,7 +174,8 @@ function getSelectionHint(game: GameState, instanceId: string, playerId: PlayerI
   } else {
     if (card.type === 'minion' || card.type === 'avatar') {
       if (inst.tapped) return '✗ Already tapped this turn';
-      if (inst.summoningSickness) return '✗ Summoning sickness — wait until next turn';
+      if (inst.summoningSickness && !hasKeyword(inst, 'charge')) return '✗ Summoning sickness — wait until next turn';
+      if (inst.summoningSickness && hasKeyword(inst, 'charge')) return '✓ Charge lets this unit act this turn';
       return '→ Click a highlighted square to move or attack';
     }
   }
