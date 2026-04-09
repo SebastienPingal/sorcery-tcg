@@ -76,4 +76,49 @@ describe('engine orchestrator', () => {
     expect(player.hand.includes(siteInHand)).toBe(false);
     expect(game.realm[targetSquare.row][targetSquare.col].siteInstanceId).toBe(siteInHand);
   });
+
+  it('site attacks do not cause death blow at deaths door', () => {
+    const game = createGame();
+    game.status = 'playing';
+    game.activePlayerId = 'player1';
+    const defenderId: PlayerId = 'player2';
+    const attackerId: PlayerId = 'player1';
+    const defender = game.players[defenderId];
+    const attacker = game.players[attackerId];
+    defender.isAtDeathsDoor = true;
+    defender.deathsDoorTurn = game.turnNumber - 1;
+    defender.life = 0;
+    const lifeBefore = defender.life;
+
+    const square = { row: 1, col: 1 };
+    const site = game.instances[game.players[defenderId].atlasCards[0]];
+    site.card = {
+      ...site.card,
+      type: 'site',
+      threshold: {},
+      isWaterSite: false,
+      abilities: [],
+    };
+    site.controllerId = defenderId;
+    site.location = { square, region: 'surface' };
+    game.realm[square.row][square.col].siteInstanceId = site.instanceId;
+
+    const minion = game.instances[game.players[attackerId].spellbookCards.find((id) => game.instances[id].card.type === 'minion')!];
+    minion.controllerId = attackerId;
+    minion.location = { square, region: 'surface' };
+    minion.tapped = false;
+    minion.summoningSickness = false;
+    game.realm[square.row][square.col].unitInstanceIds.push(minion.instanceId);
+
+    const err = dispatchPlayerAction(game, {
+      type: 'MOVE_AND_ATTACK',
+      unitId: minion.instanceId,
+      path: [],
+      attackTargetId: site.instanceId,
+    });
+    expect(err).toBeNull();
+    expect(game.status).not.toBe('ended');
+    expect(game.winner).toBeNull();
+    expect(defender.life).toBe(lifeBefore);
+  });
 });

@@ -211,13 +211,9 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
     const targetPlayerId = target.controllerId;
     const atkPower = getAttackPower(attacker);
     const defender = state.players[targetPlayerId];
-    if (defender.isAtDeathsDoor) {
-      if (!isDeathsDoorImmune(state, targetPlayerId)) {
-        state.winner = opponent(targetPlayerId);
-        state.status = 'ended';
-      }
-      return null;
-    }
+    // Site hits are life loss, not avatar damage: they never deliver a death blow.
+    // While at Death's Door, life cannot change (no gain/loss through life effects).
+    if (defender.isAtDeathsDoor) return null;
     defender.life -= atkPower;
     checkDeathsDoor(state, targetPlayerId);
     return null;

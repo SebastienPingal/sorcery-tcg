@@ -153,6 +153,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
+    const avatarId = newGame.players[playerId].avatarInstanceId;
+    const avatar = newGame.instances[avatarId];
+    if (avatar.tapped) {
+      set({ actionError: 'Avatar is already tapped' });
+      return;
+    }
     let err = dispatchPlayerAction(newGame, {
       type: 'ACTIVATE_ABILITY',
       playerId,
@@ -160,8 +166,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
       targetSquare: square,
       siteInstanceId: siteId,
     });
-    if (err) {
-      // Fallback path: allow direct PLAY_SITE and tap avatar in case UI ability state desyncs.
+    if (err && err === 'Ability not found') {
+      // Fallback path only for ability-id desync; never bypass tap/cost checks.
       err = dispatchPlayerAction(newGame, {
         type: 'PLAY_SITE',
         playerId,
@@ -169,7 +175,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
         targetSquare: square,
       });
       if (!err) {
-        const avatarId = newGame.players[playerId].avatarInstanceId;
         newGame.instances[avatarId].tapped = true;
       }
     }
