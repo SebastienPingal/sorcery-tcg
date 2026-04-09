@@ -1,32 +1,8 @@
 import type {
   AvatarCard, SiteCard, MinionCard, ArtifactCard, MagicCard, Card
 } from '../types';
-import { REAL_CARDS } from './realCards';
-
-const REAL_IMAGE_BY_ID = new Map(
-  REAL_CARDS
-    .filter(card => typeof card.image === 'string' && card.image.length > 0)
-    .map(card => [card.id, card.image as string])
-);
-
-const REAL_IMAGE_BY_NAME = new Map(
-  REAL_CARDS
-    .filter(card => typeof card.image === 'string' && card.image.length > 0)
-    .map(card => [card.name.toLowerCase(), card.image as string])
-);
-
-const LOCAL_TO_REAL_ID: Record<string, string> = {
-  avatar_sparkmage: 'sparkmage',
-  avatar_sorcerer: 'sorcerer',
-};
-
-function withFallbackImage<T extends Card>(card: T): T {
-  if (card.image) return card;
-  const mappedId = LOCAL_TO_REAL_ID[card.id];
-  const image = (mappedId ? REAL_IMAGE_BY_ID.get(mappedId) : undefined)
-    ?? REAL_IMAGE_BY_NAME.get(card.name.toLowerCase());
-  return image ? ({ ...card, image } as T) : card;
-}
+import { USABLE_CARDS } from './usableCards';
+import { buildKeywordExtractionIndex } from './keywordExtraction';
 
 // ─── Avatars ──────────────────────────────────────────────────────────────────
 export const AVATARS: AvatarCard[] = [
@@ -518,13 +494,10 @@ export const MAGICS: MagicCard[] = [
 
 // ─── Master card registry ─────────────────────────────────────────────────────
 const ALL_CARDS: Card[] = [
-  ...AVATARS.map(withFallbackImage),
-  ...SITES.map(withFallbackImage),
-  ...MINIONS.map(withFallbackImage),
-  ...ARTIFACTS.map(withFallbackImage),
-  ...MAGICS.map(withFallbackImage),
-  ...REAL_CARDS,  // full official card list from curiosa.io API
+  ...USABLE_CARDS, // generated runtime source of truth
 ];
+
+export const EXTRACTED_KEYWORDS_BY_CARD_ID = buildKeywordExtractionIndex(ALL_CARDS);
 
 export const CARD_REGISTRY: Record<string, Card> = Object.fromEntries(
   ALL_CARDS.map(c => [c.id, c])

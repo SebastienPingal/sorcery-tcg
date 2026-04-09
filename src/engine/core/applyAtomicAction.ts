@@ -8,8 +8,10 @@ import {
   getManaAvailable,
   getMovementRange,
   hasKeyword,
+  isWaterLocation,
   meetsThreshold,
   opponent,
+  resolveMovementStep,
   squareEq,
   validSitePlacements,
 } from '../utils';
@@ -146,8 +148,18 @@ function castSpell(
   if (card.type === 'minion') {
     if (!targetSquare) return 'Must specify a target square for minion placement';
     const cell = state.realm[targetSquare.row][targetSquare.col];
-    if (!cell.siteInstanceId) return 'Target square has no site';
-    const siteInst = state.instances[cell.siteInstanceId];
+    const occupyingSite = cell.siteInstanceId ? state.instances[cell.siteInstanceId] : null;
+    const isVoidDestination = !occupyingSite || occupyingSite.isRubble;
+    if (isVoidDestination) {
+      if (!hasKeyword(cardInst, 'voidwalk')) return 'Target square has no site';
+      cardInst.location = { square: targetSquare, region: 'void' };
+      cardInst.summoningSickness = true;
+      cardInst.tapped = false;
+      cell.unitInstanceIds.push(cardInst.instanceId);
+      return null;
+    }
+    const siteInst = occupyingSite;
+    if (!siteInst) return 'Target square has no site';
     if (siteInst.controllerId !== playerId) return 'Must place on a site you control';
     cardInst.location = { square: targetSquare, region: 'surface' };
     cardInst.summoningSickness = true;
@@ -228,27 +240,49 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
   return null;
 }
 
+function removeUnitFromCellByRegion(state: GameState, unitId: string, location: { square: Square; region: 'void' | 'surface' | 'underground' | 'underwater' }): void {
+  const cell = state.realm[location.square.row][location.square.col];
+  if (location.region === 'underground' || location.region === 'underwater') {
+    cell.subsurfaceUnitIds = cell.subsurfaceUnitIds.filter((id) => id !== unitId);
+    return;
+  }
+  cell.unitInstanceIds = cell.unitInstanceIds.filter((id) => id !== unitId);
+}
+
+function addUnitToCellByRegion(state: GameState, unitId: string, location: { square: Square; region: 'void' | 'surface' | 'underground' | 'underwater' }): void {
+  const cell = state.realm[location.square.row][location.square.col];
+  if (location.region === 'underground' || location.region === 'underwater') {
+    if (!cell.subsurfaceUnitIds.includes(unitId)) cell.subsurfaceUnitIds.push(unitId);
+    return;
+  }
+  if (!cell.unitInstanceIds.includes(unitId)) cell.unitInstanceIds.push(unitId);
+}
+
 function moveAndAttack(state: GameState, unitInstanceId: string, path: Square[], attackTargetId?: string): string | null {
   const inst = state.instances[unitInstanceId];
   if (!inst) return 'Unit not found';
   if (inst.tapped) return 'Unit is already tapped';
   if (inst.summoningSickness) return 'Unit has summoning sickness';
+  if (hasKeyword(inst, 'waterbound')) {
+    const location = inst.location;
+    if (!location || !isWaterLocation(state, location)) return 'Waterbound unit is disabled off water locations';
+  }
   const range = getMovementRange(inst);
   if (path.length > range) return `Unit can only move ${range} step(s)`;
-  const startSq = inst.location?.square;
-  if (!startSq) return 'Unit has no location';
+  const startLocation = inst.location;
+  if (!startLocation) return 'Unit has no location';
 
   if (path.length > 0) {
-    const fromCell = state.realm[startSq.row][startSq.col];
-    fromCell.unitInstanceIds = fromCell.unitInstanceIds.filter((id) => id !== unitInstanceId);
-    const finalSq = path[path.length - 1];
-    const toCell = state.realm[finalSq.row][finalSq.col];
-    if (!toCell.siteInstanceId && !hasKeyword(inst, 'voidwalk')) {
-      fromCell.unitInstanceIds.push(unitInstanceId);
-      return 'Cannot move to void without Voidwalk';
+    let current = startLocation;
+    for (const stepSquare of path) {
+      const step = resolveMovementStep(state, inst, current, stepSquare);
+      if (step.error) return step.error;
+      current = step.location;
     }
-    inst.location = { square: finalSq, region: 'surface' };
-    toCell.unitInstanceIds.push(unitInstanceId);
+
+    removeUnitFromCellByRegion(state, unitInstanceId, startLocation);
+    inst.location = current;
+    addUnitToCellByRegion(state, unitInstanceId, current);
     state.currentTurn.unitsThatMoved.push(unitInstanceId);
   }
 

@@ -73,13 +73,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config: GameSetupConfig = {
       player1: {
         name: 'Player 1',
-        avatarId: 'avatar_sorcerer',
+        avatarId: 'sorcerer',
         atlasIds: buildFireAtlas(),
         spellbookIds: buildFireSpellbook(),
       },
       player2: {
         name: 'Player 2',
-        avatarId: 'avatar_sparkmage',
+        avatarId: 'sparkmage',
         atlasIds: buildWaterAtlas(),
         spellbookIds: buildWaterSpellbook(),
       },
@@ -89,12 +89,16 @@ export const useGameStore = create<GameStore>((set, get) => ({
     set({ game, selectedInstanceId: null, highlightedSquares: [], actionError: null });
   },
 
-  acceptHand: (_playerId) => {
+  acceptHand: (playerId) => {
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
     const currentMulliganPlayer = newGame.pendingInteraction?.type === 'mulligan'
       ? newGame.pendingInteraction.playerId : newGame.activePlayerId;
+    if (playerId !== currentMulliganPlayer) {
+      set({ actionError: 'Not your mulligan choice' });
+      return;
+    }
     if (currentMulliganPlayer === newGame.activePlayerId) {
       // First player done → set up second player's mulligan
       const next: import('../types').PlayerId = currentMulliganPlayer === 'player1' ? 'player2' : 'player1';

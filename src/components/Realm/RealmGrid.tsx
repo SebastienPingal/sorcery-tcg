@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { GameState, Square, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
+import { hasKeyword } from '../../engine/utils';
 import styles from './RealmGrid.module.css';
 
 interface RealmGridProps {
@@ -17,7 +18,6 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     castSpell,
     playSiteViaAbility,
     pendingAvatarAbility,
-    moveAndAttack,
     setPendingMove,
     setSquareDetail,
     showCardDetail,
@@ -52,13 +52,18 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
 
     if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
       const squares: Square[] = [];
+      const allowVoidSummon = card.type === 'minion' && hasKeyword(selectedInst, 'voidwalk');
       for (const row of game.realm) {
         for (const cell of row) {
           if (cell.siteInstanceId) {
             const siteInst = game.instances[cell.siteInstanceId];
             if (siteInst?.controllerId === humanPlayerId) {
               squares.push({ row: cell.row, col: cell.col });
+            } else if (allowVoidSummon && siteInst?.isRubble) {
+              squares.push({ row: cell.row, col: cell.col });
             }
+          } else if (allowVoidSummon) {
+            squares.push({ row: cell.row, col: cell.col });
           }
         }
       }
@@ -410,7 +415,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     <div className={styles.realm}>
       <div className={styles.playerLabel}>↑ {game.players[opponentId].name} (Opponent)</div>
       <div className={styles.grid}>
-        {rows.map((row, _) => row.map((_, c) => renderCell(row[c].row, c)))}
+        {rows.map((row) => row.map((_, c) => renderCell(row[c].row, c)))}
       </div>
       <div className={styles.playerLabel}>↓ {game.players[humanPlayerId].name} (You)</div>
     </div>

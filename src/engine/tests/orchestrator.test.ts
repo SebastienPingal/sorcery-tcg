@@ -2,19 +2,19 @@ import { describe, expect, it } from 'vitest';
 import { initGame, startGame } from '../gameEngine';
 import { dispatchPlayerAction, getEventLog } from '../orchestrator';
 import { buildFireAtlas, buildFireSpellbook, buildWaterAtlas, buildWaterSpellbook } from '../../data/cards';
-import type { GameState, PlayerId } from '../../types';
+import type { CardInstance, GameState, KeywordAbility, PlayerId, Square } from '../../types';
 
 function createGame(): GameState {
   const game = initGame({
     player1: {
       name: 'Player 1',
-      avatarId: 'avatar_sorcerer',
+      avatarId: 'sorcerer',
       atlasIds: buildFireAtlas(),
       spellbookIds: buildFireSpellbook(),
     },
     player2: {
       name: 'Player 2',
-      avatarId: 'avatar_sparkmage',
+      avatarId: 'sparkmage',
       atlasIds: buildWaterAtlas(),
       spellbookIds: buildWaterSpellbook(),
     },
@@ -23,6 +23,54 @@ function createGame(): GameState {
   game.pendingInteraction = null;
   startGame(game);
   return game;
+}
+
+function placeSite(
+  game: GameState,
+  square: Square,
+  controllerId: PlayerId,
+  options?: { isWaterSite?: boolean; flooded?: boolean },
+): CardInstance {
+  const site = Object.values(game.instances).find(
+    (inst) => inst.card.type === 'site' && inst.ownerId === controllerId && !inst.location,
+  );
+  if (!site || site.card.type !== 'site') throw new Error('No site instance available');
+  site.controllerId = controllerId;
+  site.location = { square, region: 'surface' };
+  site.card = { ...site.card, isWaterSite: options?.isWaterSite ?? site.card.isWaterSite };
+  if (options?.flooded) {
+    site.temporaryAbilities.push({
+      id: `flooded_${square.row}_${square.col}`,
+      trigger: 'passive',
+      keyword: 'flooded',
+      description: 'Flooded',
+      effect: { type: 'noop' },
+    });
+  }
+  game.realm[square.row][square.col].siteInstanceId = site.instanceId;
+  return site;
+}
+
+function placeMinion(
+  game: GameState,
+  square: Square,
+  controllerId: PlayerId,
+  keywords: KeywordAbility[],
+  region: 'surface' | 'underground' | 'underwater' | 'void' = 'surface',
+): CardInstance {
+  const minion = Object.values(game.instances).find(
+    (inst) => inst.card.type === 'minion' && inst.ownerId === controllerId && !inst.location,
+  );
+  if (!minion || minion.card.type !== 'minion') throw new Error('No minion instance available');
+  minion.controllerId = controllerId;
+  minion.location = { square, region };
+  minion.tapped = false;
+  minion.summoningSickness = false;
+  minion.card = { ...minion.card, keywords };
+  const cell = game.realm[square.row][square.col];
+  if (region === 'underground' || region === 'underwater') cell.subsurfaceUnitIds.push(minion.instanceId);
+  else cell.unitInstanceIds.push(minion.instanceId);
+  return minion;
 }
 
 describe('engine orchestrator', () => {
@@ -84,7 +132,6 @@ describe('engine orchestrator', () => {
     const defenderId: PlayerId = 'player2';
     const attackerId: PlayerId = 'player1';
     const defender = game.players[defenderId];
-    const attacker = game.players[attackerId];
     defender.isAtDeathsDoor = true;
     defender.deathsDoorTurn = game.turnNumber - 1;
     defender.life = 0;
@@ -120,5 +167,138 @@ describe('engine orchestrator', () => {
     expect(game.status).not.toBe('ended');
     expect(game.winner).toBeNull();
     expect(defender.life).toBe(lifeBefore);
+  });
+
+  it('allows airborne units to move diagonally', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    game.activePlayerId = pid;
+    const start = { row: 1, col: 1 };
+    const target = { row: 0, col: 0 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, target, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['airborne']);
+
+    const err = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [target] });
+    expect(err).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: target, region: 'surface' });
+  });
+
+  it('allows burrowing descent and blocks underground travel through water sites', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 2, col: 1 };
+    const landStep = { row: 2, col: 2 };
+    const waterStep = { row: 2, col: 3 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, landStep, pid, { isWaterSite: false });
+    placeSite(game, waterStep, pid, { isWaterSite: true });
+    const minion = placeMinion(game, start, pid, ['burrowing']);
+
+    const descendErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [start] });
+    expect(descendErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: start, region: 'underground' });
+
+    game.instances[minion.instanceId].tapped = false;
+    const tunnelErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [landStep] });
+    expect(tunnelErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: landStep, region: 'underground' });
+
+    game.instances[minion.instanceId].tapped = false;
+    const invalidErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [waterStep] });
+    expect(invalidErr).toBe('Burrowing units can only move underground through land sites');
+  });
+
+  it('allows submerge descent and blocks underwater travel through non-water sites', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 2, col: 1 };
+    const waterStep = { row: 2, col: 2 };
+    const landStep = { row: 2, col: 3 };
+    placeSite(game, start, pid, { isWaterSite: true });
+    placeSite(game, waterStep, pid, { isWaterSite: true });
+    placeSite(game, landStep, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['submerge']);
+
+    const submergeErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [start] });
+    expect(submergeErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: start, region: 'underwater' });
+
+    game.instances[minion.instanceId].tapped = false;
+    const swimErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [waterStep] });
+    expect(swimErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: waterStep, region: 'underwater' });
+
+    game.instances[minion.instanceId].tapped = false;
+    const invalidErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [landStep] });
+    expect(invalidErr).toBe('Submerged units can only move underwater through water sites');
+  });
+
+  it('allows voidwalk movement into void and back onto a site', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const start = { row: 1, col: 1 };
+    const voidSq = { row: 1, col: 2 };
+    const destination = { row: 1, col: 3 };
+    placeSite(game, start, pid, { isWaterSite: false });
+    placeSite(game, destination, pid, { isWaterSite: false });
+    const minion = placeMinion(game, start, pid, ['voidwalk']);
+
+    const intoVoidErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [voidSq] });
+    expect(intoVoidErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: voidSq, region: 'void' });
+
+    game.instances[minion.instanceId].tapped = false;
+    const outErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: minion.instanceId, path: [destination] });
+    expect(outErr).toBeNull();
+    expect(game.instances[minion.instanceId].location).toEqual({ square: destination, region: 'surface' });
+  });
+
+  it('treats flooded sites as water for waterbound movement checks', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const drySquare = { row: 0, col: 0 };
+    const floodedSquare = { row: 0, col: 1 };
+    placeSite(game, drySquare, pid, { isWaterSite: false });
+    placeSite(game, floodedSquare, pid, { isWaterSite: false, flooded: true });
+
+    const dryMinion = placeMinion(game, drySquare, pid, ['waterbound']);
+    const dryErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: dryMinion.instanceId, path: [] });
+    expect(dryErr).toBe('Waterbound unit is disabled off water locations');
+
+    const floodedMinion = placeMinion(game, floodedSquare, pid, ['waterbound']);
+    const floodedErr = dispatchPlayerAction(game, { type: 'MOVE_AND_ATTACK', unitId: floodedMinion.instanceId, path: [] });
+    expect(floodedErr).toBeNull();
+  });
+
+  it('allows casting a voidwalk minion onto rubble (void destination)', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const targetSquare = { row: 2, col: 2 };
+    const rubble = placeSite(game, targetSquare, pid, { isWaterSite: false });
+    rubble.isRubble = true;
+
+    const minionId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
+    )?.instanceId;
+    if (!minionId) throw new Error('No minion instance available');
+    if (!player.hand.includes(minionId)) player.hand.push(minionId);
+    const minionInst = game.instances[minionId];
+    if (minionInst.card.type !== 'minion') throw new Error('Expected minion');
+    minionInst.card = { ...minionInst.card, keywords: ['voidwalk'] };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: player.avatarInstanceId,
+      cardInstanceId: minionId,
+      targetSquare,
+    });
+    expect(err).toBeNull();
+    expect(game.instances[minionId].location).toEqual({ square: targetSquare, region: 'void' });
   });
 });

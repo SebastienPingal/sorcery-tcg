@@ -1,0 +1,16 @@
+---
+description: Engine flow and keyword ability implementation conventions
+globs: src/engine/**/*.ts
+alwaysApply: false
+---
+
+# Keyword Ability Engine Guide
+
+- Keep runtime behavior in the engine pipeline: `decomposePlayerAction` -> `runChecks` -> `applyAtomicAction`.
+- Implement keyword rules in engine helpers and atomic execution paths, not in UI/store components.
+- Prefer reusable primitives in `utils` for movement/targeting legality, then call them from `applyAtomicAction`.
+- Add deterministic error strings for illegal moves so orchestrator tests can assert exact outcomes.
+- For movement keywords, model legality by location and region (`surface`, `underground`, `underwater`, `void`), not square-only assumptions.
+- Treat `flooded` as a water-site condition when evaluating movement/location requirements.
+- Keep `CheckAction` focused on preconditions and `MutationAction` focused on state transitions.
+- Any keyword behavior change must add or update focused tests in `src/engine/tests/orchestrator.test.ts`.

@@ -1,6 +1,6 @@
 import type {
   Square, CardInstance, GameState, Player, PlayerId,
-  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard,
+  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard, Location,
 } from '../types';
 
 // ─── UUID ─────────────────────────────────────────────────────────────────────
@@ -140,7 +140,6 @@ export function getMaxPower(p: Power): number {
 
 // ─── Elemental helpers ────────────────────────────────────────────────────────
 export function computeAffinity(state: GameState, playerId: PlayerId): ElementalThreshold {
-  const player = state.players[playerId];
   const affinity: ElementalThreshold = {};
   for (const row of state.realm) {
     for (const cell of row) {
@@ -245,46 +244,137 @@ export function reachableSquares(
   inst: CardInstance,
   range: number
 ): Square[] {
-  const startSq = inst.location?.square;
-  if (!startSq) return [];
-
-  const hasAirborne = hasKeyword(inst, 'airborne');
+  const start = inst.location;
+  if (!start) return [];
 
   const visited = new Set<string>();
-  const frontier: Array<{ sq: Square; steps: number }> = [{ sq: startSq, steps: 0 }];
-  const result: Square[] = [];
+  const frontier: Array<{ location: Location; steps: number }> = [{ location: start, steps: 0 }];
+  const resultBySquare = new Map<string, Square>();
 
   while (frontier.length > 0) {
-    const { sq, steps } = frontier.shift()!;
-    const key = `${sq.row},${sq.col}`;
+    const { location, steps } = frontier.shift()!;
+    const key = `${location.square.row},${location.square.col}:${location.region}`;
     if (visited.has(key)) continue;
     visited.add(key);
-    if (steps > 0) result.push(sq);
-    if (steps < range) {
-      const neighbors = hasAirborne ? nearbySquares(sq) : adjacentSquares(sq);
-      for (const n of neighbors) {
-        const nKey = `${n.row},${n.col}`;
-        if (!visited.has(nKey)) {
-          const cell = state.realm[n.row][n.col];
-          // Can't move through void unless voidwalk
-          if (!cell.siteInstanceId && !hasKeyword(inst, 'voidwalk')) continue;
-          frontier.push({ sq: n, steps: steps + 1 });
-        }
-      }
+
+    if (steps > 0) {
+      const squareKey = `${location.square.row},${location.square.col}`;
+      if (!resultBySquare.has(squareKey)) resultBySquare.set(squareKey, location.square);
+    }
+
+    if (steps >= range) continue;
+
+    const candidates = movementStepCandidates(inst, location.square);
+    for (const sq of candidates) {
+      const step = resolveMovementStep(state, inst, location, sq);
+      if (step.error) continue;
+      frontier.push({ location: step.location, steps: steps + 1 });
     }
   }
-  return result;
+
+  return Array.from(resultBySquare.values());
 }
 
 export function hasKeyword(inst: CardInstance, keyword: string): boolean {
-  const card = inst.card;
-  if (card.type === 'minion') {
-    if ((card as MinionCard).keywords.includes(keyword as any)) return true;
-  }
-  for (const ab of [...(card.type === 'minion' ? (card as MinionCard).abilities : []), ...inst.temporaryAbilities]) {
+  const card = inst.card as { keywords?: string[]; abilities?: Array<{ keyword?: string }> };
+  if (card.keywords?.includes(keyword)) return true;
+  for (const ab of [...(card.abilities ?? []), ...inst.temporaryAbilities]) {
     if (ab.keyword === keyword) return true;
   }
   return false;
+}
+
+function movementStepCandidates(inst: CardInstance, fromSquare: Square): Square[] {
+  const squares = hasKeyword(inst, 'airborne') ? nearbySquares(fromSquare) : adjacentSquares(fromSquare);
+  // Same-square steps represent vertical movement between regions.
+  return [fromSquare, ...squares];
+}
+
+function isWaterSite(state: GameState, square: Square): boolean {
+  const cell = state.realm[square.row][square.col];
+  if (!cell.siteInstanceId) return false;
+  const siteInst = state.instances[cell.siteInstanceId];
+  if (!siteInst || siteInst.card.type !== 'site') return false;
+  if (siteInst.card.isWaterSite) return true;
+  return hasKeyword(siteInst, 'flooded');
+}
+
+function isLandSite(state: GameState, square: Square): boolean {
+  const cell = state.realm[square.row][square.col];
+  if (!cell.siteInstanceId) return false;
+  return !isWaterSite(state, square);
+}
+
+export function isWaterLocation(state: GameState, location: Location): boolean {
+  if (location.region === 'void' || location.region === 'underground') return false;
+  return isWaterSite(state, location.square);
+}
+
+export function resolveMovementStep(
+  state: GameState,
+  inst: CardInstance,
+  from: Location,
+  toSquare: Square,
+): { location: Location; error: null } | { error: string } {
+  const sameSquare = squareEq(from.square, toSquare);
+  const hasVoidwalk = hasKeyword(inst, 'voidwalk');
+  const hasBurrowing = hasKeyword(inst, 'burrowing');
+  const hasSubmerge = hasKeyword(inst, 'submerge');
+  const neighborSquares = hasKeyword(inst, 'airborne') ? nearbySquares(from.square) : adjacentSquares(from.square);
+
+  if (!sameSquare && !neighborSquares.some((sq) => squareEq(sq, toSquare))) {
+    return { error: 'Invalid movement path' };
+  }
+
+  if (sameSquare) {
+    if (from.region === 'surface' && hasBurrowing && isLandSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'underground' }, error: null };
+    }
+    if (from.region === 'underground' && hasBurrowing && isLandSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'surface' }, error: null };
+    }
+    if (from.region === 'surface' && hasSubmerge && isWaterSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'underwater' }, error: null };
+    }
+    if (from.region === 'underwater' && hasSubmerge && isWaterSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'surface' }, error: null };
+    }
+    return { error: 'Cannot change region at this location' };
+  }
+
+  const cell = state.realm[toSquare.row][toSquare.col];
+  const hasSite = Boolean(cell.siteInstanceId);
+
+  if (!hasSite) {
+    if (!hasVoidwalk) return { error: 'Cannot move to void without Voidwalk' };
+    return { location: { square: toSquare, region: 'void' }, error: null };
+  }
+
+  if (from.region === 'void' && !hasVoidwalk) {
+    return { error: 'Only Voidwalk units can move in the void' };
+  }
+
+  if (from.region === 'underground') {
+    if (!isLandSite(state, toSquare)) return { error: 'Burrowing units can only move underground through land sites' };
+    return { location: { square: toSquare, region: 'underground' }, error: null };
+  }
+
+  if (from.region === 'underwater') {
+    if (!isWaterSite(state, toSquare)) return { error: 'Submerged units can only move underwater through water sites' };
+    return { location: { square: toSquare, region: 'underwater' }, error: null };
+  }
+
+  if (from.region === 'void') {
+    if (hasSubmerge && isWaterSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'underwater' }, error: null };
+    }
+    if (hasBurrowing && isLandSite(state, toSquare)) {
+      return { location: { square: toSquare, region: 'underground' }, error: null };
+    }
+    return { location: { square: toSquare, region: 'surface' }, error: null };
+  }
+
+  return { location: { square: toSquare, region: 'surface' }, error: null };
 }
 
 // ─── Player helpers ───────────────────────────────────────────────────────────
