@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { GameState, PlayerId, Region, Square } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
-import { hasKeyword, resolveMovementStep } from '../../engine/utils';
+import { getComputedPower, hasKeyword, resolveMovementStep } from '../../engine/utils';
 import styles from './RealmGrid.module.css';
 
 interface RealmGridProps {
@@ -291,6 +291,20 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const hasStatusToken = (instanceId: string, token: string): boolean =>
     game.instances[instanceId]?.tokens.includes(token) ?? false;
 
+  const renderUnitPower = (inst: (typeof game.instances)[string]) => {
+    if (!inst || inst.card.type !== 'minion') return null;
+    const power = getComputedPower(inst, game);
+    if (power.attack === power.defense) {
+      return <div className={styles.powerBadgeSingle}>{power.attack}</div>;
+    }
+    return (
+      <div className={styles.powerBadgeSplit}>
+        <span className={styles.powerBadgeAtk}>{power.attack}</span>
+        <span className={styles.powerBadgeDef}>{power.defense}</span>
+      </div>
+    );
+  };
+
   const renderCell = (row: number, col: number) => {
     const cell = game.realm[row][col];
     const sq = { row, col };
@@ -360,6 +374,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                   ) : (
                     <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
                   )}
+                  {renderUnitPower(inst)}
                 </div>
               );
             })}
@@ -445,6 +460,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
                 ) : (
                   <span className={styles.tokenName}>{inst.card.name.substring(0, 5)}</span>
                 )}
+                {renderUnitPower(inst)}
                 {inst.carriedArtifacts.length > 0 && (
                   <div className={styles.carriedArtifactsRow}>
                     {inst.carriedArtifacts.map(artId => {

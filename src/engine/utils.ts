@@ -104,34 +104,64 @@ export function getInstancesOnSquare(state: GameState, sq: Square): CardInstance
 }
 
 // ─── Power helpers ────────────────────────────────────────────────────────────
-export function getAttackPower(inst: CardInstance): number {
-  const card = inst.card;
-  if (card.type === 'minion') {
-    const p = (card as MinionCard).power;
-    return typeof p === 'number' ? p : p.attack;
-  }
-  if (card.type === 'avatar') return card.attackPower;
-  if (card.type === 'artifact') {
-    const p = (card as ArtifactCard).power;
-    if (!p) return 0;
-    return typeof p === 'number' ? p : p.attack;
-  }
-  return 0;
+interface ArtifactPowerBonus {
+  attack: number;
+  defense: number;
 }
 
-export function getDefensePower(inst: CardInstance): number {
+function getArtifactPowerBonus(inst: CardInstance, state?: GameState): ArtifactPowerBonus {
+  if (!state) return { attack: 0, defense: 0 };
+  let attack = 0;
+  let defense = 0;
+  for (const artId of inst.carriedArtifacts) {
+    const artInst = state.instances[artId];
+    if (!artInst || artInst.card.type !== 'artifact' || artInst.carriedBy !== inst.instanceId) continue;
+    if (artInst.tokens.includes('lance_token')) {
+      // Lance token grants +1 power while carried, then breaks on first strike.
+      attack += 1;
+      defense += 1;
+      continue;
+    }
+    const power = (artInst.card as ArtifactCard).power;
+    if (!power) continue;
+    if (typeof power === 'number') {
+      attack += power;
+      defense += power;
+    } else {
+      attack += power.attack;
+      defense += power.defense;
+    }
+  }
+  return { attack, defense };
+}
+
+export function getComputedPower(inst: CardInstance, state?: GameState): { attack: number; defense: number } {
   const card = inst.card;
   if (card.type === 'minion') {
     const p = (card as MinionCard).power;
-    return typeof p === 'number' ? p : p.defense;
+    const baseAttack = typeof p === 'number' ? p : p.attack;
+    const baseDefense = typeof p === 'number' ? p : p.defense;
+    const bonus = getArtifactPowerBonus(inst, state);
+    return { attack: baseAttack + bonus.attack, defense: baseDefense + bonus.defense };
   }
-  if (card.type === 'avatar') return card.attackPower;
+  if (card.type === 'avatar') {
+    return { attack: card.attackPower, defense: card.attackPower };
+  }
   if (card.type === 'artifact') {
     const p = (card as ArtifactCard).power;
-    if (!p) return 0;
-    return typeof p === 'number' ? p : p.defense;
+    if (!p) return { attack: 0, defense: 0 };
+    if (typeof p === 'number') return { attack: p, defense: p };
+    return { attack: p.attack, defense: p.defense };
   }
-  return 0;
+  return { attack: 0, defense: 0 };
+}
+
+export function getAttackPower(inst: CardInstance, state?: GameState): number {
+  return getComputedPower(inst, state).attack;
+}
+
+export function getDefensePower(inst: CardInstance, state?: GameState): number {
+  return getComputedPower(inst, state).defense;
 }
 
 export function getMaxPower(p: Power): number {

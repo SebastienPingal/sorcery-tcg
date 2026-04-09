@@ -26,8 +26,8 @@ export function computeStats(instanceId: string, state: GameState): UnitStats {
   }
 
   return {
-    attackPower: getAttackPower(inst),
-    defensePower: getDefensePower(inst),
+    attackPower: getAttackPower(inst, state),
+    defensePower: getDefensePower(inst, state),
     movement: getMovementRange(inst),
     keywords: [...keywordSet],
   };

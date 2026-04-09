@@ -331,6 +331,50 @@
   display: block;
 }
 
+.powerBadgeSingle {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 11;
+  font-size: 8px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(14, 18, 28, 0.84);
+  border: 1px solid rgba(122, 170, 230, 0.7);
+  border-radius: 3px;
+  padding: 1px 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.72);
+}
+
+.powerBadgeSplit {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 11;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.powerBadgeAtk,
+.powerBadgeDef {
+  font-size: 8px;
+  font-weight: 700;
+  color: #fff;
+  padding: 1px 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.72);
+}
+
+.powerBadgeAtk {
+  background: rgba(150, 48, 48, 0.92);
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+.powerBadgeDef {
+  background: rgba(44, 95, 158, 0.92);
+}
+
 .surfaceToken    { z-index: 6; }
 .undergroundToken {
   z-index: 2;

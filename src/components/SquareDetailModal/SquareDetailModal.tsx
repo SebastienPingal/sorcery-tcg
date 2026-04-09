@@ -1,20 +1,21 @@
 import React from 'react';
-import type { GameState, CardInstance, MinionCard } from '../../types';
+import type { GameState, CardInstance } from '../../types';
 import { useGameStore } from '../../store/gameStore';
+import { getComputedPower } from '../../engine/utils';
 import styles from './SquareDetailModal.module.css';
 
 interface SquareDetailModalProps {
   game: GameState;
 }
 
-function CardLarge({ inst, isSite }: { inst: CardInstance; isSite?: boolean }) {
+function CardLarge({ game, inst, isSite }: { game: GameState; inst: CardInstance; isSite?: boolean }) {
   const { showCardDetail } = useGameStore();
   const hasWard = inst.tokens.includes('ward');
   const hasStealth = inst.tokens.includes('stealth');
   const powerInfo = (() => {
     if (inst.card.type !== 'minion') return null;
-    const power = (inst.card as MinionCard).power;
-    if (typeof power === 'number') return { type: 'single' as const, value: power };
+    const power = getComputedPower(inst, game);
+    if (power.attack === power.defense) return { type: 'single' as const, value: power.attack };
     return { type: 'split' as const, attack: power.attack, defense: power.defense };
   })();
 
@@ -86,7 +87,7 @@ export const SquareDetailModal: React.FC<SquareDetailModalProps> = ({ game }) =>
         <div className={styles.cards}>
           {/* Site */}
           {siteInst && !siteInst.isRubble && (
-            <CardLarge inst={siteInst} isSite />
+            <CardLarge game={game} inst={siteInst} isSite />
           )}
           {siteInst?.isRubble && (
             <div className={styles.rubbleCard}>
@@ -97,12 +98,12 @@ export const SquareDetailModal: React.FC<SquareDetailModalProps> = ({ game }) =>
 
           {/* Surface units */}
           {surfaceUnits.map(inst => (
-            <CardLarge key={inst.instanceId} inst={inst} />
+            <CardLarge key={inst.instanceId} game={game} inst={inst} />
           ))}
 
           {/* Underground units */}
           {undergroundUnits.map(inst => (
-            <CardLarge key={inst.instanceId} inst={inst} />
+            <CardLarge key={inst.instanceId} game={game} inst={inst} />
           ))}
 
           {total === 0 && (

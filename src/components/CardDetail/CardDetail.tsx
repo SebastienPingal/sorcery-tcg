@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { GameState, MinionCard, SiteCard, AvatarCard } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { ELEMENT_SYMBOLS } from '../../utils/elementSymbols';
+import { getComputedPower } from '../../engine/utils';
 import styles from './CardDetail.module.css';
 
 interface CardDetailProps {
@@ -110,8 +111,10 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
 
           {/* Power */}
           {card.type === 'minion' && (() => {
-            const p = (card as MinionCard).power;
-            const val = typeof p === 'number' ? `${p}` : `${p.attack} / ${p.defense}`;
+            const totalPower = getComputedPower(inst, game);
+            const val = totalPower.attack === totalPower.defense
+              ? `${totalPower.attack}`
+              : `${totalPower.attack} / ${totalPower.defense}`;
             return (
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>Power</span>

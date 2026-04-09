@@ -351,7 +351,7 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
   if (!sameSquare && !canRangedStrike) return "Target must be at attacker's location";
 
   const attackerHasLance = hasStatusToken(attacker, 'lance');
-  const attackerStrikePower = getAttackPower(attacker) + (attackerHasLance ? 1 : 0);
+  const attackerStrikePower = getAttackPower(attacker, state);
 
   if (target.card.type === 'site') {
     const targetPlayerId = target.controllerId;
@@ -375,7 +375,7 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
   }
 
   const defenderHasLance = hasStatusToken(target, 'lance');
-  const defenderStrikePower = getAttackPower(target) + (defenderHasLance ? 1 : 0);
+  const defenderStrikePower = getAttackPower(target, state);
   const attackerStrikesFirst = attackerHasLance;
   const defenderStrikesFirst = defenderHasLance;
 
