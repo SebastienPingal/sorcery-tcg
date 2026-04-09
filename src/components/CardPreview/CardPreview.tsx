@@ -25,6 +25,7 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ game }) => {
   }
 
   const { card, tapped, damage, summoningSickness } = inst;
+  const hasWard = inst.tokens.includes('ward');
   const hasStealth = inst.tokens.includes('stealth');
   const isSite = card.type === 'site';
 
@@ -129,10 +130,11 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ game }) => {
           )}
         </div>
 
-        {(tapped || summoningSickness || hasStealth) && (
+        {(tapped || summoningSickness || hasWard || hasStealth) && (
           <div className={styles.tags}>
             {tapped && <span className={styles.tagTapped}>Tapped</span>}
             {summoningSickness && <span className={styles.tagSick}>Summoning Sickness</span>}
+            {hasWard && <span className={styles.tagWard}>Ward</span>}
             {hasStealth && <span className={styles.tagStealth}>Stealth</span>}
           </div>
         )}
