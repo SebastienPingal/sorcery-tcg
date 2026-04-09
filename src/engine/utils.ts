@@ -267,7 +267,7 @@ export function reachableSquares(
     const candidates = movementStepCandidates(inst, location.square);
     for (const sq of candidates) {
       const step = resolveMovementStep(state, inst, location, sq);
-      if (step.error) continue;
+      if (!('location' in step)) continue;
       frontier.push({ location: step.location, steps: steps + 1 });
     }
   }

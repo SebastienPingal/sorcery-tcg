@@ -301,7 +301,7 @@ function moveAndAttack(state: GameState, unitInstanceId: string, path: Square[],
     let current = startLocation;
     for (const stepSquare of path) {
       const step = resolveMovementStep(state, inst, current, stepSquare);
-      if (step.error) return step.error;
+      if (!('location' in step)) return step.error;
       current = step.location;
     }
 

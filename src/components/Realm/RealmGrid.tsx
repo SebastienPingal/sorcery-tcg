@@ -124,7 +124,7 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     const current = inst.location;
     if (current.square.row !== square.row || current.square.col !== square.col) return null;
     const step = resolveMovementStep(game, inst, current, square);
-    if (step.error) return null;
+    if (!('location' in step)) return null;
     if (step.location.region === current.region) return null;
     return [square];
   };

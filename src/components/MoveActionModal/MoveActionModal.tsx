@@ -125,7 +125,7 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
   const movementRange = getMovementRange(unit);
   for (const stepSquare of path) {
     const step = resolveMovementStep(game, unit, currentLocation, stepSquare);
-    if (step.error) {
+    if (!('location' in step)) {
       basePathError = step.error;
       break;
     }
@@ -135,7 +135,7 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
   const regionPathOptions: Array<{ path: typeof path; label: string }> = [];
   if (!basePathError && unit.location) {
     const regionStep = resolveMovementStep(game, unit, currentLocation, destSquare);
-    if (!regionStep.error && regionStep.location.region !== currentLocation.region) {
+    if ('location' in regionStep && regionStep.location.region !== currentLocation.region) {
       const regionPath = [...path, destSquare];
       if (regionPath.length > movementRange) {
         // Region toggle costs a step; hide invalid option when unit lacks movement.
@@ -225,7 +225,7 @@ export const MoveActionModal: React.FC<MoveActionModalProps> = ({ game, humanPla
 
         <div className={styles.bottomActions}>
           {canMove && !basePathError && (
-            <button className={styles.moveBtn} onClick={doMove}>
+            <button className={styles.moveBtn} onClick={() => doMove()}>
               → Se déplacer seulement
             </button>
           )}
