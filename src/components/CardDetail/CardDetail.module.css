@@ -87,8 +87,9 @@
 .cardImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
+  background: #080808;
   display: block;
 }
 
@@ -103,8 +104,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(90deg);
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
+  background: #080808;
 }
 
 .imageFallback {
@@ -240,6 +242,78 @@
   margin: 6px 0 0;
   padding-top: 8px;
   border-top: 1px solid #1e1e1e;
+}
+
+.boundSection {
+  border-top: 1px solid #1e1e1e;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.boundLabel {
+  font-size: 10px;
+  color: #9a9a9a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.boundList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.boundCard {
+  width: 86px;
+  height: 126px;
+  padding: 0;
+  overflow: hidden;
+  background: #0f0f0f;
+  border: 1px solid rgba(200, 184, 150, 0.28);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s;
+  display: flex;
+  flex-direction: column;
+}
+
+.boundCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(200, 184, 150, 0.45);
+}
+
+.boundCardImg {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  background: #0b0b0b;
+  display: block;
+}
+
+.boundCardFallback {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b8b8b8;
+  font-size: 9px;
+  padding: 4px;
+  text-align: center;
+}
+
+.boundRole {
+  display: block;
+  font-size: 8px;
+  color: #d2c39f;
+  background: rgba(0, 0, 0, 0.55);
+  border-top: 1px solid rgba(200, 184, 150, 0.3);
+  padding: 2px 4px;
+  text-align: center;
 }
 
 /* ── Element symbols ─────────────────────────────────────── */

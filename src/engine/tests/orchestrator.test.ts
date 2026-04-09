@@ -563,6 +563,40 @@ describe('engine orchestrator', () => {
     expect(game.instances[lancer.instanceId].tokens).not.toContain('lance');
   });
 
+  it('summons lance minions carrying a lance artifact token', () => {
+    const game = createGame();
+    const pid: PlayerId = game.activePlayerId;
+    const player = game.players[pid];
+    player.manaPool = 99;
+    player.manaUsed = 0;
+    player.elementalAffinity = { air: 99, earth: 99, fire: 99, water: 99 };
+
+    const targetSquare = { row: 2, col: 2 };
+    placeSite(game, targetSquare, pid, { isWaterSite: false });
+    const minionId = Object.values(game.instances).find(
+      (inst) => inst.ownerId === pid && inst.card.type === 'minion' && !inst.location,
+    )?.instanceId;
+    if (!minionId) throw new Error('No minion instance available');
+    if (!player.hand.includes(minionId)) player.hand.push(minionId);
+    const minionInst = game.instances[minionId];
+    if (minionInst.card.type !== 'minion') throw new Error('Expected minion');
+    minionInst.card = { ...minionInst.card, keywords: ['lance'] };
+
+    const err = dispatchPlayerAction(game, {
+      type: 'CAST_SPELL',
+      casterId: player.avatarInstanceId,
+      cardInstanceId: minionId,
+      targetSquare,
+    });
+    expect(err).toBeNull();
+    const summoned = game.instances[minionId];
+    expect(summoned.carriedArtifacts.length).toBeGreaterThan(0);
+    const lanceTokenId = summoned.carriedArtifacts[0];
+    const lanceToken = game.instances[lanceTokenId];
+    expect(lanceToken.card.id).toBe('lance');
+    expect(lanceToken.carriedBy).toBe(minionId);
+  });
+
   it('rejects attacking a target in a different region', () => {
     const game = createGame();
     const attackerId: PlayerId = 'player1';

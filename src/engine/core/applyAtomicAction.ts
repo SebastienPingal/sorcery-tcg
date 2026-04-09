@@ -1,6 +1,6 @@
 import type { GameState } from './gameState';
 import type { MutationAction } from './atomicActions';
-import type { CardInstance, MagicCard, MinionCard, PlayerId, Region, Square } from '../../types';
+import type { ArtifactCard, CardInstance, MagicCard, MinionCard, PlayerId, Region, Square } from '../../types';
 import {
   computeAffinity,
   computeMana,
@@ -14,8 +14,10 @@ import {
   resolveMovementStep,
   squareDistance,
   squareEq,
+  uid,
   validSitePlacements,
 } from '../utils';
+import { CARD_REGISTRY } from '../../data/cards';
 
 function drawCards(state: GameState, playerId: PlayerId, count: number, from: 'atlas' | 'spellbook'): void {
   const player = state.players[playerId];
@@ -61,14 +63,56 @@ function consumeStealthOnInteract(inst: CardInstance): void {
   removeStatusToken(inst, 'stealth');
 }
 
-function consumeLanceOnStrike(inst: CardInstance): void {
+function consumeLanceOnStrike(state: GameState, inst: CardInstance): void {
   removeStatusToken(inst, 'lance');
+  const lanceTokenArtifactId = inst.carriedArtifacts.find((artId) =>
+    state.instances[artId]?.tokens.includes('lance_token')
+  );
+  if (!lanceTokenArtifactId) return;
+  inst.carriedArtifacts = inst.carriedArtifacts.filter((id) => id !== lanceTokenArtifactId);
+  const lanceTokenInst = state.instances[lanceTokenArtifactId];
+  if (!lanceTokenInst) return;
+  lanceTokenInst.carriedBy = null;
+  sendToCemetery(state, lanceTokenArtifactId, lanceTokenInst.ownerId);
 }
 
 function breakWardShield(inst: CardInstance): boolean {
   if (!hasStatusToken(inst, 'ward')) return false;
   removeStatusToken(inst, 'ward');
   return true;
+}
+
+function attachLanceTokenIfNeeded(state: GameState, unitInst: CardInstance): void {
+  if (!hasKeyword(unitInst, 'lance')) return;
+  const hasLanceTokenAlready = unitInst.carriedArtifacts.some((artId) =>
+    state.instances[artId]?.tokens.includes('lance_token')
+  );
+  if (hasLanceTokenAlready) return;
+
+  const lanceCard = CARD_REGISTRY.lance;
+  if (!lanceCard || lanceCard.type !== 'artifact') return;
+
+  const lanceTokenInstanceId = `${uid()}-lance-token`;
+  const lanceTokenInst: CardInstance = {
+    instanceId: lanceTokenInstanceId,
+    cardId: lanceCard.id,
+    card: lanceCard as ArtifactCard,
+    ownerId: unitInst.ownerId,
+    controllerId: unitInst.controllerId,
+    location: unitInst.location,
+    tapped: false,
+    damage: 0,
+    summoningSickness: false,
+    carriedArtifacts: [],
+    carriedBy: unitInst.instanceId,
+    isRubble: false,
+    tokens: ['lance_token'],
+    temporaryAbilities: [],
+    counters: {},
+  };
+
+  state.instances[lanceTokenInstanceId] = lanceTokenInst;
+  unitInst.carriedArtifacts.push(lanceTokenInstanceId);
 }
 
 function checkDeathsDoor(state: GameState, playerId: PlayerId): void {
@@ -198,6 +242,7 @@ function castSpell(
       cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
       cardInst.tapped = false;
       applyKeywordStatusTokens(cardInst);
+      attachLanceTokenIfNeeded(state, cardInst);
       cell.unitInstanceIds.push(cardInst.instanceId);
       return null;
     }
@@ -220,6 +265,7 @@ function castSpell(
     cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
     cardInst.tapped = false;
     applyKeywordStatusTokens(cardInst);
+    attachLanceTokenIfNeeded(state, cardInst);
     if (placementRegion === 'underground' || placementRegion === 'underwater') {
       cell.subsurfaceUnitIds.push(cardInst.instanceId);
     } else {
@@ -313,7 +359,7 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
     // Site hits are life loss, not avatar damage: they never deliver a death blow.
     // While at Death's Door, life cannot change (no gain/loss through life effects).
     consumeStealthOnInteract(attacker);
-    if (attackerHasLance) consumeLanceOnStrike(attacker);
+    if (attackerHasLance) consumeLanceOnStrike(state, attacker);
     if (defender.isAtDeathsDoor) return null;
     defender.life -= attackerStrikePower;
     checkDeathsDoor(state, targetPlayerId);
@@ -324,7 +370,7 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
     consumeStealthOnInteract(attacker);
     const rangedErr = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
     if (rangedErr) return rangedErr;
-    if (attackerHasLance) consumeLanceOnStrike(attacker);
+    if (attackerHasLance) consumeLanceOnStrike(state, attacker);
     return null;
   }
 
@@ -336,13 +382,13 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
   const attackerStrike = (): string | null => {
     consumeStealthOnInteract(attacker);
     const err = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
-    if (attackerHasLance) consumeLanceOnStrike(attacker);
+    if (attackerHasLance) consumeLanceOnStrike(state, attacker);
     return err;
   };
   const defenderStrike = (): string | null => {
     consumeStealthOnInteract(target);
     const err = dealDamage(state, attacker.instanceId, defenderStrikePower, target.instanceId);
-    if (defenderHasLance) consumeLanceOnStrike(target);
+    if (defenderHasLance) consumeLanceOnStrike(state, target);
     return err;
   };
 

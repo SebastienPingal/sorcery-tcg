@@ -18,6 +18,10 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
   const { card, tapped, damage, summoningSickness } = inst;
   const hasWard = inst.tokens.includes('ward');
   const hasStealth = inst.tokens.includes('stealth');
+  const boundArtifacts = inst.carriedArtifacts
+    .map((id) => game.instances[id])
+    .filter(Boolean) as typeof inst[];
+  const boundBearer = inst.carriedBy ? game.instances[inst.carriedBy] : null;
 
   const isSite = card.type === 'site';
 
@@ -140,6 +144,53 @@ export const CardDetail: React.FC<CardDetailProps> = ({ game }) => {
               <p className={styles.flavorText}>"{card.flavorText}"</p>
             )}
           </div>
+
+          {(boundArtifacts.length > 0 || boundBearer) && (
+            <div className={styles.boundSection}>
+              <div className={styles.boundLabel}>Bound Cards</div>
+              <div className={styles.boundList}>
+                {boundBearer && (
+                  <button
+                    className={styles.boundCard}
+                    onClick={() => showCardDetail(boundBearer.instanceId)}
+                    title="Show bearer details"
+                  >
+                    {boundBearer.card.image ? (
+                      <img
+                        src={boundBearer.card.image}
+                        alt={boundBearer.card.name}
+                        className={styles.boundCardImg}
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      />
+                    ) : (
+                      <div className={styles.boundCardFallback}>{boundBearer.card.name}</div>
+                    )}
+                    <span className={styles.boundRole}>Carried by</span>
+                  </button>
+                )}
+                {boundArtifacts.map((art) => (
+                  <button
+                    key={art.instanceId}
+                    className={styles.boundCard}
+                    onClick={() => showCardDetail(art.instanceId)}
+                    title="Show bound card details"
+                  >
+                    {art.card.image ? (
+                      <img
+                        src={art.card.image}
+                        alt={art.card.name}
+                        className={styles.boundCardImg}
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      />
+                    ) : (
+                      <div className={styles.boundCardFallback}>{art.card.name}</div>
+                    )}
+                    <span className={styles.boundRole}>Attached</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {(tapped || summoningSickness || hasWard || hasStealth) && (
             <div className={styles.tags}>
