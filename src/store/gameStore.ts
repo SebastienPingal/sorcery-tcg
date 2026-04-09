@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 import type { GameState, PlayerId, Square } from '../types';
 import {
-  initGame, startGame, doMulligan, castSpell,
-  activateAvatarAbility, moveAndAttack, advancePhase, chooseDrawSource,
+  initGame, startGame,
   type GameSetupConfig,
 } from '../engine/gameEngine';
+import { dispatchPlayerAction } from '../engine/orchestrator';
 import {
   buildFireAtlas, buildFireSpellbook,
   buildWaterAtlas, buildWaterSpellbook,
@@ -112,7 +112,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    doMulligan(newGame, playerId, returnIds);
+    const err = dispatchPlayerAction(newGame, { type: 'MULLIGAN', playerId, returnIds });
+    if (err) {
+      set({ actionError: err });
+      return;
+    }
     const currentMulliganPlayer = playerId;
     if (currentMulliganPlayer === newGame.activePlayerId) {
       // First player done → set up second player's mulligan
@@ -149,7 +153,31 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = activateAvatarAbility(newGame, playerId, abilityId, square, siteId);
+    const avatarId = newGame.players[playerId].avatarInstanceId;
+    const avatar = newGame.instances[avatarId];
+    if (avatar.tapped) {
+      set({ actionError: 'Avatar is already tapped' });
+      return;
+    }
+    let err = dispatchPlayerAction(newGame, {
+      type: 'ACTIVATE_ABILITY',
+      playerId,
+      abilityId,
+      targetSquare: square,
+      siteInstanceId: siteId,
+    });
+    if (err && err === 'Ability not found') {
+      // Fallback path only for ability-id desync; never bypass tap/cost checks.
+      err = dispatchPlayerAction(newGame, {
+        type: 'PLAY_SITE',
+        playerId,
+        siteInstanceId: siteId,
+        targetSquare: square,
+      });
+      if (!err) {
+        newGame.instances[avatarId].tapped = true;
+      }
+    }
     if (err) {
       set({ actionError: err });
     } else {
@@ -162,8 +190,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    // Call with no targetSquare/siteId → engine draws a site
-    const err = activateAvatarAbility(newGame, playerId, abilityId);
+    const err = dispatchPlayerAction(newGame, { type: 'ACTIVATE_ABILITY', playerId, abilityId });
     if (err) {
       set({ actionError: err });
     } else {
@@ -175,7 +202,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = castSpell(newGame, casterId, cardId, targetSquare, targetId);
+    const err = dispatchPlayerAction(newGame, {
+      type: 'CAST_SPELL',
+      casterId,
+      cardInstanceId: cardId,
+      targetSquare,
+      targetInstanceId: targetId,
+    });
     if (err) {
       set({ actionError: err });
     } else {
@@ -187,7 +220,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = activateAvatarAbility(newGame, playerId, abilityId, targetSquare, siteId);
+    const err = dispatchPlayerAction(newGame, {
+      type: 'ACTIVATE_ABILITY',
+      playerId,
+      abilityId,
+      targetSquare,
+      siteInstanceId: siteId,
+    });
     if (err) {
       set({ actionError: err });
     } else {
@@ -202,7 +241,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = moveAndAttack(newGame, unitId, path, attackTargetId);
+    const err = dispatchPlayerAction(newGame, { type: 'MOVE_AND_ATTACK', unitId, path, attackTargetId });
     if (err) {
       set({ actionError: err });
     } else {
@@ -214,7 +253,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    const err = chooseDrawSource(newGame, playerId, source);
+    const err = dispatchPlayerAction(newGame, { type: 'CHOOSE_DRAW', playerId, source });
     if (err) set({ actionError: err });
     else set({ game: newGame, actionError: null });
   },
@@ -223,13 +262,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const { game } = get();
     if (!game) return;
     const newGame = structuredClone(game);
-    advancePhase(newGame);
+    dispatchPlayerAction(newGame, { type: 'END_TURN' });
     // If the next player has a draw choice pending, stay in start phase — don't skip ahead
     if (newGame.pendingInteraction?.type === 'choose_draw') {
       set({ game: newGame, actionError: null, selectedInstanceId: null });
     } else if (newGame.phase !== 'main') {
-      // Rare: advance once more to reach main phase
-      advancePhase(newGame);
+      dispatchPlayerAction(newGame, { type: 'END_TURN' });
       set({ game: newGame, actionError: null, selectedInstanceId: null });
     } else {
       set({ game: newGame, actionError: null, selectedInstanceId: null });

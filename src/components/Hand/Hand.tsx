@@ -2,7 +2,8 @@ import React from 'react';
 import type { GameState, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { CardView } from '../Card/CardView';
-import { getManaAvailable, meetsThreshold, computeAffinity } from '../../engine/utils';
+import { meetsThreshold } from '../../engine/utils';
+import { selectAffinity, selectManaAvailable, selectValidSitePlacements } from '../../engine/selectors';
 import styles from './Hand.module.css';
 
 interface HandProps {
@@ -15,6 +16,7 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
   const {
     selectedInstanceId, selectInstance,
     pendingAvatarAbility, setPendingAvatarAbility,
+    playSiteViaAbility,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
@@ -39,8 +41,8 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     );
   }
 
-  const affinity = computeAffinity(game, playerId);
-  const manaAvail = getManaAvailable(player);
+  const affinity = selectAffinity(game, playerId);
+  const manaAvail = selectManaAvailable(player);
 
   // A card is "actionable" (can be clicked to select for playing) based on context:
   // - Sites: ONLY when pendingAvatarAbility is set (must go through avatar ability)
@@ -51,11 +53,11 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     const card = inst.card;
 
     if (card.type === 'site') {
-      if (pendingAvatarAbility !== null) return true;
-      // Also actionable if avatar has the ability and is untapped
       const player = game.players[playerId];
       const avatarInst = game.instances[player.avatarInstanceId];
       if (avatarInst.tapped) return false;
+      if (pendingAvatarAbility !== null) return true;
+      // Also actionable if avatar has the ability and is untapped
       return !!(avatarInst.card as any).abilities?.some(
         (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
       );
@@ -98,22 +100,25 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
     // Sites: select and auto-activate the avatar's play-site ability if available
     if (inst.card.type === 'site') {
-      if (pendingAvatarAbility) {
-        selectInstance(instanceId === selectedInstanceId ? null : instanceId);
-      } else {
-        // Auto-find and trigger the avatar's play-or-draw-site ability
-        const player = game.players[playerId];
-        const avatarInst = game.instances[player.avatarInstanceId];
-        if (!avatarInst.tapped) {
-          const ab = (avatarInst.card as any).abilities?.find(
-            (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play')
-          );
-          if (ab) {
-            setPendingAvatarAbility(ab.id);
-            selectInstance(instanceId);
-          }
-        }
+      const player = game.players[playerId];
+      const avatarInst = game.instances[player.avatarInstanceId];
+      const fallbackAbilityId =
+        !avatarInst.tapped
+          ? (avatarInst.card as any).abilities?.find(
+              (a: any) => a.id?.includes('play_site') || a.id?.includes('flamecaller_play') || a.id?.includes('sparkmage_play'),
+            )?.id ?? null
+          : null;
+      const activeAbilityId = pendingAvatarAbility ?? fallbackAbilityId ?? 'auto_play_site';
+      if (avatarInst.tapped) return;
+
+      const placements = selectValidSitePlacements(game, playerId);
+      if (placements.length === 1) {
+        playSiteViaAbility(playerId, activeAbilityId, instanceId, placements[0]);
+        return;
       }
+
+      if (!pendingAvatarAbility) setPendingAvatarAbility(activeAbilityId);
+      selectInstance(instanceId);
       return;
     }
 
