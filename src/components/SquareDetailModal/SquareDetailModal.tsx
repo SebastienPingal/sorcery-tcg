@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GameState, CardInstance } from '../../types';
+import type { GameState, CardInstance, MinionCard } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import styles from './SquareDetailModal.module.css';
 
@@ -9,12 +9,32 @@ interface SquareDetailModalProps {
 
 function CardLarge({ inst, isSite }: { inst: CardInstance; isSite?: boolean }) {
   const { showCardDetail } = useGameStore();
+  const hasWard = inst.tokens.includes('ward');
+  const hasStealth = inst.tokens.includes('stealth');
+  const powerInfo = (() => {
+    if (inst.card.type !== 'minion') return null;
+    const power = (inst.card as MinionCard).power;
+    if (typeof power === 'number') return { type: 'single' as const, value: power };
+    return { type: 'split' as const, attack: power.attack, defense: power.defense };
+  })();
+
   return (
     <div
       className={`${styles.cardLarge} ${isSite ? styles.cardLargeSite : ''}`}
       onClick={() => showCardDetail(inst.instanceId)}
       title={`${inst.card.name} — cliquer pour détails`}
     >
+      {powerInfo?.type === 'single' && (
+        <div className={styles.powerBadge} title="Current power">
+          {powerInfo.value}
+        </div>
+      )}
+      {powerInfo?.type === 'split' && (
+        <div className={styles.powerBadgeSplit} title="Current attack / defense">
+          <span className={styles.powerBadgeAttack}>{powerInfo.attack}</span>
+          <span className={styles.powerBadgeDefense}>{powerInfo.defense}</span>
+        </div>
+      )}
       {inst.card.image ? (
         <img
           src={inst.card.image}
@@ -29,6 +49,8 @@ function CardLarge({ inst, isSite }: { inst: CardInstance; isSite?: boolean }) {
         <span className={styles.cardLargeName}>{inst.card.name}</span>
         {inst.tapped && <span className={styles.cardTag}>Tapped</span>}
         {inst.summoningSickness && <span className={styles.cardTag}>Sick</span>}
+        {hasWard && <span className={styles.cardTagWard}>Ward</span>}
+        {hasStealth && <span className={styles.cardTagStealth}>Stealth</span>}
         {inst.damage > 0 && <span className={styles.cardTagDmg}>-{inst.damage} dmg</span>}
         {inst.carriedArtifacts.length > 0 && (
           <span className={styles.cardTag}>+{inst.carriedArtifacts.length} artifact(s)</span>

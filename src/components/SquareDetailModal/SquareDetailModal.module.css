@@ -96,6 +96,50 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
+.powerBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(14, 18, 28, 0.85);
+  border: 1px solid rgba(122, 170, 230, 0.7);
+  border-radius: 3px;
+  padding: 1px 5px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.75);
+}
+
+.powerBadgeSplit {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.75);
+}
+
+.powerBadgeAttack,
+.powerBadgeDefense {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  padding: 1px 5px;
+}
+
+.powerBadgeAttack {
+  background: rgba(150, 48, 48, 0.92);
+  border-right: 1px solid rgba(255,255,255,0.24);
+}
+
+.powerBadgeDefense {
+  background: rgba(44, 95, 158, 0.92);
+}
+
 .cardLargeImg {
   width: 100%;
   flex: 1;
@@ -149,6 +193,24 @@
   color: #e06060;
   background: rgba(192, 64, 64, 0.1);
   border: 1px solid rgba(192, 64, 64, 0.2);
+  border-radius: 2px;
+  padding: 1px 3px;
+}
+
+.cardTagWard {
+  font-size: 7px;
+  color: #f4de8f;
+  background: rgba(255, 214, 92, 0.14);
+  border: 1px solid rgba(255, 214, 92, 0.35);
+  border-radius: 2px;
+  padding: 1px 3px;
+}
+
+.cardTagStealth {
+  font-size: 7px;
+  color: #cfb0ff;
+  background: rgba(144, 97, 225, 0.18);
+  border: 1px solid rgba(144, 97, 225, 0.45);
   border-radius: 2px;
   padding: 1px 3px;
 }
