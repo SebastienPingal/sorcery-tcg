@@ -10,6 +10,7 @@ import {
   getManaAvailable,
   getMovementRange,
   hasKeyword,
+  isValidMinionPlacement,
   isWaterLocation,
   meetsThreshold,
   opponent,
@@ -253,6 +254,7 @@ function castSpell(
     if (isVoidDestination) {
       if (!hasKeyword(cardInst, 'voidwalk')) return 'Target square has no site';
       if (targetRegion && targetRegion !== 'void') return 'Invalid region for void summon';
+      if (!isValidMinionPlacement(state, playerId, card, cardInst, targetSquare)) return 'Placement restriction not met';
       cardInst.location = { square: targetSquare, region: 'void' };
       cardInst.summoningSickness = !hasKeyword(cardInst, 'charge');
       cardInst.tapped = false;
@@ -265,6 +267,7 @@ function castSpell(
     const siteInst = occupyingSite;
     if (!siteInst) return 'Target square has no site';
     if (siteInst.controllerId !== playerId) return 'Must place on a site you control';
+    if (!isValidMinionPlacement(state, playerId, card, cardInst, targetSquare)) return 'Placement restriction not met';
     const isWaterSite = siteInst.card.type === 'site' && (siteInst.card.isWaterSite || hasKeyword(siteInst, 'flooded'));
     const placementRegion: Region = targetRegion ?? 'surface';
     if (placementRegion === 'underground') {

@@ -48,19 +48,34 @@ export type KeywordAbility =
   | 'flooded'
   | 'ward';
 
-export type CasterFilter =
-  | { type: 'spellcaster' }
-  | { type: 'has_keyword'; keyword: KeywordAbility }
-  | { type: 'has_subtype'; subtype: string }
-  | { type: 'is_avatar'; value: boolean }
-  | { type: 'in_region'; region: Region }
-  | { type: 'has_token'; token: string }
-  | { type: 'rules_text_matches'; pattern: string };
+// ─── Universal Predicate System ──────────────────────────────────────────────
+// Composable predicates reusable for caster eligibility, placement, targeting, etc.
 
-export interface CasterEligibilityRules {
-  all?: CasterFilter[];
-  any?: CasterFilter[];
-  not?: CasterFilter[];
+// A predicate entry: string shorthand or parameterised call.
+export type PredicateEntry =
+  | string                                                   // e.g. 'on_water_site'
+  | { predicate: string; params: Record<string, unknown> };  // e.g. { predicate: 'column', params: { columns: [0,4] } }
+
+// Composable restriction with recursive nesting via 'group'.
+export type PredicateClause =
+  | PredicateEntry
+  | { group: PredicateRestriction };
+
+export interface PredicateRestriction {
+  all?: PredicateClause[];
+  any?: PredicateClause[];
+  not?: PredicateClause[];
+}
+
+// Context passed to every predicate at evaluation time.
+// Each usage (caster, placement, targeting…) populates the relevant fields.
+export interface PredicateContext {
+  state: GameState;
+  playerId: PlayerId;
+  square?: Square;         // placement, square targeting
+  instance?: CardInstance;  // caster eligibility, the "subject" (e.g. who is casting)
+  card?: Card;             // the card being cast / evaluated
+  target?: CardInstance;   // spell/ability targeting: the card being targeted
 }
 
 export interface MovementBonus {
@@ -116,7 +131,7 @@ export interface BaseCard {
   casterChoicePolicy?: 'auto' | 'require_choice' | 'custom';
   // Preferred modular eligibility model.
   // If omitted, runtime falls back to the default spellcaster rule.
-  casterEligibility?: CasterEligibilityRules;
+  casterEligibility?: PredicateRestriction;
 }
 
 // ─── Avatar ───────────────────────────────────────────────────────────────────
@@ -144,6 +159,7 @@ export interface MinionCard extends BaseCard {
   subtypes: string[];
   keywords: KeywordAbility[];
   abilities: Ability[];
+  placementRestriction?: PredicateRestriction;
 }
 
 // ─── Artifact ─────────────────────────────────────────────────────────────────

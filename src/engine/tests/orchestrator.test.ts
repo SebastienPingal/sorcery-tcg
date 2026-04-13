@@ -702,7 +702,7 @@ describe('engine orchestrator', () => {
     if (spellInst.card.type !== 'magic') throw new Error('Expected magic');
     spellInst.card = {
       ...spellInst.card,
-      casterEligibility: { all: [{ type: 'spellcaster' }] },
+      casterEligibility: { all: ['spellcaster'] },
     };
 
     const enemyAvatarId = game.players[pid === 'player1' ? 'player2' : 'player1'].avatarInstanceId;
@@ -773,7 +773,7 @@ describe('engine orchestrator', () => {
       ...spellInst.card,
       threshold: { water: 1 },
       rulesText: 'A pure elemental spell.',
-      casterEligibility: { all: [{ type: 'spellcaster' }] },
+      casterEligibility: { all: ['spellcaster'] },
     };
 
     const err = dispatchPlayerAction(game, {
@@ -806,7 +806,7 @@ describe('engine orchestrator', () => {
       ...spellInst.card,
       threshold: { water: 1 },
       rulesText: 'A pure elemental spell.',
-      casterEligibility: { all: [{ type: 'spellcaster' }] },
+      casterEligibility: { all: ['spellcaster'] },
     };
 
     const eligible = getEligibleSpellcasters(game, pid, spellInst.card).map((inst) => inst.instanceId);
@@ -842,7 +842,7 @@ describe('engine orchestrator', () => {
       ...spellInst.card,
       threshold: {},
       rulesText: 'Spellcaster-compatible region test spell.',
-      casterEligibility: { all: [{ type: 'spellcaster' }] },
+      casterEligibility: { all: ['spellcaster'] },
     };
 
     const err = dispatchPlayerAction(game, {
@@ -879,7 +879,7 @@ describe('engine orchestrator', () => {
       spellInst.card = {
         ...spellInst.card,
         rulesText: 'A pure spellcaster cast test.',
-        casterEligibility: { all: [{ type: 'spellcaster' }] },
+        casterEligibility: { all: ['spellcaster'] },
       };
     }
 
@@ -932,7 +932,7 @@ describe('engine orchestrator', () => {
       ...spellInst.card,
       threshold: {},
       rulesText: 'May be cast by an allied Mortal.',
-      casterEligibility: { all: [{ type: 'has_subtype', subtype: 'Mortal' }] },
+      casterEligibility: { all: [{ predicate: 'has_subtype', params: { subtype: 'Mortal' } }] },
     };
 
     const enemyAvatarId = game.players[enemyId].avatarInstanceId;
@@ -974,9 +974,9 @@ describe('engine orchestrator', () => {
       threshold: {},
       rulesText: 'Custom eligibility test',
       casterEligibility: {
-        all: [{ type: 'has_subtype', subtype: 'Mortal' }],
-        any: [{ type: 'has_token', token: 'marked' }, { type: 'spellcaster' }],
-        not: [{ type: 'is_avatar', value: true }, { type: 'has_keyword', keyword: 'spellcaster' }],
+        all: [{ predicate: 'has_subtype', params: { subtype: 'Mortal' } }],
+        any: [{ predicate: 'has_token', params: { token: 'marked' } }, 'spellcaster'],
+        not: [{ predicate: 'is_avatar', params: { value: true } }, { predicate: 'has_keyword', params: { keyword: 'spellcaster' } }],
       },
     };
 

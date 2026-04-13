@@ -66,9 +66,9 @@ function inferCasterEligibility(card) {
     : '';
   const text = `${card.rulesText ?? ''}\n${abilityText}`.toLowerCase();
   if (/\bmay be cast by an allied mortal\b/i.test(text)) {
-    return { all: [{ type: 'has_subtype', subtype: 'Mortal' }] };
+    return { all: [{ predicate: 'has_subtype', params: { subtype: 'Mortal' } }] };
   }
-  return { all: [{ type: 'spellcaster' }] };
+  return { all: ['spellcaster'] };
 }
 
 function buildUsableCard(card, overridesById) {

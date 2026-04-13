@@ -1,7 +1,8 @@
 import type {
   Square, CardInstance, GameState, Player, PlayerId,
-  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard, Location, Element, Card, CasterEligibilityRules, CasterFilter,
+  RealmSquare, ElementalThreshold, Power, MinionCard, ArtifactCard, Location, Element, Card, PredicateRestriction, PredicateContext,
 } from '../types';
+import { evaluateRestriction } from './predicates';
 
 // ─── UUID ─────────────────────────────────────────────────────────────────────
 let _counter = 0;
@@ -315,122 +316,19 @@ export function hasKeyword(inst: CardInstance, keyword: string): boolean {
   return false;
 }
 
-interface SpellcasterProfile {
-  allowedElements: Set<Element>;
-  blockedElements: Set<Element>;
-}
+// ─── Predicate-based eligibility & placement ─────────────────────────────────
 
-const ELEMENTS: Element[] = ['air', 'earth', 'fire', 'water'];
+const DEFAULT_CASTER_RESTRICTION: PredicateRestriction = { all: ['spellcaster'] };
 
-function getCardTextForSpellcasterProfile(inst: CardInstance): string {
-  const cardRules = inst.card.rulesText ?? '';
-  const cardAbilities = 'abilities' in inst.card
-    ? inst.card.abilities.map((ability) => ability.description ?? '').join('\n')
-    : '';
-  const temporaryRules = inst.temporaryAbilities.map((ability) => ability.description ?? '').join('\n');
-  return `${cardRules}\n${cardAbilities}\n${temporaryRules}`.toLowerCase();
-}
-
-function getSpellcasterProfile(inst: CardInstance): SpellcasterProfile {
-  const text = getCardTextForSpellcasterProfile(inst);
-  const profile: SpellcasterProfile = {
-    allowedElements: new Set<Element>(),
-    blockedElements: new Set<Element>(),
+export function canCasterCastCard(caster: CardInstance, card: Card, state?: GameState): boolean {
+  const restriction = card.casterEligibility ?? DEFAULT_CASTER_RESTRICTION;
+  const ctx: PredicateContext = {
+    state: state as GameState,
+    playerId: caster.controllerId,
+    instance: caster,
+    card,
   };
-
-  for (const element of ELEMENTS) {
-    const nonPattern = new RegExp(`\\bnon[-\\s]+${element}\\s+spellcaster\\b`, 'i');
-    if (nonPattern.test(text)) profile.blockedElements.add(element);
-  }
-
-  const dualElementMatches = text.matchAll(/\b(air|earth|fire|water)\s+and\s+(air|earth|fire|water)\s+spellcaster\b/g);
-  for (const match of dualElementMatches) {
-    profile.allowedElements.add(match[1] as Element);
-    profile.allowedElements.add(match[2] as Element);
-  }
-
-  const singleElementMatches = text.matchAll(/\b(air|earth|fire|water)\s+spellcaster\b/g);
-  for (const match of singleElementMatches) {
-    const matchedElement = match[1] as Element;
-    const start = match.index ?? 0;
-    const prefix = text.slice(Math.max(0, start - 6), start);
-    if (prefix.endsWith('non-') || prefix.endsWith('non ')) continue;
-    profile.allowedElements.add(matchedElement);
-  }
-
-  return profile;
-}
-
-function getSpellThresholdElements(card: Card): Element[] {
-  if (!('threshold' in card) || !card.threshold) return [];
-  const elements: Element[] = [];
-  for (const element of ELEMENTS) {
-    if ((card.threshold[element] ?? 0) > 0) elements.push(element);
-  }
-  return elements;
-}
-
-function hasSubtype(inst: CardInstance, subtype: string): boolean {
-  if (inst.card.type !== 'minion') return false;
-  const normalized = subtype.toLowerCase();
-  const subtypes = (inst.card as MinionCard).subtypes ?? [];
-  if (subtypes.some((s) => s.toLowerCase() === normalized)) return true;
-  const typeLine = inst.card.typeLine ?? '';
-  return new RegExp(`\\b${normalized}\\b`, 'i').test(typeLine);
-}
-
-function matchesCasterFilter(caster: CardInstance, card: Card, filter: CasterFilter): boolean {
-  switch (filter.type) {
-    case 'spellcaster':
-      return canSpellcasterCastCard(caster, card);
-    case 'has_keyword':
-      return hasKeyword(caster, filter.keyword);
-    case 'has_subtype':
-      return hasSubtype(caster, filter.subtype);
-    case 'is_avatar':
-      return (caster.card.type === 'avatar') === filter.value;
-    case 'in_region':
-      return caster.location?.region === filter.region;
-    case 'has_token':
-      return caster.tokens.includes(filter.token);
-    case 'rules_text_matches': {
-      const text = (caster.card.rulesText ?? '').toLowerCase();
-      return text.includes(filter.pattern.toLowerCase());
-    }
-    default:
-      return false;
-  }
-}
-
-function evaluateCasterEligibilityRules(caster: CardInstance, card: Card, rules: CasterEligibilityRules): boolean {
-  if (rules.all && !rules.all.every((filter) => matchesCasterFilter(caster, card, filter))) return false;
-  if (rules.any && rules.any.length > 0 && !rules.any.some((filter) => matchesCasterFilter(caster, card, filter))) return false;
-  if (rules.not && rules.not.some((filter) => matchesCasterFilter(caster, card, filter))) return false;
-  return true;
-}
-
-function inferCasterEligibilityRules(card: Card): CasterEligibilityRules {
-  if (card.casterEligibility) return card.casterEligibility;
-  return { all: [{ type: 'spellcaster' }] };
-}
-
-export function canSpellcasterCastCard(spellcaster: CardInstance, card: Card): boolean {
-  if (!hasKeyword(spellcaster, 'spellcaster')) return false;
-  const thresholdElements = getSpellThresholdElements(card);
-  if (thresholdElements.length === 0) return true;
-  const profile = getSpellcasterProfile(spellcaster);
-
-  for (const element of thresholdElements) {
-    if (profile.blockedElements.has(element)) return false;
-  }
-
-  if (profile.allowedElements.size === 0) return true;
-  return thresholdElements.every((element) => profile.allowedElements.has(element));
-}
-
-export function canCasterCastCard(caster: CardInstance, card: Card): boolean {
-  const rules = inferCasterEligibilityRules(card);
-  return evaluateCasterEligibilityRules(caster, card, rules);
+  return evaluateRestriction(ctx, restriction);
 }
 
 export function getEligibleSpellcasters(
@@ -438,12 +336,26 @@ export function getEligibleSpellcasters(
   playerId: PlayerId,
   cardToCast: Card,
 ): CardInstance[] {
-  return Object.values(state.instances).filter((inst) => (
-    inst.controllerId === playerId &&
-    !!inst.location &&
-    !hasKeyword(inst, 'disable') &&
-    canCasterCastCard(inst, cardToCast)
-  ));
+  return Object.values(state.instances).filter((inst) => {
+    if (inst.controllerId !== playerId || !inst.location || hasKeyword(inst, 'disable')) return false;
+    const restriction = cardToCast.casterEligibility ?? DEFAULT_CASTER_RESTRICTION;
+    const ctx: PredicateContext = { state, playerId, instance: inst, card: cardToCast };
+    return evaluateRestriction(ctx, restriction);
+  });
+}
+
+export function isValidMinionPlacement(
+  state: GameState,
+  playerId: PlayerId,
+  card: Card,
+  cardInstance: CardInstance,
+  square: Square,
+): boolean {
+  if (card.type !== 'minion') return false;
+  const restriction = (card as MinionCard).placementRestriction;
+  if (!restriction) return true;
+  const ctx: PredicateContext = { state, playerId, square, card, instance: cardInstance };
+  return evaluateRestriction(ctx, restriction);
 }
 
 function movementStepCandidates(inst: CardInstance, fromSquare: Square): Square[] {

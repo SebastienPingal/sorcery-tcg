@@ -23,9 +23,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -46,9 +44,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -76,9 +72,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -102,9 +96,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -125,9 +117,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -148,9 +138,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -176,9 +164,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -199,9 +185,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -222,9 +206,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -245,9 +227,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -269,9 +249,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -292,9 +270,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -320,9 +296,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -348,9 +322,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -376,9 +348,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -404,9 +374,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -429,9 +397,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -456,9 +422,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -479,9 +443,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -506,9 +468,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -529,9 +489,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -558,9 +516,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -579,9 +535,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -606,9 +560,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -632,9 +584,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -657,9 +607,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -682,9 +630,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -710,9 +656,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -740,9 +684,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -765,9 +707,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -794,9 +734,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -815,9 +753,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -836,9 +772,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -865,9 +799,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -893,9 +825,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -919,9 +849,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -948,9 +876,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -973,9 +899,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -997,9 +921,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1024,9 +946,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1048,9 +968,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1074,9 +992,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1097,9 +1013,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1127,9 +1041,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1157,9 +1069,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1187,9 +1097,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1217,9 +1125,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1238,9 +1144,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1261,9 +1165,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1290,9 +1192,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1317,9 +1217,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1344,9 +1242,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1372,9 +1268,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1401,9 +1295,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1427,9 +1319,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1450,9 +1340,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1471,9 +1359,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1494,9 +1380,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1522,9 +1406,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1545,9 +1427,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1568,9 +1448,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1591,9 +1469,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1617,9 +1493,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1643,9 +1517,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1664,9 +1536,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1685,9 +1555,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1706,9 +1574,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1727,9 +1593,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1757,9 +1621,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1784,9 +1646,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1811,9 +1671,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1832,9 +1690,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1855,9 +1711,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1878,9 +1732,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1904,9 +1756,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1927,9 +1777,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1954,9 +1802,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -1983,9 +1829,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2013,9 +1857,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2042,9 +1884,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2066,9 +1906,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2094,9 +1932,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2122,9 +1958,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2147,9 +1981,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2168,9 +2000,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2189,9 +2019,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2212,9 +2040,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2239,9 +2065,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2262,9 +2086,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2285,9 +2107,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2310,9 +2130,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2339,9 +2157,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2363,9 +2179,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2387,9 +2201,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2416,9 +2228,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2445,9 +2255,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2471,9 +2279,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2501,9 +2307,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2524,9 +2328,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2549,9 +2351,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2573,9 +2373,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2602,9 +2400,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2627,9 +2423,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2648,9 +2442,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2673,9 +2465,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2698,9 +2488,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2721,9 +2509,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2745,9 +2531,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2770,9 +2554,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2793,9 +2575,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2817,9 +2597,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2841,9 +2619,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2869,9 +2645,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2892,9 +2666,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2915,9 +2687,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2939,9 +2709,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -2968,9 +2736,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3001,9 +2767,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3029,9 +2793,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3056,9 +2818,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3083,9 +2843,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3106,9 +2864,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3129,9 +2885,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3158,9 +2912,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3184,9 +2936,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3208,9 +2958,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3229,9 +2977,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3252,9 +2998,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3278,9 +3022,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3306,9 +3048,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3333,9 +3073,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3356,9 +3094,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3382,9 +3118,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3403,9 +3137,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3429,9 +3161,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3452,9 +3182,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3482,9 +3210,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3503,9 +3229,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3526,9 +3250,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3553,9 +3275,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3582,9 +3302,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3603,9 +3321,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3633,9 +3349,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3664,9 +3378,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3690,9 +3402,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3713,9 +3423,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3737,9 +3445,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3764,9 +3470,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3789,9 +3493,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3810,9 +3512,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3834,9 +3534,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3859,9 +3557,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3883,8 +3579,10 @@ export const USABLE_CARDS: Card[] = [
     "casterEligibility": {
       "all": [
         {
-          "type": "has_subtype",
-          "subtype": "Mortal"
+          "predicate": "has_subtype",
+          "params": {
+            "subtype": "Mortal"
+          }
         }
       ]
     }
@@ -3907,9 +3605,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3939,9 +3635,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3964,9 +3658,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -3993,9 +3685,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4017,9 +3707,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4040,9 +3728,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4061,9 +3747,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4090,9 +3774,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4116,9 +3798,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4145,9 +3825,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4168,9 +3846,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4192,9 +3868,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4218,9 +3892,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4242,9 +3914,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4265,9 +3935,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4294,9 +3962,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4317,9 +3983,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4346,9 +4010,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4376,9 +4038,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4402,9 +4062,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4425,9 +4083,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4451,9 +4107,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4474,9 +4128,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4499,9 +4151,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4526,9 +4176,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4549,9 +4197,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4578,9 +4224,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4601,9 +4245,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4622,9 +4264,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4643,9 +4283,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4664,9 +4302,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4685,9 +4321,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4713,9 +4347,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4742,9 +4374,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4770,9 +4400,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4793,9 +4421,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4822,9 +4448,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4850,9 +4474,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4877,9 +4499,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4901,9 +4521,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4925,9 +4543,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4948,9 +4564,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4971,9 +4585,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -4997,9 +4609,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5020,9 +4630,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5043,9 +4651,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5072,9 +4678,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5093,9 +4697,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5118,9 +4720,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5142,9 +4742,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5163,9 +4761,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5189,9 +4785,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5215,9 +4809,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5244,9 +4836,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5272,9 +4862,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5297,9 +4885,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5324,9 +4910,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5347,9 +4931,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5374,9 +4956,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5401,9 +4981,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5428,9 +5006,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5451,9 +5027,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5474,9 +5048,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5503,9 +5075,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5524,9 +5094,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5550,9 +5118,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5579,9 +5145,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5606,9 +5170,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5629,9 +5191,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5652,9 +5212,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5675,9 +5233,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5702,9 +5258,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5735,9 +5289,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5762,9 +5314,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5790,9 +5340,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5813,9 +5361,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5836,9 +5382,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5857,9 +5401,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5880,9 +5422,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5908,9 +5448,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5937,9 +5475,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5966,9 +5502,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -5993,9 +5527,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6014,9 +5546,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6039,9 +5569,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6062,9 +5590,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6091,9 +5617,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6114,9 +5638,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6138,9 +5660,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6161,9 +5681,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6190,9 +5708,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6213,9 +5729,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6236,9 +5750,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6259,9 +5771,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6282,9 +5792,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6310,9 +5818,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6333,9 +5839,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6356,9 +5860,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6381,9 +5883,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6404,9 +5904,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6432,9 +5930,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6462,9 +5958,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6486,9 +5980,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6510,9 +6002,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6534,9 +6024,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6557,9 +6045,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6581,9 +6067,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6607,9 +6091,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6630,9 +6112,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6658,9 +6138,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6681,9 +6159,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6702,9 +6178,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6723,9 +6197,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6749,9 +6221,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6774,9 +6244,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6801,9 +6269,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6830,9 +6296,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6853,9 +6317,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6884,9 +6346,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6912,9 +6372,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6933,9 +6391,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6954,9 +6410,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -6977,9 +6431,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7006,9 +6458,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7030,9 +6480,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7053,9 +6501,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7082,9 +6528,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7105,9 +6549,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7128,9 +6570,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7157,9 +6597,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7178,9 +6616,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7206,9 +6642,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7230,9 +6664,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7251,9 +6683,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7279,9 +6709,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7302,9 +6730,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7331,9 +6757,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7354,9 +6778,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7382,9 +6804,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7405,9 +6825,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7426,9 +6844,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7453,9 +6869,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7476,9 +6890,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7497,9 +6909,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7523,9 +6933,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7544,9 +6952,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7567,9 +6973,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7591,9 +6995,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7617,9 +7019,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7640,9 +7040,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7669,9 +7067,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7694,9 +7090,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7715,9 +7109,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7742,9 +7134,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7770,9 +7160,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7795,9 +7183,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7818,9 +7204,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7845,9 +7229,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7870,9 +7252,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7894,9 +7274,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7918,9 +7296,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7941,9 +7317,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7965,9 +7339,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -7988,9 +7360,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8016,9 +7386,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8043,9 +7411,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8072,9 +7438,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8100,9 +7464,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8123,9 +7485,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8148,9 +7508,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8176,9 +7534,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8200,9 +7556,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8223,9 +7577,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8246,9 +7598,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8272,9 +7622,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8302,9 +7650,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8327,9 +7673,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8350,9 +7694,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8378,9 +7720,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8404,9 +7744,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8427,9 +7765,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8450,9 +7786,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8478,9 +7812,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8507,9 +7839,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8530,9 +7860,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8553,9 +7881,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8576,9 +7902,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8599,9 +7923,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8623,9 +7945,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8650,9 +7970,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8676,9 +7994,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8699,9 +8015,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8722,9 +8036,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8743,9 +8055,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8772,9 +8082,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8797,9 +8105,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8820,9 +8126,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8848,9 +8152,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8872,9 +8174,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8895,9 +8195,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8918,9 +8216,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8942,9 +8238,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8966,9 +8260,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -8990,9 +8282,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9014,9 +8304,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9038,9 +8326,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9062,9 +8348,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9085,9 +8369,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9108,9 +8390,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9131,9 +8411,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9160,9 +8438,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9183,9 +8459,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9206,9 +8480,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9231,9 +8503,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9256,9 +8526,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9284,9 +8552,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9305,9 +8571,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9328,9 +8592,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9356,9 +8618,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9382,9 +8642,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9408,9 +8666,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9434,9 +8690,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9460,9 +8714,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9487,9 +8739,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9510,9 +8760,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9539,9 +8787,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9562,9 +8808,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9586,9 +8830,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9614,9 +8856,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9635,9 +8875,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9658,9 +8896,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9686,9 +8922,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9707,9 +8941,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9730,9 +8962,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9756,9 +8986,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9785,9 +9013,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9814,9 +9040,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9843,9 +9067,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9866,9 +9088,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9889,9 +9109,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9912,9 +9130,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9935,9 +9151,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9959,9 +9173,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -9984,9 +9196,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10007,9 +9217,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10032,9 +9240,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10060,9 +9266,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10087,9 +9291,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10115,9 +9317,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10138,9 +9338,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10165,9 +9363,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10188,9 +9384,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10213,9 +9407,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10239,9 +9431,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10269,9 +9459,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10295,9 +9483,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10318,9 +9504,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10347,9 +9531,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10374,9 +9556,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10403,9 +9583,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10432,9 +9610,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10455,9 +9631,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10478,9 +9652,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10508,9 +9680,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10539,9 +9709,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10560,9 +9728,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10589,9 +9755,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10615,9 +9779,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10643,9 +9805,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10667,9 +9827,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10695,9 +9853,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10721,9 +9877,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10749,9 +9903,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10775,9 +9927,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10805,9 +9955,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10828,9 +9976,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10856,9 +10002,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10886,9 +10030,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10915,9 +10057,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10936,9 +10076,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10959,9 +10097,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -10986,9 +10122,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11012,9 +10146,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11033,9 +10165,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11056,9 +10186,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11081,9 +10209,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11111,9 +10237,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11134,9 +10258,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11163,9 +10285,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11191,9 +10311,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11214,9 +10332,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11235,9 +10351,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11258,9 +10372,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11284,9 +10396,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11307,9 +10417,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11335,9 +10443,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11364,9 +10470,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11389,9 +10493,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11418,9 +10520,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11445,9 +10545,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11474,9 +10572,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11503,9 +10599,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11532,9 +10626,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11561,9 +10653,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11589,9 +10679,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11612,9 +10700,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11641,9 +10727,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11664,9 +10748,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11688,9 +10770,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11717,9 +10797,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11744,9 +10822,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11768,9 +10844,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11796,9 +10870,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11819,9 +10891,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11845,9 +10915,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11874,9 +10942,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11907,9 +10973,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11934,9 +10998,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11957,9 +11019,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -11980,9 +11040,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12003,9 +11061,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12033,9 +11089,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12060,9 +11114,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12088,9 +11140,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12114,9 +11164,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12137,9 +11185,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12161,9 +11207,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12184,9 +11228,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12212,9 +11254,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12241,9 +11281,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12264,9 +11302,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12287,9 +11323,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12308,9 +11342,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12329,9 +11361,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12353,9 +11383,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12380,9 +11408,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12403,9 +11429,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12424,9 +11448,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12447,9 +11469,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12476,9 +11496,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12497,9 +11515,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12521,9 +11537,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12550,9 +11564,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12573,9 +11585,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12597,9 +11607,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12622,9 +11630,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12651,9 +11657,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12679,9 +11683,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12700,9 +11702,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12723,9 +11723,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12751,9 +11749,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12774,9 +11770,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12797,9 +11791,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12822,9 +11814,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12847,9 +11837,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12876,9 +11864,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12902,9 +11888,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12928,9 +11912,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12951,9 +11933,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -12980,9 +11960,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13006,9 +11984,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13035,9 +12011,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13065,9 +12039,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13091,9 +12063,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13114,9 +12084,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13138,9 +12106,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13167,9 +12133,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13191,9 +12155,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13214,9 +12176,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13243,9 +12203,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13271,9 +12229,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13294,9 +12250,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13317,9 +12271,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13344,9 +12296,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13370,9 +12320,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13400,9 +12348,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13427,9 +12373,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13457,9 +12401,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13484,9 +12426,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13510,9 +12450,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13539,9 +12477,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13563,9 +12499,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13586,9 +12520,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13609,9 +12541,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13638,9 +12568,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13661,9 +12589,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13684,9 +12610,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13707,9 +12631,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13736,9 +12658,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13765,9 +12685,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13786,9 +12704,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13811,9 +12727,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13835,9 +12749,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13858,9 +12770,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13884,9 +12794,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13912,9 +12820,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13935,9 +12841,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13958,9 +12862,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -13984,9 +12886,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14011,9 +12911,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14037,9 +12935,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14063,9 +12959,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14091,9 +12985,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14120,9 +13012,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14145,9 +13035,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14173,9 +13061,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14198,9 +13084,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14225,9 +13109,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14252,9 +13134,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14275,9 +13155,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14299,9 +13177,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14327,9 +13203,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14350,9 +13224,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14380,9 +13252,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14406,9 +13276,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14429,9 +13297,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14450,9 +13316,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14475,9 +13339,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14504,9 +13366,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14525,9 +13385,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14548,9 +13406,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14574,9 +13430,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14603,9 +13457,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14630,9 +13482,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14653,9 +13503,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14676,9 +13524,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14706,9 +13552,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14731,9 +13575,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14760,9 +13602,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14789,9 +13629,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14816,9 +13654,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14842,9 +13678,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14870,9 +13704,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14895,9 +13727,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14924,9 +13754,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14950,9 +13778,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -14976,9 +13802,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15002,9 +13826,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15030,9 +13852,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15057,9 +13877,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15080,9 +13898,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15108,9 +13924,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15131,9 +13945,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15161,9 +13973,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15184,9 +13994,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15212,9 +14020,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15242,9 +14048,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15269,9 +14073,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15292,9 +14094,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15315,9 +14115,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15344,9 +14142,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15367,9 +14163,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15388,9 +14182,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15409,9 +14201,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15434,9 +14224,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15459,9 +14247,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15484,9 +14270,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15509,9 +14293,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15532,9 +14314,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15561,9 +14341,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15590,9 +14368,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15619,9 +14395,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15642,9 +14416,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15671,9 +14443,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15698,9 +14468,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15727,9 +14495,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15755,9 +14521,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15785,9 +14549,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15808,9 +14570,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15832,9 +14592,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15861,9 +14619,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15887,9 +14643,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15910,9 +14664,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15937,9 +14689,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15960,9 +14710,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -15983,9 +14731,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16011,9 +14757,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16041,9 +14785,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16070,9 +14812,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16091,9 +14831,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16114,9 +14852,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16144,9 +14880,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16167,9 +14901,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16188,9 +14920,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16214,9 +14944,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16235,9 +14963,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16259,9 +14985,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16282,9 +15006,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16310,9 +15032,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16337,9 +15057,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16367,9 +15085,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16395,9 +15111,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16418,9 +15132,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16447,9 +15159,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16476,9 +15186,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16506,9 +15214,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16536,9 +15242,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16565,9 +15269,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16589,9 +15291,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16612,9 +15312,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16636,9 +15334,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16662,9 +15358,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16683,9 +15377,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16710,9 +15402,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16738,9 +15428,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16768,9 +15456,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16793,9 +15479,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16818,9 +15502,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16841,9 +15523,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16864,9 +15544,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16895,9 +15573,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16921,9 +15597,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16950,9 +15624,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -16979,9 +15651,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17008,9 +15678,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17037,9 +15705,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17063,9 +15729,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17086,9 +15750,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17112,9 +15774,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17139,9 +15799,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17163,9 +15821,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17187,9 +15843,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17210,9 +15864,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17240,9 +15892,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17270,9 +15920,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17299,9 +15947,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17324,9 +15970,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17345,9 +15989,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17370,9 +16012,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17398,9 +16038,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17429,9 +16067,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17453,9 +16089,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17476,9 +16110,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17499,9 +16131,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17524,9 +16154,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17548,9 +16176,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17573,9 +16199,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17599,9 +16223,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17629,9 +16251,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17652,9 +16272,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17673,9 +16291,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17702,9 +16318,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17728,9 +16342,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17756,9 +16368,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17785,9 +16395,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17810,9 +16418,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17837,9 +16443,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17865,9 +16469,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17890,9 +16492,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17913,9 +16513,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17936,9 +16534,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17965,9 +16561,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -17995,9 +16589,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18025,9 +16617,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18049,9 +16639,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18072,9 +16660,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18101,9 +16687,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18122,9 +16706,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18149,9 +16731,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18178,9 +16758,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18204,9 +16782,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18227,9 +16803,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18250,9 +16824,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18278,9 +16850,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18304,9 +16874,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18330,9 +16898,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18353,9 +16919,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18376,9 +16940,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18404,9 +16966,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18434,9 +16994,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18455,9 +17013,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18478,9 +17034,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18503,9 +17057,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18524,9 +17076,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18550,9 +17100,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18577,9 +17125,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18601,9 +17147,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18629,9 +17173,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18658,9 +17200,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18681,9 +17221,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18707,9 +17245,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18740,9 +17276,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18769,9 +17303,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18792,9 +17324,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18819,9 +17349,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18849,9 +17377,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18876,9 +17402,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18905,9 +17429,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18931,9 +17453,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18955,9 +17475,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -18979,9 +17497,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19002,9 +17518,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19031,9 +17545,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19060,9 +17572,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19083,9 +17593,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19104,9 +17612,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19133,9 +17639,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19156,9 +17660,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19185,9 +17687,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19211,9 +17711,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19234,9 +17732,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19259,9 +17755,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19287,9 +17781,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19315,9 +17807,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19344,9 +17834,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19370,9 +17858,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19394,9 +17880,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19420,9 +17904,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19443,9 +17925,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19471,9 +17951,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19495,9 +17973,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19519,9 +17995,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19542,9 +18016,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19566,9 +18038,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19592,9 +18062,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19621,9 +18089,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19647,9 +18113,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19672,9 +18136,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19702,9 +18164,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19731,9 +18191,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19754,9 +18212,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19781,9 +18237,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19806,9 +18260,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19829,9 +18281,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19852,9 +18302,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19875,9 +18323,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19898,9 +18344,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19921,9 +18365,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19948,9 +18390,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -19973,9 +18413,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20002,9 +18440,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20023,9 +18459,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20050,9 +18484,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20076,9 +18508,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20097,9 +18527,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20122,9 +18550,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20146,9 +18572,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20174,9 +18598,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20197,9 +18619,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20227,9 +18647,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20257,9 +18675,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20285,9 +18701,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20306,9 +18720,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20335,9 +18747,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20358,9 +18768,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20387,9 +18795,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20410,9 +18816,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20438,9 +18842,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20465,9 +18867,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20489,9 +18889,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20510,9 +18908,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20536,9 +18932,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20564,9 +18958,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20588,9 +18980,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20616,9 +19006,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20645,9 +19033,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20668,9 +19054,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20694,9 +19078,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20722,9 +19104,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20747,9 +19127,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20768,9 +19146,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20794,9 +19170,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20824,9 +19198,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20854,9 +19226,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20881,9 +19251,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20905,9 +19273,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20931,9 +19297,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20954,9 +19318,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -20977,9 +19339,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21004,9 +19364,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21031,9 +19389,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21052,9 +19408,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21079,9 +19433,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21106,9 +19458,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21133,9 +19483,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21158,9 +19506,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21187,9 +19533,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21213,9 +19557,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21239,9 +19581,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21269,9 +19609,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21299,9 +19637,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21322,9 +19658,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21351,9 +19685,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21374,9 +19706,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21397,9 +19727,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21426,9 +19754,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21455,9 +19781,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21482,9 +19806,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21505,9 +19827,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21528,9 +19848,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21558,9 +19876,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21581,9 +19897,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21608,9 +19922,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21631,9 +19943,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21656,9 +19966,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21682,9 +19990,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21705,9 +20011,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21728,9 +20032,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21753,9 +20055,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21781,9 +20081,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21804,9 +20102,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21827,9 +20123,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21848,9 +20142,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21876,9 +20168,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21908,9 +20198,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21941,9 +20229,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -21971,9 +20257,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22004,9 +20288,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22036,9 +20318,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22066,9 +20346,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22096,9 +20374,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22127,9 +20403,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22155,9 +20429,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22184,9 +20456,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22217,9 +20487,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22249,9 +20517,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22279,9 +20545,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22308,9 +20572,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22340,9 +20602,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22373,9 +20633,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22405,9 +20663,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22438,9 +20694,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22470,9 +20724,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22502,9 +20754,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22535,9 +20785,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22562,9 +20810,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22591,9 +20837,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22620,9 +20864,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22649,9 +20891,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22676,9 +20916,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22700,9 +20938,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22724,9 +20960,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22754,9 +20988,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22782,9 +21014,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22810,9 +21040,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22834,9 +21062,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22863,9 +21089,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22892,9 +21116,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22921,9 +21143,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22950,9 +21170,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -22979,9 +21197,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23002,9 +21218,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23025,9 +21239,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23051,9 +21263,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23079,9 +21289,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23105,9 +21313,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23128,9 +21334,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23151,9 +21355,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23172,9 +21374,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23195,9 +21395,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23216,9 +21414,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23242,9 +21438,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23270,9 +21464,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23299,9 +21491,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23320,9 +21510,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23343,9 +21531,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23364,9 +21550,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23387,9 +21571,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23410,9 +21592,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23439,9 +21619,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23462,9 +21640,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23485,9 +21661,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23513,9 +21687,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23539,9 +21711,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23568,9 +21738,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23589,9 +21757,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23613,9 +21779,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23642,9 +21806,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23670,9 +21832,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23694,9 +21854,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23717,9 +21875,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23746,9 +21902,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23775,9 +21929,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23798,9 +21950,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23822,9 +21972,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23845,9 +21993,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23873,9 +22019,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23901,9 +22045,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23929,9 +22071,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23952,9 +22092,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -23976,9 +22114,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24001,9 +22137,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24030,9 +22164,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24056,9 +22188,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24086,9 +22216,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24110,9 +22238,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24140,9 +22266,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24167,9 +22291,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24193,9 +22315,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24216,9 +22336,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24239,9 +22357,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24264,9 +22380,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24287,9 +22401,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24310,9 +22422,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24336,9 +22446,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24363,9 +22471,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24391,9 +22497,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24415,9 +22519,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24439,9 +22541,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24460,9 +22560,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24483,9 +22581,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24509,9 +22605,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24538,9 +22632,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24561,9 +22653,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24584,9 +22674,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24607,9 +22695,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24633,9 +22719,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24663,9 +22747,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24684,9 +22766,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24713,9 +22793,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24736,9 +22814,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24757,9 +22833,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24780,9 +22854,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24803,9 +22875,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24834,9 +22904,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24863,9 +22931,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24888,9 +22954,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24916,9 +22980,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24946,9 +23008,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24974,9 +23034,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -24997,9 +23055,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25026,9 +23082,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25053,9 +23107,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25078,9 +23130,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25103,9 +23153,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25124,9 +23172,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25153,9 +23199,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25181,9 +23225,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25204,9 +23246,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25233,9 +23273,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25262,9 +23300,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25287,9 +23323,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25315,9 +23349,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25338,9 +23370,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25367,9 +23397,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25392,9 +23420,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25415,9 +23441,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25443,9 +23467,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25468,9 +23490,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25496,9 +23516,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25522,9 +23540,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25549,9 +23565,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25574,9 +23588,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25595,9 +23607,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25616,9 +23626,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25645,9 +23653,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25666,9 +23672,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25693,9 +23697,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25716,9 +23718,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25740,9 +23740,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25764,9 +23762,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25792,9 +23788,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25815,9 +23809,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25836,9 +23828,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25863,9 +23853,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25890,9 +23878,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25917,9 +23903,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25940,9 +23924,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25963,9 +23945,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -25993,9 +23973,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26017,9 +23995,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26045,9 +24021,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26068,9 +24042,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26097,9 +24069,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26125,9 +24095,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26153,9 +24121,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26177,9 +24143,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26201,9 +24165,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26228,9 +24190,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26251,9 +24211,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26275,9 +24233,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26298,9 +24254,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26319,9 +24273,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26342,9 +24294,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26370,9 +24320,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26399,9 +24347,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26425,9 +24371,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26449,9 +24393,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26472,9 +24414,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26500,9 +24440,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26523,9 +24461,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26546,9 +24482,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26574,9 +24508,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26595,9 +24527,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26621,9 +24551,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26654,9 +24582,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26682,9 +24608,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26705,9 +24629,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26732,9 +24654,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26761,9 +24681,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26784,9 +24702,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26814,9 +24730,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26842,9 +24756,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26870,9 +24782,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26893,9 +24803,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26916,9 +24824,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26939,9 +24845,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26962,9 +24866,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -26991,9 +24893,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27014,9 +24914,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27037,9 +24935,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27060,9 +24956,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27083,9 +24977,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27106,9 +24998,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27127,9 +25017,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27153,9 +25041,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27176,9 +25062,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27203,9 +25087,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27229,9 +25111,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27258,9 +25138,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27281,9 +25159,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27304,9 +25180,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27330,9 +25204,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27360,9 +25232,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27387,9 +25257,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27416,9 +25284,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27445,9 +25311,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27471,9 +25335,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27500,9 +25362,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27523,9 +25383,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27550,9 +25408,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27578,9 +25434,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27607,9 +25461,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27630,9 +25482,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27654,9 +25504,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27681,9 +25529,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27709,9 +25555,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27732,9 +25576,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27753,9 +25595,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27777,9 +25617,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27805,9 +25643,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27826,9 +25662,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27853,9 +25687,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27876,9 +25708,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27905,9 +25735,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27928,9 +25756,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27951,9 +25777,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -27974,9 +25798,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28003,9 +25825,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28032,9 +25852,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28055,9 +25873,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28088,9 +25904,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28114,9 +25928,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28141,9 +25953,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28170,9 +25980,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28199,9 +26007,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28222,9 +26028,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28250,9 +26054,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28279,9 +26081,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28306,9 +26106,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   },
@@ -28333,9 +26131,7 @@ export const USABLE_CARDS: Card[] = [
     "casterChoicePolicy": "auto",
     "casterEligibility": {
       "all": [
-        {
-          "type": "spellcaster"
-        }
+        "spellcaster"
       ]
     }
   }
