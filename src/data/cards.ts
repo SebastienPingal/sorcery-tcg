@@ -756,36 +756,21 @@ export const PRECON_DECKS = [
     id: 'spellcaster_lab',
     name: 'Spellcaster Lab Deck',
     avatarId: 'harbinger',
-    description: 'Spellcaster-focused deck with varied magic to validate caster selection.',
+    description: 'Fire spellcasters + Boil to test caster selection and site targeting.',
     atlasIds: [
-      ...Array(4).fill('algae_bloom'),
+      // Fire sites for threshold (Fire ×2 needed for Boil)
+      ...Array(8).fill('accursed_desert'),
+      ...Array(8).fill('red_desert'),
+      ...Array(4).fill('active_volcano'),
+      // Water sites as Boil targets
+      ...Array(6).fill('algae_bloom'),
       ...Array(4).fill('spring_river'),
-      ...Array(4).fill('autumn_river'),
-      ...Array(4).fill('floodplain'),
-      ...Array(4).fill('accursed_desert'),
-      ...Array(4).fill('red_desert'),
-      ...Array(2).fill('dark_tower'),
-      ...Array(2).fill('holy_ground'),
-      ...Array(2).fill('accursed_tower'),
     ],
     spellbookIds: [
-      // Spellcasters
-      ...Array(4).fill('apprentice_wizard'),
-      ...Array(4).fill('adept_illusionist'),
-      ...Array(4).fill('novice_necromancer'),
-      ...Array(4).fill('sea_witch'),
-      ...Array(4).fill('one_shot_wizard'),
-      // Magic
-      ...Array(4).fill('arcane_barrage'),
-      ...Array(4).fill('blaze'),
-      ...Array(4).fill('burning_hands'),
-      ...Array(4).fill('chain_lightning'),
-      ...Array(4).fill('abyssal_assault'),
-      ...Array(4).fill('blink'),
-      ...Array(4).fill('boil'),
-      ...Array(4).fill('call_of_the_sea'),
-      ...Array(4).fill('baptize'),
-      ...Array(4).fill('bone_spear'),
+      // Fire Spellcasters
+      ...Array(30).fill('flaming_skull'),
+      // Boil
+      ...Array(30).fill('boil'),
     ],
   },
 ] as const;

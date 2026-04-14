@@ -21,6 +21,7 @@ import {
   validSitePlacements,
 } from '../utils';
 import { CARD_REGISTRY } from '../../data/cards';
+import { getSpellResolver } from '../spellResolvers';
 
 function drawCards(state: GameState, playerId: PlayerId, count: number, from: 'atlas' | 'spellbook'): void {
   const player = state.players[playerId];
@@ -132,7 +133,7 @@ function isDeathsDoorImmune(state: GameState, playerId: PlayerId): boolean {
   return player.isAtDeathsDoor && player.deathsDoorTurn === state.turnNumber;
 }
 
-function killUnit(state: GameState, inst: CardInstance): void {
+export function killUnit(state: GameState, inst: CardInstance): void {
   if (inst.location) {
     const { row, col } = inst.location.square;
     const cell = state.realm[row][col];
@@ -333,6 +334,17 @@ function castSpell(
   }
 
   if (card.type === 'magic') {
+    // Check for a card-specific spell resolver first
+    const resolver = getSpellResolver(card.id);
+    if (resolver) {
+      const error = resolver.resolve(state, casterId, targetSquare, targetInstanceId);
+      if (error) return error;
+      sendToCemetery(state, cardInst.instanceId, playerId);
+      state.currentTurn.spellsCastCount += 1;
+      return null;
+    }
+
+    // Fallback: generic deal_damage abilities
     const magic = cardInst.card as MagicCard;
     for (const ability of magic.abilities) {
       if (ability.effect.type === 'deal_damage' && targetInstanceId) {

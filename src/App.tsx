@@ -49,6 +49,7 @@ const App: React.FC = () => {
         store.setPendingMove(null);
         store.setPendingSummon(null);
         store.cancelPendingSpellcastChoice();
+        store.cancelMagicTarget();
         store.clearError();
       }
     };

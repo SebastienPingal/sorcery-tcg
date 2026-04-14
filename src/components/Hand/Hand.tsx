@@ -3,6 +3,7 @@ import type { GameState, PlayerId } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { CardView } from '../Card/CardView';
 import { meetsThreshold } from '../../engine/utils';
+import { getSpellResolver } from '../../engine/spellResolvers';
 import { selectAffinity, selectManaAvailable, selectValidSitePlacements } from '../../engine/selectors';
 import styles from './Hand.module.css';
 
@@ -17,6 +18,7 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
     selectedInstanceId, selectInstance,
     pendingAvatarAbility, setPendingAvatarAbility,
     playSiteViaAbility,
+    castSpell,
     showCardDetail,
     hoverInstance,
   } = useGameStore();
@@ -110,6 +112,14 @@ export const Hand: React.FC<HandProps> = ({ game, playerId, isHidden }) => {
 
       if (!pendingAvatarAbility) setPendingAvatarAbility(activeAbilityId);
       selectInstance(instanceId);
+      return;
+    }
+
+    // Magic with a spell resolver: trigger the cast flow directly
+    // (caster selection → target selection is handled by the store)
+    if (inst.card.type === 'magic' && getSpellResolver(inst.card.id) && isActionable(instanceId)) {
+      const avatarInstId = game.players[playerId].avatarInstanceId;
+      castSpell(avatarInstId, instanceId);
       return;
     }
 

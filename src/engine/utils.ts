@@ -364,7 +364,7 @@ function movementStepCandidates(inst: CardInstance, fromSquare: Square): Square[
   return [fromSquare, ...squares];
 }
 
-function isWaterSite(state: GameState, square: Square): boolean {
+export function isWaterSite(state: GameState, square: Square): boolean {
   const cell = state.realm[square.row][square.col];
   if (!cell.siteInstanceId) return false;
   const siteInst = state.instances[cell.siteInstanceId];

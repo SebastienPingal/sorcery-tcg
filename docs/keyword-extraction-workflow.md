@@ -66,13 +66,12 @@ pnpm generate:usable-cards
 pnpm test -- src/data/keywordExtraction.test.ts
 ```
 
-3. If a keyword is missing or incorrectly detected:
-   - update/add a pattern in `KEYWORD_PATTERNS` inside `scripts/generate-usable-cards.mjs`
-   - add a test case that covers the exact phrase style from new cards
-4. Re-run tests.
-
-5. For one-off edge cases, add overrides in `src/data/usableCardOverrides.json` and regenerate.
-   - This is the preferred way to adjust `casterChoicePolicy` or `casterEligibility` per card.
+1. If a keyword is missing or incorrectly detected:
+  - update/add a pattern in `KEYWORD_PATTERNS` inside `scripts/generate-usable-cards.mjs`
+  - add a test case that covers the exact phrase style from new cards
+2. Re-run tests.
+3. For one-off edge cases, add overrides in `src/data/usableCardOverrides.json` and regenerate.
+  - This is the preferred way to adjust `casterChoicePolicy` or `casterEligibility` per card.
 
 ## Notes for future contributors
 
@@ -82,3 +81,4 @@ pnpm test -- src/data/keywordExtraction.test.ts
   - `KeywordAbility` in `src/types/index.ts`
   - `KEYWORD_PATTERNS` in `scripts/generate-usable-cards.mjs`
   - keyword extraction tests
+

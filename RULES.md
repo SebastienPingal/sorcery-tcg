@@ -1,9 +1,11 @@
 # Sorcery: Contested Realm — Complete Rules Reference
+
 > Source: Official Rulebook, December 2025
 
 ---
 
 ## Table of Contents
+
 1. [Golden Rule](#golden-rule)
 2. [How to Win](#how-to-win)
 3. [The Four Elements](#the-four-elements)
@@ -41,12 +43,14 @@
 
 ## The Four Elements
 
-| Element | Symbol | Theme |
-|---------|--------|-------|
-| **Air** | △ (purple) | Knowledge & Power — teleportation, tactical options |
-| **Earth** | ▽ (gold) | Enduring Strength — martial forces, teamwork |
-| **Fire** | △ (red) | Desire & Destruction — explosions, burst speed |
-| **Water** | ▽ (blue) | Charm & Trickery — disruption, positioning |
+
+| Element   | Symbol     | Theme                                               |
+| --------- | ---------- | --------------------------------------------------- |
+| **Air**   | △ (purple) | Knowledge & Power — teleportation, tactical options |
+| **Earth** | ▽ (gold)   | Enduring Strength — martial forces, teamwork        |
+| **Fire**  | △ (red)    | Desire & Destruction — explosions, burst speed      |
+| **Water** | ▽ (blue)   | Charm & Trickery — disruption, positioning          |
+
 
 ---
 
@@ -55,6 +59,7 @@
 ### Units (collective term: Avatars + Minions)
 
 #### Avatars
+
 - Represent the player. Everything done in the realm is through the Avatar.
 - Have: **name**, **starting life** (= maximum life), **attack power**, **game text box**.
 - All Avatars are **Spellcasters** — they can cast spells from hand.
@@ -63,6 +68,7 @@
 - Life is tracked throughout the game; Avatars do **not** automatically heal at end of turn.
 
 #### Minions
+
 - Have: **name**, **mana cost**, **elemental threshold**, **power rating**, **type line** (subtypes + rarity), **game text box**.
 - Power = how much damage they deal when striking, AND how much damage they can take before dying.
 - A minion dies instantly when it accumulates damage **≥ its power**.
@@ -71,6 +77,7 @@
 - Tokens are minions that are never part of a deck. If a token would leave the realm for any reason, it is removed from the game entirely.
 
 ### Sites
+
 - Placed on the realm grid (one per square).
 - Have: **name**, **type line** (rarity), **elemental threshold icons** (= affinity they grant), **game text box**.
 - Sites have **two levels**: **surface** (above) and **subsurface** (below).
@@ -80,19 +87,23 @@
 ### Spells (in hand/played from hand)
 
 #### Minion spells → summon a minion onto the realm.
+
 #### Artifact spells
+
 - No elemental threshold required (most artifacts).
 - Subtypes: armor, weapon, relic, device, document, **automaton**, **monument**.
 - **Automatons**: artifacts that are also minions — have power, same basic abilities as minions, cannot be carried.
 - **Monuments**: cannot be carried. Controlled by the player who conjured them.
 
 #### Aura spells
+
 - Have: mana cost, elemental threshold, type line, game text box.
 - Placed at the intersection of four squares (2×2 area), or sometimes between two squares or on a single square.
 - Occupy the **surface** of those squares (and any void squares in that area).
 - Persist in the realm; they are not transient.
 
 #### Magic spells
+
 - Transient: do not enter play. Resolve immediately, then go to cemetery.
 - Have: mana cost, elemental threshold.
 
@@ -100,13 +111,15 @@
 
 ## Game Zones
 
-| Zone | Notes |
-|------|-------|
-| **The Realm** | 5×4 grid of 20 squares, shared by both players. Squares begin as void. |
-| **Atlas deck** | ≥ 30 site cards. Searched → must shuffle after. |
-| **Spellbook deck** | ≥ 60 spell cards. Searched → must shuffle after. |
-| **Cemetery** | Face-up discard pile. Order irrelevant. Freely examined at any time. |
-| **Hand** | Cards drawn from atlas or spellbook. No maximum size. Hidden, but count of atlas vs. spellbook cards is observable (different card backs). |
+
+| Zone               | Notes                                                                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **The Realm**      | 5×4 grid of 20 squares, shared by both players. Squares begin as void.                                                                     |
+| **Atlas deck**     | ≥ 30 site cards. Searched → must shuffle after.                                                                                            |
+| **Spellbook deck** | ≥ 60 spell cards. Searched → must shuffle after.                                                                                           |
+| **Cemetery**       | Face-up discard pile. Order irrelevant. Freely examined at any time.                                                                       |
+| **Hand**           | Cards drawn from atlas or spellbook. No maximum size. Hidden, but count of atlas vs. spellbook cards is observable (different card backs). |
+
 
 ---
 
@@ -117,7 +130,7 @@
 3. **Prepare Decks** — shuffle and place atlas and spellbook nearby; leave space for cemetery.
 4. **Determine First Player** — mutual agreement or random.
 5. **Draw Starting Hand** — each player draws **3 cards from atlas** + **3 cards from spellbook**.
-   - If unsatisfied, take one **mulligan**: return up to 3 cards (to the bottom of their respective decks, in any order), then redraw that many from each deck.
+  - If unsatisfied, take one **mulligan**: return up to 3 cards (to the bottom of their respective decks, in any order), then redraw that many from each deck.
 
 ---
 
@@ -125,12 +138,14 @@
 
 ### Regions (4 total)
 
-| Region | Where |
-|--------|-------|
-| **Void** | Any square without a site. Avatars cannot enter. Minions are banished (removed from game) unless they have Voidwalk. |
-| **Surface** | The upper level of all sites. Where units typically move and fight. |
-| **Underground** | The subsurface of **land sites**. Extremely hazardous — minions that enter die unless they have Burrowing. |
-| **Underwater** | The subsurface of **water sites**. Extremely hazardous — minions that enter die unless they have Submerge. |
+
+| Region          | Where                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Void**        | Any square without a site. Avatars cannot enter. Minions are banished (removed from game) unless they have Voidwalk. |
+| **Surface**     | The upper level of all sites. Where units typically move and fight.                                                  |
+| **Underground** | The subsurface of **land sites**. Extremely hazardous — minions that enter die unless they have Burrowing.           |
+| **Underwater**  | The subsurface of **water sites**. Extremely hazardous — minions that enter die unless they have Submerge.           |
+
 
 ### Site Types
 
@@ -164,6 +179,7 @@
 ## Turn Sequence
 
 ### Start Phase
+
 1. All "until next turn" effects end.
 2. All of your tapped cards **untap**.
 3. All of your sites provide their **mana** for this turn.
@@ -175,12 +191,14 @@
 > **First Turn Requirement:** During your first Main Phase, your Avatar **must** use their ability to play a site to their own square to establish their domain.
 
 ### Main Phase
+
 - Units can act as many times as you have resources, in any order.
 - Each unit can do one (or both) of:
   - **Cast a spell** from hand (if the unit is a Spellcaster).
   - **Activate one of its abilities**.
 
 ### End Phase
+
 1. Trigger abilities that activate at end of turn.
 2. Remove all **damage** from minions in the realm (damage resets).
 3. Effects lasting "for your turn" now end.
@@ -215,19 +233,23 @@
 ## Casting Each Spell Type
 
 ### Casting Minions
+
 - Identify a **Spellcaster** you control.
 - Pay mana cost + meet threshold.
 - Place the minion **atop any site you control** (surface level). No limit on how many occupy one site.
 - **Summoning Sickness**: A minion that entered the realm this turn cannot tap, or be tapped, for ability costs. This includes any abilities granted by spells or artifacts. However, the minion enters **untapped** and can be used to **defend** on the opponent's turn.
 
 ### Casting Artifacts
+
 - Conjured atop any site you control, **or** directly into the hands of one of your units (they carry it immediately).
 
 ### Casting Auras
+
 - Placed at the intersection of four squares (the 2×2 area they affect), unless the card specifies otherwise.
 - Occupy the surface of those squares (and any void among them).
 
 ### Casting Magics
+
 - Resolve immediately, then go to the cemetery. No lasting presence in the realm.
 
 ---
@@ -239,12 +261,14 @@
 - Cost types include: tapping, paying mana, paying life, sacrificing a minion, discarding cards, etc.
 
 ### Tapping a Card
+
 - Rotate the card 90° to the right (untapped → tapped).
 - Only **untapped** cards can be tapped; only tapped cards can be untapped.
 - Cards untap automatically at the start of your turn.
 - Minions with Summoning Sickness **cannot** be tapped to pay for ability costs.
 
 ### Playing Sites (Avatar Ability)
+
 - The standard Avatar ability: "Tap → Play or draw a site."
 - **Play** = place a site card from hand onto the realm.
 - **Draw** = take the top card of your atlas into your hand.
@@ -262,21 +286,25 @@ All units (Avatars and minions) have these five basic abilities. They are not pr
 ### 1. Move and Attack (Activated — your turn)
 
 **Declaration phase:**
+
 - Tap the unit.
 - Declare the intended path (each step, in order).
 - A step may not revisit a location already declared in the same path.
 
 **Resolution phase:**
+
 - Resolve each step in order. Confirm each step is legal at the moment of resolution.
 - Default: 1 step (from the surface of one site to the surface of an adjacent site).
 - Movement abilities (Airborne, Burrowing, Submerge, Voidwalk, Movement +X) can modify steps.
 
 **After all movement:**
+
 - Optionally attack something at the unit's current location (see Combat).
 - If unit took at least one step → it has **moved**.
 - If unit took zero steps → it has **not moved** (but can still attack if it tapped).
 
 > **"Take a step" vs "X steps away"** — critical distinction:
+>
 > - **"Take a step"** (used in Move & Attack, Defend): the unit *may* apply movement abilities (Airborne, Burrowing, Submerge, Voidwalk) to modify that step.
 > - **"X steps away"** (used in targeting/range text): simply count one adjacent square per step, with no region changes and no movement ability modifiers. Units that cannot move by activating their own abilities cannot carry out steps granted by these effects.
 
@@ -367,12 +395,14 @@ All units (Avatars and minions) have these five basic abilities. They are not pr
 ## Artifacts — Carrying & Control
 
 ### Carrying
+
 - A unit can carry **any number** of artifacts.
 - Carried artifacts move with the unit.
 - If a unit leaves the realm, its carried artifacts are dropped at its last location.
 - If a unit and a carried artifact stop sharing a location (due to some effect), the artifact is no longer carried.
 
 ### Control of Artifacts
+
 - Artifacts **carried** by a unit are controlled by the carrier's controller.
 - Artifacts **not being carried** (but carryable) are **uncontrolled**.
 - Automatons and Monuments (non-carryable): controlled by the player who conjured them.
@@ -383,12 +413,14 @@ All units (Avatars and minions) have these five basic abilities. They are not pr
 
 ### Types of Abilities
 
-| Type | Description |
-|------|-------------|
-| **Passive** | Always active while the card is in the relevant zone (usually the realm). |
-| **Activated** | Declared and paid for. Only during your main phase, when nothing else is happening. |
+
+| Type          | Description                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Passive**   | Always active while the card is in the relevant zone (usually the realm).                                    |
+| **Activated** | Declared and paid for. Only during your main phase, when nothing else is happening.                          |
 | **Triggered** | Automatically fires when a specified condition is met (keywords: "when," "whenever," "at the start/end of"). |
-| **Keyword** | Shorthand for a longer rules passage. See Keyword Glossary. |
+| **Keyword**   | Shorthand for a longer rules passage. See Keyword Glossary.                                                  |
+
 
 ### Storyline (Stack / Timing)
 
@@ -468,92 +500,117 @@ A unit is said to have **entered** a location, site, or void if it was not previ
 ## Keyword Glossary
 
 ### Ally / Allied
+
 - A unit that you **control**, including your own Avatar.
 
 ### Airborne
+
 - May move **diagonally** when taking a step.
 - Cannot be targeted by attacks unless the attacker also has Airborne.
 - Can only be intercepted by units with Airborne or Ranged.
 
 ### Banish
+
 - Remove from the game entirely.
 
 ### Broken
+
 - Broken cards are **artifacts** that can be found in any cemetery (zone state, not a keyword ability).
 
 ### Burrowing
+
 - Can be summoned to, exist in, and act normally in the **underground** region.
 - When taking a step, may move between the surface of a land site and the underground level of the same square, or vice versa.
 
 ### Can't Be Modified
+
 - This card cannot be disabled, silenced, immobilized, or transformed.
 - Cannot gain or lose abilities.
 - Its characteristics (such as power) cannot be changed.
 
 ### Cardinal Directions
+
 - When a card refers to a cardinal direction, it includes **all squares** in that direction (front, rear, left, or right) from the card's position — not just one step.
 
 ### Charge
+
 - This unit can tap, or be tapped, to pay for costs associated with any ability on the turn it is summoned. (Bypasses Summoning Sickness for tapping.)
 
 ### Dead
+
 - Dead cards are **minions** that can be found in any cemetery (zone state, not a keyword ability).
 
 ### Deathrite
+
 - When this unit dies, do what is stated before placing it in the cemetery.
 
 ### Disable
+
 - Minion loses ALL abilities (including basic Move & Attack, Defend, Intercept).
 - Does not strike in fights.
 - Cannot cast spells, cannot take actions granted by other cards.
 - Can still be forcibly moved or tapped by external effects.
 
 ### Enemy
+
 - A unit (including Avatars) that is controlled by an **opponent**.
 
 ### Evil
+
 - A minion is Evil if it is a **demon**, **undead**, or **monster**. Evil minions cannot be warded.
 
 ### Flooded
+
 - A flooded site has a minimum of one **water affinity (▽)**, in addition to any other affinities it already provides. Therefore it is always a **water site**.
 
 ### Genesis
+
 - "When this card enters the realm, do what is stated."
 
 ### Ground Movement
+
 - Any step a unit takes **between the surface of two sites**. Airborne steps and teleportation are NOT ground movement.
 
 ### Immobile
+
 - This unit cannot take steps.
 
 ### Interact
+
 - A unit **interacts** with the realm when it: strikes, deals damage, casts a spell, or activates a special ability.
 - Relevant for the **Drop** basic ability: a unit can only Drop artifacts if it has not yet interacted with the realm this turn.
 
 ### Lance
+
 - Minion enters play carrying a lance artifact token.
 - First time this unit strikes while carrying a lance: deals +1 extra damage **and** strikes first.
 - Then the lance breaks (removed from game as a token).
 - Lance tokens can be picked up and dropped like other artifacts.
 
 ### Lethal
+
 - Any strictly positive amount of damage this card deals to a minion is enough to kill it.
 
 ### Movement +X
+
 - May move up to X additional steps when using Move and Attack or Defend.
 - Declare full destination and path, then traverse one step at a time.
 
 ### Moves Freely
+
 - When using Move & Attack or Defend, spends no steps, as long as start/end locations satisfy the condition.
 
 ### Range of Motion
+
 - Every **location** a unit can reach if it used the Move and Attack basic ability. Used to determine whether a unit can Defend.
 
 ### Ranged X
+
 - "Tap → Shoot a projectile that stops after 1 (or X) steps. Strike the impacted unit."
 - Can also intercept Airborne units.
 
 ### Sacrifice
+
 - Remove something you control from the realm and place it directly in its owner's cemetery.
 - A player may be forced to sacrifice if a card effect instructs them to.
 - When a **minion** is sacrificed: it **dies** (Deathrites trigger). If sacrificed to pay for an ability cost, it goes to the cemetery only **after** that ability resolves.
@@ -562,12 +619,15 @@ A unit is said to have **entered** a location, site, or void if it was not previ
 - Even **indestructible** things can be sacrificed if a cost or effect specifically calls for it.
 
 ### Silence
+
 - Loses all printed and granted abilities. Avatars cannot be silenced.
 
 ### Spellcaster
+
 - This card may cast spells. Some Spellcasters are limited to specific elements.
 
 ### Stealth
+
 - Cannot be targeted by opponent's spells or abilities (including attacks).
 - Cannot be intercepted.
 - Attacks cannot be defended.
@@ -576,9 +636,11 @@ A unit is said to have **entered** a location, site, or void if it was not previ
 - Artifacts carried by a Stealth minion gain the same protection.
 
 ### Strike First
+
 - This unit's strike resolves before the opponent's in a fight. If multiple strike-first units are on one side, they all go simultaneously.
 
 ### Stronger / Strongest / Weaker / Weakest
+
 - **Stronger**: strictly more power than another unit.
 - **Strongest**: strictly the highest power among a group.
 - **Weaker**: strictly less power.
@@ -587,47 +649,57 @@ A unit is said to have **entered** a location, site, or void if it was not previ
 - For units with **split power**: use the **average** of the two values, rounding **down**.
 
 ### Submerge
+
 - Can be summoned to, exist in, and act normally in the **underwater** region.
 - When taking a step, may move between the surface of a water site and the underwater level, or vice versa.
 
 ### Summon / Conjure
+
 - **Summon** / **Conjure**: put the card directly into play.
 
 ### Transform
+
 - The transformed card is the same game object as the previous version (same controller, does not get Summoning Sickness).
 - Original card is removed from the game after transformation.
 
 ### Voidwalk
+
 - Can be summoned to any void location and operate normally there.
 - When taking a step, can move into an adjacent void, or out of void onto the surface of an adjacent site (or subsurface if applicable).
 
 ### Ward
+
 - If a warded site or unit would be damaged, destroyed, or targeted by an opponent's spell or special ability → the Ward breaks instead (absorbs the effect).
 - A unit or site cannot have multiple Wards.
 - Evil minions cannot be warded.
 
 ### [X]bound (e.g. Waterbound)
+
 - This minion is **disabled** while not occupying a specific type of location (e.g., Waterbound = disabled when not on a water location).
 
 ---
 
 ## Deck Building Rules
 
-| Requirement | Rule |
-|-------------|------|
-| Avatar | Exactly **1** Avatar card (not counted in deck totals) |
-| Atlas | At least **30** site cards |
-| Spellbook | At least **60** spell cards |
-| Max size | As large as you can reasonably shuffle |
+
+| Requirement | Rule                                                   |
+| ----------- | ------------------------------------------------------ |
+| Avatar      | Exactly **1** Avatar card (not counted in deck totals) |
+| Atlas       | At least **30** site cards                             |
+| Spellbook   | At least **60** spell cards                            |
+| Max size    | As large as you can reasonably shuffle                 |
+
 
 ### Rarity Copy Limits
 
+
 | Rarity (type line keyword) | Max copies per deck |
-|---------------------------|---------------------|
-| Ordinary | 4 |
-| Exceptional | 3 |
-| Elite | 2 |
-| Unique | 1 |
+| -------------------------- | ------------------- |
+| Ordinary                   | 4                   |
+| Exceptional                | 3                   |
+| Elite                      | 2                   |
+| Unique                     | 1                   |
+
 
 The Avatar does not count toward these copy limits.
 

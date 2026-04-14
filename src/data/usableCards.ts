@@ -2882,7 +2882,7 @@ export const USABLE_CARDS: Card[] = [
       "fire": 2
     },
     "abilities": [],
-    "casterChoicePolicy": "auto",
+    "casterChoicePolicy": "require_choice",
     "casterEligibility": {
       "all": [
         "spellcaster"

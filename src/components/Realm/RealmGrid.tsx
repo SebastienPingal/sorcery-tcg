@@ -3,6 +3,7 @@ import type { GameState, PlayerId, Region, Square } from '../../types';
 import { useGameStore } from '../../store/gameStore';
 import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
 import { getComputedPower, hasKeyword, resolveMovementStep } from '../../engine/utils';
+import { getSpellResolver } from '../../engine/spellResolvers';
 import styles from './RealmGrid.module.css';
 
 interface RealmGridProps {
@@ -26,6 +27,9 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     hoverInstance,
     pendingSpellcastChoice,
     chooseSpellcasterForPendingCast,
+    pendingMagicTarget,
+    confirmMagicTarget,
+    cancelMagicTarget,
   } = useGameStore();
 
   // Track which cell is hovered for spread animation
@@ -43,7 +47,12 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   const spellcasterChoiceIds = pendingSpellcastChoice?.candidateCasterIds ?? [];
   const isSpellcasterChoiceActive = spellcasterChoiceIds.length > 0;
 
+  const isMagicTargetActive = !!pendingMagicTarget;
+
   const getHighlightedSquares = (): { squares: Square[]; attackSquares: Square[]; mode: string } => {
+    if (isMagicTargetActive) {
+      return { squares: pendingMagicTarget.validSquares, attackSquares: [], mode: 'magic_target' };
+    }
     if (isSpellcasterChoiceActive) {
       const casterSquares = spellcasterChoiceIds
         .map((id) => game.instances[id]?.location?.square)
@@ -59,6 +68,13 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     }
 
     if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
+      // Magic cards with a spell resolver handle targeting via pendingMagicTarget,
+      // not through generic site highlighting. Skip them here — the cast flow
+      // in the store will trigger caster selection then target selection.
+      if (card.type === 'magic' && getSpellResolver(card.id)) {
+        return { squares: [], attackSquares: [], mode: '' };
+      }
+
       const squares: Square[] = [];
       const allowVoidSummon = card.type === 'minion' && hasKeyword(selectedInst, 'voidwalk');
       for (const row of game.realm) {
@@ -136,8 +152,32 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
   };
 
   const handleSquareClick = (row: number, col: number) => {
-    if (isSpellcasterChoiceActive) return;
     const sq: Square = { row, col };
+
+    // Spellcaster choice mode: clicking a highlighted square auto-selects
+    // the spellcaster there (or the first one if multiple on same square)
+    if (isSpellcasterChoiceActive) {
+      if (!isHighlighted(sq)) return;
+      const cell = game.realm[row][col];
+      const castersHere = [...cell.unitInstanceIds, ...cell.subsurfaceUnitIds]
+        .filter((id) => spellcasterChoiceIds.includes(id));
+      if (castersHere.length === 1) {
+        chooseSpellcasterForPendingCast(castersHere[0]);
+      } else if (castersHere.length > 1) {
+        // Multiple casters on same square — pick the first; could refine later
+        chooseSpellcasterForPendingCast(castersHere[0]);
+      }
+      return;
+    }
+
+    // Magic target mode: click a highlighted square to confirm target
+    if (isMagicTargetActive) {
+      if (isHighlighted(sq)) {
+        confirmMagicTarget(sq);
+      }
+      return;
+    }
+
     const cell = game.realm[row][col];
     if (!selectedInst) return;
 
@@ -220,6 +260,15 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
     if (isSpellcasterChoiceActive) {
       if (spellcasterChoiceIds.includes(instanceId)) {
         chooseSpellcasterForPendingCast(instanceId);
+      }
+      return;
+    }
+
+    // Magic target mode: clicking a site confirms the target
+    if (isMagicTargetActive && inst.location) {
+      const sq = inst.location.square;
+      if (isHighlighted(sq)) {
+        confirmMagicTarget(sq);
       }
       return;
     }
@@ -406,8 +455,8 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
               ${isHovered ? styles.siteHovered : ''}
             `}
             onClick={(e) => {
-              if (highlighted) {
-                // Placing a card — treat click on site as click on the square
+              if (highlighted || isSpellcasterChoiceActive || isMagicTargetActive) {
+                // During selection modes or placement, treat click on site as click on the square
                 handleSquareClick(row, col);
               } else {
                 e.stopPropagation();
@@ -526,6 +575,11 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       {isSpellcasterChoiceActive && (
         <div className={styles.spellcasterChoiceHint}>
           Choose spellcaster: click a highlighted allied unit (ESC to cancel).
+        </div>
+      )}
+      {isMagicTargetActive && (
+        <div className={styles.spellcasterChoiceHint}>
+          Choose target: click a highlighted site (ESC to cancel).
         </div>
       )}
       <div className={styles.playerLabel}>↑ {game.players[opponentId].name} (Opponent)</div>

@@ -6,6 +6,7 @@ import {
 } from '../engine/gameEngine';
 import { dispatchPlayerAction } from '../engine/orchestrator';
 import { getEligibleSpellcasters } from '../engine/utils';
+import { getSpellResolver } from '../engine/spellResolvers';
 import {
   buildFireAtlas, buildFireSpellbook,
   buildWaterAtlas, buildWaterSpellbook,
@@ -40,6 +41,12 @@ interface GameStore {
     targetRegion?: Region;
     candidateCasterIds: string[];
   } | null;
+  // Magic spell target selection (after caster is resolved, before target is chosen)
+  pendingMagicTarget: {
+    cardInstanceId: string;
+    casterId: string;
+    validSquares: Square[];
+  } | null;
   // Square detail overlay (right-click on cell)
   squareDetail: Square | null;
 
@@ -72,6 +79,8 @@ interface GameStore {
   moveAndAttack: (unitId: string, path: Square[], attackTargetId?: string) => void;
   setPendingMove: (move: { unitInstanceId: string; destSquare: Square } | null) => void;
   setSquareDetail: (sq: Square | null) => void;
+  confirmMagicTarget: (targetSquare: Square) => void;
+  cancelMagicTarget: () => void;
   chooseDrawSource: (playerId: PlayerId, source: 'atlas' | 'spellbook') => void;
   endTurn: () => void;
   clearError: () => void;
@@ -89,6 +98,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   pendingMove: null,
   pendingSummon: null,
   pendingSpellcastChoice: null,
+  pendingMagicTarget: null,
   squareDetail: null,
 
   initGame: (config) => {
@@ -254,6 +264,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
       return candidateIds[0];
     };
     const policy = getCasterChoicePolicy();
+
+    // If multiple casters and policy requires choice, ask the player first
     if (candidateIds.length > 1 && (policy === 'require_choice' || policy === 'custom')) {
       set({
         pendingSpellcastChoice: {
@@ -267,7 +279,34 @@ export const useGameStore = create<GameStore>((set, get) => ({
       });
       return;
     }
+
     const resolvedCasterId = pickAutoCaster();
+
+    // Check if this magic card has a site-targeting resolver that needs target selection
+    const resolver = cardInst.card.type === 'magic' ? getSpellResolver(cardInst.card.id) : undefined;
+    if (resolver?.targeting.type === 'site' && !targetSquare) {
+      const casterInst = newGame.instances[resolvedCasterId];
+      if (!casterInst?.location) {
+        set({ actionError: 'Caster has no location' });
+        return;
+      }
+      const validSquares = resolver.targeting.validSquares(newGame, casterInst.location.square);
+      if (validSquares.length === 0) {
+        set({ actionError: 'No valid targets for this spell' });
+        return;
+      }
+      set({
+        pendingMagicTarget: {
+          cardInstanceId: cardId,
+          casterId: resolvedCasterId,
+          validSquares,
+        },
+        selectedInstanceId: null,
+        actionError: null,
+      });
+      return;
+    }
+
     const err = dispatchPlayerAction(newGame, {
       type: 'CAST_SPELL',
       casterId: resolvedCasterId,
@@ -285,6 +324,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         selectedInstanceId: null,
         pendingSummon: null,
         pendingSpellcastChoice: null,
+        pendingMagicTarget: null,
       });
     }
   },
@@ -292,6 +332,33 @@ export const useGameStore = create<GameStore>((set, get) => ({
   chooseSpellcasterForPendingCast: (casterId) => {
     const { game, pendingSpellcastChoice } = get();
     if (!game || !pendingSpellcastChoice) return;
+
+    // Check if this magic card needs site targeting after caster selection
+    const cardInst = game.instances[pendingSpellcastChoice.cardInstanceId];
+    const resolver = cardInst?.card.type === 'magic' ? getSpellResolver(cardInst.card.id) : undefined;
+    if (resolver?.targeting.type === 'site' && !pendingSpellcastChoice.targetSquare) {
+      const casterInst = game.instances[casterId];
+      if (!casterInst?.location) {
+        set({ actionError: 'Caster has no location' });
+        return;
+      }
+      const validSquares = resolver.targeting.validSquares(game, casterInst.location.square);
+      if (validSquares.length === 0) {
+        set({ actionError: 'No valid targets for this spell', pendingSpellcastChoice: null });
+        return;
+      }
+      set({
+        pendingMagicTarget: {
+          cardInstanceId: pendingSpellcastChoice.cardInstanceId,
+          casterId,
+          validSquares,
+        },
+        pendingSpellcastChoice: null,
+        actionError: null,
+      });
+      return;
+    }
+
     const newGame = structuredClone(game);
     const err = dispatchPlayerAction(newGame, {
       type: 'CAST_SPELL',
@@ -316,6 +383,34 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   cancelPendingSpellcastChoice: () => {
     set({ pendingSpellcastChoice: null });
+  },
+
+  confirmMagicTarget: (targetSquare) => {
+    const { game, pendingMagicTarget } = get();
+    if (!game || !pendingMagicTarget) return;
+    const newGame = structuredClone(game);
+    const err = dispatchPlayerAction(newGame, {
+      type: 'CAST_SPELL',
+      casterId: pendingMagicTarget.casterId,
+      cardInstanceId: pendingMagicTarget.cardInstanceId,
+      targetSquare,
+    });
+    if (err) {
+      set({ actionError: err });
+      return;
+    }
+    set({
+      game: newGame,
+      actionError: null,
+      selectedInstanceId: null,
+      pendingMagicTarget: null,
+      pendingSummon: null,
+      pendingSpellcastChoice: null,
+    });
+  },
+
+  cancelMagicTarget: () => {
+    set({ pendingMagicTarget: null });
   },
 
   setPendingSummon: (pending) => set({ pendingSummon: pending }),
