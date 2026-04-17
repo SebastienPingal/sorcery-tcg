@@ -70,10 +70,29 @@ export const SquareDetailModal: React.FC<SquareDetailModalProps> = ({ game }) =>
   const cell = game.realm[row][col];
 
   const siteInst = cell.siteInstanceId ? game.instances[cell.siteInstanceId] : null;
+  const squareKey = `${row},${col}`;
+  const siteArtifacts = [
+    ...cell.artifactInstanceIds
+      .map((id) => game.instances[id])
+      .filter(
+        (inst): inst is CardInstance =>
+          Boolean(inst) && inst.card.type === 'artifact' && !inst.carriedBy,
+      ),
+    // Defensive fallback: include any unbound artifact physically on this square
+    // even if the cell list got out of sync.
+    ...Object.values(game.instances).filter(
+      (inst) =>
+        inst.card.type === 'artifact' &&
+        !inst.carriedBy &&
+        inst.location?.region === 'surface' &&
+        `${inst.location.square.row},${inst.location.square.col}` === squareKey &&
+        !cell.artifactInstanceIds.includes(inst.instanceId),
+    ),
+  ];
   const surfaceUnits = cell.unitInstanceIds.map(id => game.instances[id]).filter(Boolean) as CardInstance[];
   const undergroundUnits = cell.subsurfaceUnitIds.map(id => game.instances[id]).filter(Boolean) as CardInstance[];
 
-  const total = (siteInst ? 1 : 0) + surfaceUnits.length + undergroundUnits.length;
+  const total = (siteInst ? 1 : 0) + siteArtifacts.length + surfaceUnits.length + undergroundUnits.length;
 
   return (
     <div className={styles.overlay} onClick={() => setSquareDetail(null)}>
@@ -95,6 +114,11 @@ export const SquareDetailModal: React.FC<SquareDetailModalProps> = ({ game }) =>
               <div className={styles.rubbleName}>{siteInst.card.name}</div>
             </div>
           )}
+
+          {/* Unbound artifacts placed on this site */}
+          {siteArtifacts.map(inst => (
+            <CardLarge key={inst.instanceId} game={game} inst={inst} />
+          ))}
 
           {/* Surface units */}
           {surfaceUnits.map(inst => (
