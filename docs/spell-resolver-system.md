@@ -99,3 +99,17 @@ registerSpellResolver('card_id', {
 ```
 
 Cards without a resolver fall back to the existing generic `deal_damage` ability loop.
+
+## Implemented resolvers
+
+| Card | Targeting | Effect |
+|---|---|---|
+| Boil | site (water, range 2) | Destroy all minions at target water site |
+| Baptize | site (any water site) | Ward each allied minion at target water site |
+| Divine Lance | site (any site with minions) | Deal 1 damage (+1 per allied Ward broken) to each minion at site |
+| Smite | unit (adjacent enemy) | Strike adjacent enemy; banish if Evil |
+
+## Notes
+
+- **Smite** uses a custom `casterEligibility` override (`{ all: ['is_friendly'] }`) applied at card load time in `cards.ts`, allowing any ally to cast it instead of only spellcasters.
+- **Divine Lance** auto-breaks all allied wards for maximum damage. A future enhancement could add a UI for choosing how many wards to break.

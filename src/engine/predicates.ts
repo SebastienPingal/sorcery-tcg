@@ -332,7 +332,8 @@ function getSpellcasterProfile(inst: CardInstance): { allowed: Set<Element>; blo
 
 function getSpellThresholdElements(card: Card): Element[] {
   if (!('threshold' in card) || !card.threshold) return [];
-  return ELEMENTS.filter((el) => (card.threshold[el] ?? 0) > 0);
+  const threshold = card.threshold;
+  return ELEMENTS.filter((el) => (threshold[el] ?? 0) > 0);
 }
 
 function canSpellcasterCastCard(spellcaster: CardInstance, card: Card): boolean {

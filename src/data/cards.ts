@@ -2,7 +2,7 @@ import type {
   AvatarCard, SiteCard, MinionCard, ArtifactCard, MagicCard, Card
 } from '../types';
 import { USABLE_CARDS } from './usableCards';
-import { buildKeywordExtractionIndex } from './keywordExtraction';
+import { buildKeywordExtractionIndex, extractKeywordsFromCard } from './keywordExtraction';
 
 // ─── Avatars ──────────────────────────────────────────────────────────────────
 export const AVATARS: AvatarCard[] = [
@@ -496,6 +496,35 @@ export const MAGICS: MagicCard[] = [
 const ALL_CARDS: Card[] = [
   ...USABLE_CARDS, // generated runtime source of truth
 ];
+
+// ─── Card patches (placement restrictions, caster eligibility, etc.) ─────────
+// Applied at load time to supplement generated card data with game logic.
+import type { MinionCard as MinionCardType, PredicateRestriction } from '../types';
+
+const PLACEMENT_RESTRICTIONS: Record<string, PredicateRestriction> = {
+  // Weathered Trunks — "Must be cast to an allied site occupied by an enemy."
+  weathered_trunks: { all: ['on_controlled_site', 'square_has_enemy_unit'] },
+};
+
+// Caster eligibility overrides (replace the default spellcaster-only rule)
+const CASTER_ELIGIBILITY_OVERRIDES: Record<string, PredicateRestriction> = {
+  // Smite — "May be cast by any ally."
+  smite: { all: ['is_friendly'] },
+};
+
+for (const card of ALL_CARDS) {
+  if (card.type === 'minion' && card.id in PLACEMENT_RESTRICTIONS) {
+    (card as MinionCardType).placementRestriction = PLACEMENT_RESTRICTIONS[card.id];
+  }
+  if (card.id in CASTER_ELIGIBILITY_OVERRIDES) {
+    card.casterEligibility = CASTER_ELIGIBILITY_OVERRIDES[card.id];
+  }
+  // Re-derive keywords using the strict extractor so sentence-like rules text
+  // (e.g. "Has Airborne and +1 power while Warded") doesn't grant the keyword.
+  if ('keywords' in card && Array.isArray((card as { keywords?: unknown }).keywords)) {
+    (card as { keywords: string[] }).keywords = extractKeywordsFromCard(card);
+  }
+}
 
 export const EXTRACTED_KEYWORDS_BY_CARD_ID = buildKeywordExtractionIndex(ALL_CARDS);
 

@@ -455,11 +455,11 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
               ${isHovered ? styles.siteHovered : ''}
             `}
             onClick={(e) => {
+              e.stopPropagation();
               if (highlighted || isSpellcasterChoiceActive || isMagicTargetActive) {
                 // During selection modes or placement, treat click on site as click on the square
                 handleSquareClick(row, col);
               } else {
-                e.stopPropagation();
                 handleUnitClick(e, siteInst.instanceId);
               }
             }}
@@ -482,6 +482,37 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
         )}
 
         {siteInst?.isRubble && <div className={styles.rubble}>Rubble</div>}
+
+        {cell.artifactInstanceIds.length > 0 && (
+          <div className={styles.siteArtifactsRow}>
+            {cell.artifactInstanceIds.map((artId) => {
+              const artInst = game.instances[artId];
+              if (!artInst) return null;
+              return (
+                <div
+                  key={artId}
+                  className={styles.siteArtifactBadge}
+                  title={artInst.card.name}
+                  onClick={(e) => { e.stopPropagation(); handleUnitClick(e, artId); }}
+                  onContextMenu={(e) => handleCardRightClick(e, artId)}
+                  onMouseEnter={(e) => { e.stopPropagation(); hoverInstance(artId); }}
+                  onMouseLeave={(e) => { e.stopPropagation(); hoverInstance(null); }}
+                >
+                  {artInst.card.image ? (
+                    <img
+                      src={artInst.card.image}
+                      alt={artInst.card.name}
+                      className={styles.siteArtifactImage}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  ) : (
+                    <span className={styles.siteArtifactLabel}>{artInst.card.name.substring(0, 3)}</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         <div className={`${styles.unitsLayer} ${styles.surfaceLayer}`}>
           {cell.unitInstanceIds.map((id, index) => {

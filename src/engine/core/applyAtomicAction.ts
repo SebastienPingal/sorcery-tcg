@@ -22,6 +22,8 @@ import {
 } from '../utils';
 import { CARD_REGISTRY } from '../../data/cards';
 import { getSpellResolver } from '../spellResolvers';
+import { fireGenesis, fireDeathrite, fireEndOfTurn, fireOnStrike, fireOnMove } from '../triggerResolvers';
+import '../powerModifiers'; // registers card-specific power modifiers
 
 function drawCards(state: GameState, playerId: PlayerId, count: number, from: 'atlas' | 'spellbook'): void {
   const player = state.players[playerId];
@@ -53,7 +55,7 @@ function removeStatusToken(inst: CardInstance, token: string): void {
   inst.tokens = inst.tokens.filter((t) => t !== token);
 }
 
-function addStatusToken(inst: CardInstance, token: string): void {
+export function addStatusToken(inst: CardInstance, token: string): void {
   if (!hasStatusToken(inst, token)) inst.tokens.push(token);
 }
 
@@ -134,6 +136,8 @@ function isDeathsDoorImmune(state: GameState, playerId: PlayerId): boolean {
 }
 
 export function killUnit(state: GameState, inst: CardInstance): void {
+  // Fire deathrite before removing from board (location still valid)
+  fireDeathrite(state, inst);
   if (inst.location) {
     const { row, col } = inst.location.square;
     const cell = state.realm[row][col];
@@ -151,6 +155,21 @@ export function killUnit(state: GameState, inst: CardInstance): void {
 function dealDamage(state: GameState, targetId: string, amount: number, sourceId?: string): string | null {
   const target = state.instances[targetId];
   if (!target) return 'Target not found';
+  if (amount > 0 && target.card.type === 'minion' && target.location) {
+    const cell = state.realm[target.location.square.row][target.location.square.col];
+    const barricadeId = cell.artifactInstanceIds.find((id) => {
+      const art = state.instances[id];
+      return art && art.cardId === 'makeshift_barricade' && art.controllerId === target.controllerId;
+    });
+    if (barricadeId) {
+      if (amount >= 3) {
+        const barricade = state.instances[barricadeId];
+        cell.artifactInstanceIds = cell.artifactInstanceIds.filter((id) => id !== barricadeId);
+        sendToCemetery(state, barricadeId, barricade.ownerId);
+      }
+      return null;
+    }
+  }
   if (amount > 0 && breakWardShield(target)) return null;
 
   if (target.card.type === 'avatar') {
@@ -205,6 +224,9 @@ function playSite(state: GameState, playerId: PlayerId, siteInstanceId: string, 
   applyKeywordStatusTokens(siteInst);
   player.hand = player.hand.filter((id) => id !== siteInstanceId);
   player.manaPool += 1;
+  player.elementalAffinity = computeAffinity(state, playerId);
+  fireGenesis(state, siteInst);
+  // Re-compute affinity after genesis (e.g. Algae Bloom adds temporary threshold)
   player.elementalAffinity = computeAffinity(state, playerId);
   return null;
 }
@@ -263,6 +285,7 @@ function castSpell(
       attachLanceTokenIfNeeded(state, cardInst);
       cell.unitInstanceIds.push(cardInst.instanceId);
       state.currentTurn.spellsCastCount += 1;
+      fireGenesis(state, cardInst);
       return null;
     }
     const siteInst = occupyingSite;
@@ -291,6 +314,7 @@ function castSpell(
       cell.unitInstanceIds.push(cardInst.instanceId);
     }
     state.currentTurn.spellsCastCount += 1;
+    fireGenesis(state, cardInst);
     return null;
   }
 
@@ -407,6 +431,7 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
     const rangedErr = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
     if (rangedErr) return rangedErr;
     if (attackerHasLance) consumeLanceOnStrike(state, attacker);
+    fireOnStrike(state, attacker, target);
     return null;
   }
 
@@ -419,12 +444,14 @@ function resolveAttack(state: GameState, attacker: CardInstance, targetId: strin
     consumeStealthOnInteract(attacker);
     const err = dealDamage(state, target.instanceId, attackerStrikePower, attacker.instanceId);
     if (attackerHasLance) consumeLanceOnStrike(state, attacker);
+    if (!err) fireOnStrike(state, attacker, target);
     return err;
   };
   const defenderStrike = (): string | null => {
     consumeStealthOnInteract(target);
     const err = dealDamage(state, attacker.instanceId, defenderStrikePower, target.instanceId);
     if (defenderHasLance) consumeLanceOnStrike(state, target);
+    if (!err) fireOnStrike(state, target, attacker);
     return err;
   };
 
@@ -493,7 +520,12 @@ function moveAndAttack(state: GameState, unitInstanceId: string, path: Square[],
     removeUnitFromCellByRegion(state, unitInstanceId, startLocation);
     inst.location = current;
     addUnitToCellByRegion(state, unitInstanceId, current);
+    for (const artId of inst.carriedArtifacts) {
+      const art = state.instances[artId];
+      if (art) art.location = current;
+    }
     state.currentTurn.unitsThatMoved.push(unitInstanceId);
+    fireOnMove(state, inst);
   }
 
   inst.tapped = true;
@@ -572,8 +604,14 @@ function advancePhase(state: GameState): void {
     state.step = 'main_open';
   } else if (state.phase === 'main') {
     const player = state.players[pid];
+    // Fire end-of-turn triggers before cleanup (e.g. Malakhim untaps, Survivors gain stealth)
+    fireEndOfTurn(state, pid);
     for (const inst of Object.values(state.instances)) {
       if (inst.card.type === 'minion' && inst.location) inst.damage = 0;
+      // Clear temporary affinity counters (e.g. Algae Bloom, Autumn Bloom genesis)
+      for (const key of Object.keys(inst.counters)) {
+        if (key.startsWith('temp_')) delete inst.counters[key];
+      }
     }
     player.manaUsed = player.manaPool;
     const nextPid = opponent(pid);

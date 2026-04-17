@@ -676,10 +676,7 @@ export const USABLE_CARDS: Card[] = [
     },
     "power": 2,
     "subtypes": [],
-    "keywords": [
-      "airborne",
-      "ward"
-    ],
+    "keywords": [],
     "abilities": [],
     "casterChoicePolicy": "auto",
     "casterEligibility": {
@@ -15078,8 +15075,7 @@ export const USABLE_CARDS: Card[] = [
     "power": 3,
     "subtypes": [],
     "keywords": [
-      "genesis",
-      "ward"
+      "genesis"
     ],
     "abilities": [],
     "casterChoicePolicy": "auto",
@@ -22157,9 +22153,7 @@ export const USABLE_CARDS: Card[] = [
     },
     "power": 2,
     "subtypes": [],
-    "keywords": [
-      "stealth"
-    ],
+    "keywords": [],
     "abilities": [],
     "casterChoicePolicy": "auto",
     "casterEligibility": {

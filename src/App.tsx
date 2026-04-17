@@ -13,6 +13,7 @@ import { DrawChoiceModal } from './components/DrawChoiceModal/DrawChoiceModal';
 import { MoveActionModal } from './components/MoveActionModal/MoveActionModal';
 import { SquareDetailModal } from './components/SquareDetailModal/SquareDetailModal';
 import { DeckSelectScreen } from './components/DeckSelect/DeckSelectScreen';
+import { DebugPanel } from './components/DebugPanel/DebugPanel';
 import type { PlayerId } from './types';
 import styles from './App.module.css';
 
@@ -175,6 +176,8 @@ const App: React.FC = () => {
         <PlayerInfo game={game} playerId={humanPlayerId} isActive={game.activePlayerId === humanPlayerId} />
         <Hand game={game} playerId={humanPlayerId} />
       </div>
+
+      <DebugPanel game={game} />
     </div>
   );
 };

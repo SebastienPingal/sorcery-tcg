@@ -2,24 +2,28 @@ import type { Card, KeywordAbility } from '../types';
 
 type KeywordPattern = { keyword: KeywordAbility; pattern: RegExp };
 
+// Token-anchored patterns: match one whole token (not substring inside a sentence).
+// Used for extracting keywords from the first paragraph of rules text, where the
+// paragraph is a keyword list (single words / comma-separated words) rather than
+// a descriptive sentence.
 const KEYWORD_PATTERNS: KeywordPattern[] = [
-  { keyword: 'airborne', pattern: /\bairborne\b/i },
-  { keyword: 'burrowing', pattern: /\bburrow(?:ing|er|ers)?\b/i },
-  { keyword: 'charge', pattern: /\bcharge\b/i },
-  { keyword: 'deathrite', pattern: /\bdeathrite\b/i },
-  { keyword: 'disable', pattern: /\bdisable(?:d)?\b/i },
-  { keyword: 'genesis', pattern: /\bgenesis\b/i },
-  { keyword: 'immobile', pattern: /\bimmobile\b/i },
-  { keyword: 'lance', pattern: /\blance\b/i },
-  { keyword: 'lethal', pattern: /\blethal\b/i },
-  { keyword: 'ranged', pattern: /\branged(?:\s+\d+)?\b/i },
-  { keyword: 'spellcaster', pattern: /\bspellcaster(?:s)?\b/i },
-  { keyword: 'stealth', pattern: /\bstealth\b/i },
-  { keyword: 'submerge', pattern: /\bsubmerge(?:d|r|rs|s)?\b/i },
-  { keyword: 'voidwalk', pattern: /\bvoidwalk(?:er|ers)?\b/i },
-  { keyword: 'ward', pattern: /\bward(?:ed|s)?\b/i },
-  { keyword: 'waterbound', pattern: /\bwaterbound\b/i },
-  { keyword: 'flooded', pattern: /\bflood(?:ed|ing|s)?\b/i },
+  { keyword: 'airborne', pattern: /^airborne$/i },
+  { keyword: 'burrowing', pattern: /^burrow(?:ing|er|ers)?$/i },
+  { keyword: 'charge', pattern: /^charge$/i },
+  { keyword: 'deathrite', pattern: /^deathrite$/i },
+  { keyword: 'disable', pattern: /^disable(?:d)?$/i },
+  { keyword: 'genesis', pattern: /^genesis$/i },
+  { keyword: 'immobile', pattern: /^immobile$/i },
+  { keyword: 'lance', pattern: /^lance$/i },
+  { keyword: 'lethal', pattern: /^lethal$/i },
+  { keyword: 'ranged', pattern: /^ranged$/i },
+  { keyword: 'spellcaster', pattern: /^spellcaster(?:s)?$/i },
+  { keyword: 'stealth', pattern: /^stealth$/i },
+  { keyword: 'submerge', pattern: /^submerge(?:d|r|rs|s)?$/i },
+  { keyword: 'voidwalk', pattern: /^voidwalk(?:er|ers)?$/i },
+  { keyword: 'ward', pattern: /^ward(?:ed|s)?$/i },
+  { keyword: 'waterbound', pattern: /^waterbound$/i },
+  { keyword: 'flooded', pattern: /^flood(?:ed|ing|s)?$/i },
 ];
 
 function collectCardText(card: Card): string {
@@ -35,12 +39,24 @@ function existingKeywords(card: Card): KeywordAbility[] {
   return [...card.keywords];
 }
 
+// Extracts keywords only from the first paragraph of rules text, and only when
+// that paragraph is a keyword list — single keyword words separated by commas
+// or whitespace (optionally with a numeric modifier like "Ranged 2").
+// Sentence-like text is rejected to avoid grabbing conditional references such
+// as "while Warded" or "Other nearby Mortals have +1 power".
 export function extractKeywordsFromText(text: string): KeywordAbility[] {
+  const firstParagraph = text.split(/\r?\n\r?\n/)[0] ?? '';
+  const cleaned = firstParagraph.replace(/[.,;:!?]+$/g, '').trim();
+  if (!cleaned) return [];
+  const tokens = cleaned.split(/[,\s]+/).filter(Boolean);
   const found: KeywordAbility[] = [];
-  for (const { keyword, pattern } of KEYWORD_PATTERNS) {
-    if (pattern.test(text)) found.push(keyword);
+  for (const token of tokens) {
+    if (/^\d+$/.test(token)) continue; // numeric modifier (e.g. "Ranged 2")
+    const match = KEYWORD_PATTERNS.find((kp) => kp.pattern.test(token));
+    if (!match) return []; // a non-keyword token means this isn't a keyword list
+    found.push(match.keyword);
   }
-  return found;
+  return Array.from(new Set(found));
 }
 
 export function extractKeywordsFromCard(card: Card): KeywordAbility[] {

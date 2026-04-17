@@ -136,6 +136,38 @@ function getArtifactPowerBonus(inst: CardInstance, state?: GameState): ArtifactP
   return { attack, defense };
 }
 
+// ─── Power modifier registry ─────────────────────────────────────────────────
+// Card-specific power modifications (conditional bonuses, auras, etc.)
+// Returns { attack, defense } bonus to add to base power.
+type PowerModifierFn = (inst: CardInstance, state: GameState) => { attack: number; defense: number };
+const powerModifiers = new Map<string, PowerModifierFn>();
+
+export function registerPowerModifier(cardId: string, fn: PowerModifierFn): void {
+  powerModifiers.set(cardId, fn);
+}
+
+// Aura-style modifiers that affect OTHER units (e.g. Mayor of Milborne)
+type AuraPowerModifierFn = (inst: CardInstance, target: CardInstance, state: GameState) => { attack: number; defense: number };
+const auraPowerModifiers = new Map<string, AuraPowerModifierFn>();
+
+export function registerAuraPowerModifier(cardId: string, fn: AuraPowerModifierFn): void {
+  auraPowerModifiers.set(cardId, fn);
+}
+
+function getAuraPowerBonus(inst: CardInstance, state: GameState): { attack: number; defense: number } {
+  let attack = 0;
+  let defense = 0;
+  for (const source of Object.values(state.instances)) {
+    if (!source.location) continue;
+    const modifier = auraPowerModifiers.get(source.cardId);
+    if (!modifier) continue;
+    const bonus = modifier(source, inst, state);
+    attack += bonus.attack;
+    defense += bonus.defense;
+  }
+  return { attack, defense };
+}
+
 export function getComputedPower(inst: CardInstance, state?: GameState): { attack: number; defense: number } {
   const card = inst.card;
   if (card.type === 'minion') {
@@ -143,7 +175,16 @@ export function getComputedPower(inst: CardInstance, state?: GameState): { attac
     const baseAttack = typeof p === 'number' ? p : p.attack;
     const baseDefense = typeof p === 'number' ? p : p.defense;
     const bonus = getArtifactPowerBonus(inst, state);
-    return { attack: baseAttack + bonus.attack, defense: baseDefense + bonus.defense };
+    // Card-specific power modifier (e.g. revered_revenant, angel_ascendant)
+    const mod = state && powerModifiers.has(inst.cardId)
+      ? powerModifiers.get(inst.cardId)!(inst, state)
+      : { attack: 0, defense: 0 };
+    // Aura power bonuses from other units (e.g. Mayor of Milborne)
+    const aura = state ? getAuraPowerBonus(inst, state) : { attack: 0, defense: 0 };
+    return {
+      attack: baseAttack + bonus.attack + mod.attack + aura.attack,
+      defense: baseDefense + bonus.defense + mod.defense + aura.defense,
+    };
   }
   if (card.type === 'avatar') {
     return { attack: card.attackPower, defense: card.attackPower };
@@ -181,6 +222,11 @@ export function computeAffinity(state: GameState, playerId: PlayerId): Elemental
       if (site.type !== 'site') continue;
       for (const [el, val] of Object.entries(site.threshold) as [keyof ElementalThreshold, number][]) {
         affinity[el] = (affinity[el] ?? 0) + (val ?? 0);
+      }
+      // Temporary affinity from genesis triggers (e.g. Algae Bloom, Autumn Bloom)
+      for (const el of ['air', 'earth', 'fire', 'water'] as Element[]) {
+        const temp = inst.counters[`temp_${el}`];
+        if (temp) affinity[el] = (affinity[el] ?? 0) + temp;
       }
     }
   }
@@ -306,6 +352,15 @@ export function reachableSquares(
   return Array.from(resultBySquare.values());
 }
 
+// ─── Conditional keyword registry ────────────────────────────────────────────
+// Card-specific conditional keywords (e.g. Angel Ascendant has Airborne while Warded)
+type ConditionalKeywordFn = (inst: CardInstance, keyword: string) => boolean;
+const conditionalKeywords = new Map<string, ConditionalKeywordFn>();
+
+export function registerConditionalKeyword(cardId: string, fn: ConditionalKeywordFn): void {
+  conditionalKeywords.set(cardId, fn);
+}
+
 export function hasKeyword(inst: CardInstance, keyword: string): boolean {
   if (keyword === 'spellcaster' && inst.card.type === 'avatar') return true;
   const card = inst.card as { keywords?: string[] };
@@ -313,6 +368,9 @@ export function hasKeyword(inst: CardInstance, keyword: string): boolean {
   for (const ab of inst.temporaryAbilities) {
     if (ab.keyword === keyword) return true;
   }
+  // Check conditional keywords (e.g. Angel Ascendant: airborne while warded)
+  const condFn = conditionalKeywords.get(inst.cardId);
+  if (condFn && condFn(inst, keyword)) return true;
   return false;
 }
 
