@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { initGame, startGame } from '../gameEngine';
 import { evaluateRestriction, registerPredicate } from '../predicates';
 import { isValidMinionPlacement } from '../utils';
+import { selectValidMinionPlacements } from '../selectors';
+import { CARD_REGISTRY } from '../../data/cards';
 import { buildFireAtlas, buildFireSpellbook, buildWaterAtlas, buildWaterSpellbook } from '../../data/cards';
 import type { CardInstance, GameState, KeywordAbility, MinionCard, PlayerId, PredicateContext, PredicateRestriction, Square } from '../../types';
 
@@ -329,6 +331,29 @@ describe('predicate system', () => {
       };
       expect(isValidMinionPlacement(game, pid, minion.card, minion, waterSq)).toBe(true);
       expect(isValidMinionPlacement(game, pid, minion.card, minion, landSq)).toBe(false);
+    });
+
+    it('Weathered Trunks selector only returns allied sites with enemy occupants', () => {
+      const game = createGame();
+      const pid: PlayerId = 'player1';
+      const enemyId: PlayerId = 'player2';
+      const targetWithEnemy = { row: 2, col: 1 };
+      const targetWithoutEnemy = { row: 2, col: 2 };
+      placeSite(game, targetWithEnemy, pid, { isWaterSite: false });
+      placeSite(game, targetWithoutEnemy, pid, { isWaterSite: false });
+      placeMinion(game, targetWithEnemy, enemyId);
+
+      const minion = Object.values(game.instances).find(
+        (inst) => inst.card.type === 'minion' && inst.ownerId === pid && !inst.location,
+      )!;
+      const weathered = CARD_REGISTRY.weathered_trunks;
+      if (!weathered || weathered.type !== 'minion') throw new Error('Weathered Trunks card definition missing');
+      minion.cardId = 'weathered_trunks';
+      minion.card = weathered;
+
+      const valid = selectValidMinionPlacements(game, pid, minion);
+      expect(valid).toContainEqual(targetWithEnemy);
+      expect(valid).not.toContainEqual(targetWithoutEnemy);
     });
   });
 

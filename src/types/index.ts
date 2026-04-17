@@ -278,7 +278,8 @@ export type GameAction =
   | { type: 'DROP_ARTIFACT'; unitInstanceId: string; artifactInstanceId: string }
   | { type: 'PASS_TURN' }
   | { type: 'MULLIGAN'; returnCardIds: string[] }
-  | { type: 'SELECT_FIRST_PLAYER'; playerId: PlayerId };
+  | { type: 'SELECT_FIRST_PLAYER'; playerId: PlayerId }
+  | { type: 'CHOOSE_TARGET'; targetId: string };
 
 // ─── Game Log ─────────────────────────────────────────────────────────────────
 export interface LogEntry {
@@ -290,7 +291,12 @@ export interface LogEntry {
 
 // ─── Pending interaction ──────────────────────────────────────────────────────
 export type PendingInteraction =
-  | { type: 'select_target'; prompt: string; validTargets: string[]; forAction: GameAction }
+  | {
+    type: 'select_target';
+    prompt: string;
+    validTargets: string[];
+    effect: { type: 'add_status_token'; token: string };
+  }
   | { type: 'select_square'; prompt: string; validSquares: Square[]; forAction: GameAction }
   | { type: 'defend_prompt'; attackerId: string; targetId: string }
   | { type: 'mulligan'; playerId: PlayerId }

@@ -6,13 +6,14 @@ We need a system that:
 - Fires triggers at the right moments in the game loop
 - Allows each card to define its own trigger logic without modifying core engine types
 - Scales to hundreds of unique trigger effects
+- Supports optional target-choice interactions through `pendingInteraction` when a trigger has multiple legal targets
 
 ## Requirements
 
 - Genesis triggers fire after a card is placed on the board (minion summoned, site played)
 - Deathrite triggers fire when a minion dies (before removal from board, so location is still valid)
 - Only cards with the matching keyword (`genesis`, `deathrite`) should have their triggers checked
-- The system must not block or require UI interaction (triggers resolve immediately)
+- Triggers should resolve immediately when deterministic, and may request a generic `select_target` interaction when player choice is required
 
 # Design Considerations/Options considered
 
@@ -84,7 +85,7 @@ registerTriggerResolver('card_id', 'deathrite', (state, instance) => {
 
 | Card | Trigger | Effect |
 |---|---|---|
-| Virgin in Prayer | genesis | Ward nearest un-warded allied minion |
+| Virgin in Prayer | genesis | If one valid ally exists, ward it. If multiple exist, creates `pendingInteraction.select_target` and applies Ward to chosen target |
 | Nightwatchmen | genesis | Ward the site they're placed on |
 | Town Priest | genesis | Return adjacent Evil enemy minion to hand |
 | Guardian Angel | genesis | Fly to weakest allied minion, ward it |

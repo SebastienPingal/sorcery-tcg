@@ -578,6 +578,19 @@ function chooseDrawSource(state: GameState, playerId: PlayerId, source: 'atlas' 
   return null;
 }
 
+function chooseTarget(state: GameState, targetId: string): string | null {
+  if (state.pendingInteraction?.type !== 'select_target') return 'No target selection pending';
+  if (!state.pendingInteraction.validTargets.includes(targetId)) return 'Invalid selected target';
+  const target = state.instances[targetId];
+  if (!target) return 'Target not found';
+  const effect = state.pendingInteraction.effect;
+  if (effect.type === 'add_status_token') {
+    addStatusToken(target, effect.token);
+  }
+  state.pendingInteraction = null;
+  return null;
+}
+
 function doMulligan(state: GameState, playerId: PlayerId, returnIds: string[]): void {
   const player = state.players[playerId];
   for (const id of returnIds) {
@@ -696,6 +709,8 @@ export function applyAtomicAction(state: GameState, action: MutationAction): str
       return activateAvatarAbility(state, action.playerId, action.abilityId, action.targetSquare, action.siteInstanceId);
     case 'CHOOSE_DRAW':
       return chooseDrawSource(state, action.playerId, action.source);
+    case 'CHOOSE_TARGET':
+      return chooseTarget(state, action.targetId);
     case 'MULLIGAN':
       doMulligan(state, action.playerId, action.returnIds);
       return null;

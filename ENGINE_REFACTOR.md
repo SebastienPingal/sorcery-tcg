@@ -33,6 +33,14 @@
 └─────────────────────────────────────────────┘
 ```
 
+### Layer Boundaries (Mandatory)
+
+- Card-specific gameplay rules must be implemented in engine code only (`engine/core/*`, composite resolvers, `spellResolvers.ts`, `triggerResolvers.ts`, predicates/utils).
+- `store/gameStore.ts` is a bridge layer: it may hold UI-only transient state, but must not encode card rules or mutate gameplay outcomes directly.
+- `components/*` must remain a projection of `GameState` plus user input wiring; no card-specific rules, targeting rules, or effect resolution.
+- Any player choice created by gameplay logic (target selection, square choice, etc.) must be surfaced via `state.pendingInteraction` and resolved through engine actions.
+- If a fix requires adding conditionals by card id outside engine, stop and move that logic back into engine abstractions.
+
 ### Pipeline (per Player Action)
 
 ```

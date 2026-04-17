@@ -34,6 +34,23 @@ export function getEventLog(state: GameState): EventLogEntry[] {
 
 export function dispatchPlayerAction(state: GameState, playerAction: PlayerAction): string | null {
   const runtime = ensureRuntime(state);
+
+  if (state.pendingInteraction) {
+    const pendingType = state.pendingInteraction.type;
+    if (pendingType === 'choose_draw' && playerAction.type !== 'CHOOSE_DRAW') {
+      return 'Must resolve draw choice first';
+    }
+    if (pendingType === 'mulligan' && playerAction.type !== 'MULLIGAN') {
+      return 'Must resolve mulligan first';
+    }
+    if (pendingType === 'select_target' && playerAction.type !== 'CHOOSE_TARGET') {
+      return 'Must resolve target selection first';
+    }
+    if (pendingType === 'select_square') {
+      return 'Square selection interaction is not implemented';
+    }
+  }
+
   const { checks, mutations } = decomposePlayerAction(state, playerAction);
 
   try {

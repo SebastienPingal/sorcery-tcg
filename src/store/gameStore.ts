@@ -81,6 +81,7 @@ interface GameStore {
   setSquareDetail: (sq: Square | null) => void;
   confirmMagicTarget: (targetSquare: Square) => void;
   cancelMagicTarget: () => void;
+  choosePendingTarget: (targetId: string) => void;
   chooseDrawSource: (playerId: PlayerId, source: 'atlas' | 'spellbook') => void;
   endTurn: () => void;
   clearError: () => void;
@@ -481,4 +482,19 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   clearError: () => set({ actionError: null }),
+  choosePendingTarget: (targetId) => {
+    const { game } = get();
+    if (!game) return;
+    const newGame = structuredClone(game);
+    const err = dispatchPlayerAction(newGame, { type: 'CHOOSE_TARGET', targetId });
+    if (err) {
+      set({ actionError: err });
+      return;
+    }
+    set({
+      game: newGame,
+      actionError: null,
+      selectedInstanceId: null,
+    });
+  },
 }));

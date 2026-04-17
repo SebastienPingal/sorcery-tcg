@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { GameState, PlayerId, Region, Square } from '../../types';
 import { useGameStore } from '../../store/gameStore';
-import { selectReachableSquares, selectValidSitePlacements } from '../../engine/selectors';
+import { selectReachableSquares, selectValidMinionPlacements, selectValidSitePlacements } from '../../engine/selectors';
 import { getComputedPower, hasKeyword, resolveMovementStep } from '../../engine/utils';
 import { getSpellResolver } from '../../engine/spellResolvers';
 import styles from './RealmGrid.module.css';
@@ -67,7 +67,21 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       return { squares: selectValidSitePlacements(game, humanPlayerId), attackSquares: [], mode: 'place_site' };
     }
 
-    if (!selectedInst.location && (card.type === 'minion' || card.type === 'magic' || card.type === 'artifact')) {
+    if (!selectedInst.location && card.type === 'minion') {
+      const allowVoidSummon = hasKeyword(selectedInst, 'voidwalk');
+      const legalSquares = selectValidMinionPlacements(game, humanPlayerId, selectedInst);
+      const squares = legalSquares.filter((sq) => {
+        const cell = game.realm[sq.row][sq.col];
+        if (!cell.siteInstanceId) return allowVoidSummon;
+        const siteInst = game.instances[cell.siteInstanceId];
+        if (!siteInst) return false;
+        if (siteInst.isRubble) return allowVoidSummon;
+        return siteInst.controllerId === humanPlayerId;
+      });
+      return { squares, attackSquares: [], mode: 'cast_minion' };
+    }
+
+    if (!selectedInst.location && (card.type === 'magic' || card.type === 'artifact')) {
       // Magic cards with a spell resolver handle targeting via pendingMagicTarget,
       // not through generic site highlighting. Skip them here — the cast flow
       // in the store will trigger caster selection then target selection.
@@ -76,22 +90,17 @@ export const RealmGrid: React.FC<RealmGridProps> = ({ game, humanPlayerId, flipp
       }
 
       const squares: Square[] = [];
-      const allowVoidSummon = card.type === 'minion' && hasKeyword(selectedInst, 'voidwalk');
       for (const row of game.realm) {
         for (const cell of row) {
           if (cell.siteInstanceId) {
             const siteInst = game.instances[cell.siteInstanceId];
             if (siteInst?.controllerId === humanPlayerId) {
               squares.push({ row: cell.row, col: cell.col });
-            } else if (allowVoidSummon && siteInst?.isRubble) {
-              squares.push({ row: cell.row, col: cell.col });
             }
-          } else if (allowVoidSummon) {
-            squares.push({ row: cell.row, col: cell.col });
           }
         }
       }
-      const mode = card.type === 'minion' ? 'cast_minion' : card.type === 'artifact' ? 'cast_artifact' : 'cast_magic';
+      const mode = card.type === 'artifact' ? 'cast_artifact' : 'cast_magic';
       return { squares, attackSquares: [], mode };
     }
 

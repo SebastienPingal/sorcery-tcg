@@ -69,6 +69,11 @@ export function decomposePlayerAction(state: GameState, action: PlayerAction): {
         checks: [],
         mutations: [{ type: 'CHOOSE_DRAW', playerId: action.playerId, source: action.source }],
       };
+    case 'CHOOSE_TARGET':
+      return {
+        checks: [],
+        mutations: [{ type: 'CHOOSE_TARGET', targetId: action.targetId }],
+      };
     case 'MULLIGAN':
       return {
         checks: [],

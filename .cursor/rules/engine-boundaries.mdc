@@ -1,0 +1,14 @@
+---
+description: Enforce engine/UI boundaries for gameplay rules
+globs: src/**/*.ts,src/**/*.tsx
+alwaysApply: true
+---
+
+# Engine Boundaries
+
+- Card-specific gameplay logic must live in engine modules only (`src/engine/**`, including resolver registries).
+- Do not implement card behavior in `src/store/**` or `src/components/**`.
+- Store code may orchestrate UI flows, but gameplay outcomes must come from engine actions and `GameState`.
+- UI components must read `GameState` and dispatch actions; they must not resolve effects or encode targeting/placement rules.
+- For user choices driven by gameplay (target pick, square pick, etc.), use `pendingInteraction` and resolve via engine actions.
+- If you are about to add `if (cardId === ...)` outside engine, stop and move the logic into engine abstractions.

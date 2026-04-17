@@ -37,6 +37,7 @@ export type MutationAction =
   | { type: 'MOVE_AND_ATTACK'; unitId: string; path: Square[]; attackTargetId?: string }
   | { type: 'ACTIVATE_ABILITY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }
   | { type: 'CHOOSE_DRAW'; playerId: PlayerId; source: 'atlas' | 'spellbook' }
+  | { type: 'CHOOSE_TARGET'; targetId: string }
   | { type: 'MULLIGAN'; playerId: PlayerId; returnIds: string[] };
 
 export type SequencingAction =
@@ -52,6 +53,7 @@ export type PlayerAction =
   | { type: 'ACTIVATE_ABILITY'; playerId: PlayerId; abilityId: string; targetSquare?: Square; siteInstanceId?: string }
   | { type: 'END_TURN' }
   | { type: 'CHOOSE_DRAW'; playerId: PlayerId; source: 'atlas' | 'spellbook' }
+  | { type: 'CHOOSE_TARGET'; targetId: string }
   | { type: 'MULLIGAN'; playerId: PlayerId; returnIds: string[] };
 
 export interface EventLogEntry {

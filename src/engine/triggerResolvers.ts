@@ -115,7 +115,7 @@ function getEnemyMinionsAtSquare(state: GameState, sq: Square, playerId: string)
 // ─── Savior deck: Genesis resolvers ─────────────────────────────────────────
 
 // Virgin in Prayer — "Genesis → Ward an allied minion."
-// Auto-wards the nearest allied minion (excluding self). If none, does nothing.
+// If multiple allied candidates are available, prompt for an explicit target.
 registerTriggerResolver('virgin_in_prayer', 'genesis', (state, instance) => {
   if (!instance.location) return;
   const sq = instance.location.square;
@@ -131,9 +131,19 @@ registerTriggerResolver('virgin_in_prayer', 'genesis', (state, instance) => {
     candidates.push(...getAlliedMinionsAtSquare(state, adj, playerId));
   }
 
-  // Ward the first un-warded candidate
-  const target = candidates.find((m) => !m.tokens.includes('ward'));
-  if (target) applyWard(target);
+  // Only selectable if the target can actually receive ward.
+  const validTargets = candidates.filter((m) => !m.tokens.includes('ward'));
+  if (validTargets.length === 0) return;
+  if (validTargets.length === 1) {
+    applyWard(validTargets[0]);
+    return;
+  }
+  state.pendingInteraction = {
+    type: 'select_target',
+    prompt: 'Choose an allied minion to receive Ward.',
+    validTargets: validTargets.map((m) => m.instanceId),
+    effect: { type: 'add_status_token', token: 'ward' },
+  };
 });
 
 // Nightwatchmen — "Genesis → Ward this site."
